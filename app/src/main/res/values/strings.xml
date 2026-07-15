@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">EmiCalculator</string>
+    <string name="emi_mortgage_finance_tools"> EMI •Mortgage •Finance Tools</string>
+    <string name="add">Add</string>
+    <string name="percentage_format">%1$d%%</string>
+
+    <style name="NavIndicatorShape">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">24dp</item>
+    </style>
+
+</resources>
