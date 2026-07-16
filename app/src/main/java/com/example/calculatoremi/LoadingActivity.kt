@@ -32,7 +32,7 @@ class LoadingActivity : AppCompatActivity(){
                 progressText.text=(getString(R.string.percentage_format,i))
                 delay(30L)
             }
-            val intent = Intent(this@LoadingActivity, MainActivity::class.java)
+            val intent = Intent(this@LoadingActivity, OnboardingActivity::class.java)
             startActivity(intent)
             finish()
        }

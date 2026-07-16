@@ -1,4 +1,7 @@
 package com.example.calculatoremi.fragments
 
-class ToolsFragment {
+import androidx.fragment.app.Fragment
+import com.example.calculatoremi.R
+
+class ToolsFragment : Fragment(R.layout.fragment_tools) {
 }

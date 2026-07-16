@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.calculatoremi.R
 import com.example.calculatoremi.adapter.LoanAdapter
 import com.example.calculatoremi.model.LoanItem
+import com.example.calculatoremi.MainActivity
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
@@ -64,6 +65,20 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         )
 
         recyclerLoans.layoutManager = LinearLayoutManager(requireContext())
-        recyclerLoans.adapter = LoanAdapter(loanList)
+        recyclerLoans.adapter = LoanAdapter(loanList) { loan ->
+
+            parentFragmentManager.beginTransaction()
+                .replace(
+                    R.id.fragmentContainer,
+                    LoanCalculatorFragment()
+                )
+                .addToBackStack(null)
+                .commit()
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (requireActivity() as MainActivity).showHeader()
     }
 }

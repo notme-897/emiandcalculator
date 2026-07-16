@@ -13,4 +13,7 @@
 
     <dimen name="bottom_nav_height">72dp</dimen>
 
+    <dimen name="dashboard_header_height">220dp</dimen>
+
+
 </resources>

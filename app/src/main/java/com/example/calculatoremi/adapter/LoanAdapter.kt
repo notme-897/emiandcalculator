@@ -11,7 +11,8 @@ import com.example.calculatoremi.R
 import com.example.calculatoremi.model.LoanItem
 
 class LoanAdapter(
-    private val loanList: List<LoanItem>
+    private val loanList: List<LoanItem>,
+    private val onItemClick: (LoanItem) -> Unit
 ) : RecyclerView.Adapter<LoanAdapter.LoanViewHolder>() {
 
     class LoanViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -37,11 +38,12 @@ class LoanAdapter(
         holder.title.text = item.title
         holder.subtitle.text = item.subtitle
         holder.icon.setImageResource(item.icon)
-
         holder.background.setBackgroundResource(item.background)
+
+        holder.itemView.setOnClickListener {
+            onItemClick(item)
+        }
     }
 
-    override fun getItemCount(): Int {
-        return loanList.size
-    }
+    override fun getItemCount(): Int = loanList.size
 }
