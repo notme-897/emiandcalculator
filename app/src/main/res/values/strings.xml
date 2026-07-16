@@ -3,6 +3,7 @@
     <string name="emi_mortgage_finance_tools"> EMI •Mortgage •Finance Tools</string>
     <string name="add">Add</string>
     <string name="percentage_format">%1$d%%</string>
+    <string name="currency_underlined"><u>Currency</u></string>
 
     <style name="NavIndicatorShape">
         <item name="cornerFamily">rounded</item>

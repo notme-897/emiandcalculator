@@ -25,7 +25,8 @@
     <color name="nav_selected">#1565C0</color>
     <color name="nav_unselected">#9E9E9E</color>
 
-
-
+   <!--color i chose -->
+    <color name="custom_blue">#3B99FC</color>
+    <color name="text_dark">#1d1d1f</color>
 
 </resources>

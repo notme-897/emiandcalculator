@@ -1,20 +1,19 @@
 package com.example.calculatoremi
 
 import android.os.Bundle
+import android.view.View
+import android.view.ViewGroup
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentContainerView
 import com.example.calculatoremi.fragments.HistoryFragment
 import com.example.calculatoremi.fragments.HomeFragment
 import com.example.calculatoremi.fragments.SettingsFragment
 import com.example.calculatoremi.fragments.ToolsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.FragmentContainerView
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,22 +36,18 @@ class MainActivity : AppCompatActivity() {
                     replaceFragment(HomeFragment())
                     true
                 }
-
                 R.id.nav_history -> {
                     replaceFragment(HistoryFragment())
                     true
                 }
-
                 R.id.nav_tools -> {
                     replaceFragment(ToolsFragment())
                     true
                 }
-
                 R.id.nav_settings -> {
                     replaceFragment(SettingsFragment())
                     true
                 }
-
                 else -> false
             }
         }
@@ -73,27 +68,28 @@ class MainActivity : AppCompatActivity() {
     // ==========================
 
     fun showHeader() {
-
-        val header = findViewById<View>(R.id.headerLayout)
+        val header = findViewById<View>(R.id.dashboardHeader)
         val container = findViewById<FragmentContainerView>(R.id.fragmentContainer)
 
-        header.visibility = View.VISIBLE
+        header?.visibility = View.VISIBLE
 
-        val params = container.layoutParams as ViewGroup.MarginLayoutParams
-        params.topMargin =
-            resources.getDimensionPixelSize(R.dimen.dashboard_header_height)
-        container.layoutParams = params
+        container?.let {
+            val params = it.layoutParams as ViewGroup.MarginLayoutParams
+            params.topMargin = resources.getDimensionPixelSize(R.dimen.dashboard_header_height)
+            it.layoutParams = params
+        }
     }
 
     fun hideHeader() {
-
-        val header = findViewById<View>(R.id.headerLayout)
+        val header = findViewById<View>(R.id.dashboardHeader)
         val container = findViewById<FragmentContainerView>(R.id.fragmentContainer)
 
-        header.visibility = View.GONE
+        header?.visibility = View.GONE
 
-        val params = container.layoutParams as ViewGroup.MarginLayoutParams
-        params.topMargin = 0
-        container.layoutParams = params
+        container?.let {
+            val params = it.layoutParams as ViewGroup.MarginLayoutParams
+            params.topMargin = 0
+            it.layoutParams = params
+        }
     }
 }
