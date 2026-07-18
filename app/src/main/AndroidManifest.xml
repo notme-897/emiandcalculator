@@ -37,6 +37,7 @@
         <activity android:name=".activities.GoldLoanActivity" android:exported="false" />
         <activity android:name=".activities.BikeLoanActivity" android:exported="false" />
         <activity android:name=".activities.MortgageLoanActivity" android:exported="false" />
+        <activity android:name=".activities.PersonalLoanResultActivity" android:exported="false" />
 
     </application>
 

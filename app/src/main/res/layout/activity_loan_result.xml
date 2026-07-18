@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F7FB"
+    android:orientation="vertical">
+
+    <!-- Header -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/resultHeader"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@android:color/white"
+        android:elevation="4dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <ImageView
+            android:id="@+id/btnBackResult"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_arrow_back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="#1565C0" />
+
+        <TextView
+            android:id="@+id/txtResultTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Personal Loan"
+            android:textColor="#1A1A1A"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/btnShare"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_share"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="#1565C0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Loan Information Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Loan Information"
+                android:textColor="#4B5563"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="0dp"
+                android:layout_marginBottom="24dp">
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:columnCount="2"
+                    android:padding="20dp">
+
+                    <TextView android:text="Loan Amount" android:textColor="#9CA3AF" android:textSize="15sp" />
+                    <TextView android:id="@+id/resLoanAmount" android:layout_gravity="end" android:text="9,909 $" android:textColor="#1A1A1A" android:textStyle="bold" android:textSize="15sp" />
+
+                    <TextView android:text="Interest Rate" android:layout_marginTop="12dp" android:textColor="#9CA3AF" android:textSize="15sp" />
+                    <TextView android:id="@+id/resInterestRate" android:layout_gravity="end" android:layout_marginTop="12dp" android:text="5.5 %" android:textColor="#1A1A1A" android:textStyle="bold" android:textSize="15sp" />
+
+                    <TextView android:text="Loan Term" android:layout_marginTop="12dp" android:textColor="#9CA3AF" android:textSize="15sp" />
+                    <TextView android:id="@+id/resLoanTerm" android:layout_gravity="end" android:layout_marginTop="12dp" android:text="7 months 11 years" android:textColor="#1A1A1A" android:textStyle="bold" android:textSize="15sp" />
+
+                    <TextView android:text="Start Date" android:layout_marginTop="12dp" android:textColor="#9CA3AF" android:textSize="15sp" />
+                    <TextView android:id="@+id/resStartDate" android:layout_gravity="end" android:layout_marginTop="12dp" android:text="18 Jul, 2026" android:textColor="#1A1A1A" android:textStyle="bold" android:textSize="15sp" />
+                </GridLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Result Calculator Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Result Calculator"
+                android:textColor="#4B5563"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Monthly Payment" android:textColor="#9CA3AF" android:textSize="15sp" />
+                        <TextView android:id="@+id/resEmi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:text="96.55 $" android:textColor="#1565C0" android:textStyle="bold" android:textSize="15sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Total Interest" android:textColor="#9CA3AF" android:textSize="15sp" />
+                        <TextView android:id="@+id/resTotalInterest" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:text="3,511.12 $" android:textColor="#1A1A1A" android:textStyle="bold" android:textSize="15sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Total cost (Loan + Interest)" android:textColor="#9CA3AF" android:textSize="15sp" />
+                        <TextView android:id="@+id/resTotalCost" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:text="13,420.12 $" android:textColor="#1A1A1A" android:textStyle="bold" android:textSize="15sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Pay-off Date" android:textColor="#9CA3AF" android:textSize="15sp" />
+                        <TextView android:id="@+id/resPayoffDate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:text="18 Feb, 2038" android:textColor="#1A1A1A" android:textStyle="bold" android:textSize="15sp" />
+                    </RelativeLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#E5E7EB" android:layout_marginTop="20dp" android:layout_marginBottom="20dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:id="@+id/btnPieChart"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="?attr/selectableItemBackground">
+                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_pie_chart" app:tint="#1565C0" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Pie Chart" android:textColor="#1565C0" android:textStyle="bold" android:layout_marginStart="8dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/btnPaymentSchedule"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="?attr/selectableItemBackground">
+                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_list" app:tint="#1565C0" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Payment Schedule" android:textColor="#1565C0" android:textStyle="bold" android:layout_marginStart="8dp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Action Buttons -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCompare"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="32dp"
+                android:text="Compare loan"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:cornerRadius="12dp"
+                app:backgroundTint="#1565C0" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBackHome"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="24dp"
+                android:text="Back To Home"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:cornerRadius="12dp"
+                app:strokeColor="#1565C0"
+                android:textColor="#1565C0" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>
