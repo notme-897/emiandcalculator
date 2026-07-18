@@ -3,6 +3,15 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <!-- Category Colors -->
+    <color name="cat_loan">#1565C0</color>
+    <color name="cat_investment">#2E7D32</color>
+    <color name="cat_tax">#C62828</color>
+    <color name="cat_salary">#F9A825</color>
+    <color name="cat_property">#6A1B9A</color>
+    <color name="cat_insurance">#00838F</color>
+    <color name="cat_utility">#455A64</color>
+
     <!-- Primary -->
     <color name="primary">#1565C0</color>
     <color name="primary_light">#42A5F5</color>
