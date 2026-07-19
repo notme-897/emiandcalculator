@@ -11,14 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@android:color/white"
-        android:elevation="4dp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp">
+        android:elevation="@dimen/margin_tiny"
+        android:paddingStart="@dimen/screen_padding"
+        android:paddingEnd="@dimen/screen_padding">
 
         <ImageView
             android:id="@+id/btnBackChart"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="@dimen/margin_large"
+            android:layout_height="@dimen/margin_large"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@drawable/ic_arrow_back"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -46,20 +46,20 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="24dp">
+        android:padding="@dimen/margin_large">
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="24dp"
-            app:cardElevation="4dp"
+            app:cardCornerRadius="@dimen/margin_large"
+            app:cardElevation="@dimen/margin_tiny"
             app:strokeWidth="0dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="24dp">
+                android:padding="@dimen/margin_large">
 
                 <com.github.mikephil.charting.charts.PieChart
                     android:id="@+id/pieChartLarge"
@@ -69,14 +69,14 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="@dimen/margin_large"
                     android:background="#E5E7EB" />
 
                 <!-- Custom Legend -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="@dimen/margin_large"
                     android:orientation="horizontal"
                     android:weightSum="2">
 
@@ -86,8 +86,8 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:orientation="vertical">
-                        <View android:layout_width="16dp" android:layout_height="16dp" android:background="#1565C0" />
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Principal" android:textSize="14sp" android:layout_marginTop="4dp" />
+                        <View android:layout_width="@dimen/screen_padding" android:layout_height="@dimen/screen_padding" android:background="#1565C0" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Principal" android:textSize="14sp" android:layout_marginTop="@dimen/margin_tiny" />
                         <TextView android:id="@+id/txtPrincipalValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textStyle="bold" android:textColor="#1A1A1A" />
                     </LinearLayout>
 
@@ -97,8 +97,8 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:orientation="vertical">
-                        <View android:layout_width="16dp" android:layout_height="16dp" android:background="#E53935" />
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Interest" android:textSize="14sp" android:layout_marginTop="4dp" />
+                        <View android:layout_width="@dimen/screen_padding" android:layout_height="@dimen/screen_padding" android:background="#E53935" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Interest" android:textSize="14sp" android:layout_marginTop="@dimen/margin_tiny" />
                         <TextView android:id="@+id/txtInterestValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textStyle="bold" android:textColor="#1A1A1A" />
                     </LinearLayout>
 

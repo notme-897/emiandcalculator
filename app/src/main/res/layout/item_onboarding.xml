@@ -11,8 +11,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center_horizontal"
-        android:paddingStart="32dp"
-        android:paddingEnd="32dp"
+        android:paddingStart="@dimen/margin_xlarge"
+        android:paddingEnd="@dimen/margin_xlarge"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +24,7 @@
             android:id="@+id/imgOnboarding"
             android:layout_width="260dp"
             android:layout_height="260dp"
-            android:layout_marginBottom="40dp"
+            android:layout_marginBottom="@dimen/margin_xxlarge"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_launcher_foreground"/>
 
@@ -46,12 +46,12 @@
             android:id="@+id/txtDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/screen_padding"
             android:text="Calculate your monthly EMI, total interest and total repayment instantly."
             android:textColor="#CCFFFFFF"
             android:textSize="16sp"
             android:gravity="center"
-            android:lineSpacingExtra="4dp"/>
+            android:lineSpacingExtra="@dimen/margin_tiny"/>
 
     </LinearLayout>
 

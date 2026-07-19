@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="@dimen/screen_padding">
 
         <!-- Section Title -->
 
@@ -30,8 +30,8 @@
             android:text="Choose a loan type to continue"
             android:textSize="15sp"
             android:textColor="@color/text_secondary"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginTop="@dimen/margin_tiny"
+            android:layout_marginBottom="@dimen/margin_medium"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerLoans"
