@@ -11,20 +11,19 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/calculatorHeader"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="64dp"
         android:background="@android:color/white"
-        android:elevation="4dp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp">
+        android:elevation="4dp">
 
         <ImageView
             android:id="@+id/btnBack"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="12dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
             android:focusable="true"
-            android:padding="2dp"
+            android:padding="8dp"
             android:src="@drawable/ic_arrow_back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +36,7 @@
             android:layout_height="wrap_content"
             android:text="Car Loan"
             android:textColor="#111827"
-            android:textSize="22sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -56,14 +55,14 @@
             android:id="@+id/centerBodyLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp">
+            android:padding="20dp">
 
             <!-- Loan Amount Section -->
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="10dp"
                 android:text="Loan Amount"
                 android:textColor="@color/text_dark"
                 android:textStyle="bold"
@@ -75,7 +74,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="10dp"
                 android:text="@string/currency_underlined"
                 android:textColor="@color/custom_blue"
                 android:textSize="12sp"
@@ -86,7 +85,7 @@
                 android:id="@+id/imageView"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="10dp"
                 app:layout_constraintBottom_toTopOf="@+id/editTextNumber"
                 app:layout_constraintEnd_toEndOf="@+id/editTextNumber"
                 app:srcCompat="@drawable/ic_currency_icon"
@@ -95,8 +94,8 @@
             <EditText
                 android:id="@+id/editTextNumber"
                 android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="40dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="44dp"
                 android:background="@drawable/numeric_input_border"
                 android:elevation="2dp"
                 android:ems="10"
@@ -113,7 +112,7 @@
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="10dp"
                 android:text="Interest Rate"
                 android:textColor="@color/text_dark"
                 android:textStyle="bold"
@@ -124,7 +123,7 @@
                 android:id="@+id/textViewPercentage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="10dp"
                 android:text="%"
                 android:textColor="@color/custom_blue"
                 android:textSize="14sp"
@@ -135,13 +134,13 @@
             <EditText
                 android:id="@+id/editTextNumber2"
                 android:layout_width="0dp"
-                android:layout_height="48dp"
+                android:layout_height="52dp"
                 android:layout_marginTop="72dp"
                 android:background="@drawable/numeric_input_border"
                 android:elevation="2dp"
                 android:ems="10"
                 android:hint="0"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:paddingHorizontal="16dp"
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -153,7 +152,7 @@
                 android:id="@+id/txtLoanTermLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="28dp"
                 android:text="Loan Term"
                 android:textColor="@color/text_dark"
                 android:textSize="16sp"
@@ -164,31 +163,44 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/loanTermContainer"
                 android:layout_width="0dp"
-                android:layout_height="120dp"
-                android:layout_marginTop="12dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
                 android:background="@drawable/numeric_input_border"
-                android:padding="16dp"
+                android:padding="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtLoanTermLabel">
+
+                <TextView
+                    android:id="@+id/txtTermValueCombined"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 months 0 years"
+                    android:textColor="@color/custom_blue"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/txtInstallments"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0 installments"
-                    android:textColor="@color/custom_blue"
+                    android:textColor="@color/black"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <!-- Single Seekbar Row -->
                 <ImageView
                     android:id="@+id/btnMinus"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="28dp"
                     android:background="@drawable/button_outline"
-                    android:padding="4dp"
+                    android:padding="6dp"
                     android:src="@drawable/ic_remove"
                     app:layout_constraintBottom_toBottomOf="@+id/loanSeekBar"
                     app:layout_constraintStart_toStartOf="parent"
@@ -198,32 +210,32 @@
                     android:id="@+id/loanSeekBar"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="8dp"
-                    android:max="30"
+                    android:layout_marginHorizontal="12dp"
+                    android:layout_marginTop="28dp"
+                    android:max="360"
                     android:progress="0"
                     android:progressTint="@color/custom_blue"
                     android:thumbTint="@color/custom_blue"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/btnAdd"
                     app:layout_constraintStart_toEndOf="@+id/btnMinus"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtTermValueCombined" />
 
                 <ImageView
                     android:id="@+id/btnAdd"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
                     android:background="@drawable/button_outline"
-                    android:padding="4dp"
+                    android:padding="6dp"
                     android:src="@drawable/ic_add"
                     app:layout_constraintBottom_toBottomOf="@+id/loanSeekBar"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/loanSeekBar" />
 
                 <TextView
-                    android:id="@+id/txtMinYears"
+                    android:id="@+id/txtMinVal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="6dp"
                     android:text="0 years"
                     android:textColor="@color/text_secondary"
                     android:textSize="12sp"
@@ -231,15 +243,26 @@
                     app:layout_constraintTop_toBottomOf="@+id/loanSeekBar" />
 
                 <TextView
-                    android:id="@+id/txtMaxYears"
+                    android:id="@+id/txtMaxVal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="6dp"
                     android:text="30 years"
                     android:textColor="@color/text_secondary"
                     android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="@+id/loanSeekBar"
                     app:layout_constraintTop_toBottomOf="@+id/loanSeekBar" />
+
+                <ImageView
+                    android:id="@+id/removebtnloan"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="4dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/loanSeekBar"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/loanSeekBar"
+                    app:srcCompat="@drawable/ic_remove" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -248,7 +271,7 @@
                 android:id="@+id/txtStartDateLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="28dp"
                 android:text="Start Date"
                 android:textColor="@color/text_dark"
                 android:textSize="16sp"
@@ -259,8 +282,8 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/startDateContainer"
                 android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="12dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="14dp"
                 android:background="@drawable/numeric_input_border"
                 android:clickable="true"
                 android:focusable="true"
@@ -298,7 +321,7 @@
                 android:id="@+id/btnCalculate"
                 android:layout_width="0dp"
                 android:layout_height="56dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="40dp"
                 android:text="Calculate"
                 android:textAllCaps="false"
                 android:textSize="16sp"
@@ -315,7 +338,7 @@
                 android:layout_width="0dp"
                 android:layout_height="56dp"
                 android:layout_marginTop="12dp"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="32dp"
                 android:text="Reset Fields"
                 android:textAllCaps="false"
                 android:textColor="@color/custom_blue"
@@ -324,10 +347,8 @@
                 app:cornerRadius="12dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnCalculate"
-                app:layout_constraintVertical_bias="0.228"
                 app:strokeColor="@color/custom_blue" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
