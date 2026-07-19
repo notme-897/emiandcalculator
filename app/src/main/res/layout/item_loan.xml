@@ -4,9 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="120dp"
-    android:layout_marginBottom="16dp"
-    app:cardCornerRadius="24dp"
-    app:cardElevation="6dp"
+    android:layout_marginBottom="@dimen/screen_padding"
+    app:cardCornerRadius="@dimen/margin_large"
+    app:cardElevation="@dimen/margin_small"
     app:strokeWidth="0dp">
 
     <RelativeLayout
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/loan_blue"
-        android:padding="20dp">
+        android:padding="@dimen/screen_padding">
 
         <View
             android:id="@+id/circle"
@@ -44,7 +44,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="18dp"
+                android:layout_marginStart="@dimen/screen_padding"
                 android:orientation="vertical">
 
                 <TextView
@@ -60,7 +60,7 @@
                     android:id="@+id/txtSubtitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="@dimen/margin_tiny"
                     android:text="Calculate EMI in seconds"
                     android:textColor="#F5F5F5"
                     android:textSize="14sp" />
@@ -69,8 +69,8 @@
 
         <ImageView
             android:id="@+id/imgArrow"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
+            android:layout_width="@dimen/margin_large"
+            android:layout_height="@dimen/margin_large"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:contentDescription="@null"

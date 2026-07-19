@@ -22,10 +22,10 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center_vertical"
-        android:paddingStart="24dp"
-        android:paddingTop="48dp"
-        android:paddingEnd="24dp"
-        android:paddingBottom="24dp">
+        android:paddingStart="@dimen/margin_large"
+        android:paddingTop="@dimen/margin_xxlarge"
+        android:paddingEnd="@dimen/margin_large"
+        android:paddingBottom="@dimen/margin_large">
 
         <TextView
             android:id="@+id/txtGreeting"
@@ -40,7 +40,7 @@
             android:id="@+id/txtDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="@dimen/margin_small"
             android:text="Tuesday, Jul 15"
             android:textColor="#FFFFFF"
             android:textSize="14sp" />
@@ -49,7 +49,7 @@
             android:id="@+id/txtHeaderTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="@dimen/margin_large"
             android:text="EMI Calculator"
             android:textColor="#FFFFFF"
             android:textSize="34sp"
@@ -59,7 +59,7 @@
             android:id="@+id/txtHeaderSubtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/margin_small"
             android:text="Smart Loan Finance Calculator"
             android:textColor="#EAF6FF"
             android:textSize="16sp" />
