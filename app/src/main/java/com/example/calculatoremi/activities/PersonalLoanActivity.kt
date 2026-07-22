@@ -2,13 +2,18 @@ package com.example.calculatoremi.activities
 
 import android.app.DatePickerDialog
 import android.content.Intent
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
+import android.view.MotionEvent
 import android.view.View
+import android.view.animation.OvershootInterpolator
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.core.widget.NestedScrollView
 import com.example.calculatoremi.R
 import com.example.calculatoremi.model.PaymentScheduleItem
@@ -31,7 +36,17 @@ open class PersonalLoanActivity : BaseInputActivity() {
     
     private lateinit var btnAdd: ImageView
     private lateinit var btnMinus: ImageView
-    private lateinit var btnRemoveLoan: ImageView
+
+    // Quick Select Chips
+    private lateinit var chipAmount1L: MaterialButton
+    private lateinit var chipAmount5L: MaterialButton
+    private lateinit var chipAmount10L: MaterialButton
+    private lateinit var chipAmount25L: MaterialButton
+
+    private lateinit var chipTerm1Y: MaterialButton
+    private lateinit var chipTerm3Y: MaterialButton
+    private lateinit var chipTerm5Y: MaterialButton
+    private lateinit var chipTerm10Y: MaterialButton
 
     private var calendar = Calendar.getInstance()
     private val dateFormatter = SimpleDateFormat("dd MMM, yyyy", Locale.US)
@@ -53,12 +68,27 @@ open class PersonalLoanActivity : BaseInputActivity() {
         
         btnAdd = findViewById(R.id.btnAdd)
         btnMinus = findViewById(R.id.btnMinus)
-        btnRemoveLoan = findViewById(R.id.removebtnloan)
         
         btnCalculate = findViewById(R.id.btnCalculate)
         btnReset = findViewById(R.id.btnReset)
         txtSelectedDate = findViewById(R.id.txtSelectedDate)
         startDateContainer = findViewById(R.id.startDateContainer)
+
+        // Amount Chips
+        chipAmount1L = findViewById(R.id.chipAmount1L)
+        chipAmount5L = findViewById(R.id.chipAmount5L)
+        chipAmount10L = findViewById(R.id.chipAmount10L)
+        chipAmount25L = findViewById(R.id.chipAmount25L)
+
+        // Term Chips
+        chipTerm1Y = findViewById(R.id.chipTerm1Y)
+        chipTerm3Y = findViewById(R.id.chipTerm3Y)
+        chipTerm5Y = findViewById(R.id.chipTerm5Y)
+        chipTerm10Y = findViewById(R.id.chipTerm10Y)
+
+        // Setup Touch Scale Spring Animations on All Chips
+        val allChips = listOf(chipAmount1L, chipAmount5L, chipAmount10L, chipAmount25L, chipTerm1Y, chipTerm3Y, chipTerm5Y, chipTerm10Y)
+        allChips.forEach { setupChipTouchAnimation(it) }
 
         // Initialize Date
         txtSelectedDate.text = dateFormatter.format(calendar.time)
@@ -68,23 +98,76 @@ open class PersonalLoanActivity : BaseInputActivity() {
             showDatePicker()
         }
 
-        // Setup SeekBar
-        seekBarTerm.max = 360 // 30 years
+        // Setup SeekBar (1 to 360 months)
+        seekBarTerm.max = 360
         seekBarTerm.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                updateTermDisplay(progress)
+                val actualProgress = if (progress < 1) 1 else progress
+                updateTermDisplay(actualProgress)
+                if (fromUser) {
+                    clearTermChipSelection()
+                }
             }
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
             override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
 
         // Plus/Minus Buttons
-        btnAdd.setOnClickListener { if (seekBarTerm.progress < seekBarTerm.max) seekBarTerm.progress++ }
+        btnAdd.setOnClickListener { 
+            if (seekBarTerm.progress < seekBarTerm.max) {
+                seekBarTerm.progress++ 
+                clearTermChipSelection()
+            }
+        }
         
-        btnMinus.setOnClickListener { decreaseTerm() }
-        btnRemoveLoan.setOnClickListener { decreaseTerm() }
+        btnMinus.setOnClickListener { 
+            if (seekBarTerm.progress > 1) {
+                seekBarTerm.progress-- 
+                clearTermChipSelection()
+            }
+        }
 
-        // Calculate Button Logic
+        // Quick Amount Chip Listeners
+        chipAmount1L.setOnClickListener { 
+            setQuickAmount(100000.0)
+            highlightAmountChip(chipAmount1L)
+        }
+        chipAmount5L.setOnClickListener { 
+            setQuickAmount(500000.0)
+            highlightAmountChip(chipAmount5L)
+        }
+        chipAmount10L.setOnClickListener { 
+            setQuickAmount(1000000.0)
+            highlightAmountChip(chipAmount10L)
+        }
+        chipAmount25L.setOnClickListener { 
+            setQuickAmount(2500000.0)
+            highlightAmountChip(chipAmount25L)
+        }
+
+        // Quick Term Chip Listeners
+        chipTerm1Y.setOnClickListener { 
+            seekBarTerm.progress = 12
+            highlightTermChip(chipTerm1Y)
+        }
+        chipTerm3Y.setOnClickListener { 
+            seekBarTerm.progress = 36
+            highlightTermChip(chipTerm3Y)
+        }
+        chipTerm5Y.setOnClickListener { 
+            seekBarTerm.progress = 60
+            highlightTermChip(chipTerm5Y)
+        }
+        chipTerm10Y.setOnClickListener { 
+            seekBarTerm.progress = 120
+            highlightTermChip(chipTerm10Y)
+        }
+
+        // Button Touch Feedback Animations
+        setupButtonAnimation(btnCalculate)
+        setupButtonAnimation(btnReset)
+
+        // Calculate Button Logic -> Opens Result Screen
         btnCalculate.setOnClickListener {
             calculateAndNavigate()
         }
@@ -94,16 +177,108 @@ open class PersonalLoanActivity : BaseInputActivity() {
             resetFields()
         }
 
-        // Initial update
-        updateTermDisplay(0)
+        // Set healthy defaults
+        etAmount.setText("500000")
+        etRate.setText("10.5")
+        seekBarTerm.progress = 60
+        updateTermDisplay(60)
+        highlightAmountChip(chipAmount5L)
+        highlightTermChip(chipTerm5Y)
+    }
+
+    private fun setQuickAmount(amount: Double) {
+        etAmount.setText(amount.toLong().toString())
+    }
+
+    private fun setupChipTouchAnimation(button: MaterialButton) {
+        button.setOnTouchListener { view, event ->
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    view.animate().scaleX(0.92f).scaleY(0.92f).setDuration(60).start()
+                }
+                MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
+                    view.animate()
+                        .scaleX(1.0f)
+                        .scaleY(1.0f)
+                        .setInterpolator(OvershootInterpolator(2.2f))
+                        .setDuration(160)
+                        .start()
+                }
+            }
+            false
+        }
+    }
+
+    private fun highlightAmountChip(selectedChip: MaterialButton) {
+        val amountChips = listOf(chipAmount1L, chipAmount5L, chipAmount10L, chipAmount25L)
+        amountChips.forEach { chip ->
+            if (chip == selectedChip) {
+                chip.setBackgroundColor(ContextCompat.getColor(this, R.color.custom_blue))
+                chip.setTextColor(ContextCompat.getColor(this, android.R.color.white))
+                chip.strokeWidth = 0
+                chip.animate().scaleX(1.06f).scaleY(1.06f).setDuration(80).withEndAction {
+                    chip.animate().scaleX(1.0f).scaleY(1.0f).setInterpolator(OvershootInterpolator(1.8f)).setDuration(120).start()
+                }.start()
+            } else {
+                chip.setBackgroundColor(Color.parseColor("#F8FAFC"))
+                chip.setTextColor(Color.parseColor("#1E293B"))
+                chip.strokeColor = ColorStateList.valueOf(Color.parseColor("#CBD5E1"))
+                chip.strokeWidth = (1 * resources.displayMetrics.density).toInt()
+            }
+        }
+    }
+
+    private fun highlightTermChip(selectedChip: MaterialButton) {
+        val termChips = listOf(chipTerm1Y, chipTerm3Y, chipTerm5Y, chipTerm10Y)
+        termChips.forEach { chip ->
+            if (chip == selectedChip) {
+                chip.setBackgroundColor(ContextCompat.getColor(this, R.color.custom_blue))
+                chip.setTextColor(ContextCompat.getColor(this, android.R.color.white))
+                chip.strokeWidth = 0
+                chip.animate().scaleX(1.06f).scaleY(1.06f).setDuration(80).withEndAction {
+                    chip.animate().scaleX(1.0f).scaleY(1.0f).setInterpolator(OvershootInterpolator(1.8f)).setDuration(120).start()
+                }.start()
+            } else {
+                chip.setBackgroundColor(Color.parseColor("#F8FAFC"))
+                chip.setTextColor(Color.parseColor("#1E293B"))
+                chip.strokeColor = ColorStateList.valueOf(Color.parseColor("#CBD5E1"))
+                chip.strokeWidth = (1 * resources.displayMetrics.density).toInt()
+            }
+        }
+    }
+
+    private fun clearTermChipSelection() {
+        val termChips = listOf(chipTerm1Y, chipTerm3Y, chipTerm5Y, chipTerm10Y)
+        termChips.forEach { chip ->
+            chip.setBackgroundColor(Color.parseColor("#F8FAFC"))
+            chip.setTextColor(Color.parseColor("#1E293B"))
+            chip.strokeColor = ColorStateList.valueOf(Color.parseColor("#CBD5E1"))
+            chip.strokeWidth = (1 * resources.displayMetrics.density).toInt()
+        }
+    }
+
+    private fun setupButtonAnimation(button: View) {
+        button.setOnTouchListener { view, event ->
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    view.animate().scaleX(0.97f).scaleY(0.97f).setDuration(80).start()
+                }
+                MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
+                    view.animate().scaleX(1.0f).scaleY(1.0f).setInterpolator(OvershootInterpolator(2.0f)).setDuration(150).start()
+                }
+            }
+            false
+        }
     }
 
     private fun resetFields() {
-        etAmount.setText("")
-        etRate.setText("")
+        etAmount.setText("500000")
+        etRate.setText("10.5")
         
-        seekBarTerm.progress = 0
-        updateTermDisplay(0)
+        seekBarTerm.progress = 60
+        updateTermDisplay(60)
+        highlightAmountChip(chipAmount5L)
+        highlightTermChip(chipTerm5Y)
         
         calendar = Calendar.getInstance()
         txtSelectedDate.text = dateFormatter.format(calendar.time)
@@ -112,12 +287,6 @@ open class PersonalLoanActivity : BaseInputActivity() {
         scrollView?.smoothScrollTo(0, 0)
         
         Toast.makeText(this, "Fields reset successfully", Toast.LENGTH_SHORT).show()
-    }
-
-    private fun decreaseTerm() {
-        if (seekBarTerm.progress > 0) {
-            seekBarTerm.progress--
-        }
     }
 
     private fun updateTermDisplay(totalMonths: Int) {
@@ -143,18 +312,16 @@ open class PersonalLoanActivity : BaseInputActivity() {
     private fun calculateAndNavigate() {
         val amount = etAmount.text.toString().toDoubleOrNull() ?: 0.0
         val rate = etRate.text.toString().toDoubleOrNull() ?: 0.0
-        val totalMonths = seekBarTerm.progress
+        val totalMonths = if (seekBarTerm.progress < 1) 1 else seekBarTerm.progress
 
         if (amount <= 0) {
-            Toast.makeText(this, "Please enter a valid loan amount", Toast.LENGTH_SHORT).show()
+            etAmount.error = "Please enter a valid loan amount"
+            etAmount.requestFocus()
             return
         }
         if (rate <= 0) {
-            Toast.makeText(this, "Please enter a valid interest rate", Toast.LENGTH_SHORT).show()
-            return
-        }
-        if (totalMonths <= 0) {
-            Toast.makeText(this, "Please select a loan term", Toast.LENGTH_SHORT).show()
+            etRate.error = "Please enter a valid interest rate"
+            etRate.requestFocus()
             return
         }
 

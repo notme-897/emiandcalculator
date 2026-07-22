@@ -26,7 +26,7 @@ class LoanListFragment : Fragment(R.layout.fragment_category_list) {
         (requireActivity() as? MainActivity)?.hideHeader()
         (requireActivity() as? MainActivity)?.hideBottomNav()
 
-        // Apply status bar top padding to category header dynamically
+        // Apply status bar top padding to category header dynamically with proper top/bottom clearance
         val categoryHeader = view.findViewById<View>(R.id.categoryHeader)
         categoryHeader?.let { v ->
             val resourceId = requireContext().resources.getIdentifier("status_bar_height", "dimen", "android")
@@ -35,21 +35,28 @@ class LoanListFragment : Fragment(R.layout.fragment_category_list) {
             } else {
                 (28 * requireContext().resources.displayMetrics.density).toInt()
             }
+            val topOffset = (10 * requireContext().resources.displayMetrics.density).toInt()
+            val bottomOffset = (10 * requireContext().resources.displayMetrics.density).toInt()
+
             v.setPadding(
                 v.paddingLeft,
-                statusBarHeight,
+                statusBarHeight + topOffset,
                 v.paddingRight,
-                v.paddingBottom
+                bottomOffset
             )
         }
 
         val txtCategoryTitle = view.findViewById<TextView>(R.id.txtCategoryTitle)
-        val btnBackCategory = view.findViewById<ImageView>(R.id.btnBackCategory)
+        val btnBackCategory = view.findViewById<View>(R.id.btnBackCategory)
+        val btnBackContainer = view.findViewById<View>(R.id.btnBackContainer)
 
         txtCategoryTitle.text = arguments?.getString("CATEGORY_TITLE") ?: "Loan Calculators"
-        btnBackCategory.setOnClickListener {
+        
+        val backClickAction = View.OnClickListener {
             parentFragmentManager.popBackStack()
         }
+        btnBackCategory?.setOnClickListener(backClickAction)
+        btnBackContainer?.setOnClickListener(backClickAction)
 
         recyclerLoans = view.findViewById(R.id.recyclerLoans)
 
