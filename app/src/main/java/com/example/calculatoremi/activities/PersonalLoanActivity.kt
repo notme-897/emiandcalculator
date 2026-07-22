@@ -5,6 +5,9 @@ import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.HapticFeedbackConstants
 import android.view.MotionEvent
 import android.view.View
 import android.view.animation.OvershootInterpolator
@@ -18,6 +21,7 @@ import androidx.core.widget.NestedScrollView
 import com.example.calculatoremi.R
 import com.example.calculatoremi.model.PaymentScheduleItem
 import com.google.android.material.button.MaterialButton
+import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.pow
@@ -37,12 +41,19 @@ open class PersonalLoanActivity : BaseInputActivity() {
     private lateinit var btnAdd: ImageView
     private lateinit var btnMinus: ImageView
 
-    // Quick Select Chips
+    // Quick Select Amount Chips
     private lateinit var chipAmount1L: MaterialButton
     private lateinit var chipAmount5L: MaterialButton
     private lateinit var chipAmount10L: MaterialButton
     private lateinit var chipAmount25L: MaterialButton
 
+    // Quick Select Rate Chips
+    private lateinit var chipRate8_5: MaterialButton
+    private lateinit var chipRate10_5: MaterialButton
+    private lateinit var chipRate12_0: MaterialButton
+    private lateinit var chipRate14_5: MaterialButton
+
+    // Quick Select Term Chips
     private lateinit var chipTerm1Y: MaterialButton
     private lateinit var chipTerm3Y: MaterialButton
     private lateinit var chipTerm5Y: MaterialButton
@@ -50,6 +61,8 @@ open class PersonalLoanActivity : BaseInputActivity() {
 
     private var calendar = Calendar.getInstance()
     private val dateFormatter = SimpleDateFormat("dd MMM, yyyy", Locale.US)
+    private val commaFormat = DecimalFormat("#,##,###")
+    private var isFormatting = false
 
     override fun getLayoutResId(): Int = R.layout.fragment_loan_calculator
 
@@ -80,21 +93,67 @@ open class PersonalLoanActivity : BaseInputActivity() {
         chipAmount10L = findViewById(R.id.chipAmount10L)
         chipAmount25L = findViewById(R.id.chipAmount25L)
 
+        // Rate Chips
+        chipRate8_5 = findViewById(R.id.chipRate8_5)
+        chipRate10_5 = findViewById(R.id.chipRate10_5)
+        chipRate12_0 = findViewById(R.id.chipRate12_0)
+        chipRate14_5 = findViewById(R.id.chipRate14_5)
+
         // Term Chips
         chipTerm1Y = findViewById(R.id.chipTerm1Y)
         chipTerm3Y = findViewById(R.id.chipTerm3Y)
         chipTerm5Y = findViewById(R.id.chipTerm5Y)
         chipTerm10Y = findViewById(R.id.chipTerm10Y)
 
-        // Setup Touch Scale Spring Animations on All Chips
-        val allChips = listOf(chipAmount1L, chipAmount5L, chipAmount10L, chipAmount25L, chipTerm1Y, chipTerm3Y, chipTerm5Y, chipTerm10Y)
+        // Setup Touch Scale Spring Animations & Haptics on All Chips
+        val allChips = listOf(
+            chipAmount1L, chipAmount5L, chipAmount10L, chipAmount25L,
+            chipRate8_5, chipRate10_5, chipRate12_0, chipRate14_5,
+            chipTerm1Y, chipTerm3Y, chipTerm5Y, chipTerm10Y
+        )
         allChips.forEach { setupChipTouchAnimation(it) }
+
+        // Live Comma Formatting for Loan Amount Field
+        etAmount.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            override fun afterTextChanged(s: Editable?) {
+                if (isFormatting) return
+                isFormatting = true
+                try {
+                    val rawString = s.toString().replace(",", "")
+                    if (rawString.isNotEmpty()) {
+                        val doubleVal = rawString.toDoubleOrNull()
+                        if (doubleVal != null && doubleVal > 0) {
+                            val formatted = commaFormat.format(doubleVal)
+                            etAmount.setText(formatted)
+                            etAmount.setSelection(formatted.length)
+                        }
+                    }
+                } catch (e: Exception) {
+                    // Ignore formatting error
+                }
+                isFormatting = false
+            }
+        })
+
+        // Clear Rate Chip Highlight when user manually edits Rate field
+        etRate.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            override fun afterTextChanged(s: Editable?) {
+                val inputRate = s.toString().toDoubleOrNull()
+                updateRateChipHighlights(inputRate)
+            }
+        })
 
         // Initialize Date
         txtSelectedDate.text = dateFormatter.format(calendar.time)
 
-        // Setup Date Picker
+        // Setup Date Picker Box Touch Spring Animation & Haptics
+        setupButtonAnimation(startDateContainer)
         startDateContainer.setOnClickListener {
+            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
             showDatePicker()
         }
 
@@ -114,6 +173,7 @@ open class PersonalLoanActivity : BaseInputActivity() {
 
         // Plus/Minus Buttons
         btnAdd.setOnClickListener { 
+            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
             if (seekBarTerm.progress < seekBarTerm.max) {
                 seekBarTerm.progress++ 
                 clearTermChipSelection()
@@ -121,6 +181,7 @@ open class PersonalLoanActivity : BaseInputActivity() {
         }
         
         btnMinus.setOnClickListener { 
+            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
             if (seekBarTerm.progress > 1) {
                 seekBarTerm.progress-- 
                 clearTermChipSelection()
@@ -129,36 +190,66 @@ open class PersonalLoanActivity : BaseInputActivity() {
 
         // Quick Amount Chip Listeners
         chipAmount1L.setOnClickListener { 
+            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
             setQuickAmount(100000.0)
             highlightAmountChip(chipAmount1L)
         }
         chipAmount5L.setOnClickListener { 
+            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
             setQuickAmount(500000.0)
             highlightAmountChip(chipAmount5L)
         }
         chipAmount10L.setOnClickListener { 
+            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
             setQuickAmount(1000000.0)
             highlightAmountChip(chipAmount10L)
         }
         chipAmount25L.setOnClickListener { 
+            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
             setQuickAmount(2500000.0)
             highlightAmountChip(chipAmount25L)
         }
 
+        // Quick Rate Chip Listeners
+        chipRate8_5.setOnClickListener { 
+            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
+            etRate.setText("8.5")
+            highlightRateChip(chipRate8_5)
+        }
+        chipRate10_5.setOnClickListener { 
+            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
+            etRate.setText("10.5")
+            highlightRateChip(chipRate10_5)
+        }
+        chipRate12_0.setOnClickListener { 
+            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
+            etRate.setText("12.0")
+            highlightRateChip(chipRate12_0)
+        }
+        chipRate14_5.setOnClickListener { 
+            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
+            etRate.setText("14.5")
+            highlightRateChip(chipRate14_5)
+        }
+
         // Quick Term Chip Listeners
         chipTerm1Y.setOnClickListener { 
+            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
             seekBarTerm.progress = 12
             highlightTermChip(chipTerm1Y)
         }
         chipTerm3Y.setOnClickListener { 
+            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
             seekBarTerm.progress = 36
             highlightTermChip(chipTerm3Y)
         }
         chipTerm5Y.setOnClickListener { 
+            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
             seekBarTerm.progress = 60
             highlightTermChip(chipTerm5Y)
         }
         chipTerm10Y.setOnClickListener { 
+            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
             seekBarTerm.progress = 120
             highlightTermChip(chipTerm10Y)
         }
@@ -169,25 +260,34 @@ open class PersonalLoanActivity : BaseInputActivity() {
 
         // Calculate Button Logic -> Opens Result Screen
         btnCalculate.setOnClickListener {
+            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
             calculateAndNavigate()
         }
 
         // Reset Button Logic
         btnReset.setOnClickListener {
+            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
             resetFields()
         }
 
         // Set healthy defaults
-        etAmount.setText("500000")
+        etAmount.setText("5,00,000")
         etRate.setText("10.5")
         seekBarTerm.progress = 60
         updateTermDisplay(60)
         highlightAmountChip(chipAmount5L)
+        highlightRateChip(chipRate10_5)
         highlightTermChip(chipTerm5Y)
     }
 
     private fun setQuickAmount(amount: Double) {
-        etAmount.setText(amount.toLong().toString())
+        val formatted = commaFormat.format(amount)
+        etAmount.setText(formatted)
+    }
+
+    private fun getRawAmount(): Double {
+        val raw = etAmount.text.toString().replace(",", "")
+        return raw.toDoubleOrNull() ?: 0.0
     }
 
     private fun setupChipTouchAnimation(button: MaterialButton) {
@@ -225,6 +325,35 @@ open class PersonalLoanActivity : BaseInputActivity() {
                 chip.strokeColor = ColorStateList.valueOf(Color.parseColor("#CBD5E1"))
                 chip.strokeWidth = (1 * resources.displayMetrics.density).toInt()
             }
+        }
+    }
+
+    private fun highlightRateChip(selectedChip: MaterialButton?) {
+        val rateChips = listOf(chipRate8_5, chipRate10_5, chipRate12_0, chipRate14_5)
+        rateChips.forEach { chip ->
+            if (chip == selectedChip) {
+                chip.setBackgroundColor(ContextCompat.getColor(this, R.color.custom_blue))
+                chip.setTextColor(ContextCompat.getColor(this, android.R.color.white))
+                chip.strokeWidth = 0
+                chip.animate().scaleX(1.06f).scaleY(1.06f).setDuration(80).withEndAction {
+                    chip.animate().scaleX(1.0f).scaleY(1.0f).setInterpolator(OvershootInterpolator(1.8f)).setDuration(120).start()
+                }.start()
+            } else {
+                chip.setBackgroundColor(Color.parseColor("#F8FAFC"))
+                chip.setTextColor(Color.parseColor("#1E293B"))
+                chip.strokeColor = ColorStateList.valueOf(Color.parseColor("#CBD5E1"))
+                chip.strokeWidth = (1 * resources.displayMetrics.density).toInt()
+            }
+        }
+    }
+
+    private fun updateRateChipHighlights(rate: Double?) {
+        when (rate) {
+            8.5 -> highlightRateChip(chipRate8_5)
+            10.5 -> highlightRateChip(chipRate10_5)
+            12.0 -> highlightRateChip(chipRate12_0)
+            14.5 -> highlightRateChip(chipRate14_5)
+            else -> highlightRateChip(null)
         }
     }
 
@@ -272,12 +401,13 @@ open class PersonalLoanActivity : BaseInputActivity() {
     }
 
     private fun resetFields() {
-        etAmount.setText("500000")
+        etAmount.setText("5,00,000")
         etRate.setText("10.5")
         
         seekBarTerm.progress = 60
         updateTermDisplay(60)
         highlightAmountChip(chipAmount5L)
+        highlightRateChip(chipRate10_5)
         highlightTermChip(chipTerm5Y)
         
         calendar = Calendar.getInstance()
@@ -310,7 +440,7 @@ open class PersonalLoanActivity : BaseInputActivity() {
     }
 
     private fun calculateAndNavigate() {
-        val amount = etAmount.text.toString().toDoubleOrNull() ?: 0.0
+        val amount = getRawAmount()
         val rate = etRate.text.toString().toDoubleOrNull() ?: 0.0
         val totalMonths = if (seekBarTerm.progress < 1) 1 else seekBarTerm.progress
 
