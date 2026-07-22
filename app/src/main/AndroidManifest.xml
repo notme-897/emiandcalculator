@@ -28,7 +28,7 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 
-        <!-- Loan Activities -->
+        <!-- Loan & Analysis Activities -->
         <activity android:name=".activities.PersonalLoanActivity" android:exported="false" />
         <activity android:name=".activities.HomeLoanActivity" android:exported="false" />
         <activity android:name=".activities.CarLoanActivity" android:exported="false" />
@@ -39,6 +39,16 @@
         <activity android:name=".activities.MortgageLoanActivity" android:exported="false" />
         <activity android:name=".activities.PersonalLoanResultActivity" android:exported="false" />
         <activity android:name=".activities.PieChartActivity" android:exported="false" />
+        <activity android:name=".activities.AmortizationScheduleActivity" android:exported="false" />
+        <activity android:name=".activities.PrepaymentSimulatorActivity" android:exported="false" />
+        <activity android:name=".activities.LoanComparisonActivity" android:exported="false" />
+
+        <!-- Investment & Tax Activities -->
+        <activity android:name=".activities.SipCalculatorActivity" android:exported="false" />
+        <activity android:name=".activities.FdCalculatorActivity" android:exported="false" />
+        <activity android:name=".activities.RdCalculatorActivity" android:exported="false" />
+        <activity android:name=".activities.GstCalculatorActivity" android:exported="false" />
+        <activity android:name=".activities.DiscountCalculatorActivity" android:exported="false" />
 
     </application>
 

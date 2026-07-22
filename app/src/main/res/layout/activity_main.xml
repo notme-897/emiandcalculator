@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -10,31 +9,33 @@
     android:background="#F5F7FB"
     tools:context=".MainActivity">
 
-    <!-- Header -->
-    <include layout="@layout/layout_dashboard_header" />
-
+    <!-- Main Fragment Container -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainer"
         android:name="com.example.calculatoremi.fragments.HomeFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/bottom_nav_height"
+        android:layout_marginBottom="60dp"
         android:background="#F5F7FB" />
 
+    <!-- Full Screen Edge-to-Edge Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/bottom_nav_height"
+        android:layout_height="wrap_content"
+        android:minHeight="60dp"
         android:layout_gravity="bottom"
-        android:layout_marginStart="@dimen/screen_padding"
-        android:layout_marginEnd="@dimen/screen_padding"
-        android:layout_marginBottom="@dimen/margin_small"
         android:background="@drawable/bottom_nav_background"
-        android:elevation="20dp"
-        app:itemIconSize="24dp"
+        android:elevation="12dp"
+        app:itemActiveIndicatorStyle="@style/CustomActiveIndicator"
+        app:itemIconSize="22dp"
         app:itemIconTint="@color/nav_item_color"
-        app:itemRippleColor="@android:color/transparent"
+        app:itemPaddingBottom="4dp"
+        app:itemPaddingTop="6dp"
+        app:itemRippleColor="#151A56E4"
         app:itemTextColor="@color/nav_item_color"
+        app:itemTextAppearanceActive="@style/BottomNavActiveText"
+        app:itemTextAppearanceInactive="@style/BottomNavInactiveText"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/bottom_nav_menu" />
 

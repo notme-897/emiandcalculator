@@ -20,9 +20,11 @@
     <dimen name="margin_huge">72dp</dimen>
 
     <!-- Specific Components -->
-    <dimen name="header_height">220dp</dimen>
-    <dimen name="bottom_nav_height">95dp</dimen>
-    <dimen name="dashboard_header_height">220dp</dimen>
+    <dimen name="header_height">72dp</dimen>
+    <dimen name="action_bar_height">55dp</dimen>
+    <dimen name="bottom_nav_height">64dp</dimen>
+    <dimen name="bottom_nav_total_space">64dp</dimen>
+    <dimen name="dashboard_header_height">72dp</dimen>
     <dimen name="input_field_height">52dp</dimen>
     <dimen name="button_height">56dp</dimen>
     <dimen name="icon_small">16dp</dimen>

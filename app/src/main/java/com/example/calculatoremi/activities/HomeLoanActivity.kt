@@ -1,5 +1,5 @@
 package com.example.calculatoremi.activities
 
-class HomeLoanActivity : BaseLoanActivity() {
-    override fun getLoanTitle(): String = "Home Loan"
+class HomeLoanActivity : PersonalLoanActivity() {
+    override fun getActivityTitle(): String = "Home Loan"
 }

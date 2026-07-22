@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F7FB"
+    android:orientation="vertical">
+
+    <!-- Header -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/calculatorHeader"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@android:color/white"
+        android:elevation="4dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/btnBackContainer"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            app:cardBackgroundColor="#F1F5F9"
+            app:cardCornerRadius="19dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_arrow_back"
+                app:tint="#1E293B" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Compare Loans"
+            android:textColor="#0F172A"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E2E8F0"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Loan A Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:background="@android:color/white">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="LOAN OPTION A"
+                        android:textColor="#1A56E4"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+
+                    <EditText
+                        android:id="@+id/etAmountA"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:background="@drawable/numeric_input_border"
+                        android:hint="Loan Amount"
+                        android:inputType="numberDecimal"
+                        android:paddingHorizontal="16dp"
+                        android:layout_marginBottom="8dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/etRateA"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/numeric_input_border"
+                            android:hint="Rate (%)"
+                            android:inputType="numberDecimal"
+                            android:paddingHorizontal="16dp"
+                            android:layout_marginEnd="4dp" />
+
+                        <EditText
+                            android:id="@+id/etMonthsA"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/numeric_input_border"
+                            android:hint="Tenure (Months)"
+                            android:inputType="number"
+                            android:paddingHorizontal="16dp"
+                            android:layout_marginStart="4dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Loan B Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:background="@android:color/white">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="LOAN OPTION B"
+                        android:textColor="#00875A"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+
+                    <EditText
+                        android:id="@+id/etAmountB"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:background="@drawable/numeric_input_border"
+                        android:hint="Loan Amount"
+                        android:inputType="numberDecimal"
+                        android:paddingHorizontal="16dp"
+                        android:layout_marginBottom="8dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/etRateB"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/numeric_input_border"
+                            android:hint="Rate (%)"
+                            android:inputType="numberDecimal"
+                            android:paddingHorizontal="16dp"
+                            android:layout_marginEnd="4dp" />
+
+                        <EditText
+                            android:id="@+id/etMonthsB"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/numeric_input_border"
+                            android:hint="Tenure (Months)"
+                            android:inputType="number"
+                            android:paddingHorizontal="16dp"
+                            android:layout_marginStart="4dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCompare"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Compare Both Loans"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:backgroundTint="#1A56E4"
+                app:cornerRadius="18dp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Comparison Result Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardComparisonResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="3dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:background="@android:color/white">
+
+                    <TextView
+                        android:id="@+id/txtWinnerText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#E8F5E9"
+                        android:padding="12dp"
+                        android:text="Option A is better!"
+                        android:textColor="#2E7D32"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_marginBottom="16dp" />
+
+                    <!-- Comparison Table -->
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:columnCount="3">
+
+                        <TextView android:text="Metric" android:textColor="#757575" android:textStyle="bold" android:textSize="13sp"/>
+                        <TextView android:text="Option A" android:textColor="#1A56E4" android:textStyle="bold" android:textSize="13sp" android:layout_gravity="end"/>
+                        <TextView android:text="Option B" android:textColor="#00875A" android:textStyle="bold" android:textSize="13sp" android:layout_gravity="end"/>
+
+                        <TextView android:text="Monthly EMI" android:textColor="#191C21" android:layout_marginTop="8dp"/>
+                        <TextView android:id="@+id/txtEmiA" android:text="$0.00" android:textColor="#191C21" android:textStyle="bold" android:layout_gravity="end" android:layout_marginTop="8dp"/>
+                        <TextView android:id="@+id/txtEmiB" android:text="$0.00" android:textColor="#191C21" android:textStyle="bold" android:layout_gravity="end" android:layout_marginTop="8dp"/>
+
+                        <TextView android:text="Total Interest" android:textColor="#191C21" android:layout_marginTop="8dp"/>
+                        <TextView android:id="@+id/txtInterestA" android:text="$0.00" android:textColor="#DE350B" android:textStyle="bold" android:layout_gravity="end" android:layout_marginTop="8dp"/>
+                        <TextView android:id="@+id/txtInterestB" android:text="$0.00" android:textColor="#DE350B" android:textStyle="bold" android:layout_gravity="end" android:layout_marginTop="8dp"/>
+
+                        <TextView android:text="Total Cost" android:textColor="#191C21" android:layout_marginTop="8dp"/>
+                        <TextView android:id="@+id/txtCostA" android:text="$0.00" android:textColor="#191C21" android:textStyle="bold" android:layout_gravity="end" android:layout_marginTop="8dp"/>
+                        <TextView android:id="@+id/txtCostB" android:text="$0.00" android:textColor="#191C21" android:textStyle="bold" android:layout_gravity="end" android:layout_marginTop="8dp"/>
+
+                    </GridLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

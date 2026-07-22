@@ -1,8 +1,10 @@
 package com.example.calculatoremi.adapter
 
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.OvershootInterpolator
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
@@ -36,6 +38,30 @@ class CategoryAdapter(
         
         // Use the category color
         holder.background.setBackgroundColor(ContextCompat.getColor(holder.itemView.context, item.colorRes))
+
+        // High-end Tactile Spring Press & Elevation Lift Animation
+        holder.itemView.setOnTouchListener { view, event ->
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    view.animate()
+                        .scaleX(0.96f)
+                        .scaleY(0.96f)
+                        .translationZ(12f)
+                        .setDuration(120)
+                        .start()
+                }
+                MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
+                    view.animate()
+                        .scaleX(1.0f)
+                        .scaleY(1.0f)
+                        .translationZ(0f)
+                        .setInterpolator(OvershootInterpolator(1.8f))
+                        .setDuration(220)
+                        .start()
+                }
+            }
+            false
+        }
 
         holder.itemView.setOnClickListener {
             onItemClick(item)

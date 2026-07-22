@@ -17,7 +17,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.pow
 
-class PersonalLoanActivity : BaseLoanActivity() {
+open class PersonalLoanActivity : BaseInputActivity() {
 
     private lateinit var etAmount: EditText
     private lateinit var etRate: EditText
@@ -35,6 +35,10 @@ class PersonalLoanActivity : BaseLoanActivity() {
 
     private var calendar = Calendar.getInstance()
     private val dateFormatter = SimpleDateFormat("dd MMM, yyyy", Locale.US)
+
+    override fun getLayoutResId(): Int = R.layout.fragment_loan_calculator
+
+    override fun getActivityTitle(): String = "Personal Loan"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -90,29 +94,20 @@ class PersonalLoanActivity : BaseLoanActivity() {
             resetFields()
         }
 
-        // Back Button
-        findViewById<ImageView>(R.id.btnBack).setOnClickListener {
-            finish()
-        }
-
         // Initial update
         updateTermDisplay(0)
     }
 
     private fun resetFields() {
-        // Clear input fields
         etAmount.setText("")
         etRate.setText("")
         
-        // Reset SeekBar and labels
         seekBarTerm.progress = 0
         updateTermDisplay(0)
         
-        // Reset Date to current day
         calendar = Calendar.getInstance()
         txtSelectedDate.text = dateFormatter.format(calendar.time)
         
-        // Scroll to top
         val scrollView = findViewById<View>(R.id.centerBodyLayout).parent as? NestedScrollView
         scrollView?.smoothScrollTo(0, 0)
         
@@ -126,10 +121,7 @@ class PersonalLoanActivity : BaseLoanActivity() {
     }
 
     private fun updateTermDisplay(totalMonths: Int) {
-        val years = totalMonths / 12
-        val months = totalMonths % 12
-        
-        txtTermValueCombined.text = "$months months $years years"
+        txtTermValueCombined.text = formatTerm(totalMonths)
         txtInstallments.text = "$totalMonths installments"
     }
 
@@ -208,6 +200,7 @@ class PersonalLoanActivity : BaseLoanActivity() {
         val months = totalMonths % 12
 
         val intent = Intent(this, PersonalLoanResultActivity::class.java).apply {
+            putExtra("TITLE", getActivityTitle())
             putExtra("LOAN_AMOUNT", amount)
             putExtra("INTEREST_RATE", rate.toFloat())
             putExtra("LOAN_TERM_YEARS", years)
@@ -221,6 +214,4 @@ class PersonalLoanActivity : BaseLoanActivity() {
         }
         startActivity(intent)
     }
-
-    override fun getLoanTitle(): String = "Personal Loan"
 }

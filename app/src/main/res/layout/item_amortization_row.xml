@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="1dp"
+    app:strokeWidth="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:background="@android:color/white">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txtEmiNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Month 1"
+                android:textColor="#1A56E4"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="Aug 2026"
+                android:textColor="#757575"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="8dp"
+            android:background="#F0F0F0" />
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2">
+
+            <TextView
+                android:text="EMI Payment"
+                android:textColor="#757575"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/txtEmiAmount"
+                android:layout_gravity="end"
+                android:text="$0.00"
+                android:textColor="#191C21"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:text="Principal"
+                android:textColor="#757575"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:id="@+id/txtPrincipal"
+                android:layout_gravity="end"
+                android:layout_marginTop="4dp"
+                android:text="$0.00"
+                android:textColor="#00875A"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:text="Interest"
+                android:textColor="#757575"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:id="@+id/txtInterest"
+                android:layout_gravity="end"
+                android:layout_marginTop="4dp"
+                android:text="$0.00"
+                android:textColor="#DE350B"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:text="Balance"
+                android:textColor="#757575"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:id="@+id/txtBalance"
+                android:layout_gravity="end"
+                android:layout_marginTop="4dp"
+                android:text="$0.00"
+                android:textColor="#191C21"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+        </GridLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

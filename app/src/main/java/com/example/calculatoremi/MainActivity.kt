@@ -3,6 +3,7 @@ package com.example.calculatoremi
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.OvershootInterpolator
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -22,32 +23,38 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        // Only handle bottom nav gesture bar inset here
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { _, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigation)
+            bottomNav?.setPadding(0, 0, 0, systemBars.bottom)
             insets
         }
 
         val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottomNavigation)
 
         bottomNavigation.setOnItemSelectedListener { item ->
+            // 20x Spring Bounce Animation on Selected Tab Icon
+            val menuView = bottomNavigation.findViewById<View>(item.itemId)
+            menuView?.animate()
+                ?.scaleX(0.85f)
+                ?.scaleY(0.85f)
+                ?.setDuration(80)
+                ?.withEndAction {
+                    menuView.animate()
+                        .scaleX(1.0f)
+                        .scaleY(1.0f)
+                        .setInterpolator(OvershootInterpolator(2.5f))
+                        .setDuration(180)
+                        .start()
+                }
+                ?.start()
+
             when (item.itemId) {
-                R.id.nav_home -> {
-                    replaceFragment(HomeFragment())
-                    true
-                }
-                R.id.nav_history -> {
-                    replaceFragment(HistoryFragment())
-                    true
-                }
-                R.id.nav_tools -> {
-                    replaceFragment(ToolsFragment())
-                    true
-                }
-                R.id.nav_settings -> {
-                    replaceFragment(SettingsFragment())
-                    true
-                }
+                R.id.nav_home -> { replaceFragment(HomeFragment()); true }
+                R.id.nav_history -> { replaceFragment(HistoryFragment()); true }
+                R.id.nav_tools -> { replaceFragment(ToolsFragment()); true }
+                R.id.nav_settings -> { replaceFragment(SettingsFragment()); true }
                 else -> false
             }
         }
@@ -63,32 +70,32 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
 
-    // ==========================
-    // Dashboard Header Functions
-    // ==========================
-
     fun showHeader() {
-        val header = findViewById<View>(R.id.dashboardHeader)
+        findViewById<View>(R.id.dashboardHeader)?.visibility = View.VISIBLE
+    }
+
+    fun hideHeader() {
+        findViewById<View>(R.id.dashboardHeader)?.visibility = View.GONE
+    }
+
+    fun showBottomNav() {
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigation)
         val container = findViewById<FragmentContainerView>(R.id.fragmentContainer)
-
-        header?.visibility = View.VISIBLE
-
+        bottomNav?.visibility = View.VISIBLE
         container?.let {
             val params = it.layoutParams as ViewGroup.MarginLayoutParams
-            params.topMargin = resources.getDimensionPixelSize(R.dimen.dashboard_header_height)
+            params.bottomMargin = resources.getDimensionPixelSize(R.dimen.bottom_nav_total_space)
             it.layoutParams = params
         }
     }
 
-    fun hideHeader() {
-        val header = findViewById<View>(R.id.dashboardHeader)
+    fun hideBottomNav() {
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigation)
         val container = findViewById<FragmentContainerView>(R.id.fragmentContainer)
-
-        header?.visibility = View.GONE
-
+        bottomNav?.visibility = View.GONE
         container?.let {
             val params = it.layoutParams as ViewGroup.MarginLayoutParams
-            params.topMargin = 0
+            params.bottomMargin = 0
             it.layoutParams = params
         }
     }
