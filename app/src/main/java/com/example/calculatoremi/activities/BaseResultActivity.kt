@@ -26,17 +26,24 @@ abstract class BaseResultActivity : AppCompatActivity() {
         if (headerView != null) {
             ViewCompat.setOnApplyWindowInsetsListener(headerView) { v, insets ->
                 val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-                v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0)
+                val density = resources.displayMetrics.density
+                val topPadding = systemBars.top + (8 * density).toInt()
+                val bottomPadding = (8 * density).toInt()
+                v.setPadding(systemBars.left, topPadding, systemBars.right, bottomPadding)
                 insets
             }
         }
 
         val txtTitle = findViewById<TextView>(R.id.txtResultTitle)
         val btnBack = findViewById<ImageView>(R.id.btnBackResult)
+        val btnBackContainer = findViewById<android.view.View>(R.id.btnBackResultContainer)
         val btnShare = findViewById<ImageView>(R.id.btnShare)
 
         txtTitle?.text = getResultTitle()
-        btnBack?.setOnClickListener { finish() }
+
+        val backClick = android.view.View.OnClickListener { finish() }
+        btnBack?.setOnClickListener(backClick)
+        btnBackContainer?.setOnClickListener(backClick)
         btnShare?.setOnClickListener { shareResult() }
     }
 
@@ -55,6 +62,8 @@ abstract class BaseResultActivity : AppCompatActivity() {
     abstract fun getShareText(): String
 
     protected fun formatCurrency(amount: Double): String {
-        return String.format(Locale.US, "%,.2f $", amount)
+        val formatter = java.text.DecimalFormat("#,##,###.##")
+        return "₹" + formatter.format(amount)
     }
 }
+

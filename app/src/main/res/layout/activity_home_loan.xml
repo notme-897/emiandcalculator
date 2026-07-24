@@ -1,0 +1,1284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8FAFC"
+    android:orientation="vertical">
+
+    <!-- ================= FIXED HEADER ================= -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/calculatorHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="55dp"
+        android:background="@android:color/white"
+        android:elevation="4dp"
+        android:paddingStart="16dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="12dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/btnBackContainer"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            app:cardBackgroundColor="#F1F5F9"
+            app:cardCornerRadius="19dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_arrow_back"
+                app:tint="#1E293B" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Home Loan Calculator"
+            android:textColor="#0F172A"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E2E8F0"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- ================= SUB-CALCULATOR SEGMENTED TABS ================= -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="10dp"
+        android:elevation="2dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/tabEmiCalc"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:padding="0dp"
+            android:text="EMI Calculator"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:backgroundTint="#3B99FC"
+            app:cornerRadius="12dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/tabEligibility"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="2dp"
+            android:padding="0dp"
+            android:text="Eligibility"
+            android:textAllCaps="false"
+            android:textColor="#1E293B"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:strokeColor="#CBD5E1"
+            app:cornerRadius="12dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/tabPrepayment"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginStart="4dp"
+            android:padding="0dp"
+            android:text="Prepayment"
+            android:textAllCaps="false"
+            android:textColor="#1E293B"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:strokeColor="#CBD5E1"
+            app:cornerRadius="12dp" />
+
+    </LinearLayout>
+
+    <!-- ================= SCROLLABLE BODY ================= -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollViewHomeLoan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingBottom="40dp"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/centerBodyLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- ================= VIEW 1: HOME LOAN EMI CALCULATOR ================= -->
+            <LinearLayout
+                android:id="@+id/containerEmiCalc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <!-- Property Value & Down Payment Optional Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardBackgroundColor="#F1F5F9"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="#CBD5E1"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="14dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"
+                                android:text="Property Price &amp; Down Payment"
+                                android:textColor="#0F172A"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <com.google.android.material.switchmaterial.SwitchMaterial
+                                android:id="@+id/switchPropertyCalc"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:checked="true"
+                                app:useMaterialThemeColors="true" />
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:id="@+id/layoutPropertyInputs"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:orientation="vertical">
+
+                            <!-- Property Value Input -->
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Property Value (₹)"
+                                android:textColor="#475569"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <EditText
+                                android:id="@+id/etPropertyValue"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:layout_marginTop="4dp"
+                                android:background="@drawable/numeric_input_border"
+                                android:elevation="1dp"
+                                android:hint="e.g. 50,00,000"
+                                android:inputType="numberDecimal"
+                                android:paddingHorizontal="14dp"
+                                android:textColor="#0F172A"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+
+                            <!-- Down Payment Input -->
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentStart="true"
+                                    android:text="Down Payment (₹ or %)"
+                                    android:textColor="#475569"
+                                    android:textSize="13sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/txtDownPaymentPercentDisplay"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:text="(20%)"
+                                    android:textColor="#1A56E4"
+                                    android:textSize="13sp"
+                                    android:textStyle="bold" />
+                            </RelativeLayout>
+
+                            <EditText
+                                android:id="@+id/etDownPayment"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:layout_marginTop="4dp"
+                                android:background="@drawable/numeric_input_border"
+                                android:elevation="1dp"
+                                android:hint="e.g. 10,00,000"
+                                android:inputType="numberDecimal"
+                                android:paddingHorizontal="14dp"
+                                android:textColor="#0F172A"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+
+                            <!-- Down Payment Chips -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:orientation="horizontal"
+                                android:weightSum="4">
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:id="@+id/chipDp10"
+                                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                                    android:layout_width="0dp"
+                                    android:layout_height="34dp"
+                                    android:layout_weight="1"
+                                    android:layout_marginEnd="4dp"
+                                    android:padding="0dp"
+                                    android:text="10%"
+                                    android:textAllCaps="false"
+                                    android:textColor="#1E293B"
+                                    android:textSize="11sp"
+                                    app:strokeColor="#CBD5E1"
+                                    app:cornerRadius="17dp" />
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:id="@+id/chipDp15"
+                                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                                    android:layout_width="0dp"
+                                    android:layout_height="34dp"
+                                    android:layout_weight="1"
+                                    android:layout_marginHorizontal="2dp"
+                                    android:padding="0dp"
+                                    android:text="15%"
+                                    android:textAllCaps="false"
+                                    android:textColor="#1E293B"
+                                    android:textSize="11sp"
+                                    app:strokeColor="#CBD5E1"
+                                    app:cornerRadius="17dp" />
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:id="@+id/chipDp20"
+                                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                                    android:layout_width="0dp"
+                                    android:layout_height="34dp"
+                                    android:layout_weight="1"
+                                    android:layout_marginHorizontal="2dp"
+                                    android:padding="0dp"
+                                    android:text="20%"
+                                    android:textAllCaps="false"
+                                    android:textColor="#1E293B"
+                                    android:textSize="11sp"
+                                    app:strokeColor="#CBD5E1"
+                                    app:cornerRadius="17dp" />
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:id="@+id/chipDp25"
+                                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                                    android:layout_width="0dp"
+                                    android:layout_height="34dp"
+                                    android:layout_weight="1"
+                                    android:layout_marginStart="4dp"
+                                    android:padding="0dp"
+                                    android:text="25%"
+                                    android:textAllCaps="false"
+                                    android:textColor="#1E293B"
+                                    android:textSize="11sp"
+                                    app:strokeColor="#CBD5E1"
+                                    app:cornerRadius="17dp" />
+
+                            </LinearLayout>
+
+                            <!-- Calculated Net Loan Display Banner -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:background="#E8F0FE"
+                                android:orientation="horizontal"
+                                android:padding="10dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Net Loan Principal: "
+                                    android:textColor="#1E293B"
+                                    android:textSize="13sp" />
+
+                                <TextView
+                                    android:id="@+id/txtCalculatedNetLoan"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="₹40,00,000"
+                                    android:textColor="#1A56E4"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Loan Amount Input Section -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Loan Amount (Principal)"
+                        android:textColor="#0F172A"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="(₹ Currency)"
+                        android:textColor="#1A56E4"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <EditText
+                    android:id="@+id/editTextNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:background="@drawable/numeric_input_border"
+                    android:elevation="2dp"
+                    android:hint="e.g. 40,00,000"
+                    android:inputType="numberDecimal"
+                    android:paddingHorizontal="16dp"
+                    android:textColor="#0F172A"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!-- Loan Amount Quick Select Chips -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/chipAmount20L"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="4dp"
+                        android:padding="0dp"
+                        android:text="₹20 Lakh"
+                        android:textAllCaps="false"
+                        android:textColor="#1E293B"
+                        android:textSize="11sp"
+                        app:strokeColor="#CBD5E1"
+                        app:cornerRadius="18dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/chipAmount50L"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
+                        android:layout_marginHorizontal="2dp"
+                        android:padding="0dp"
+                        android:text="₹50 Lakh"
+                        android:textAllCaps="false"
+                        android:textColor="#1E293B"
+                        android:textSize="11sp"
+                        app:strokeColor="#CBD5E1"
+                        app:cornerRadius="18dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/chipAmount75L"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
+                        android:layout_marginHorizontal="2dp"
+                        android:padding="0dp"
+                        android:text="₹75 Lakh"
+                        android:textAllCaps="false"
+                        android:textColor="#1E293B"
+                        android:textSize="11sp"
+                        app:strokeColor="#CBD5E1"
+                        app:cornerRadius="18dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/chipAmount1Cr"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="4dp"
+                        android:padding="0dp"
+                        android:text="₹1 Crore"
+                        android:textAllCaps="false"
+                        android:textColor="#1E293B"
+                        android:textSize="11sp"
+                        app:strokeColor="#CBD5E1"
+                        app:cornerRadius="18dp" />
+
+                </LinearLayout>
+
+                <!-- Interest Rate Section -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Interest Rate"
+                        android:textColor="#0F172A"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="(% Annual)"
+                        android:textColor="#1A56E4"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <EditText
+                    android:id="@+id/editTextNumber2"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:background="@drawable/numeric_input_border"
+                    android:elevation="2dp"
+                    android:hint="e.g. 8.5"
+                    android:inputType="numberDecimal"
+                    android:paddingHorizontal="16dp"
+                    android:textColor="#0F172A"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!-- Interest Rate Quick Select Chips -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/chipRate7_5"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="4dp"
+                        android:padding="0dp"
+                        android:text="7.5%"
+                        android:textAllCaps="false"
+                        android:textColor="#1E293B"
+                        android:textSize="11sp"
+                        app:strokeColor="#CBD5E1"
+                        app:cornerRadius="18dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/chipRate8_5"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
+                        android:layout_marginHorizontal="2dp"
+                        android:padding="0dp"
+                        android:text="8.5%"
+                        android:textAllCaps="false"
+                        android:textColor="#1E293B"
+                        android:textSize="11sp"
+                        app:strokeColor="#CBD5E1"
+                        app:cornerRadius="18dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/chipRate9_5"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
+                        android:layout_marginHorizontal="2dp"
+                        android:padding="0dp"
+                        android:text="9.5%"
+                        android:textAllCaps="false"
+                        android:textColor="#1E293B"
+                        android:textSize="11sp"
+                        app:strokeColor="#CBD5E1"
+                        app:cornerRadius="18dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/chipRate10_5"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="4dp"
+                        android:padding="0dp"
+                        android:text="10.5%"
+                        android:textAllCaps="false"
+                        android:textColor="#1E293B"
+                        android:textSize="11sp"
+                        app:strokeColor="#CBD5E1"
+                        app:cornerRadius="18dp" />
+
+                </LinearLayout>
+
+                <!-- Loan Term Section -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp">
+
+                    <TextView
+                        android:id="@+id/txtLoanTermLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Loan Tenure (Up to 30 Yrs)"
+                        android:textColor="#0F172A"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/loanTermContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/numeric_input_border"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/txtTermValueCombined"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="20 yrs (240 mos)"
+                        android:textColor="#1A56E4"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txtInstallments"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="240 installments"
+                        android:textColor="#475569"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!-- Single Seekbar Row -->
+                    <ImageView
+                        android:id="@+id/btnMinus"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/button_outline"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_remove"
+                        app:layout_constraintBottom_toBottomOf="@+id/loanSeekBar"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/loanSeekBar" />
+
+                    <SeekBar
+                        android:id="@+id/loanSeekBar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:layout_marginTop="16dp"
+                        android:max="360"
+                        android:progress="240"
+                        android:progressTint="#1A56E4"
+                        android:thumbTint="#1A56E4"
+                        app:layout_constraintEnd_toStartOf="@+id/btnAdd"
+                        app:layout_constraintStart_toEndOf="@+id/btnMinus"
+                        app:layout_constraintTop_toBottomOf="@+id/txtTermValueCombined" />
+
+                    <ImageView
+                        android:id="@+id/btnAdd"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/button_outline"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_add"
+                        app:layout_constraintBottom_toBottomOf="@+id/loanSeekBar"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/loanSeekBar" />
+
+                    <TextView
+                        android:id="@+id/txtMinVal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="1 yr"
+                        android:textColor="#64748B"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toStartOf="@+id/loanSeekBar"
+                        app:layout_constraintTop_toBottomOf="@+id/loanSeekBar" />
+
+                    <TextView
+                        android:id="@+id/txtMaxVal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="30 yrs"
+                        android:textColor="#64748B"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/loanSeekBar"
+                        app:layout_constraintTop_toBottomOf="@+id/loanSeekBar" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Loan Term Quick Select Chips (5Y, 10Y, 15Y, 20Y, 25Y, 30Y) -->
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="20dp"
+                    android:columnCount="3"
+                    android:rowCount="2">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/chipTerm5Y"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="2dp"
+                        android:padding="0dp"
+                        android:text="5 Yrs"
+                        android:textAllCaps="false"
+                        android:textColor="#1E293B"
+                        android:textSize="11sp"
+                        app:strokeColor="#CBD5E1"
+                        app:cornerRadius="18dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/chipTerm10Y"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="2dp"
+                        android:padding="0dp"
+                        android:text="10 Yrs"
+                        android:textAllCaps="false"
+                        android:textColor="#1E293B"
+                        android:textSize="11sp"
+                        app:strokeColor="#CBD5E1"
+                        app:cornerRadius="18dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/chipTerm15Y"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="2dp"
+                        android:padding="0dp"
+                        android:text="15 Yrs"
+                        android:textAllCaps="false"
+                        android:textColor="#1E293B"
+                        android:textSize="11sp"
+                        app:strokeColor="#CBD5E1"
+                        app:cornerRadius="18dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/chipTerm20Y"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="2dp"
+                        android:padding="0dp"
+                        android:text="20 Yrs"
+                        android:textAllCaps="false"
+                        android:textColor="#1E293B"
+                        android:textSize="11sp"
+                        app:strokeColor="#CBD5E1"
+                        app:cornerRadius="18dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/chipTerm25Y"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="2dp"
+                        android:padding="0dp"
+                        android:text="25 Yrs"
+                        android:textAllCaps="false"
+                        android:textColor="#1E293B"
+                        android:textSize="11sp"
+                        app:strokeColor="#CBD5E1"
+                        app:cornerRadius="18dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/chipTerm30Y"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="2dp"
+                        android:padding="0dp"
+                        android:text="30 Yrs"
+                        android:textAllCaps="false"
+                        android:textColor="#1E293B"
+                        android:textSize="11sp"
+                        app:strokeColor="#CBD5E1"
+                        app:cornerRadius="18dp" />
+
+                </GridLayout>
+
+                <!-- Start Date Section -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="Start Date"
+                    android:textColor="#0F172A"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/startDateContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/numeric_input_border"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingHorizontal="16dp">
+
+                    <TextView
+                        android:id="@+id/txtSelectedDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="22 Jul, 2026"
+                        android:textColor="#0F172A"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/imgCalendar"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:src="@drawable/ic_calendar"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="#1A56E4" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Action Buttons -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCalculate"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:text="Calculate Home Loan EMI"
+                    android:textAllCaps="false"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="#1A56E4"
+                    app:cornerRadius="16dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnReset"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Reset Fields"
+                    android:textAllCaps="false"
+                    android:textColor="#1A56E4"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="16dp"
+                    app:strokeColor="#1A56E4" />
+
+            </LinearLayout>
+
+
+            <!-- ================= VIEW 2: HOME LOAN ELIGIBILITY CALCULATOR ================= -->
+            <LinearLayout
+                android:id="@+id/containerEligibility"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!-- Monthly Income Input -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="Monthly Net Income (₹)"
+                    android:textColor="#0F172A"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etMonthlyIncome"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/numeric_input_border"
+                    android:elevation="2dp"
+                    android:hint="e.g. 1,00,000"
+                    android:inputType="numberDecimal"
+                    android:paddingHorizontal="16dp"
+                    android:textColor="#0F172A"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!-- Existing Monthly Debt / EMIs Input -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="Existing Monthly Debt / EMIs (₹)"
+                    android:textColor="#0F172A"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etExistingEmi"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/numeric_input_border"
+                    android:elevation="2dp"
+                    android:hint="e.g. 15,000 (0 if none)"
+                    android:inputType="numberDecimal"
+                    android:paddingHorizontal="16dp"
+                    android:textColor="#0F172A"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!-- Expected Interest Rate -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="Expected Interest Rate (% p.a.)"
+                    android:textColor="#0F172A"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etEligRate"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/numeric_input_border"
+                    android:elevation="2dp"
+                    android:hint="e.g. 8.5"
+                    android:inputType="numberDecimal"
+                    android:paddingHorizontal="16dp"
+                    android:textColor="#0F172A"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!-- Desired Loan Tenure -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="Desired Loan Tenure (Years)"
+                    android:textColor="#0F172A"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etEligTenureYears"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/numeric_input_border"
+                    android:elevation="2dp"
+                    android:hint="e.g. 20"
+                    android:inputType="number"
+                    android:paddingHorizontal="16dp"
+                    android:textColor="#0F172A"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!-- Eligibility Action Buttons -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCalculateEligibility"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:text="Calculate Max Loan Eligibility"
+                    android:textAllCaps="false"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="#1A56E4"
+                    app:cornerRadius="16dp" />
+
+                <!-- Eligibility Output Results Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardEligibilityResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:visibility="gone"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="3dp"
+                    app:strokeColor="#CBD5E1"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Your Estimated Eligibility"
+                            android:textColor="#475569"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtEligMaxLoan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="₹52,43,190"
+                            android:textColor="#1A56E4"
+                            android:textSize="26sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="12dp"
+                            android:background="#E2E8F0" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Max Affordable EMI:"
+                                android:textColor="#1E293B"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/txtEligMaxEmi"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:text="₹35,000 / mo"
+                                android:textColor="#00C853"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Est. Total Repayment:"
+                                android:textColor="#1E293B"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/txtEligTotalCost"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:text="₹84,00,000"
+                                android:textColor="#1E293B"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+
+            <!-- ================= VIEW 3: HOME LOAN PREPAYMENT CALCULATOR ================= -->
+            <LinearLayout
+                android:id="@+id/containerPrepayment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!-- Outstanding Principal Input -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="Current Outstanding Loan (₹)"
+                    android:textColor="#0F172A"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etPreOutstanding"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/numeric_input_border"
+                    android:elevation="2dp"
+                    android:hint="e.g. 30,00,000"
+                    android:inputType="numberDecimal"
+                    android:paddingHorizontal="16dp"
+                    android:textColor="#0F172A"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!-- Current Interest Rate Input -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="Interest Rate (% p.a.)"
+                    android:textColor="#0F172A"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etPreRate"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/numeric_input_border"
+                    android:elevation="2dp"
+                    android:hint="e.g. 8.5"
+                    android:inputType="numberDecimal"
+                    android:paddingHorizontal="16dp"
+                    android:textColor="#0F172A"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!-- Remaining Tenure (Years) -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="Remaining Tenure (Years)"
+                    android:textColor="#0F172A"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etPreRemainingYears"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/numeric_input_border"
+                    android:elevation="2dp"
+                    android:hint="e.g. 15"
+                    android:inputType="number"
+                    android:paddingHorizontal="16dp"
+                    android:textColor="#0F172A"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!-- Lump Sum Prepayment Amount Input -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="Lump Sum Prepayment Amount (₹)"
+                    android:textColor="#0F172A"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etPreLumpSum"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/numeric_input_border"
+                    android:elevation="2dp"
+                    android:hint="e.g. 5,00,000"
+                    android:inputType="numberDecimal"
+                    android:paddingHorizontal="16dp"
+                    android:textColor="#0F172A"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!-- Prepayment Action Buttons -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCalculatePrepayment"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:text="Calculate Prepayment Savings"
+                    android:textAllCaps="false"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="#1A56E4"
+                    app:cornerRadius="16dp" />
+
+                <!-- Prepayment Output Results Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardPrepaymentResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:visibility="gone"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="3dp"
+                    app:strokeColor="#CBD5E1"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Total Interest Saved"
+                            android:textColor="#475569"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtPreInterestSaved"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="₹8,72,400"
+                            android:textColor="#00C853"
+                            android:textSize="26sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="12dp"
+                            android:background="#E2E8F0" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Tenure Saved:"
+                                android:textColor="#1E293B"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/txtPreTenureSaved"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:text="41 months (3.4 yrs)"
+                                android:textColor="#1A56E4"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="New Payoff Period:"
+                                android:textColor="#1E293B"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/txtPreNewTenure"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:text="139 months"
+                                android:textColor="#1E293B"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

@@ -2,13 +2,7 @@ package com.example.calculatoremi.activities
 
 import android.graphics.Color
 import android.os.Bundle
-import android.view.View
-import android.widget.ImageView
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.calculatoremi.R
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.PieData
@@ -16,35 +10,33 @@ import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import java.util.*
 
-class PieChartActivity : AppCompatActivity() {
+class PieChartActivity : BaseResultActivity() {
+
+    private var principalAmount: Double = 0.0
+    private var interestAmount: Double = 0.0
+
+    override fun getResultLayoutResId(): Int = R.layout.activity_pie_chart
+
+    override fun getResultTitle(): String = intent.getStringExtra("TITLE") ?: "Loan Breakdown"
+
+    override fun getShareText(): String {
+        return "Loan Breakdown - Principal: ${formatCurrency(principalAmount)}, Interest: ${formatCurrency(interestAmount)}"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_pie_chart)
 
-        // Applying insets to the main view
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(android.R.id.content)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0)
-            insets
-        }
-
-        val principal = intent.getDoubleExtra("PRINCIPAL", 0.0)
-        val interest = intent.getDoubleExtra("INTEREST", 0.0)
-        val title = intent.getStringExtra("TITLE") ?: "Loan Breakdown"
-
-        findViewById<TextView>(R.id.txtChartTitle).text = title
-        findViewById<ImageView>(R.id.btnBackChart).setOnClickListener { finish() }
+        principalAmount = intent.getDoubleExtra("PRINCIPAL", 0.0)
+        interestAmount = intent.getDoubleExtra("INTEREST", 0.0)
 
         val pieChart = findViewById<PieChart>(R.id.pieChartLarge)
         val txtPrincipal = findViewById<TextView>(R.id.txtPrincipalValue)
         val txtInterest = findViewById<TextView>(R.id.txtInterestValue)
 
-        txtPrincipal.text = String.format(Locale.US, "%,.2f $", principal)
-        txtInterest.text = String.format(Locale.US, "%,.2f $", interest)
+        txtPrincipal.text = formatCurrency(principalAmount)
+        txtInterest.text = formatCurrency(interestAmount)
 
-        setupPieChart(pieChart, principal, interest)
+        setupPieChart(pieChart, principalAmount, interestAmount)
     }
 
     private fun setupPieChart(pieChart: PieChart, principal: Double, interest: Double) {
