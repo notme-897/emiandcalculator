@@ -2,6 +2,7 @@ package com.example.calculatoremi.activities
 
 import android.os.Build
 import android.os.Bundle
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.calculatoremi.R
@@ -23,6 +24,7 @@ class AmortizationScheduleActivity : BaseResultActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
 
         val schedule = getSerializableExtraCompat<ArrayList<PaymentScheduleItem>>("SCHEDULE")
         if (schedule != null) {
@@ -32,6 +34,12 @@ class AmortizationScheduleActivity : BaseResultActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerSchedule)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = AmortizationAdapter(scheduleList)
+
+        // Spring entrance layout animation for schedule items
+        val resId = R.anim.layout_animation_spring
+        val animation = AnimationUtils.loadLayoutAnimation(this, resId)
+        recyclerView.layoutAnimation = animation
+        recyclerView.scheduleLayoutAnimation()
     }
 
     private inline fun <reified T : Serializable> getSerializableExtraCompat(key: String): T? {
@@ -43,3 +51,4 @@ class AmortizationScheduleActivity : BaseResultActivity() {
         }
     }
 }
+

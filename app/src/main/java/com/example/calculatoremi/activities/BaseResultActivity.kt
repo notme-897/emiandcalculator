@@ -2,6 +2,9 @@ package com.example.calculatoremi.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.MotionEvent
+import android.view.View
+import android.view.animation.OvershootInterpolator
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -22,7 +25,7 @@ abstract class BaseResultActivity : AppCompatActivity() {
     }
 
     protected open fun setupResultToolbar() {
-        val headerView = findViewById<android.view.View>(R.id.resultHeader)
+        val headerView = findViewById<View>(R.id.resultHeader)
         if (headerView != null) {
             ViewCompat.setOnApplyWindowInsetsListener(headerView) { v, insets ->
                 val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -36,15 +39,40 @@ abstract class BaseResultActivity : AppCompatActivity() {
 
         val txtTitle = findViewById<TextView>(R.id.txtResultTitle)
         val btnBack = findViewById<ImageView>(R.id.btnBackResult)
-        val btnBackContainer = findViewById<android.view.View>(R.id.btnBackResultContainer)
+        val btnBackContainer = findViewById<View>(R.id.btnBackResultContainer)
         val btnShare = findViewById<ImageView>(R.id.btnShare)
 
         txtTitle?.text = getResultTitle()
 
-        val backClick = android.view.View.OnClickListener { finish() }
+        val backClick = View.OnClickListener { finish() }
         btnBack?.setOnClickListener(backClick)
-        btnBackContainer?.setOnClickListener(backClick)
-        btnShare?.setOnClickListener { shareResult() }
+        btnBackContainer?.let {
+            setupTouchScaleAnimation(it)
+            it.setOnClickListener(backClick)
+        }
+        btnShare?.let {
+            setupTouchScaleAnimation(it)
+            it.setOnClickListener { shareResult() }
+        }
+    }
+
+    protected fun setupTouchScaleAnimation(view: View) {
+        view.setOnTouchListener { v, event ->
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    v.animate().scaleX(0.95f).scaleY(0.95f).setDuration(80).start()
+                }
+                MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
+                    v.animate().scaleX(1.0f).scaleY(1.0f).setInterpolator(OvershootInterpolator(2.0f)).setDuration(160).start()
+                }
+            }
+            false
+        }
+    }
+
+    override fun finish() {
+        super.finish()
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
     }
 
     abstract fun getResultLayoutResId(): Int
@@ -66,4 +94,5 @@ abstract class BaseResultActivity : AppCompatActivity() {
         return "₹" + formatter.format(amount)
     }
 }
+
 

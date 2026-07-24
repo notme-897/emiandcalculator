@@ -179,6 +179,16 @@ class HomeLoanActivity : BaseInputActivity() {
             btn.strokeWidth = strokeWidth
         }
 
+        val parentGroup = scrollViewHomeLoan.getChildAt(0) as? android.view.ViewGroup
+        if (parentGroup != null) {
+            androidx.transition.TransitionManager.beginDelayedTransition(
+                parentGroup,
+                androidx.transition.AutoTransition().apply {
+                    duration = 220
+                }
+            )
+        }
+
         when (tabIndex) {
             0 -> {
                 applySelectedStyle(tabEmiCalc)
@@ -207,6 +217,7 @@ class HomeLoanActivity : BaseInputActivity() {
         }
         scrollViewHomeLoan.smoothScrollTo(0, 0)
     }
+
 
     private fun initEmiCalculatorViews() {
         switchPropertyCalc = findViewById(R.id.switchPropertyCalc)

@@ -66,9 +66,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
+            .setCustomAnimations(
+                android.R.anim.fade_in,
+                android.R.anim.fade_out
+            )
             .replace(R.id.fragmentContainer, fragment)
             .commit()
     }
+
 
     fun showHeader() {
         findViewById<View>(R.id.dashboardHeader)?.visibility = View.VISIBLE

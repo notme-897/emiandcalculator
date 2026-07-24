@@ -1,5 +1,6 @@
 package com.example.calculatoremi.activities
 
+import android.animation.ValueAnimator
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.content.res.ColorStateList
@@ -10,7 +11,9 @@ import android.text.TextWatcher
 import android.view.HapticFeedbackConstants
 import android.view.MotionEvent
 import android.view.View
+import android.view.animation.DecelerateInterpolator
 import android.view.animation.OvershootInterpolator
+
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.SeekBar
@@ -235,24 +238,25 @@ open class PersonalLoanActivity : BaseInputActivity() {
         // Quick Term Chip Listeners
         chipTerm1Y.setOnClickListener { 
             it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-            seekBarTerm.progress = 12
+            animateSeekBarProgress(12)
             highlightTermChip(chipTerm1Y)
         }
         chipTerm3Y.setOnClickListener { 
             it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-            seekBarTerm.progress = 36
+            animateSeekBarProgress(36)
             highlightTermChip(chipTerm3Y)
         }
         chipTerm5Y.setOnClickListener { 
             it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-            seekBarTerm.progress = 60
+            animateSeekBarProgress(60)
             highlightTermChip(chipTerm5Y)
         }
         chipTerm10Y.setOnClickListener { 
             it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-            seekBarTerm.progress = 120
+            animateSeekBarProgress(120)
             highlightTermChip(chipTerm10Y)
         }
+
 
         // Button Touch Feedback Animations
         setupButtonAnimation(btnCalculate)
@@ -419,10 +423,25 @@ open class PersonalLoanActivity : BaseInputActivity() {
         Toast.makeText(this, "Fields reset successfully", Toast.LENGTH_SHORT).show()
     }
 
+    private fun animateSeekBarProgress(targetProgress: Int) {
+        val animator = ValueAnimator.ofInt(seekBarTerm.progress, targetProgress)
+        animator.duration = 240
+        animator.interpolator = DecelerateInterpolator()
+        animator.addUpdateListener { anim ->
+            seekBarTerm.progress = anim.animatedValue as Int
+        }
+        animator.start()
+    }
+
     private fun updateTermDisplay(totalMonths: Int) {
         txtTermValueCombined.text = formatTerm(totalMonths)
         txtInstallments.text = "$totalMonths installments"
+        
+        txtTermValueCombined.animate().scaleX(1.08f).scaleY(1.08f).setDuration(60).withEndAction {
+            txtTermValueCombined.animate().scaleX(1.0f).scaleY(1.0f).setInterpolator(OvershootInterpolator(2.0f)).setDuration(120).start()
+        }.start()
     }
+
 
     private fun showDatePicker() {
         DatePickerDialog(

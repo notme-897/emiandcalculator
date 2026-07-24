@@ -3,6 +3,7 @@ package com.example.calculatoremi.fragments
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -44,5 +45,11 @@ class ToolsFragment : Fragment(R.layout.fragment_tools) {
             }
             intent?.let { startActivity(it) }
         }
+
+        // Apply high-end spring entrance animation
+        val resId = R.anim.layout_animation_spring
+        val animation = AnimationUtils.loadLayoutAnimation(requireContext(), resId)
+        recyclerTools.layoutAnimation = animation
+        recyclerTools.scheduleLayoutAnimation()
     }
 }

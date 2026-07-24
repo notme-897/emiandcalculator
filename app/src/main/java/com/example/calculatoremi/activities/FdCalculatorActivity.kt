@@ -1,13 +1,17 @@
 package com.example.calculatoremi.activities
 
+import android.animation.ValueAnimator
 import android.os.Bundle
 import android.view.View
+import android.view.animation.DecelerateInterpolator
+import android.view.animation.OvershootInterpolator
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.example.calculatoremi.R
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
+import java.text.DecimalFormat
 import kotlin.math.pow
 
 class FdCalculatorActivity : BaseInputActivity() {
@@ -21,12 +25,15 @@ class FdCalculatorActivity : BaseInputActivity() {
     private lateinit var txtFdInterest: TextView
     private lateinit var txtFdMaturity: TextView
 
+    private val decimalFormat = DecimalFormat("#,##,###.##")
+
     override fun getLayoutResId(): Int = R.layout.activity_fd_calculator
 
     override fun getActivityTitle(): String = "FD Calculator"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
 
         etFdAmount = findViewById(R.id.etFdAmount)
         etFdRate = findViewById(R.id.etFdRate)
@@ -37,6 +44,7 @@ class FdCalculatorActivity : BaseInputActivity() {
         txtFdInterest = findViewById(R.id.txtFdInterest)
         txtFdMaturity = findViewById(R.id.txtFdMaturity)
 
+        setupTouchScaleAnimation(btnCalculateFd)
         btnCalculateFd.setOnClickListener {
             calculateFd()
         }
@@ -58,9 +66,32 @@ class FdCalculatorActivity : BaseInputActivity() {
         val maturity = amount * (1 + r / n).pow(n * years)
         val interest = maturity - amount
 
-        txtFdPrincipal.text = formatCurrency(amount)
-        txtFdInterest.text = formatCurrency(interest)
-        txtFdMaturity.text = formatCurrency(maturity)
-        cardFdResult.visibility = View.VISIBLE
+        animateNumberCounter(txtFdPrincipal, amount)
+        animateNumberCounter(txtFdInterest, interest)
+        animateNumberCounter(txtFdMaturity, maturity)
+
+        if (cardFdResult.visibility != View.VISIBLE) {
+            cardFdResult.alpha = 0f
+            cardFdResult.translationY = 40f
+            cardFdResult.visibility = View.VISIBLE
+            cardFdResult.animate()
+                .alpha(1f)
+                .translationY(0f)
+                .setDuration(400)
+                .setInterpolator(OvershootInterpolator(1.2f))
+                .start()
+        }
+    }
+
+    private fun animateNumberCounter(textView: TextView, targetValue: Double) {
+        val animator = ValueAnimator.ofFloat(0f, targetValue.toFloat())
+        animator.duration = 750
+        animator.interpolator = DecelerateInterpolator()
+        animator.addUpdateListener { animation ->
+            val currentValue = animation.animatedValue as Float
+            textView.text = "₹" + decimalFormat.format(currentValue.toDouble())
+        }
+        animator.start()
     }
 }
+

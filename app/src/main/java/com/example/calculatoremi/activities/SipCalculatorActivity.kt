@@ -1,13 +1,17 @@
 package com.example.calculatoremi.activities
 
+import android.animation.ValueAnimator
 import android.os.Bundle
 import android.view.View
+import android.view.animation.DecelerateInterpolator
+import android.view.animation.OvershootInterpolator
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.example.calculatoremi.R
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
+import java.text.DecimalFormat
 import kotlin.math.pow
 
 class SipCalculatorActivity : BaseInputActivity() {
@@ -21,12 +25,15 @@ class SipCalculatorActivity : BaseInputActivity() {
     private lateinit var txtEstReturns: TextView
     private lateinit var txtMaturityValue: TextView
 
+    private val decimalFormat = DecimalFormat("#,##,###.##")
+
     override fun getLayoutResId(): Int = R.layout.activity_sip_calculator
 
     override fun getActivityTitle(): String = "SIP Calculator"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
 
         etMonthlySip = findViewById(R.id.etMonthlySip)
         etSipRate = findViewById(R.id.etSipRate)
@@ -37,6 +44,7 @@ class SipCalculatorActivity : BaseInputActivity() {
         txtEstReturns = findViewById(R.id.txtEstReturns)
         txtMaturityValue = findViewById(R.id.txtMaturityValue)
 
+        setupTouchScaleAnimation(btnCalculateSip)
         btnCalculateSip.setOnClickListener {
             calculateSip()
         }
@@ -60,9 +68,32 @@ class SipCalculatorActivity : BaseInputActivity() {
         val totalInvested = monthlySip * totalMonths
         val estimatedReturns = maturity - totalInvested
 
-        txtTotalInvested.text = formatCurrency(totalInvested)
-        txtEstReturns.text = formatCurrency(estimatedReturns)
-        txtMaturityValue.text = formatCurrency(maturity)
-        cardSipResult.visibility = View.VISIBLE
+        animateNumberCounter(txtTotalInvested, totalInvested)
+        animateNumberCounter(txtEstReturns, estimatedReturns)
+        animateNumberCounter(txtMaturityValue, maturity)
+
+        if (cardSipResult.visibility != View.VISIBLE) {
+            cardSipResult.alpha = 0f
+            cardSipResult.translationY = 40f
+            cardSipResult.visibility = View.VISIBLE
+            cardSipResult.animate()
+                .alpha(1f)
+                .translationY(0f)
+                .setDuration(400)
+                .setInterpolator(OvershootInterpolator(1.2f))
+                .start()
+        }
+    }
+
+    private fun animateNumberCounter(textView: TextView, targetValue: Double) {
+        val animator = ValueAnimator.ofFloat(0f, targetValue.toFloat())
+        animator.duration = 750
+        animator.interpolator = DecelerateInterpolator()
+        animator.addUpdateListener { animation ->
+            val currentValue = animation.animatedValue as Float
+            textView.text = "₹" + decimalFormat.format(currentValue.toDouble())
+        }
+        animator.start()
     }
 }
+

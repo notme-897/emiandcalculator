@@ -1,13 +1,17 @@
 package com.example.calculatoremi.activities
 
+import android.animation.ValueAnimator
 import android.os.Bundle
 import android.view.View
+import android.view.animation.DecelerateInterpolator
+import android.view.animation.OvershootInterpolator
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.example.calculatoremi.R
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
+import java.text.DecimalFormat
 import kotlin.math.pow
 
 class PrepaymentSimulatorActivity : BaseInputActivity() {
@@ -21,12 +25,15 @@ class PrepaymentSimulatorActivity : BaseInputActivity() {
     private lateinit var txtInterestSaved: TextView
     private lateinit var txtTimeSaved: TextView
 
+    private val decimalFormat = DecimalFormat("#,##,###.##")
+
     override fun getLayoutResId(): Int = R.layout.activity_prepayment_simulator
 
     override fun getActivityTitle(): String = "Prepayment Simulator"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
 
         etBalance = findViewById(R.id.etBalance)
         etRate = findViewById(R.id.etRate)
@@ -37,6 +44,7 @@ class PrepaymentSimulatorActivity : BaseInputActivity() {
         txtInterestSaved = findViewById(R.id.txtInterestSaved)
         txtTimeSaved = findViewById(R.id.txtTimeSaved)
 
+        setupTouchScaleAnimation(btnSimulate)
         btnSimulate.setOnClickListener {
             runSimulation()
         }
@@ -77,8 +85,34 @@ class PrepaymentSimulatorActivity : BaseInputActivity() {
         val interestSaved = originalTotalInterest - newTotalInterest
         val monthsSaved = months - newMonthsCount
 
-        cardResult.visibility = View.VISIBLE
-        txtInterestSaved.text = "Total Interest Saved: ${formatCurrency(if (interestSaved > 0) interestSaved else 0.0)}"
-        txtTimeSaved.text = "Tenure Reduced By: ${if (monthsSaved > 0) monthsSaved else 0} months (${formatTerm(if (monthsSaved > 0) monthsSaved else 0)})"
+        val savedAmount = if (interestSaved > 0) interestSaved else 0.0
+        val savedMonths = if (monthsSaved > 0) monthsSaved else 0
+
+        animateInterestCounter(savedAmount)
+        txtTimeSaved.text = "Tenure Reduced By: $savedMonths months (${formatTerm(savedMonths)})"
+
+        if (cardResult.visibility != View.VISIBLE) {
+            cardResult.alpha = 0f
+            cardResult.translationY = 40f
+            cardResult.visibility = View.VISIBLE
+            cardResult.animate()
+                .alpha(1f)
+                .translationY(0f)
+                .setDuration(400)
+                .setInterpolator(OvershootInterpolator(1.2f))
+                .start()
+        }
+    }
+
+    private fun animateInterestCounter(targetValue: Double) {
+        val animator = ValueAnimator.ofFloat(0f, targetValue.toFloat())
+        animator.duration = 750
+        animator.interpolator = DecelerateInterpolator()
+        animator.addUpdateListener { animation ->
+            val currentValue = animation.animatedValue as Float
+            txtInterestSaved.text = "Total Interest Saved: ₹" + decimalFormat.format(currentValue.toDouble())
+        }
+        animator.start()
     }
 }
+

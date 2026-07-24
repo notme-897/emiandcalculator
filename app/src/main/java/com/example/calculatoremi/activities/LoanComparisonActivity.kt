@@ -1,13 +1,17 @@
 package com.example.calculatoremi.activities
 
+import android.animation.ValueAnimator
 import android.os.Bundle
 import android.view.View
+import android.view.animation.DecelerateInterpolator
+import android.view.animation.OvershootInterpolator
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.example.calculatoremi.R
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
+import java.text.DecimalFormat
 import kotlin.math.abs
 import kotlin.math.pow
 
@@ -32,12 +36,15 @@ class LoanComparisonActivity : BaseInputActivity() {
     private lateinit var txtCostA: TextView
     private lateinit var txtCostB: TextView
 
+    private val decimalFormat = DecimalFormat("#,##,###.##")
+
     override fun getLayoutResId(): Int = R.layout.activity_loan_comparison
 
     override fun getActivityTitle(): String = "Compare Loans"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
 
         etAmountA = findViewById(R.id.etAmountA)
         etRateA = findViewById(R.id.etRateA)
@@ -67,6 +74,7 @@ class LoanComparisonActivity : BaseInputActivity() {
         if (loanARate > 0) etRateA.setText(loanARate.toString())
         if (loanAMonths > 0) etMonthsA.setText(loanAMonths.toString())
 
+        setupTouchScaleAnimation(btnCompare)
         btnCompare.setOnClickListener {
             compareLoans()
         }
@@ -98,12 +106,12 @@ class LoanComparisonActivity : BaseInputActivity() {
         val costB = emiB * monthsB
         val interestB = costB - amountB
 
-        txtEmiA.text = formatCurrency(emiA)
-        txtEmiB.text = formatCurrency(emiB)
-        txtInterestA.text = formatCurrency(interestA)
-        txtInterestB.text = formatCurrency(interestB)
-        txtCostA.text = formatCurrency(costA)
-        txtCostB.text = formatCurrency(costB)
+        animateNumberCounter(txtEmiA, emiA)
+        animateNumberCounter(txtEmiB, emiB)
+        animateNumberCounter(txtInterestA, interestA)
+        animateNumberCounter(txtInterestB, interestB)
+        animateNumberCounter(txtCostA, costA)
+        animateNumberCounter(txtCostB, costB)
 
         val diffInterest = abs(interestA - interestB)
 
@@ -115,6 +123,28 @@ class LoanComparisonActivity : BaseInputActivity() {
             txtWinnerText.text = "Both Loan Options have identical interest cost!"
         }
 
-        cardComparisonResult.visibility = View.VISIBLE
+        if (cardComparisonResult.visibility != View.VISIBLE) {
+            cardComparisonResult.alpha = 0f
+            cardComparisonResult.translationY = 40f
+            cardComparisonResult.visibility = View.VISIBLE
+            cardComparisonResult.animate()
+                .alpha(1f)
+                .translationY(0f)
+                .setDuration(400)
+                .setInterpolator(OvershootInterpolator(1.2f))
+                .start()
+        }
+    }
+
+    private fun animateNumberCounter(textView: TextView, targetValue: Double) {
+        val animator = ValueAnimator.ofFloat(0f, targetValue.toFloat())
+        animator.duration = 650
+        animator.interpolator = DecelerateInterpolator()
+        animator.addUpdateListener { animation ->
+            val currentValue = animation.animatedValue as Float
+            textView.text = "₹" + decimalFormat.format(currentValue.toDouble())
+        }
+        animator.start()
     }
 }
+

@@ -1,13 +1,17 @@
 package com.example.calculatoremi.activities
 
+import android.animation.ValueAnimator
 import android.os.Bundle
 import android.view.View
+import android.view.animation.DecelerateInterpolator
+import android.view.animation.OvershootInterpolator
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.example.calculatoremi.R
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
+import java.text.DecimalFormat
 
 class RdCalculatorActivity : BaseInputActivity() {
 
@@ -20,12 +24,15 @@ class RdCalculatorActivity : BaseInputActivity() {
     private lateinit var txtRdInterest: TextView
     private lateinit var txtRdMaturity: TextView
 
+    private val decimalFormat = DecimalFormat("#,##,###.##")
+
     override fun getLayoutResId(): Int = R.layout.activity_rd_calculator
 
     override fun getActivityTitle(): String = "RD Calculator"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
 
         etRdAmount = findViewById(R.id.etRdAmount)
         etRdRate = findViewById(R.id.etRdRate)
@@ -36,6 +43,7 @@ class RdCalculatorActivity : BaseInputActivity() {
         txtRdInterest = findViewById(R.id.txtRdInterest)
         txtRdMaturity = findViewById(R.id.txtRdMaturity)
 
+        setupTouchScaleAnimation(btnCalculateRd)
         btnCalculateRd.setOnClickListener {
             calculateRd()
         }
@@ -56,9 +64,32 @@ class RdCalculatorActivity : BaseInputActivity() {
         val totalInvested = amount * months
         val maturity = totalInvested + interest
 
-        txtRdInvested.text = formatCurrency(totalInvested)
-        txtRdInterest.text = formatCurrency(interest)
-        txtRdMaturity.text = formatCurrency(maturity)
-        cardRdResult.visibility = View.VISIBLE
+        animateNumberCounter(txtRdInvested, totalInvested)
+        animateNumberCounter(txtRdInterest, interest)
+        animateNumberCounter(txtRdMaturity, maturity)
+
+        if (cardRdResult.visibility != View.VISIBLE) {
+            cardRdResult.alpha = 0f
+            cardRdResult.translationY = 40f
+            cardRdResult.visibility = View.VISIBLE
+            cardRdResult.animate()
+                .alpha(1f)
+                .translationY(0f)
+                .setDuration(400)
+                .setInterpolator(OvershootInterpolator(1.2f))
+                .start()
+        }
+    }
+
+    private fun animateNumberCounter(textView: TextView, targetValue: Double) {
+        val animator = ValueAnimator.ofFloat(0f, targetValue.toFloat())
+        animator.duration = 750
+        animator.interpolator = DecelerateInterpolator()
+        animator.addUpdateListener { animation ->
+            val currentValue = animation.animatedValue as Float
+            textView.text = "₹" + decimalFormat.format(currentValue.toDouble())
+        }
+        animator.start()
     }
 }
+
