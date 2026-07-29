@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.calculatoremi.MainActivity
 import com.example.calculatoremi.R
-import com.example.calculatoremi.activities.GstCalculatorActivity
 import com.example.calculatoremi.activities.SipCalculatorActivity
 import com.example.calculatoremi.adapter.CategoryAdapter
 import com.example.calculatoremi.model.CalculatorCategory
@@ -80,7 +79,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val categories = listOf(
             CalculatorCategory("Loan Calculators", "Personal, Home, Car, and more", R.drawable.ic_home, R.color.cat_loan, CategoryType.LOAN),
             CalculatorCategory("Investment Tools", "SIP, FD, RD, and Mutual Funds", R.drawable.ic_investment, R.color.cat_investment, CategoryType.INVESTMENT),
-            CalculatorCategory("Tax & Finance", "GST, Income Tax, and Discount Calculator", R.drawable.ic_tax, R.color.cat_tax, CategoryType.TAX),
             CalculatorCategory("Salary Tools", "In-Hand Salary, Hikes, and Overtime", R.drawable.ic_salary, R.color.cat_salary, CategoryType.SALARY),
             CalculatorCategory("Insurance Tools", "Term, Health, and Life Insurance", R.drawable.ic_insurance, R.color.cat_insurance, CategoryType.INSURANCE),
             CalculatorCategory("Utility Tools", "Currency, Unit, and Age Converter", R.drawable.ic_tools, R.color.cat_utility, CategoryType.UTILITY)
@@ -101,10 +99,26 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                         .commit()
                 }
                 CategoryType.INVESTMENT -> {
-                    startActivity(Intent(requireContext(), SipCalculatorActivity::class.java))
+                    val fragment = InvestmentListFragment().apply {
+                        arguments = Bundle().apply {
+                            putString("CATEGORY_TITLE", category.title)
+                        }
+                    }
+                    parentFragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainer, fragment)
+                        .addToBackStack(null)
+                        .commit()
                 }
-                CategoryType.TAX -> {
-                    startActivity(Intent(requireContext(), GstCalculatorActivity::class.java))
+                CategoryType.SALARY -> {
+                    val fragment = SalaryListFragment().apply {
+                        arguments = Bundle().apply {
+                            putString("CATEGORY_TITLE", category.title)
+                        }
+                    }
+                    parentFragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainer, fragment)
+                        .addToBackStack(null)
+                        .commit()
                 }
                 else -> {
                     Toast.makeText(requireContext(), "${category.title} coming soon!", Toast.LENGTH_SHORT).show()

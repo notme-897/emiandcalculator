@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F5F7FB"
     android:orientation="vertical">
 
-    <!-- Header -->
+    <!-- ================= FIXED HEADER ================= -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/calculatorHeader"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="wrap_content"
+        android:minHeight="55dp"
         android:background="@android:color/white"
         android:elevation="4dp"
         android:paddingStart="16dp"
-        android:paddingEnd="16dp">
+        android:paddingTop="12dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="12dp">
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/btnBackContainer"
@@ -55,172 +59,355 @@
             android:layout_height="1dp"
             android:background="#E2E8F0"
             app:layout_constraintBottom_toBottomOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollViewSip"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:paddingBottom="36dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="24dp">
+            android:paddingHorizontal="@dimen/screen_padding"
+            android:paddingTop="12dp">
 
-            <!-- Monthly Investment -->
+            <!-- Monthly Investment Amount Section -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Monthly Investment ($)"
-                android:textColor="#191C21"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="6dp"
+                android:text="Monthly SIP Amount (₹)"
+                android:textColor="#0F172A"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/etMonthlySip"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
+                android:layout_height="52dp"
                 android:background="@drawable/numeric_input_border"
-                android:hint="5,000"
+                android:elevation="2dp"
+                android:hint="e.g. 5,000"
                 android:inputType="numberDecimal"
-                android:paddingHorizontal="24dp"
-                android:textColor="@color/black"
-                android:layout_marginBottom="16dp" />
+                android:paddingHorizontal="16dp"
+                android:textColor="#0F172A"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-            <!-- Expected Return Rate -->
+            <!-- Amount Quick Chips -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal"
+                android:weightSum="5">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipSip1k"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="2dp"
+                    android:padding="0dp"
+                    android:text="₹1k"
+                    android:textAllCaps="false"
+                    android:textColor="#1E293B"
+                    android:textSize="11sp"
+                    app:strokeColor="#CBD5E1"
+                    app:cornerRadius="18dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipSip2_5k"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="2dp"
+                    android:padding="0dp"
+                    android:text="₹2.5k"
+                    android:textAllCaps="false"
+                    android:textColor="#1E293B"
+                    android:textSize="11sp"
+                    app:strokeColor="#CBD5E1"
+                    app:cornerRadius="18dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipSip5k"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="2dp"
+                    android:padding="0dp"
+                    android:text="₹5k"
+                    android:textAllCaps="false"
+                    android:textColor="#1E293B"
+                    android:textSize="11sp"
+                    app:strokeColor="#CBD5E1"
+                    app:cornerRadius="18dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipSip10k"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="2dp"
+                    android:padding="0dp"
+                    android:text="₹10k"
+                    android:textAllCaps="false"
+                    android:textColor="#1E293B"
+                    android:textSize="11sp"
+                    app:strokeColor="#CBD5E1"
+                    app:cornerRadius="18dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipSip25k"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="2dp"
+                    android:padding="0dp"
+                    android:text="₹25k"
+                    android:textAllCaps="false"
+                    android:textColor="#1E293B"
+                    android:textSize="11sp"
+                    app:strokeColor="#CBD5E1"
+                    app:cornerRadius="18dp" />
+
+            </LinearLayout>
+
+            <!-- Expected Return Rate Section -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Expected Return Rate (%)"
-                android:textColor="#191C21"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="6dp"
+                android:text="Expected Return Rate (% p.a.)"
+                android:textColor="#0F172A"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/etSipRate"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
+                android:layout_height="52dp"
                 android:background="@drawable/numeric_input_border"
-                android:hint="12"
+                android:elevation="2dp"
+                android:hint="e.g. 12.0"
                 android:inputType="numberDecimal"
-                android:paddingHorizontal="24dp"
-                android:textColor="@color/black"
-                android:layout_marginBottom="16dp" />
+                android:paddingHorizontal="16dp"
+                android:textColor="#0F172A"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-            <!-- Investment Period (Years) -->
+            <!-- Return Rate Chips -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipRate8"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:padding="0dp"
+                    android:text="8.0%"
+                    android:textAllCaps="false"
+                    android:textColor="#1E293B"
+                    android:textSize="11sp"
+                    app:strokeColor="#CBD5E1"
+                    app:cornerRadius="18dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipRate10"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="2dp"
+                    android:padding="0dp"
+                    android:text="10.0%"
+                    android:textAllCaps="false"
+                    android:textColor="#1E293B"
+                    android:textSize="11sp"
+                    app:strokeColor="#CBD5E1"
+                    app:cornerRadius="18dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipRate12"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="2dp"
+                    android:padding="0dp"
+                    android:text="12.0%"
+                    android:textAllCaps="false"
+                    android:textColor="#1E293B"
+                    android:textSize="11sp"
+                    app:strokeColor="#CBD5E1"
+                    app:cornerRadius="18dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipRate15"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    android:padding="0dp"
+                    android:text="15.0%"
+                    android:textAllCaps="false"
+                    android:textColor="#1E293B"
+                    android:textSize="11sp"
+                    app:strokeColor="#CBD5E1"
+                    app:cornerRadius="18dp" />
+
+            </LinearLayout>
+
+            <!-- Annual Step-Up % Selector -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Time Period (Years)"
-                android:textColor="#191C21"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="6dp"
+                android:text="Annual Step-Up (% Yearly Increase)"
+                android:textColor="#0F172A"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/etSipYears"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:background="@drawable/numeric_input_border"
-                android:hint="10"
-                android:inputType="number"
-                android:paddingHorizontal="24dp"
-                android:textColor="@color/black"
-                android:layout_marginBottom="24dp" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnCalculateSip"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:text="Calculate Returns"
-                android:textAllCaps="false"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:backgroundTint="#1A56E4"
-                app:cornerRadius="18dp"
-                android:layout_marginBottom="24dp" />
-
-            <!-- Result Card -->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardSipResult"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="3dp"
-                app:strokeWidth="0dp">
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal"
+                android:weightSum="4">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipStep0"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:padding="0dp"
+                    android:text="0% (None)"
+                    android:textAllCaps="false"
+                    android:textColor="#1E293B"
+                    android:textSize="11sp"
+                    app:strokeColor="#CBD5E1"
+                    app:cornerRadius="18dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipStep5"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="2dp"
+                    android:padding="0dp"
+                    android:text="5% Step-Up"
+                    android:textAllCaps="false"
+                    android:textColor="#1E293B"
+                    android:textSize="11sp"
+                    app:strokeColor="#CBD5E1"
+                    app:cornerRadius="18dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipStep10"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="2dp"
+                    android:padding="0dp"
+                    android:text="10% Step-Up"
+                    android:textAllCaps="false"
+                    android:textColor="#1E293B"
+                    android:textSize="11sp"
+                    app:strokeColor="#CBD5E1"
+                    app:cornerRadius="18dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipStep15"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    android:padding="0dp"
+                    android:text="15% Step-Up"
+                    android:textAllCaps="false"
+                    android:textColor="#1E293B"
+                    android:textSize="11sp"
+                    app:strokeColor="#CBD5E1"
+                    app:cornerRadius="18dp" />
+
+            </LinearLayout>
+
+            <!-- Tenure Section (Custom Reusable View) -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp">
+
+                <TextView
+                    android:id="@+id/txtSipTermLabel"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="20dp"
-                    android:background="@android:color/white">
+                    android:layout_alignParentStart="true"
+                    android:text="Investment Period (1 Yr - 30 Yrs)"
+                    android:textColor="#0F172A"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Invested Amount"
-                        android:textColor="#757575"
-                        android:textSize="14sp" />
+            <com.example.calculatoremi.views.LoanTenureSelectorView
+                android:id="@+id/tenureSelector"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp" />
 
-                    <TextView
-                        android:id="@+id/txtTotalInvested"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="$0.00"
-                        android:textColor="#191C21"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:layout_marginTop="2dp" />
+            <!-- Action Buttons -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCalculate"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:text="Calculate Wealth &amp; Schedule"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/primary"
+                app:cornerRadius="16dp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Estimated Returns"
-                        android:textColor="#757575"
-                        android:textSize="14sp"
-                        android:layout_marginTop="12dp" />
-
-                    <TextView
-                        android:id="@+id/txtEstReturns"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="$0.00"
-                        android:textColor="#00875A"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:layout_marginTop="2dp" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#F0F0F0"
-                        android:layout_marginVertical="12dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Total Maturity Value"
-                        android:textColor="#757575"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/txtMaturityValue"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="$0.00"
-                        android:textColor="#1A56E4"
-                        android:textSize="24sp"
-                        android:textStyle="bold"
-                        android:layout_marginTop="2dp" />
-
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnReset"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:text="Reset Fields"
+                android:textAllCaps="false"
+                android:textColor="@color/primary"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:cornerRadius="16dp"
+                app:strokeColor="@color/primary" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

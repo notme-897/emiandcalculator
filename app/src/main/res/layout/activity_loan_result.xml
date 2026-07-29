@@ -185,8 +185,8 @@
                             android:focusable="true"
                             android:background="?attr/selectableItemBackground"
                             android:padding="@dimen/margin_small">
-                            <ImageView android:layout_width="@dimen/margin_large" android:layout_height="@dimen/margin_large" android:src="@drawable/ic_pie_chart" app:tint="#1565C0" />
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Pie Chart" android:textColor="#1565C0" android:textStyle="bold" android:layout_marginStart="@dimen/margin_small" />
+                            <ImageView android:layout_width="@dimen/margin_large" android:layout_height="@dimen/margin_large" android:src="@drawable/ic_pie_chart" app:tint="@color/primary" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Pie Chart" android:textColor="@color/primary" android:textStyle="bold" android:layout_marginStart="@dimen/margin_small" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -200,13 +200,11 @@
                             android:focusable="true"
                             android:background="?attr/selectableItemBackground"
                             android:padding="@dimen/margin_small">
-                            <ImageView android:layout_width="@dimen/margin_large" android:layout_height="@dimen/margin_large" android:src="@drawable/ic_list" app:tint="#1565C0" />
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Payment Schedule" android:textColor="#1565C0" android:textStyle="bold" android:layout_marginStart="@dimen/margin_small" />
+                            <ImageView android:layout_width="@dimen/margin_large" android:layout_height="@dimen/margin_large" android:src="@drawable/ic_list" app:tint="@color/primary" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Payment Schedule" android:textColor="@color/primary" android:textStyle="bold" android:layout_marginStart="@dimen/margin_small" />
                         </LinearLayout>
 
                     </LinearLayout>
-
-                    <!-- Embedded Chart/Schedule Container REMOVED as per request -->
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -219,10 +217,11 @@
                 android:layout_marginTop="@dimen/margin_xlarge"
                 android:text="Compare loan"
                 android:textAllCaps="false"
+                android:textColor="@android:color/white"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:cornerRadius="@dimen/margin_small"
-                app:backgroundTint="#1565C0" />
+                app:cornerRadius="16dp"
+                app:backgroundTint="@color/primary" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnBackHome"
@@ -235,9 +234,9 @@
                 android:textAllCaps="false"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:cornerRadius="@dimen/margin_small"
-                app:strokeColor="#1565C0"
-                android:textColor="#1565C0" />
+                app:cornerRadius="16dp"
+                app:strokeColor="@color/primary"
+                android:textColor="@color/primary" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

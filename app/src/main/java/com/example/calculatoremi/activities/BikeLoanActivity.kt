@@ -12,14 +12,13 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.animation.OvershootInterpolator
 import android.widget.EditText
-import android.widget.ImageView
-import android.widget.SeekBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.widget.NestedScrollView
 import com.example.calculatoremi.R
 import com.example.calculatoremi.model.PaymentScheduleItem
+import com.example.calculatoremi.views.LoanTenureSelectorView
 import com.google.android.material.button.MaterialButton
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
@@ -54,20 +53,11 @@ class BikeLoanActivity : BaseInputActivity() {
     private lateinit var chipRate13_5: MaterialButton
     private lateinit var chipRate15_5: MaterialButton
 
-    private lateinit var seekBarTerm: SeekBar
-    private lateinit var txtTermValueCombined: TextView
-    private lateinit var txtInstallments: TextView
-
-    private lateinit var chipBikeTerm12M: MaterialButton
-    private lateinit var chipBikeTerm24M: MaterialButton
-    private lateinit var chipBikeTerm36M: MaterialButton
-    private lateinit var chipBikeTerm48M: MaterialButton
+    private lateinit var loanTenureSelector: LoanTenureSelectorView
 
     private lateinit var txtEvSavingsDisplay: TextView
     private lateinit var txtNetEffectiveEmiDisplay: TextView
 
-    private lateinit var btnAdd: ImageView
-    private lateinit var btnMinus: ImageView
     private lateinit var btnCalculate: MaterialButton
     private lateinit var btnReset: MaterialButton
     private lateinit var txtSelectedDate: TextView
@@ -114,20 +104,11 @@ class BikeLoanActivity : BaseInputActivity() {
         chipRate13_5 = findViewById(R.id.chipRate13_5)
         chipRate15_5 = findViewById(R.id.chipRate15_5)
 
-        seekBarTerm = findViewById(R.id.loanSeekBar)
-        txtTermValueCombined = findViewById(R.id.txtTermValueCombined)
-        txtInstallments = findViewById(R.id.txtInstallments)
-
-        chipBikeTerm12M = findViewById(R.id.chipBikeTerm12M)
-        chipBikeTerm24M = findViewById(R.id.chipBikeTerm24M)
-        chipBikeTerm36M = findViewById(R.id.chipBikeTerm36M)
-        chipBikeTerm48M = findViewById(R.id.chipBikeTerm48M)
+        loanTenureSelector = findViewById(R.id.loanTenureSelector)
 
         txtEvSavingsDisplay = findViewById(R.id.txtEvSavingsDisplay)
         txtNetEffectiveEmiDisplay = findViewById(R.id.txtNetEffectiveEmiDisplay)
 
-        btnAdd = findViewById(R.id.btnAdd)
-        btnMinus = findViewById(R.id.btnMinus)
         btnCalculate = findViewById(R.id.btnCalculate)
         btnReset = findViewById(R.id.btnReset)
         txtSelectedDate = findViewById(R.id.txtSelectedDate)
@@ -138,8 +119,7 @@ class BikeLoanActivity : BaseInputActivity() {
             btnPriceOnRoad, btnPriceExShowroom,
             chipPrice80k, chipPrice120k, chipPrice180k, chipPrice250k, chipPrice400k,
             chipDp0, chipDp10, chipDp20, chipDp30,
-            chipRate9_5, chipRate11_5, chipRate13_5, chipRate15_5,
-            chipBikeTerm12M, chipBikeTerm24M, chipBikeTerm36M, chipBikeTerm48M
+            chipRate9_5, chipRate11_5, chipRate13_5, chipRate15_5
         )
         allChips.forEach { setupChipTouchAnimation(it) }
 
@@ -188,39 +168,9 @@ class BikeLoanActivity : BaseInputActivity() {
             showDatePicker()
         }
 
-        // SeekBar (12 to 48 Months for Bike Loans)
-        seekBarTerm.max = 48
-        seekBarTerm.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                val actualProgress = if (progress < 12) 12 else progress
-                updateTermDisplay(actualProgress)
-                if (fromUser) clearTermChipSelection()
-                updateBikeLoanSummary()
-            }
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
-        })
-
-        btnAdd.setOnClickListener {
-            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-            if (seekBarTerm.progress < seekBarTerm.max) {
-                seekBarTerm.progress += 12
-                clearTermChipSelection()
-            }
+        loanTenureSelector.setOnTenureChangedListener {
+            updateBikeLoanSummary()
         }
-        btnMinus.setOnClickListener {
-            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-            if (seekBarTerm.progress > 12) {
-                seekBarTerm.progress -= 12
-                clearTermChipSelection()
-            }
-        }
-
-        // Tenure Chips
-        chipBikeTerm12M.setOnClickListener { seekBarTerm.progress = 12; highlightTermChip(chipBikeTerm12M) }
-        chipBikeTerm24M.setOnClickListener { seekBarTerm.progress = 24; highlightTermChip(chipBikeTerm24M) }
-        chipBikeTerm36M.setOnClickListener { seekBarTerm.progress = 36; highlightTermChip(chipBikeTerm36M) }
-        chipBikeTerm48M.setOnClickListener { seekBarTerm.progress = 48; highlightTermChip(chipBikeTerm48M) }
 
         setupButtonAnimation(btnCalculate)
         setupButtonAnimation(btnReset)
@@ -240,13 +190,11 @@ class BikeLoanActivity : BaseInputActivity() {
         etDownPayment.setText("24,000")
         etProcessingFee.setText("1,500")
         etRate.setText("11.5")
-        seekBarTerm.progress = 36
-        updateTermDisplay(36)
+        loanTenureSelector.tenureMonths = 36
 
         highlightPriceChip(chipPrice120k)
         highlightDpChip(chipDp20)
         highlightRateChip(chipRate11_5)
-        highlightTermChip(chipBikeTerm36M)
         setPricingMode(true)
         updateBikeLoanSummary()
     }
@@ -338,7 +286,7 @@ class BikeLoanActivity : BaseInputActivity() {
         val downPayment = getRawValue(etDownPayment)
         val processingFee = getRawValue(etProcessingFee)
         val rate = etRate.text.toString().toDoubleOrNull() ?: 0.0
-        val months = if (seekBarTerm.progress < 12) 12 else seekBarTerm.progress
+        val months = loanTenureSelector.tenureMonths.coerceAtLeast(12)
 
         val effectiveOnRoadPrice = if (isOnRoadMode) rawPrice else rawPrice * 1.15
         val netLoan = if (effectiveOnRoadPrice > downPayment) effectiveOnRoadPrice - downPayment else 0.0
@@ -440,37 +388,7 @@ class BikeLoanActivity : BaseInputActivity() {
         }
     }
 
-    private fun highlightTermChip(selectedChip: MaterialButton) {
-        val termChips = listOf(chipBikeTerm12M, chipBikeTerm24M, chipBikeTerm36M, chipBikeTerm48M)
-        termChips.forEach { chip ->
-            if (chip == selectedChip) {
-                chip.setBackgroundColor(ContextCompat.getColor(this, R.color.custom_blue))
-                chip.setTextColor(ContextCompat.getColor(this, android.R.color.white))
-                chip.strokeWidth = 0
-            } else {
-                chip.setBackgroundColor(Color.parseColor("#F8FAFC"))
-                chip.setTextColor(Color.parseColor("#1E293B"))
-                chip.strokeColor = ColorStateList.valueOf(Color.parseColor("#CBD5E1"))
-                chip.strokeWidth = (1 * resources.displayMetrics.density).toInt()
-            }
-        }
-    }
 
-    private fun clearTermChipSelection() {
-        val termChips = listOf(chipBikeTerm12M, chipBikeTerm24M, chipBikeTerm36M, chipBikeTerm48M)
-        termChips.forEach { chip ->
-            chip.setBackgroundColor(Color.parseColor("#F8FAFC"))
-            chip.setTextColor(Color.parseColor("#1E293B"))
-            chip.strokeColor = ColorStateList.valueOf(Color.parseColor("#CBD5E1"))
-            chip.strokeWidth = (1 * resources.displayMetrics.density).toInt()
-        }
-    }
-
-    private fun updateTermDisplay(months: Int) {
-        val years = months / 12
-        txtTermValueCombined.text = "$months mos ($years yrs)"
-        txtInstallments.text = "$months EMIs"
-    }
 
     private fun setupButtonAnimation(button: View) {
         button.setOnTouchListener { view, event ->
@@ -505,7 +423,7 @@ class BikeLoanActivity : BaseInputActivity() {
         val rawPrice = getRawValue(etBikePrice)
         val downPayment = getRawValue(etDownPayment)
         val rate = etRate.text.toString().toDoubleOrNull() ?: 0.0
-        val months = if (seekBarTerm.progress < 12) 12 else seekBarTerm.progress
+        val months = loanTenureSelector.tenureMonths.coerceAtLeast(12)
 
         if (rawPrice <= 0) {
             etBikePrice.error = "Please enter valid bike price"
@@ -583,13 +501,11 @@ class BikeLoanActivity : BaseInputActivity() {
         etDownPayment.setText("24,000")
         etProcessingFee.setText("1,500")
         etRate.setText("11.5")
-        seekBarTerm.progress = 36
-        updateTermDisplay(36)
+        loanTenureSelector.tenureMonths = 36
 
         highlightPriceChip(chipPrice120k)
         highlightDpChip(chipDp20)
         highlightRateChip(chipRate11_5)
-        highlightTermChip(chipBikeTerm36M)
         setPricingMode(true)
         updateBikeLoanSummary()
 

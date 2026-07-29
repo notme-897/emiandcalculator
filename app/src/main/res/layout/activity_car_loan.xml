@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8FAFC"
+    android:background="#F5F7FB"
     android:orientation="vertical">
 
     <!-- ================= FIXED HEADER ================= -->
@@ -62,13 +62,13 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- ================= SCROLLABLE BODY ================= -->
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollViewCarLoan"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:clipToPadding="false"
-        android:paddingBottom="40dp"
+        android:paddingBottom="36dp"
         android:fillViewport="true">
 
         <LinearLayout
@@ -76,7 +76,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:paddingHorizontal="@dimen/screen_padding"
+            android:paddingTop="12dp">
 
             <!-- Vehicle Price, Down Payment & Trade-in Card -->
             <com.google.android.material.card.MaterialCardView
@@ -116,13 +117,13 @@
                     <EditText
                         android:id="@+id/etVehiclePrice"
                         android:layout_width="match_parent"
-                        android:layout_height="48dp"
+                        android:layout_height="52dp"
                         android:layout_marginTop="4dp"
                         android:background="@drawable/numeric_input_border"
                         android:elevation="1dp"
                         android:hint="e.g. 10,00,000"
                         android:inputType="numberDecimal"
-                        android:paddingHorizontal="14dp"
+                        android:paddingHorizontal="16dp"
                         android:textColor="#0F172A"
                         android:textSize="15sp"
                         android:textStyle="bold" />
@@ -156,13 +157,13 @@
                     <EditText
                         android:id="@+id/etCarDownPayment"
                         android:layout_width="match_parent"
-                        android:layout_height="48dp"
+                        android:layout_height="52dp"
                         android:layout_marginTop="4dp"
                         android:background="@drawable/numeric_input_border"
                         android:elevation="1dp"
                         android:hint="e.g. 2,00,000"
                         android:inputType="numberDecimal"
-                        android:paddingHorizontal="14dp"
+                        android:paddingHorizontal="16dp"
                         android:textColor="#0F172A"
                         android:textSize="15sp"
                         android:textStyle="bold" />
@@ -265,13 +266,13 @@
                     <EditText
                         android:id="@+id/etTradeInValue"
                         android:layout_width="match_parent"
-                        android:layout_height="48dp"
+                        android:layout_height="52dp"
                         android:layout_marginTop="4dp"
                         android:background="@drawable/numeric_input_border"
                         android:elevation="1dp"
                         android:hint="e.g. 1,00,000 (0 if none)"
                         android:inputType="numberDecimal"
-                        android:paddingHorizontal="14dp"
+                        android:paddingHorizontal="16dp"
                         android:textColor="#0F172A"
                         android:textSize="15sp"
                         android:textStyle="bold" />
@@ -590,197 +591,11 @@
                     android:textStyle="bold" />
             </RelativeLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/loanTermContainer"
+            <com.example.calculatoremi.views.LoanTenureSelectorView
+                android:id="@+id/loanTenureSelector"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/numeric_input_border"
-                android:padding="16dp">
-
-                <TextView
-                    android:id="@+id/txtTermValueCombined"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="5 yrs (60 mos)"
-                    android:textColor="#1A56E4"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/txtInstallments"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="60 installments"
-                    android:textColor="#475569"
-                    android:textSize="13sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <!-- Single Seekbar Row -->
-                <ImageView
-                    android:id="@+id/btnMinus"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/button_outline"
-                    android:padding="8dp"
-                    android:src="@drawable/ic_remove"
-                    app:layout_constraintBottom_toBottomOf="@+id/loanSeekBar"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/loanSeekBar" />
-
-                <SeekBar
-                    android:id="@+id/loanSeekBar"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="8dp"
-                    android:layout_marginTop="16dp"
-                    android:max="84"
-                    android:progress="60"
-                    android:progressTint="#1A56E4"
-                    android:thumbTint="#1A56E4"
-                    app:layout_constraintEnd_toStartOf="@+id/btnAdd"
-                    app:layout_constraintStart_toEndOf="@+id/btnMinus"
-                    app:layout_constraintTop_toBottomOf="@+id/txtTermValueCombined" />
-
-                <ImageView
-                    android:id="@+id/btnAdd"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:background="@drawable/button_outline"
-                    android:padding="8dp"
-                    android:src="@drawable/ic_add"
-                    app:layout_constraintBottom_toBottomOf="@+id/loanSeekBar"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/loanSeekBar" />
-
-                <TextView
-                    android:id="@+id/txtMinVal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="1 yr"
-                    android:textColor="#64748B"
-                    android:textSize="12sp"
-                    app:layout_constraintStart_toStartOf="@+id/loanSeekBar"
-                    app:layout_constraintTop_toBottomOf="@+id/loanSeekBar" />
-
-                <TextView
-                    android:id="@+id/txtMaxVal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="7 yrs"
-                    android:textColor="#64748B"
-                    android:textSize="12sp"
-                    app:layout_constraintEnd_toEndOf="@+id/loanSeekBar"
-                    app:layout_constraintTop_toBottomOf="@+id/loanSeekBar" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <!-- Car Loan Term Quick Select Chips (1Y, 2Y, 3Y, 4Y, 5Y, 7Y) -->
-            <GridLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="20dp"
-                android:columnCount="3"
-                android:rowCount="2">
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/chipCarTerm1Y"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="0dp"
-                    android:layout_height="36dp"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="2dp"
-                    android:padding="0dp"
-                    android:text="1 Yr"
-                    android:textAllCaps="false"
-                    android:textColor="#1E293B"
-                    android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
-                    app:cornerRadius="18dp" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/chipCarTerm2Y"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="0dp"
-                    android:layout_height="36dp"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="2dp"
-                    android:padding="0dp"
-                    android:text="2 Yrs"
-                    android:textAllCaps="false"
-                    android:textColor="#1E293B"
-                    android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
-                    app:cornerRadius="18dp" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/chipCarTerm3Y"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="0dp"
-                    android:layout_height="36dp"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="2dp"
-                    android:padding="0dp"
-                    android:text="3 Yrs"
-                    android:textAllCaps="false"
-                    android:textColor="#1E293B"
-                    android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
-                    app:cornerRadius="18dp" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/chipCarTerm4Y"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="0dp"
-                    android:layout_height="36dp"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="2dp"
-                    android:padding="0dp"
-                    android:text="4 Yrs"
-                    android:textAllCaps="false"
-                    android:textColor="#1E293B"
-                    android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
-                    app:cornerRadius="18dp" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/chipCarTerm5Y"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="0dp"
-                    android:layout_height="36dp"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="2dp"
-                    android:padding="0dp"
-                    android:text="5 Yrs"
-                    android:textAllCaps="false"
-                    android:textColor="#1E293B"
-                    android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
-                    app:cornerRadius="18dp" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/chipCarTerm7Y"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="0dp"
-                    android:layout_height="36dp"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="2dp"
-                    android:padding="0dp"
-                    android:text="7 Yrs"
-                    android:textAllCaps="false"
-                    android:textColor="#1E293B"
-                    android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
-                    app:cornerRadius="18dp" />
-
-            </GridLayout>
+                android:layout_marginBottom="20dp" />
 
             <!-- Processing / Documentation Fees (Optional) -->
             <TextView

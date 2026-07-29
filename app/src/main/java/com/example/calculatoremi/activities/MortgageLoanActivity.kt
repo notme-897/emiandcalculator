@@ -12,15 +12,14 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.animation.OvershootInterpolator
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.SeekBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.widget.NestedScrollView
 import com.example.calculatoremi.R
 import com.example.calculatoremi.model.PaymentScheduleItem
+import com.example.calculatoremi.views.LoanTenureSelectorView
 import com.google.android.material.button.MaterialButton
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
@@ -59,19 +58,8 @@ class MortgageLoanActivity : BaseInputActivity() {
     private lateinit var chipRate10_5: MaterialButton
     private lateinit var chipRate12_0: MaterialButton
 
-    private lateinit var seekBarTerm: SeekBar
-    private lateinit var txtTermValueCombined: TextView
-    private lateinit var txtInstallments: TextView
+    private lateinit var loanTenureSelector: LoanTenureSelectorView
 
-    private lateinit var chipMortTerm5Y: MaterialButton
-    private lateinit var chipMortTerm10Y: MaterialButton
-    private lateinit var chipMortTerm15Y: MaterialButton
-    private lateinit var chipMortTerm20Y: MaterialButton
-    private lateinit var chipMortTerm25Y: MaterialButton
-    private lateinit var chipMortTerm30Y: MaterialButton
-
-    private lateinit var btnAdd: ImageView
-    private lateinit var btnMinus: ImageView
     private lateinit var btnCalculate: MaterialButton
     private lateinit var btnReset: MaterialButton
     private lateinit var txtSelectedDate: TextView
@@ -122,19 +110,8 @@ class MortgageLoanActivity : BaseInputActivity() {
         chipRate10_5 = findViewById(R.id.chipRate10_5)
         chipRate12_0 = findViewById(R.id.chipRate12_0)
 
-        seekBarTerm = findViewById(R.id.loanSeekBar)
-        txtTermValueCombined = findViewById(R.id.txtTermValueCombined)
-        txtInstallments = findViewById(R.id.txtInstallments)
+        loanTenureSelector = findViewById(R.id.loanTenureSelector)
 
-        chipMortTerm5Y = findViewById(R.id.chipMortTerm5Y)
-        chipMortTerm10Y = findViewById(R.id.chipMortTerm10Y)
-        chipMortTerm15Y = findViewById(R.id.chipMortTerm15Y)
-        chipMortTerm20Y = findViewById(R.id.chipMortTerm20Y)
-        chipMortTerm25Y = findViewById(R.id.chipMortTerm25Y)
-        chipMortTerm30Y = findViewById(R.id.chipMortTerm30Y)
-
-        btnAdd = findViewById(R.id.btnAdd)
-        btnMinus = findViewById(R.id.btnMinus)
         btnCalculate = findViewById(R.id.btnCalculate)
         btnReset = findViewById(R.id.btnReset)
         txtSelectedDate = findViewById(R.id.txtSelectedDate)
@@ -145,8 +122,7 @@ class MortgageLoanActivity : BaseInputActivity() {
             btnModeLap, btnModePiti,
             chipProp25L, chipProp50L, chipProp1Cr, chipProp2_5Cr, chipProp5Cr,
             chipLoan15L, chipLoan30L, chipLoan60L, chipLoan1_5Cr, chipLoan3Cr,
-            chipRate8_5, chipRate9_5, chipRate10_5, chipRate12_0,
-            chipMortTerm5Y, chipMortTerm10Y, chipMortTerm15Y, chipMortTerm20Y, chipMortTerm25Y, chipMortTerm30Y
+            chipRate8_5, chipRate9_5, chipRate10_5, chipRate12_0
         )
         allChips.forEach { setupChipTouchAnimation(it) }
 
@@ -196,41 +172,6 @@ class MortgageLoanActivity : BaseInputActivity() {
             showDatePicker()
         }
 
-        // SeekBar (60 to 360 months / 5 to 30 Years)
-        seekBarTerm.max = 360
-        seekBarTerm.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                val actualProgress = if (progress < 60) 60 else progress
-                updateTermDisplay(actualProgress)
-                if (fromUser) clearTermChipSelection()
-            }
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
-        })
-
-        btnAdd.setOnClickListener {
-            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-            if (seekBarTerm.progress < seekBarTerm.max) {
-                seekBarTerm.progress += 12
-                clearTermChipSelection()
-            }
-        }
-        btnMinus.setOnClickListener {
-            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-            if (seekBarTerm.progress > 60) {
-                seekBarTerm.progress -= 12
-                clearTermChipSelection()
-            }
-        }
-
-        // Tenure Chips
-        chipMortTerm5Y.setOnClickListener { seekBarTerm.progress = 60; highlightTermChip(chipMortTerm5Y) }
-        chipMortTerm10Y.setOnClickListener { seekBarTerm.progress = 120; highlightTermChip(chipMortTerm10Y) }
-        chipMortTerm15Y.setOnClickListener { seekBarTerm.progress = 180; highlightTermChip(chipMortTerm15Y) }
-        chipMortTerm20Y.setOnClickListener { seekBarTerm.progress = 240; highlightTermChip(chipMortTerm20Y) }
-        chipMortTerm25Y.setOnClickListener { seekBarTerm.progress = 300; highlightTermChip(chipMortTerm25Y) }
-        chipMortTerm30Y.setOnClickListener { seekBarTerm.progress = 360; highlightTermChip(chipMortTerm30Y) }
-
         setupButtonAnimation(btnCalculate)
         setupButtonAnimation(btnReset)
 
@@ -250,13 +191,11 @@ class MortgageLoanActivity : BaseInputActivity() {
         etAnnualTax.setText("24,000")
         etAnnualInsurance.setText("12,000")
         etRate.setText("9.5")
-        seekBarTerm.progress = 180
-        updateTermDisplay(180)
+        loanTenureSelector.tenureMonths = 180
 
         highlightPropChip(chipProp1Cr)
         highlightLoanChip(chipLoan60L)
         highlightRateChip(chipRate9_5)
-        highlightTermChip(chipMortTerm15Y)
         setMortgageMode(false)
         updateLtvAnalysis()
     }
@@ -440,37 +379,9 @@ class MortgageLoanActivity : BaseInputActivity() {
         }
     }
 
-    private fun highlightTermChip(selectedChip: MaterialButton) {
-        val termChips = listOf(chipMortTerm5Y, chipMortTerm10Y, chipMortTerm15Y, chipMortTerm20Y, chipMortTerm25Y, chipMortTerm30Y)
-        termChips.forEach { chip ->
-            if (chip == selectedChip) {
-                chip.setBackgroundColor(ContextCompat.getColor(this, R.color.custom_blue))
-                chip.setTextColor(ContextCompat.getColor(this, android.R.color.white))
-                chip.strokeWidth = 0
-            } else {
-                chip.setBackgroundColor(Color.parseColor("#F8FAFC"))
-                chip.setTextColor(Color.parseColor("#1E293B"))
-                chip.strokeColor = ColorStateList.valueOf(Color.parseColor("#CBD5E1"))
-                chip.strokeWidth = (1 * resources.displayMetrics.density).toInt()
-            }
-        }
-    }
 
-    private fun clearTermChipSelection() {
-        val termChips = listOf(chipMortTerm5Y, chipMortTerm10Y, chipMortTerm15Y, chipMortTerm20Y, chipMortTerm25Y, chipMortTerm30Y)
-        termChips.forEach { chip ->
-            chip.setBackgroundColor(Color.parseColor("#F8FAFC"))
-            chip.setTextColor(Color.parseColor("#1E293B"))
-            chip.strokeColor = ColorStateList.valueOf(Color.parseColor("#CBD5E1"))
-            chip.strokeWidth = (1 * resources.displayMetrics.density).toInt()
-        }
-    }
 
-    private fun updateTermDisplay(months: Int) {
-        val years = months / 12
-        txtTermValueCombined.text = "$years yrs ($months mos)"
-        txtInstallments.text = "$months EMIs"
-    }
+
 
     private fun setupButtonAnimation(button: View) {
         button.setOnTouchListener { view, event ->
@@ -504,7 +415,7 @@ class MortgageLoanActivity : BaseInputActivity() {
     private fun calculateAndNavigate() {
         val loanAmount = getRawValue(etAmount)
         val rate = etRate.text.toString().toDoubleOrNull() ?: 0.0
-        val months = if (seekBarTerm.progress < 60) 60 else seekBarTerm.progress
+        val months = loanTenureSelector.tenureMonths.coerceAtLeast(12)
 
         if (loanAmount <= 0) {
             etAmount.error = "Please enter valid mortgage loan amount"
@@ -585,13 +496,11 @@ class MortgageLoanActivity : BaseInputActivity() {
         etAnnualTax.setText("24,000")
         etAnnualInsurance.setText("12,000")
         etRate.setText("9.5")
-        seekBarTerm.progress = 180
-        updateTermDisplay(180)
+        loanTenureSelector.tenureMonths = 180
 
         highlightPropChip(chipProp1Cr)
         highlightLoanChip(chipLoan60L)
         highlightRateChip(chipRate9_5)
-        highlightTermChip(chipMortTerm15Y)
         setMortgageMode(false)
         updateLtvAnalysis()
 

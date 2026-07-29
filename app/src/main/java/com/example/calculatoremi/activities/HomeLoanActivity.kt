@@ -12,15 +12,14 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.animation.OvershootInterpolator
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.SeekBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.widget.NestedScrollView
 import com.example.calculatoremi.R
 import com.example.calculatoremi.model.PaymentScheduleItem
+import com.example.calculatoremi.views.LoanTenureSelectorView
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.switchmaterial.SwitchMaterial
@@ -57,11 +56,7 @@ class HomeLoanActivity : BaseInputActivity() {
 
     private lateinit var etAmount: EditText
     private lateinit var etRate: EditText
-    private lateinit var seekBarTerm: SeekBar
-    private lateinit var txtTermValueCombined: TextView
-    private lateinit var txtInstallments: TextView
-    private lateinit var btnAdd: ImageView
-    private lateinit var btnMinus: ImageView
+    private lateinit var loanTenureSelector: LoanTenureSelectorView
     private lateinit var btnCalculate: MaterialButton
     private lateinit var btnReset: MaterialButton
     private lateinit var txtSelectedDate: TextView
@@ -76,13 +71,6 @@ class HomeLoanActivity : BaseInputActivity() {
     private lateinit var chipRate8_5: MaterialButton
     private lateinit var chipRate9_5: MaterialButton
     private lateinit var chipRate10_5: MaterialButton
-
-    private lateinit var chipTerm5Y: MaterialButton
-    private lateinit var chipTerm10Y: MaterialButton
-    private lateinit var chipTerm15Y: MaterialButton
-    private lateinit var chipTerm20Y: MaterialButton
-    private lateinit var chipTerm25Y: MaterialButton
-    private lateinit var chipTerm30Y: MaterialButton
 
     // ================= ELIGIBILITY VIEWS =================
     private lateinit var etMonthlyIncome: EditText
@@ -234,12 +222,7 @@ class HomeLoanActivity : BaseInputActivity() {
 
         etAmount = findViewById(R.id.editTextNumber)
         etRate = findViewById(R.id.editTextNumber2)
-        seekBarTerm = findViewById(R.id.loanSeekBar)
-        txtTermValueCombined = findViewById(R.id.txtTermValueCombined)
-        txtInstallments = findViewById(R.id.txtInstallments)
-
-        btnAdd = findViewById(R.id.btnAdd)
-        btnMinus = findViewById(R.id.btnMinus)
+        loanTenureSelector = findViewById(R.id.loanTenureSelector)
 
         btnCalculate = findViewById(R.id.btnCalculate)
         btnReset = findViewById(R.id.btnReset)
@@ -256,18 +239,10 @@ class HomeLoanActivity : BaseInputActivity() {
         chipRate9_5 = findViewById(R.id.chipRate9_5)
         chipRate10_5 = findViewById(R.id.chipRate10_5)
 
-        chipTerm5Y = findViewById(R.id.chipTerm5Y)
-        chipTerm10Y = findViewById(R.id.chipTerm10Y)
-        chipTerm15Y = findViewById(R.id.chipTerm15Y)
-        chipTerm20Y = findViewById(R.id.chipTerm20Y)
-        chipTerm25Y = findViewById(R.id.chipTerm25Y)
-        chipTerm30Y = findViewById(R.id.chipTerm30Y)
-
         val emiChips = listOf(
             chipDp10, chipDp15, chipDp20, chipDp25,
             chipAmount20L, chipAmount50L, chipAmount75L, chipAmount1Cr,
-            chipRate7_5, chipRate8_5, chipRate9_5, chipRate10_5,
-            chipTerm5Y, chipTerm10Y, chipTerm15Y, chipTerm20Y, chipTerm25Y, chipTerm30Y
+            chipRate7_5, chipRate8_5, chipRate9_5, chipRate10_5
         )
         emiChips.forEach { setupChipTouchAnimation(it) }
 
@@ -303,33 +278,6 @@ class HomeLoanActivity : BaseInputActivity() {
             showDatePicker()
         }
 
-        // SeekBar (12 to 360 months / 1 to 30 years for Home Loans)
-        seekBarTerm.max = 360
-        seekBarTerm.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                val actualProgress = if (progress < 12) 12 else progress
-                updateTermDisplay(actualProgress)
-                if (fromUser) clearTermChipSelection()
-            }
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
-        })
-
-        btnAdd.setOnClickListener {
-            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-            if (seekBarTerm.progress < seekBarTerm.max) {
-                seekBarTerm.progress += 12
-                clearTermChipSelection()
-            }
-        }
-        btnMinus.setOnClickListener {
-            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-            if (seekBarTerm.progress > 12) {
-                seekBarTerm.progress -= 12
-                clearTermChipSelection()
-            }
-        }
-
         // Amount Chips
         chipAmount20L.setOnClickListener { setQuickAmount(2000000.0); highlightAmountChip(chipAmount20L) }
         chipAmount50L.setOnClickListener { setQuickAmount(5000000.0); highlightAmountChip(chipAmount50L) }
@@ -341,14 +289,6 @@ class HomeLoanActivity : BaseInputActivity() {
         chipRate8_5.setOnClickListener { etRate.setText("8.5"); highlightRateChip(chipRate8_5) }
         chipRate9_5.setOnClickListener { etRate.setText("9.5"); highlightRateChip(chipRate9_5) }
         chipRate10_5.setOnClickListener { etRate.setText("10.5"); highlightRateChip(chipRate10_5) }
-
-        // Term Chips
-        chipTerm5Y.setOnClickListener { seekBarTerm.progress = 60; highlightTermChip(chipTerm5Y) }
-        chipTerm10Y.setOnClickListener { seekBarTerm.progress = 120; highlightTermChip(chipTerm10Y) }
-        chipTerm15Y.setOnClickListener { seekBarTerm.progress = 180; highlightTermChip(chipTerm15Y) }
-        chipTerm20Y.setOnClickListener { seekBarTerm.progress = 240; highlightTermChip(chipTerm20Y) }
-        chipTerm25Y.setOnClickListener { seekBarTerm.progress = 300; highlightTermChip(chipTerm25Y) }
-        chipTerm30Y.setOnClickListener { seekBarTerm.progress = 360; highlightTermChip(chipTerm30Y) }
 
         setupButtonAnimation(btnCalculate)
         setupButtonAnimation(btnReset)
@@ -368,11 +308,9 @@ class HomeLoanActivity : BaseInputActivity() {
         etDownPayment.setText("10,00,000")
         updatePropertyNetLoan()
         etRate.setText("8.5")
-        seekBarTerm.progress = 240
-        updateTermDisplay(240)
+        loanTenureSelector.tenureMonths = 240
         highlightAmountChip(chipAmount50L)
         highlightRateChip(chipRate8_5)
-        highlightTermChip(chipTerm20Y)
         highlightDpChip(chipDp20)
     }
 
@@ -586,7 +524,7 @@ class HomeLoanActivity : BaseInputActivity() {
     private fun calculateAndNavigate() {
         val amount = getRawValue(etAmount)
         val rate = etRate.text.toString().toDoubleOrNull() ?: 0.0
-        val totalMonths = if (seekBarTerm.progress < 12) 12 else seekBarTerm.progress
+        val totalMonths = loanTenureSelector.tenureMonths.coerceAtLeast(12)
 
         if (amount <= 0) {
             etAmount.error = "Please enter a valid loan amount"
@@ -647,6 +585,35 @@ class HomeLoanActivity : BaseInputActivity() {
             putExtra("SCHEDULE", schedule)
         }
         startActivity(intent)
+    }
+
+    private fun setupButtonAnimation(button: View) {
+        button.setOnTouchListener { view, event ->
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    view.animate().scaleX(0.97f).scaleY(0.97f).setDuration(80).start()
+                }
+                MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
+                    view.animate().scaleX(1.0f).scaleY(1.0f).setInterpolator(OvershootInterpolator(2.0f)).setDuration(150).start()
+                }
+            }
+            false
+        }
+    }
+
+    private fun showDatePicker() {
+        DatePickerDialog(
+            this,
+            { _, year, month, day ->
+                calendar.set(Calendar.YEAR, year)
+                calendar.set(Calendar.MONTH, month)
+                calendar.set(Calendar.DAY_OF_MONTH, day)
+                txtSelectedDate.text = dateFormatter.format(calendar.time)
+            },
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH)
+        ).show()
     }
 
     private fun setupChipTouchAnimation(button: MaterialButton) {
@@ -726,76 +693,14 @@ class HomeLoanActivity : BaseInputActivity() {
         }
     }
 
-    private fun highlightTermChip(selectedChip: MaterialButton) {
-        val termChips = listOf(chipTerm5Y, chipTerm10Y, chipTerm15Y, chipTerm20Y, chipTerm25Y, chipTerm30Y)
-        termChips.forEach { chip ->
-            if (chip == selectedChip) {
-                chip.setBackgroundColor(ContextCompat.getColor(this, R.color.custom_blue))
-                chip.setTextColor(ContextCompat.getColor(this, android.R.color.white))
-                chip.strokeWidth = 0
-            } else {
-                chip.setBackgroundColor(Color.parseColor("#F8FAFC"))
-                chip.setTextColor(Color.parseColor("#1E293B"))
-                chip.strokeColor = ColorStateList.valueOf(Color.parseColor("#CBD5E1"))
-                chip.strokeWidth = (1 * resources.displayMetrics.density).toInt()
-            }
-        }
-    }
-
-    private fun clearTermChipSelection() {
-        val termChips = listOf(chipTerm5Y, chipTerm10Y, chipTerm15Y, chipTerm20Y, chipTerm25Y, chipTerm30Y)
-        termChips.forEach { chip ->
-            chip.setBackgroundColor(Color.parseColor("#F8FAFC"))
-            chip.setTextColor(Color.parseColor("#1E293B"))
-            chip.strokeColor = ColorStateList.valueOf(Color.parseColor("#CBD5E1"))
-            chip.strokeWidth = (1 * resources.displayMetrics.density).toInt()
-        }
-    }
-
-    private fun updateTermDisplay(totalMonths: Int) {
-        txtTermValueCombined.text = formatTerm(totalMonths)
-        txtInstallments.text = "$totalMonths installments"
-    }
-
-    private fun setupButtonAnimation(button: View) {
-        button.setOnTouchListener { view, event ->
-            when (event.action) {
-                MotionEvent.ACTION_DOWN -> {
-                    view.animate().scaleX(0.97f).scaleY(0.97f).setDuration(80).start()
-                }
-                MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
-                    view.animate().scaleX(1.0f).scaleY(1.0f).setInterpolator(OvershootInterpolator(2.0f)).setDuration(150).start()
-                }
-            }
-            false
-        }
-    }
-
-    private fun showDatePicker() {
-        DatePickerDialog(
-            this,
-            { _, year, month, day ->
-                calendar.set(Calendar.YEAR, year)
-                calendar.set(Calendar.MONTH, month)
-                calendar.set(Calendar.DAY_OF_MONTH, day)
-                txtSelectedDate.text = dateFormatter.format(calendar.time)
-            },
-            calendar.get(Calendar.YEAR),
-            calendar.get(Calendar.MONTH),
-            calendar.get(Calendar.DAY_OF_MONTH)
-        ).show()
-    }
-
     private fun resetFields() {
         etPropertyValue.setText("50,00,000")
         etDownPayment.setText("10,00,000")
         updatePropertyNetLoan()
         etRate.setText("8.5")
-        seekBarTerm.progress = 240
-        updateTermDisplay(240)
+        loanTenureSelector.tenureMonths = 240
         highlightAmountChip(chipAmount50L)
         highlightRateChip(chipRate8_5)
-        highlightTermChip(chipTerm20Y)
         highlightDpChip(chipDp20)
 
         calendar = Calendar.getInstance()

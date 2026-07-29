@@ -25,8 +25,6 @@ class ToolsFragment : Fragment(R.layout.fragment_tools) {
             LoanItem("SIP Calculator", "Mutual Fund wealth growth & returns", R.drawable.ic_investment, R.color.cat_investment),
             LoanItem("FD Calculator", "Fixed Deposit compounding returns", R.drawable.ic_investment, R.color.cat_investment),
             LoanItem("RD Calculator", "Recurring Deposit maturity calculator", R.drawable.ic_investment, R.color.cat_investment),
-            LoanItem("GST Calculator", "Add or extract GST tax amounts", R.drawable.ic_tax, R.color.cat_tax),
-            LoanItem("Discount Calculator", "Calculate retail savings & net price", R.drawable.ic_tax, R.color.cat_tax),
             LoanItem("Prepayment Simulator", "Calculate interest saved by paying extra EMI", R.drawable.ic_home, R.color.cat_loan),
             LoanItem("Compare Loans", "Side-by-side comparison between Loan A & Loan B", R.drawable.ic_home, R.color.cat_loan)
         )
@@ -37,8 +35,6 @@ class ToolsFragment : Fragment(R.layout.fragment_tools) {
                 "SIP Calculator" -> Intent(requireContext(), SipCalculatorActivity::class.java)
                 "FD Calculator" -> Intent(requireContext(), FdCalculatorActivity::class.java)
                 "RD Calculator" -> Intent(requireContext(), RdCalculatorActivity::class.java)
-                "GST Calculator" -> Intent(requireContext(), GstCalculatorActivity::class.java)
-                "Discount Calculator" -> Intent(requireContext(), DiscountCalculatorActivity::class.java)
                 "Prepayment Simulator" -> Intent(requireContext(), PrepaymentSimulatorActivity::class.java)
                 "Compare Loans" -> Intent(requireContext(), LoanComparisonActivity::class.java)
                 else -> null

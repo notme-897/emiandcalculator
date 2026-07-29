@@ -159,9 +159,10 @@
                 android:layout_height="56dp"
                 android:text="Simulate Savings"
                 android:textAllCaps="false"
+                android:textColor="@android:color/white"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:backgroundTint="#1A56E4"
+                app:backgroundTint="@color/primary"
                 app:cornerRadius="18dp"
                 android:layout_marginBottom="24dp" />
 

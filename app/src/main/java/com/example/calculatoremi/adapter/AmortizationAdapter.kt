@@ -40,6 +40,7 @@ class AmortizationAdapter(
     override fun getItemCount(): Int = scheduleList.size
 
     private fun formatCurrency(value: Double): String {
-        return String.format(Locale.US, "%,.2f $", value)
+        val formatter = java.text.DecimalFormat("#,##,###.##")
+        return "₹" + formatter.format(value)
     }
 }

@@ -3,39 +3,45 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!-- Category Colors -->
-    <color name="cat_loan">#1565C0</color>
-    <color name="cat_investment">#2E7D32</color>
-    <color name="cat_tax">#C62828</color>
-    <color name="cat_salary">#F9A825</color>
-    <color name="cat_property">#6A1B9A</color>
-    <color name="cat_insurance">#00838F</color>
-    <color name="cat_utility">#455A64</color>
+    <!-- Modern Vibrant Category Colors -->
+    <color name="cat_loan">#4F46E5</color>       <!-- Royal Indigo -->
+    <color name="cat_investment">#10B981</color> <!-- Emerald Green -->
+    <color name="cat_tax">#EF4444</color>        <!-- Rose Red -->
+    <color name="cat_salary">#F59E0B</color>     <!-- Amber Gold -->
+    <color name="cat_property">#8B5CF6</color>   <!-- Violet Purple -->
+    <color name="cat_insurance">#06B6D4</color>  <!-- Cyan Teal -->
+    <color name="cat_utility">#64748B</color>    <!-- Slate Grey -->
 
-    <!-- Primary -->
-    <color name="primary">#1565C0</color>
-    <color name="primary_light">#42A5F5</color>
-    <color name="primary_dark">#0D47A1</color>
+    <!-- Primary Brand Colors (Vibrant Royal Indigo & Electric Blue) -->
+    <color name="primary">#4F46E5</color>
+    <color name="primary_light">#EEF2FF</color>
+    <color name="primary_dark">#3730A3</color>
 
-    <!-- Background -->
-    <color name="background">#F5F7FB</color>
+    <!-- Gradient Tokens -->
+    <color name="gradient_start">#6366F1</color>
+    <color name="gradient_end">#4338CA</color>
+    <color name="gradient_accent">#818CF8</color>
+
+    <!-- Background & Surface -->
+    <color name="background">#F8FAFC</color>
     <color name="surface">#FFFFFF</color>
 
-    <!-- Text -->
-    <color name="text_primary">#1A1A1A</color>
-    <color name="text_secondary">#757575</color>
+    <!-- Text Tokens -->
+    <color name="text_primary">#0F172A</color>
+    <color name="text_secondary">#64748B</color>
+    <color name="text_dark">#0F172A</color>
 
-    <!-- Accent -->
-    <color name="success">#00C853</color>
-    <color name="warning">#FF9800</color>
-    <color name="error">#E53935</color>
+    <!-- Status Accents -->
+    <color name="success">#10B981</color>
+    <color name="warning">#F59E0B</color>
+    <color name="error">#EF4444</color>
 
     <!-- Navigation -->
-    <color name="nav_selected">#1565C0</color>
-    <color name="nav_unselected">#9E9E9E</color>
+    <color name="nav_selected">#4F46E5</color>
+    <color name="nav_unselected">#94A3B8</color>
 
-   <!--color i chose -->
-    <color name="custom_blue">#3B99FC</color>
-    <color name="text_dark">#1d1d1f</color>
+    <!-- Custom Highlights -->
+    <color name="custom_blue">#4F46E5</color>
+    <color name="border_stroke">#E2E8F0</color>
 
 </resources>

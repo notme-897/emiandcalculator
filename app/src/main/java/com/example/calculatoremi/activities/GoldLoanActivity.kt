@@ -12,14 +12,13 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.animation.OvershootInterpolator
 import android.widget.EditText
-import android.widget.ImageView
-import android.widget.SeekBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.widget.NestedScrollView
 import com.example.calculatoremi.R
 import com.example.calculatoremi.model.PaymentScheduleItem
+import com.example.calculatoremi.views.LoanTenureSelectorView
 import com.google.android.material.button.MaterialButton
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
@@ -58,18 +57,8 @@ class GoldLoanActivity : BaseInputActivity() {
     private lateinit var chipRate10_5: MaterialButton
     private lateinit var chipRate12_0: MaterialButton
 
-    private lateinit var seekBarTerm: SeekBar
-    private lateinit var txtTermValueCombined: TextView
-    private lateinit var txtInstallments: TextView
+    private lateinit var loanTenureSelector: LoanTenureSelectorView
 
-    private lateinit var chipGoldTerm3M: MaterialButton
-    private lateinit var chipGoldTerm6M: MaterialButton
-    private lateinit var chipGoldTerm12M: MaterialButton
-    private lateinit var chipGoldTerm18M: MaterialButton
-    private lateinit var chipGoldTerm24M: MaterialButton
-
-    private lateinit var btnAdd: ImageView
-    private lateinit var btnMinus: ImageView
     private lateinit var btnCalculate: MaterialButton
     private lateinit var btnReset: MaterialButton
     private lateinit var txtSelectedDate: TextView
@@ -128,18 +117,8 @@ class GoldLoanActivity : BaseInputActivity() {
         chipRate10_5 = findViewById(R.id.chipRate10_5)
         chipRate12_0 = findViewById(R.id.chipRate12_0)
 
-        seekBarTerm = findViewById(R.id.loanSeekBar)
-        txtTermValueCombined = findViewById(R.id.txtTermValueCombined)
-        txtInstallments = findViewById(R.id.txtInstallments)
+        loanTenureSelector = findViewById(R.id.loanTenureSelector)
 
-        chipGoldTerm3M = findViewById(R.id.chipGoldTerm3M)
-        chipGoldTerm6M = findViewById(R.id.chipGoldTerm6M)
-        chipGoldTerm12M = findViewById(R.id.chipGoldTerm12M)
-        chipGoldTerm18M = findViewById(R.id.chipGoldTerm18M)
-        chipGoldTerm24M = findViewById(R.id.chipGoldTerm24M)
-
-        btnAdd = findViewById(R.id.btnAdd)
-        btnMinus = findViewById(R.id.btnMinus)
         btnCalculate = findViewById(R.id.btnCalculate)
         btnReset = findViewById(R.id.btnReset)
         txtSelectedDate = findViewById(R.id.txtSelectedDate)
@@ -151,8 +130,7 @@ class GoldLoanActivity : BaseInputActivity() {
             chipKarat18, chipKarat20, chipKarat22, chipKarat24,
             chipLtv60, chipLtv70, chipLtv75,
             btnSchemeBullet, btnSchemeInterestOnly, btnSchemeEmi,
-            chipRate8_5, chipRate9_5, chipRate10_5, chipRate12_0,
-            chipGoldTerm3M, chipGoldTerm6M, chipGoldTerm12M, chipGoldTerm18M, chipGoldTerm24M
+            chipRate8_5, chipRate9_5, chipRate10_5, chipRate12_0
         )
         allChips.forEach { setupChipTouchAnimation(it) }
 
@@ -205,40 +183,6 @@ class GoldLoanActivity : BaseInputActivity() {
             showDatePicker()
         }
 
-        // SeekBar (3 to 24 Months for Gold Loans)
-        seekBarTerm.max = 24
-        seekBarTerm.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                val actualProgress = if (progress < 3) 3 else progress
-                updateTermDisplay(actualProgress)
-                if (fromUser) clearTermChipSelection()
-            }
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
-        })
-
-        btnAdd.setOnClickListener {
-            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-            if (seekBarTerm.progress < seekBarTerm.max) {
-                seekBarTerm.progress += 3
-                clearTermChipSelection()
-            }
-        }
-        btnMinus.setOnClickListener {
-            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-            if (seekBarTerm.progress > 3) {
-                seekBarTerm.progress -= 3
-                clearTermChipSelection()
-            }
-        }
-
-        // Tenure Chips
-        chipGoldTerm3M.setOnClickListener { seekBarTerm.progress = 3; highlightTermChip(chipGoldTerm3M) }
-        chipGoldTerm6M.setOnClickListener { seekBarTerm.progress = 6; highlightTermChip(chipGoldTerm6M) }
-        chipGoldTerm12M.setOnClickListener { seekBarTerm.progress = 12; highlightTermChip(chipGoldTerm12M) }
-        chipGoldTerm18M.setOnClickListener { seekBarTerm.progress = 18; highlightTermChip(chipGoldTerm18M) }
-        chipGoldTerm24M.setOnClickListener { seekBarTerm.progress = 24; highlightTermChip(chipGoldTerm24M) }
-
         setupButtonAnimation(btnCalculate)
         setupButtonAnimation(btnReset)
 
@@ -256,14 +200,12 @@ class GoldLoanActivity : BaseInputActivity() {
         etGoldWeight.setText("50")
         etGoldRate.setText("7,200")
         etRate.setText("9.5")
-        seekBarTerm.progress = 12
-        updateTermDisplay(12)
+        loanTenureSelector.tenureMonths = 12
 
         highlightWeightChip(chipWeight50g)
         highlightKaratChip(chipKarat22)
         highlightLtvChip(chipLtv75)
         highlightRateChip(chipRate9_5)
-        highlightTermChip(chipGoldTerm12M)
         setRepaymentScheme(GoldRepaymentScheme.BULLET)
         updateGoldValuation()
     }
@@ -436,36 +378,9 @@ class GoldLoanActivity : BaseInputActivity() {
         }
     }
 
-    private fun highlightTermChip(selectedChip: MaterialButton) {
-        val termChips = listOf(chipGoldTerm3M, chipGoldTerm6M, chipGoldTerm12M, chipGoldTerm18M, chipGoldTerm24M)
-        termChips.forEach { chip ->
-            if (chip == selectedChip) {
-                chip.setBackgroundColor(ContextCompat.getColor(this, R.color.custom_blue))
-                chip.setTextColor(ContextCompat.getColor(this, android.R.color.white))
-                chip.strokeWidth = 0
-            } else {
-                chip.setBackgroundColor(Color.parseColor("#F8FAFC"))
-                chip.setTextColor(Color.parseColor("#1E293B"))
-                chip.strokeColor = ColorStateList.valueOf(Color.parseColor("#CBD5E1"))
-                chip.strokeWidth = (1 * resources.displayMetrics.density).toInt()
-            }
-        }
-    }
 
-    private fun clearTermChipSelection() {
-        val termChips = listOf(chipGoldTerm3M, chipGoldTerm6M, chipGoldTerm12M, chipGoldTerm18M, chipGoldTerm24M)
-        termChips.forEach { chip ->
-            chip.setBackgroundColor(Color.parseColor("#F8FAFC"))
-            chip.setTextColor(Color.parseColor("#1E293B"))
-            chip.strokeColor = ColorStateList.valueOf(Color.parseColor("#CBD5E1"))
-            chip.strokeWidth = (1 * resources.displayMetrics.density).toInt()
-        }
-    }
 
-    private fun updateTermDisplay(months: Int) {
-        txtTermValueCombined.text = "$months months"
-        txtInstallments.text = "$months payments"
-    }
+
 
     private fun setupButtonAnimation(button: View) {
         button.setOnTouchListener { view, event ->
@@ -500,7 +415,7 @@ class GoldLoanActivity : BaseInputActivity() {
         val weight = getRawValue(etGoldWeight)
         val ratePerGram = getRawValue(etGoldRate)
         val interestRate = etRate.text.toString().toDoubleOrNull() ?: 0.0
-        val months = if (seekBarTerm.progress < 3) 3 else seekBarTerm.progress
+        val months = loanTenureSelector.tenureMonths.coerceAtLeast(12)
 
         if (weight <= 0) {
             etGoldWeight.error = "Please enter valid gold weight"
@@ -529,7 +444,7 @@ class GoldLoanActivity : BaseInputActivity() {
             GoldRepaymentScheme.BULLET -> {
                 totalInterest = loanAmount * (interestRate / 100.0) * (months / 12.0)
                 totalCost = loanAmount + totalInterest
-                periodicEmi = 0.0 // Pay $0 monthly
+                periodicEmi = 0.0 // Pay ₹0 monthly — full principal + accrued interest due at maturity
             }
             GoldRepaymentScheme.MONTHLY_INTEREST_ONLY -> {
                 periodicEmi = loanAmount * monthlyInterestRate
@@ -632,8 +547,7 @@ class GoldLoanActivity : BaseInputActivity() {
         etGoldWeight.setText("50")
         etGoldRate.setText("7,200")
         etRate.setText("9.5")
-        seekBarTerm.progress = 12
-        updateTermDisplay(12)
+        loanTenureSelector.tenureMonths = 12
 
         selectedKarat = 22.0
         selectedLtv = 75.0
@@ -642,7 +556,6 @@ class GoldLoanActivity : BaseInputActivity() {
         highlightKaratChip(chipKarat22)
         highlightLtvChip(chipLtv75)
         highlightRateChip(chipRate9_5)
-        highlightTermChip(chipGoldTerm12M)
         setRepaymentScheme(GoldRepaymentScheme.BULLET)
         updateGoldValuation()
 

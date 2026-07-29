@@ -51,8 +51,8 @@ abstract class BaseInputActivity : AppCompatActivity() {
         }
     }
 
-    protected fun setupTouchScaleAnimation(view: View) {
-        view.setOnTouchListener { v, event ->
+    protected fun setupTouchScaleAnimation(view: View?) {
+        view?.setOnTouchListener { v, event ->
             when (event.action) {
                 MotionEvent.ACTION_DOWN -> {
                     v.animate().scaleX(0.95f).scaleY(0.95f).setDuration(80).start()
@@ -74,17 +74,37 @@ abstract class BaseInputActivity : AppCompatActivity() {
     abstract fun getActivityTitle(): String
 
     protected fun formatCurrency(amount: Double): String {
-        return String.format(Locale.US, "%,.2f $", amount)
+        val formatter = java.text.DecimalFormat("#,##,###.##")
+        return "₹" + formatter.format(amount)
+    }
+
+    protected fun formatTenureMonths(totalMonths: Int): String {
+        val safeMonths = if (totalMonths < 1) 1 else totalMonths
+        val years = safeMonths / 12
+        val months = safeMonths % 12
+
+        val yearPart = when (years) {
+            0 -> ""
+            1 -> "1 Year"
+            else -> "$years Years"
+        }
+
+        val monthPart = when (months) {
+            0 -> ""
+            1 -> "1 Month"
+            else -> "$months Months"
+        }
+
+        return when {
+            yearPart.isNotEmpty() && monthPart.isNotEmpty() -> "$yearPart $monthPart"
+            yearPart.isNotEmpty() -> yearPart
+            monthPart.isNotEmpty() -> monthPart
+            else -> "1 Month"
+        }
     }
 
     protected fun formatTerm(months: Int): String {
-        val years = months / 12
-        val remMonths = months % 12
-        return when {
-            years > 0 && remMonths > 0 -> "$years yrs $remMonths mos"
-            years > 0 -> "$years yrs"
-            else -> "$remMonths mos"
-        }
+        return formatTenureMonths(months)
     }
 }
 

@@ -43,13 +43,24 @@
         <activity android:name=".activities.PrepaymentSimulatorActivity" android:exported="false" />
         <activity android:name=".activities.LoanComparisonActivity" android:exported="false" />
 
-        <!-- Investment & Tax Activities -->
+        <!-- Investment & Utility Activities -->
         <activity android:name=".activities.SipCalculatorActivity" android:exported="false" />
+        <activity android:name=".activities.LumpsumCalculatorActivity" android:exported="false" />
         <activity android:name=".activities.FdCalculatorActivity" android:exported="false" />
         <activity android:name=".activities.RdCalculatorActivity" android:exported="false" />
-        <activity android:name=".activities.GstCalculatorActivity" android:exported="false" />
+        <activity android:name=".activities.PpfCalculatorActivity" android:exported="false" />
         <activity android:name=".activities.DiscountCalculatorActivity" android:exported="false" />
-
+        <!-- Salary Tools Activities -->
+        <activity android:name=".activities.CtcToInHandActivity" android:exported="false" />
+        <activity android:name=".activities.GrossToNetActivity" android:exported="false" />
+        <activity android:name=".activities.PaySlipGeneratorActivity" android:exported="false" />
+        <activity android:name=".activities.NetToGrossActivity" android:exported="false" />
+        <activity android:name=".activities.SalaryHikeActivity" android:exported="false" />
+        <activity android:name=".activities.JobOfferComparatorActivity" android:exported="false" />
+        <activity android:name=".activities.RelocationAdjusterActivity" android:exported="false" />
+        <activity android:name=".activities.HourlyToAnnualActivity" android:exported="false" />
+        <activity android:name=".activities.FreelanceRateEstimatorActivity" android:exported="false" />
+        <activity android:name=".activities.ProratedSalaryActivity" android:exported="false" />
     </application>
 
 </manifest>

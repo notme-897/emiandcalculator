@@ -12,15 +12,13 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.animation.OvershootInterpolator
 import android.widget.EditText
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.SeekBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.widget.NestedScrollView
 import com.example.calculatoremi.R
 import com.example.calculatoremi.model.PaymentScheduleItem
+import com.example.calculatoremi.views.LoanTenureSelectorView
 import com.google.android.material.button.MaterialButton
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
@@ -50,16 +48,7 @@ class BusinessLoanActivity : BaseInputActivity() {
     private lateinit var chipRate14_5: MaterialButton
     private lateinit var chipRate16_0: MaterialButton
 
-    private lateinit var seekBarTerm: SeekBar
-    private lateinit var txtTermValueCombined: TextView
-    private lateinit var txtInstallments: TextView
-
-    private lateinit var chipBizTerm1Y: MaterialButton
-    private lateinit var chipBizTerm2Y: MaterialButton
-    private lateinit var chipBizTerm3Y: MaterialButton
-    private lateinit var chipBizTerm5Y: MaterialButton
-    private lateinit var chipBizTerm7Y: MaterialButton
-    private lateinit var chipBizTerm10Y: MaterialButton
+    private lateinit var loanTenureSelector: LoanTenureSelectorView
 
     private lateinit var etOperatingIncome: EditText
     private lateinit var etExistingBizDebt: EditText
@@ -74,8 +63,6 @@ class BusinessLoanActivity : BaseInputActivity() {
     private lateinit var txtTaxSavingsDisplay: TextView
     private lateinit var txtEffectiveInterestAfterTaxDisplay: TextView
 
-    private lateinit var btnAdd: ImageView
-    private lateinit var btnMinus: ImageView
     private lateinit var btnCalculate: MaterialButton
     private lateinit var btnReset: MaterialButton
     private lateinit var txtSelectedDate: TextView
@@ -123,16 +110,7 @@ class BusinessLoanActivity : BaseInputActivity() {
         chipRate14_5 = findViewById(R.id.chipRate14_5)
         chipRate16_0 = findViewById(R.id.chipRate16_0)
 
-        seekBarTerm = findViewById(R.id.loanSeekBar)
-        txtTermValueCombined = findViewById(R.id.txtTermValueCombined)
-        txtInstallments = findViewById(R.id.txtInstallments)
-
-        chipBizTerm1Y = findViewById(R.id.chipBizTerm1Y)
-        chipBizTerm2Y = findViewById(R.id.chipBizTerm2Y)
-        chipBizTerm3Y = findViewById(R.id.chipBizTerm3Y)
-        chipBizTerm5Y = findViewById(R.id.chipBizTerm5Y)
-        chipBizTerm7Y = findViewById(R.id.chipBizTerm7Y)
-        chipBizTerm10Y = findViewById(R.id.chipBizTerm10Y)
+        loanTenureSelector = findViewById(R.id.loanTenureSelector)
 
         etOperatingIncome = findViewById(R.id.etOperatingIncome)
         etExistingBizDebt = findViewById(R.id.etExistingBizDebt)
@@ -147,8 +125,6 @@ class BusinessLoanActivity : BaseInputActivity() {
         txtTaxSavingsDisplay = findViewById(R.id.txtTaxSavingsDisplay)
         txtEffectiveInterestAfterTaxDisplay = findViewById(R.id.txtEffectiveInterestAfterTaxDisplay)
 
-        btnAdd = findViewById(R.id.btnAdd)
-        btnMinus = findViewById(R.id.btnMinus)
         btnCalculate = findViewById(R.id.btnCalculate)
         btnReset = findViewById(R.id.btnReset)
         txtSelectedDate = findViewById(R.id.txtSelectedDate)
@@ -159,7 +135,6 @@ class BusinessLoanActivity : BaseInputActivity() {
             chipAmount5L, chipAmount10L, chipAmount25L, chipAmount50L, chipAmount1Cr,
             btnFreqMonthly, btnFreqBiWeekly, btnFreqWeekly, btnFreqDaily,
             chipRate10_5, chipRate12_0, chipRate14_5, chipRate16_0,
-            chipBizTerm1Y, chipBizTerm2Y, chipBizTerm3Y, chipBizTerm5Y, chipBizTerm7Y, chipBizTerm10Y,
             chipTax15, chipTax22, chipTax25, chipTax30
         )
         allChips.forEach { setupChipTouchAnimation(it) }
@@ -216,32 +191,8 @@ class BusinessLoanActivity : BaseInputActivity() {
             showDatePicker()
         }
 
-        // SeekBar (12 to 120 months / 1 to 10 years for Business Loans)
-        seekBarTerm.max = 120
-        seekBarTerm.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                val actualProgress = if (progress < 12) 12 else progress
-                updateTermDisplay(actualProgress)
-                if (fromUser) clearTermChipSelection()
-                updateDscrAndTaxAnalysis()
-            }
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
-        })
-
-        btnAdd.setOnClickListener {
-            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-            if (seekBarTerm.progress < seekBarTerm.max) {
-                seekBarTerm.progress += 12
-                clearTermChipSelection()
-            }
-        }
-        btnMinus.setOnClickListener {
-            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-            if (seekBarTerm.progress > 12) {
-                seekBarTerm.progress -= 12
-                clearTermChipSelection()
-            }
+        loanTenureSelector.setOnTenureChangedListener {
+            updateDscrAndTaxAnalysis()
         }
 
         // Rate Chips
@@ -249,17 +200,6 @@ class BusinessLoanActivity : BaseInputActivity() {
         chipRate12_0.setOnClickListener { etRate.setText("12.0"); highlightRateChip(chipRate12_0) }
         chipRate14_5.setOnClickListener { etRate.setText("14.5"); highlightRateChip(chipRate14_5) }
         chipRate16_0.setOnClickListener { etRate.setText("16.0"); highlightRateChip(chipRate16_0) }
-
-        // Term Chips
-        chipBizTerm1Y.setOnClickListener { seekBarTerm.progress = 12; highlightTermChip(chipBizTerm1Y) }
-        chipBizTerm2Y.setOnClickListener { seekBarTerm.progress = 24; highlightTermChip(chipBizTerm2Y) }
-        chipBizTerm3Y.setOnClickListener { seekBarTerm.progress = 36; highlightTermChip(chipBizTerm3Y) }
-        chipBizTerm5Y.setOnClickListener { seekBarTerm.progress = 60; highlightTermChip(chipBizTerm5Y) }
-        chipBizTerm7Y.setOnClickListener { seekBarTerm.progress = 84; highlightTermChip(chipBizTerm7Y) }
-        chipBizTerm10Y.setOnClickListener { seekBarTerm.progress = 120; highlightTermChip(chipBizTerm10Y) }
-
-        setupButtonAnimation(btnCalculate)
-        setupButtonAnimation(btnReset)
 
         btnCalculate.setOnClickListener {
             it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
@@ -277,8 +217,7 @@ class BusinessLoanActivity : BaseInputActivity() {
         updateNetDisbursed()
 
         etRate.setText("13.5")
-        seekBarTerm.progress = 36
-        updateTermDisplay(36)
+        loanTenureSelector.tenureMonths = 36
 
         etOperatingIncome.setText("2,50,000")
         etExistingBizDebt.setText("20,000")
@@ -286,7 +225,6 @@ class BusinessLoanActivity : BaseInputActivity() {
 
         highlightAmountChip(chipAmount15LOrClosest())
         highlightRateChip(null)
-        highlightTermChip(chipBizTerm3Y)
         highlightTaxChip(chipTax25)
         setRepaymentFrequency(RepaymentFreq.MONTHLY)
         updateDscrAndTaxAnalysis()
@@ -348,8 +286,6 @@ class BusinessLoanActivity : BaseInputActivity() {
         applyStyle(btnFreqWeekly, freq == RepaymentFreq.WEEKLY)
         applyStyle(btnFreqDaily, freq == RepaymentFreq.DAILY)
 
-        val totalMonths = if (seekBarTerm.progress < 12) 12 else seekBarTerm.progress
-        updateTermDisplay(totalMonths)
         updateDscrAndTaxAnalysis()
     }
 
@@ -373,7 +309,7 @@ class BusinessLoanActivity : BaseInputActivity() {
     private fun updateDscrAndTaxAnalysis() {
         val loanAmount = getRawValue(etAmount)
         val rate = etRate.text.toString().toDoubleOrNull() ?: 0.0
-        val totalMonths = if (seekBarTerm.progress < 12) 12 else seekBarTerm.progress
+        val totalMonths = loanTenureSelector.tenureMonths.coerceAtLeast(12)
         val years = totalMonths / 12.0
 
         val operatingIncome = getRawValue(etOperatingIncome)
@@ -518,38 +454,7 @@ class BusinessLoanActivity : BaseInputActivity() {
         }
     }
 
-    private fun highlightTermChip(selectedChip: MaterialButton) {
-        val termChips = listOf(chipBizTerm1Y, chipBizTerm2Y, chipBizTerm3Y, chipBizTerm5Y, chipBizTerm7Y, chipBizTerm10Y)
-        termChips.forEach { chip ->
-            if (chip == selectedChip) {
-                chip.setBackgroundColor(ContextCompat.getColor(this, R.color.custom_blue))
-                chip.setTextColor(ContextCompat.getColor(this, android.R.color.white))
-                chip.strokeWidth = 0
-            } else {
-                chip.setBackgroundColor(Color.parseColor("#F8FAFC"))
-                chip.setTextColor(Color.parseColor("#1E293B"))
-                chip.strokeColor = ColorStateList.valueOf(Color.parseColor("#CBD5E1"))
-                chip.strokeWidth = (1 * resources.displayMetrics.density).toInt()
-            }
-        }
-    }
 
-    private fun clearTermChipSelection() {
-        val termChips = listOf(chipBizTerm1Y, chipBizTerm2Y, chipBizTerm3Y, chipBizTerm5Y, chipBizTerm7Y, chipBizTerm10Y)
-        termChips.forEach { chip ->
-            chip.setBackgroundColor(Color.parseColor("#F8FAFC"))
-            chip.setTextColor(Color.parseColor("#1E293B"))
-            chip.strokeColor = ColorStateList.valueOf(Color.parseColor("#CBD5E1"))
-            chip.strokeWidth = (1 * resources.displayMetrics.density).toInt()
-        }
-    }
-
-    private fun updateTermDisplay(totalMonths: Int) {
-        val years = totalMonths / 12.0
-        val totalPeriods = (years * selectedFrequency.periodsPerYear).toInt()
-        txtTermValueCombined.text = formatTerm(totalMonths)
-        txtInstallments.text = "$totalPeriods ${selectedFrequency.label.lowercase()} installments"
-    }
 
     private fun setupButtonAnimation(button: View) {
         button.setOnTouchListener { view, event ->
@@ -583,7 +488,7 @@ class BusinessLoanActivity : BaseInputActivity() {
     private fun calculateAndNavigate() {
         val amount = getRawValue(etAmount)
         val rate = etRate.text.toString().toDoubleOrNull() ?: 0.0
-        val totalMonths = if (seekBarTerm.progress < 12) 12 else seekBarTerm.progress
+        val totalMonths = loanTenureSelector.tenureMonths.coerceAtLeast(12)
 
         if (amount <= 0) {
             etAmount.error = "Please enter a valid loan amount"
@@ -663,8 +568,7 @@ class BusinessLoanActivity : BaseInputActivity() {
         updateNetDisbursed()
 
         etRate.setText("13.5")
-        seekBarTerm.progress = 36
-        updateTermDisplay(36)
+        loanTenureSelector.tenureMonths = 36
 
         etOperatingIncome.setText("2,50,000")
         etExistingBizDebt.setText("20,000")
@@ -672,7 +576,6 @@ class BusinessLoanActivity : BaseInputActivity() {
 
         highlightAmountChip(chipAmount10L)
         highlightRateChip(null)
-        highlightTermChip(chipBizTerm3Y)
         highlightTaxChip(chipTax25)
         setRepaymentFrequency(RepaymentFreq.MONTHLY)
         updateDscrAndTaxAnalysis()

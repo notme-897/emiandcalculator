@@ -12,15 +12,14 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.animation.OvershootInterpolator
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.SeekBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.widget.NestedScrollView
 import com.example.calculatoremi.R
 import com.example.calculatoremi.model.PaymentScheduleItem
+import com.example.calculatoremi.views.LoanTenureSelectorView
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
 import java.text.DecimalFormat
@@ -50,25 +49,14 @@ class CarLoanActivity : BaseInputActivity() {
 
     private lateinit var etAmount: EditText
     private lateinit var etRate: EditText
-    private lateinit var seekBarTerm: SeekBar
-    private lateinit var txtTermValueCombined: TextView
-    private lateinit var txtInstallments: TextView
+    private lateinit var loanTenureSelector: LoanTenureSelectorView
 
     private lateinit var chipRate7_5: MaterialButton
     private lateinit var chipRate8_5: MaterialButton
     private lateinit var chipRate9_5: MaterialButton
     private lateinit var chipRate10_5: MaterialButton
 
-    private lateinit var chipCarTerm1Y: MaterialButton
-    private lateinit var chipCarTerm2Y: MaterialButton
-    private lateinit var chipCarTerm3Y: MaterialButton
-    private lateinit var chipCarTerm4Y: MaterialButton
-    private lateinit var chipCarTerm5Y: MaterialButton
-    private lateinit var chipCarTerm7Y: MaterialButton
-
     private lateinit var etProcessingFee: EditText
-    private lateinit var btnAdd: ImageView
-    private lateinit var btnMinus: ImageView
     private lateinit var btnCalculate: MaterialButton
     private lateinit var btnReset: MaterialButton
     private lateinit var txtSelectedDate: TextView
@@ -112,25 +100,14 @@ class CarLoanActivity : BaseInputActivity() {
 
         etAmount = findViewById(R.id.editTextNumber)
         etRate = findViewById(R.id.editTextNumber2)
-        seekBarTerm = findViewById(R.id.loanSeekBar)
-        txtTermValueCombined = findViewById(R.id.txtTermValueCombined)
-        txtInstallments = findViewById(R.id.txtInstallments)
+        loanTenureSelector = findViewById(R.id.loanTenureSelector)
 
         chipRate7_5 = findViewById(R.id.chipRate7_5)
         chipRate8_5 = findViewById(R.id.chipRate8_5)
         chipRate9_5 = findViewById(R.id.chipRate9_5)
         chipRate10_5 = findViewById(R.id.chipRate10_5)
 
-        chipCarTerm1Y = findViewById(R.id.chipCarTerm1Y)
-        chipCarTerm2Y = findViewById(R.id.chipCarTerm2Y)
-        chipCarTerm3Y = findViewById(R.id.chipCarTerm3Y)
-        chipCarTerm4Y = findViewById(R.id.chipCarTerm4Y)
-        chipCarTerm5Y = findViewById(R.id.chipCarTerm5Y)
-        chipCarTerm7Y = findViewById(R.id.chipCarTerm7Y)
-
         etProcessingFee = findViewById(R.id.etProcessingFee)
-        btnAdd = findViewById(R.id.btnAdd)
-        btnMinus = findViewById(R.id.btnMinus)
         btnCalculate = findViewById(R.id.btnCalculate)
         btnReset = findViewById(R.id.btnReset)
         txtSelectedDate = findViewById(R.id.txtSelectedDate)
@@ -144,7 +121,6 @@ class CarLoanActivity : BaseInputActivity() {
         val allChips = listOf(
             chipCarDp10, chipCarDp15, chipCarDp20, chipCarDp25, chipCarDp30,
             chipRate7_5, chipRate8_5, chipRate9_5, chipRate10_5,
-            chipCarTerm1Y, chipCarTerm2Y, chipCarTerm3Y, chipCarTerm4Y, chipCarTerm5Y, chipCarTerm7Y,
             btnRateTypeReducing, btnRateTypeFlat
         )
         allChips.forEach { setupChipTouchAnimation(it) }
@@ -190,32 +166,9 @@ class CarLoanActivity : BaseInputActivity() {
             showDatePicker()
         }
 
-        // Car Loan SeekBar (12 to 84 months / 1 to 7 years)
-        seekBarTerm.max = 84
-        seekBarTerm.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                val actualProgress = if (progress < 12) 12 else progress
-                updateTermDisplay(actualProgress)
-                if (fromUser) clearTermChipSelection()
-                updateFlatRateWarningDisplay()
-            }
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
-        })
-
-        btnAdd.setOnClickListener {
-            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-            if (seekBarTerm.progress < seekBarTerm.max) {
-                seekBarTerm.progress += 12
-                clearTermChipSelection()
-            }
-        }
-        btnMinus.setOnClickListener {
-            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-            if (seekBarTerm.progress > 12) {
-                seekBarTerm.progress -= 12
-                clearTermChipSelection()
-            }
+        loanTenureSelector.setOnTenureChangedListener {
+            updateFlatRateWarningDisplay()
+            updateDepreciationAnalysisPreview()
         }
 
         // Rate Chips
@@ -223,14 +176,6 @@ class CarLoanActivity : BaseInputActivity() {
         chipRate8_5.setOnClickListener { etRate.setText("8.5"); highlightRateChip(chipRate8_5) }
         chipRate9_5.setOnClickListener { etRate.setText("9.5"); highlightRateChip(chipRate9_5) }
         chipRate10_5.setOnClickListener { etRate.setText("10.5"); highlightRateChip(chipRate10_5) }
-
-        // Car Term Chips
-        chipCarTerm1Y.setOnClickListener { seekBarTerm.progress = 12; highlightTermChip(chipCarTerm1Y) }
-        chipCarTerm2Y.setOnClickListener { seekBarTerm.progress = 24; highlightTermChip(chipCarTerm2Y) }
-        chipCarTerm3Y.setOnClickListener { seekBarTerm.progress = 36; highlightTermChip(chipCarTerm3Y) }
-        chipCarTerm4Y.setOnClickListener { seekBarTerm.progress = 48; highlightTermChip(chipCarTerm4Y) }
-        chipCarTerm5Y.setOnClickListener { seekBarTerm.progress = 60; highlightTermChip(chipCarTerm5Y) }
-        chipCarTerm7Y.setOnClickListener { seekBarTerm.progress = 84; highlightTermChip(chipCarTerm7Y) }
 
         setupButtonAnimation(btnCalculate)
         setupButtonAnimation(btnReset)
@@ -251,12 +196,10 @@ class CarLoanActivity : BaseInputActivity() {
         etTradeInValue.setText("1,00,000")
         updateCarNetLoan()
         etRate.setText("9.0")
-        seekBarTerm.progress = 60
+        loanTenureSelector.tenureMonths = 60
         etProcessingFee.setText("5,000")
-        updateTermDisplay(60)
 
         highlightRateChip(null)
-        highlightTermChip(chipCarTerm5Y)
         highlightDpChip(chipCarDp20)
         setRateCalculationMode(false)
         updateDepreciationAnalysisPreview()
@@ -327,7 +270,7 @@ class CarLoanActivity : BaseInputActivity() {
     private fun updateFlatRateWarningDisplay() {
         if (!isFlatRateMode) return
         val flatRate = etRate.text.toString().toDoubleOrNull() ?: 0.0
-        val months = if (seekBarTerm.progress < 12) 12 else seekBarTerm.progress
+        val months = loanTenureSelector.tenureMonths.coerceAtLeast(12)
         val years = months / 12.0
 
         if (flatRate > 0 && years > 0) {
@@ -383,7 +326,7 @@ class CarLoanActivity : BaseInputActivity() {
         val netLoan = getRawValue(etAmount)
         val rate = etRate.text.toString().toDoubleOrNull() ?: 0.0
         val processingFee = getRawValue(etProcessingFee)
-        val totalMonths = if (seekBarTerm.progress < 12) 12 else seekBarTerm.progress
+        val totalMonths = loanTenureSelector.tenureMonths.coerceAtLeast(12)
 
         if (netLoan <= 0 || rate <= 0 || vehiclePrice <= 0) return
 
@@ -482,36 +425,7 @@ class CarLoanActivity : BaseInputActivity() {
         }
     }
 
-    private fun highlightTermChip(selectedChip: MaterialButton) {
-        val termChips = listOf(chipCarTerm1Y, chipCarTerm2Y, chipCarTerm3Y, chipCarTerm4Y, chipCarTerm5Y, chipCarTerm7Y)
-        termChips.forEach { chip ->
-            if (chip == selectedChip) {
-                chip.setBackgroundColor(ContextCompat.getColor(this, R.color.custom_blue))
-                chip.setTextColor(ContextCompat.getColor(this, android.R.color.white))
-                chip.strokeWidth = 0
-            } else {
-                chip.setBackgroundColor(Color.parseColor("#F8FAFC"))
-                chip.setTextColor(Color.parseColor("#1E293B"))
-                chip.strokeColor = ColorStateList.valueOf(Color.parseColor("#CBD5E1"))
-                chip.strokeWidth = (1 * resources.displayMetrics.density).toInt()
-            }
-        }
-    }
 
-    private fun clearTermChipSelection() {
-        val termChips = listOf(chipCarTerm1Y, chipCarTerm2Y, chipCarTerm3Y, chipCarTerm4Y, chipCarTerm5Y, chipCarTerm7Y)
-        termChips.forEach { chip ->
-            chip.setBackgroundColor(Color.parseColor("#F8FAFC"))
-            chip.setTextColor(Color.parseColor("#1E293B"))
-            chip.strokeColor = ColorStateList.valueOf(Color.parseColor("#CBD5E1"))
-            chip.strokeWidth = (1 * resources.displayMetrics.density).toInt()
-        }
-    }
-
-    private fun updateTermDisplay(totalMonths: Int) {
-        txtTermValueCombined.text = formatTerm(totalMonths)
-        txtInstallments.text = "$totalMonths installments"
-    }
 
     private fun setupButtonAnimation(button: View) {
         button.setOnTouchListener { view, event ->
@@ -545,7 +459,7 @@ class CarLoanActivity : BaseInputActivity() {
     private fun calculateAndNavigate() {
         val amount = getRawValue(etAmount)
         val rate = etRate.text.toString().toDoubleOrNull() ?: 0.0
-        val totalMonths = if (seekBarTerm.progress < 12) 12 else seekBarTerm.progress
+        val totalMonths = loanTenureSelector.tenureMonths.coerceAtLeast(12)
 
         if (amount <= 0) {
             etAmount.error = "Please enter a valid net loan amount"
@@ -626,12 +540,10 @@ class CarLoanActivity : BaseInputActivity() {
         etTradeInValue.setText("1,00,000")
         updateCarNetLoan()
         etRate.setText("9.0")
-        seekBarTerm.progress = 60
+        loanTenureSelector.tenureMonths = 60
         etProcessingFee.setText("5,000")
-        updateTermDisplay(60)
 
         highlightRateChip(null)
-        highlightTermChip(chipCarTerm5Y)
         highlightDpChip(chipCarDp20)
         setRateCalculationMode(false)
         updateDepreciationAnalysisPreview()

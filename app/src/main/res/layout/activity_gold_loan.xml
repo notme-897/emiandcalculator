@@ -357,7 +357,7 @@
                             android:id="@+id/chipLtv60"
                             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                             android:layout_width="56dp"
-                            android:layout_height="34dp"
+                            android:layout_height="36dp"
                             android:layout_marginEnd="4dp"
                             android:padding="0dp"
                             android:text="60%"
@@ -371,7 +371,7 @@
                             android:id="@+id/chipLtv70"
                             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                             android:layout_width="56dp"
-                            android:layout_height="34dp"
+                            android:layout_height="36dp"
                             android:layout_marginEnd="4dp"
                             android:padding="0dp"
                             android:text="70%"
@@ -385,7 +385,7 @@
                             android:id="@+id/chipLtv75"
                             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                             android:layout_width="56dp"
-                            android:layout_height="34dp"
+                            android:layout_height="36dp"
                             android:padding="0dp"
                             android:text="75%"
                             android:textAllCaps="false"
@@ -627,182 +627,11 @@
                     android:textStyle="bold" />
             </RelativeLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/loanTermContainer"
+            <com.example.calculatoremi.views.LoanTenureSelectorView
+                android:id="@+id/loanTenureSelector"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/numeric_input_border"
-                android:padding="16dp">
-
-                <TextView
-                    android:id="@+id/txtTermValueCombined"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="12 months (1 yr)"
-                    android:textColor="#1A56E4"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/txtInstallments"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="12 payments"
-                    android:textColor="#475569"
-                    android:textSize="13sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <!-- Single Seekbar Row -->
-                <ImageView
-                    android:id="@+id/btnMinus"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/button_outline"
-                    android:padding="8dp"
-                    android:src="@drawable/ic_remove"
-                    app:layout_constraintBottom_toBottomOf="@+id/loanSeekBar"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/loanSeekBar" />
-
-                <SeekBar
-                    android:id="@+id/loanSeekBar"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="8dp"
-                    android:layout_marginTop="16dp"
-                    android:max="24"
-                    android:progress="12"
-                    android:progressTint="#1A56E4"
-                    android:thumbTint="#1A56E4"
-                    app:layout_constraintEnd_toStartOf="@+id/btnAdd"
-                    app:layout_constraintStart_toEndOf="@+id/btnMinus"
-                    app:layout_constraintTop_toBottomOf="@+id/txtTermValueCombined" />
-
-                <ImageView
-                    android:id="@+id/btnAdd"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:background="@drawable/button_outline"
-                    android:padding="8dp"
-                    android:src="@drawable/ic_add"
-                    app:layout_constraintBottom_toBottomOf="@+id/loanSeekBar"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/loanSeekBar" />
-
-                <TextView
-                    android:id="@+id/txtMinVal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="3 mos"
-                    android:textColor="#64748B"
-                    android:textSize="12sp"
-                    app:layout_constraintStart_toStartOf="@+id/loanSeekBar"
-                    app:layout_constraintTop_toBottomOf="@+id/loanSeekBar" />
-
-                <TextView
-                    android:id="@+id/txtMaxVal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="24 mos"
-                    android:textColor="#64748B"
-                    android:textSize="12sp"
-                    app:layout_constraintEnd_toEndOf="@+id/loanSeekBar"
-                    app:layout_constraintTop_toBottomOf="@+id/loanSeekBar" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <!-- Tenure Quick Chips -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="24dp"
-                android:orientation="horizontal"
-                android:weightSum="5">
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/chipGoldTerm3M"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="0dp"
-                    android:layout_height="36dp"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="2dp"
-                    android:padding="0dp"
-                    android:text="3 Mos"
-                    android:textAllCaps="false"
-                    android:textColor="#1E293B"
-                    android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
-                    app:cornerRadius="18dp" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/chipGoldTerm6M"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="0dp"
-                    android:layout_height="36dp"
-                    android:layout_weight="1"
-                    android:layout_marginHorizontal="2dp"
-                    android:padding="0dp"
-                    android:text="6 Mos"
-                    android:textAllCaps="false"
-                    android:textColor="#1E293B"
-                    android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
-                    app:cornerRadius="18dp" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/chipGoldTerm12M"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="0dp"
-                    android:layout_height="36dp"
-                    android:layout_weight="1"
-                    android:layout_marginHorizontal="2dp"
-                    android:padding="0dp"
-                    android:text="12 Mos"
-                    android:textAllCaps="false"
-                    android:textColor="#1E293B"
-                    android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
-                    app:cornerRadius="18dp" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/chipGoldTerm18M"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="0dp"
-                    android:layout_height="36dp"
-                    android:layout_weight="1"
-                    android:layout_marginHorizontal="2dp"
-                    android:padding="0dp"
-                    android:text="18 Mos"
-                    android:textAllCaps="false"
-                    android:textColor="#1E293B"
-                    android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
-                    app:cornerRadius="18dp" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/chipGoldTerm24M"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="0dp"
-                    android:layout_height="36dp"
-                    android:layout_weight="1"
-                    android:layout_marginStart="2dp"
-                    android:padding="0dp"
-                    android:text="24 Mos"
-                    android:textAllCaps="false"
-                    android:textColor="#1E293B"
-                    android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
-                    app:cornerRadius="18dp" />
-
-            </LinearLayout>
+                android:layout_marginBottom="24dp" />
 
             <!-- Start Date Section -->
             <TextView

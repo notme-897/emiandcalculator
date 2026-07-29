@@ -1,17 +1,23 @@
 package com.example.calculatoremi
 
+import com.example.calculatoremi.views.LoanTenureSelectorView
 import org.junit.Test
-
 import org.junit.Assert.*
 
 /**
- * Example local unit test, which will execute on the development machine (host).
- *
- * See [testing documentation](http://d.android.com/tools/testing).
+ * Unit test for LoanTenureSelectorView formatting.
  */
 class ExampleUnitTest {
     @Test
-    fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+    fun testLoanTenureFormatting() {
+        assertEquals("5 Years 8 Months", LoanTenureSelectorView.formatTenureString(68))
+        assertEquals("2 Years 3 Months", LoanTenureSelectorView.formatTenureString(27))
+        assertEquals("18 Years 0 Months", LoanTenureSelectorView.formatTenureString(216))
+        assertEquals("5 Years 0 Months", LoanTenureSelectorView.formatTenureString(60))
+        assertEquals("10 Years 0 Months", LoanTenureSelectorView.formatTenureString(120))
+        assertEquals("30 Years 0 Months", LoanTenureSelectorView.formatTenureString(360))
+        assertEquals("1 Year 0 Months", LoanTenureSelectorView.formatTenureString(12))
+        assertEquals("1 Year 1 Month", LoanTenureSelectorView.formatTenureString(13))
+        assertEquals("6 Months", LoanTenureSelectorView.formatTenureString(6))
     }
-}
+}

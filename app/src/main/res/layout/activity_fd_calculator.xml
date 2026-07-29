@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F5F7FB"
     android:orientation="vertical">
 
-    <!-- Header -->
+    <!-- ================= FIXED HEADER ================= -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/calculatorHeader"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="wrap_content"
+        android:minHeight="55dp"
         android:background="@android:color/white"
         android:elevation="4dp"
         android:paddingStart="16dp"
-        android:paddingEnd="16dp">
+        android:paddingTop="12dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="12dp">
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/btnBackContainer"
@@ -55,172 +59,462 @@
             android:layout_height="1dp"
             android:background="#E2E8F0"
             app:layout_constraintBottom_toBottomOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollViewFd"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:paddingBottom="36dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="24dp">
+            android:paddingHorizontal="@dimen/screen_padding"
+            android:paddingTop="12dp">
 
-            <!-- Total Deposit Amount -->
+            <!-- Total Deposit Amount Section -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Total Deposit Amount ($)"
-                android:textColor="#191C21"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="6dp"
+                android:text="Total Deposit Amount (₹)"
+                android:textColor="#0F172A"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/etFdAmount"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
+                android:layout_height="52dp"
                 android:background="@drawable/numeric_input_border"
-                android:hint="100,000"
+                android:elevation="2dp"
+                android:hint="e.g. 2,00,000"
                 android:inputType="numberDecimal"
-                android:paddingHorizontal="24dp"
-                android:textColor="@color/black"
-                android:layout_marginBottom="16dp" />
+                android:paddingHorizontal="16dp"
+                android:textColor="#0F172A"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-            <!-- Annual Interest Rate -->
+            <!-- Amount Quick Chips -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal"
+                android:weightSum="5">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipFd50k"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="2dp"
+                    android:padding="0dp"
+                    android:text="₹50k"
+                    android:textAllCaps="false"
+                    android:textColor="#1E293B"
+                    android:textSize="11sp"
+                    app:strokeColor="#CBD5E1"
+                    app:cornerRadius="18dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipFd1L"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="2dp"
+                    android:padding="0dp"
+                    android:text="₹1L"
+                    android:textAllCaps="false"
+                    android:textColor="#1E293B"
+                    android:textSize="11sp"
+                    app:strokeColor="#CBD5E1"
+                    app:cornerRadius="18dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipFd2L"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="2dp"
+                    android:padding="0dp"
+                    android:text="₹2L"
+                    android:textAllCaps="false"
+                    android:textColor="#1E293B"
+                    android:textSize="11sp"
+                    app:strokeColor="#CBD5E1"
+                    app:cornerRadius="18dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipFd5L"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="2dp"
+                    android:padding="0dp"
+                    android:text="₹5L"
+                    android:textAllCaps="false"
+                    android:textColor="#1E293B"
+                    android:textSize="11sp"
+                    app:strokeColor="#CBD5E1"
+                    app:cornerRadius="18dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipFd10L"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="2dp"
+                    android:padding="0dp"
+                    android:text="₹10L"
+                    android:textAllCaps="false"
+                    android:textColor="#1E293B"
+                    android:textSize="11sp"
+                    app:strokeColor="#CBD5E1"
+                    app:cornerRadius="18dp" />
+
+            </LinearLayout>
+
+            <!-- Interest Rate Section -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Annual Interest Rate (%)"
-                android:textColor="#191C21"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="6dp"
+                android:text="FD Interest Rate (% p.a.)"
+                android:textColor="#0F172A"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/etFdRate"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
+                android:layout_height="52dp"
                 android:background="@drawable/numeric_input_border"
-                android:hint="7.5"
+                android:elevation="2dp"
+                android:hint="e.g. 7.0"
                 android:inputType="numberDecimal"
-                android:paddingHorizontal="24dp"
-                android:textColor="@color/black"
-                android:layout_marginBottom="16dp" />
+                android:paddingHorizontal="16dp"
+                android:textColor="#0F172A"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-            <!-- Time Period (Years) -->
+            <!-- Rate Quick Chips & Senior Citizen Toggle -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="12dp"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipFdRate6_5"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:padding="0dp"
+                    android:text="6.5%"
+                    android:textAllCaps="false"
+                    android:textColor="#1E293B"
+                    android:textSize="11sp"
+                    app:strokeColor="#CBD5E1"
+                    app:cornerRadius="18dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipFdRate7"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="2dp"
+                    android:padding="0dp"
+                    android:text="7.0%"
+                    android:textAllCaps="false"
+                    android:textColor="#1E293B"
+                    android:textSize="11sp"
+                    app:strokeColor="#CBD5E1"
+                    app:cornerRadius="18dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipFdRate7_5"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="2dp"
+                    android:padding="0dp"
+                    android:text="7.5%"
+                    android:textAllCaps="false"
+                    android:textColor="#1E293B"
+                    android:textSize="11sp"
+                    app:strokeColor="#CBD5E1"
+                    app:cornerRadius="18dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipFdRate8"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    android:padding="0dp"
+                    android:text="8.0%"
+                    android:textAllCaps="false"
+                    android:textColor="#1E293B"
+                    android:textSize="11sp"
+                    app:strokeColor="#CBD5E1"
+                    app:cornerRadius="18dp" />
+
+            </LinearLayout>
+
+            <!-- Senior Citizen Rate Boost (+0.50%) Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSeniorCitizenToggle"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="44dp"
+                android:layout_marginBottom="20dp"
+                android:paddingVertical="6dp"
+                android:text="Senior Citizen (+0.50% Extra Interest Rate)"
+                android:textAllCaps="false"
+                android:textColor="#1E293B"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:strokeColor="#CBD5E1"
+                app:cornerRadius="12dp" />
+
+            <!-- Compounding Frequency Selector -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tenure (Years)"
-                android:textColor="#191C21"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="6dp"
+                android:text="Compounding Frequency"
+                android:textColor="#0F172A"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/etFdYears"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:background="@drawable/numeric_input_border"
-                android:hint="5"
-                android:inputType="number"
-                android:paddingHorizontal="24dp"
-                android:textColor="@color/black"
-                android:layout_marginBottom="24dp" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnCalculateFd"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:text="Calculate FD Interest"
-                android:textAllCaps="false"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:backgroundTint="#1A56E4"
-                app:cornerRadius="18dp"
-                android:layout_marginBottom="24dp" />
-
-            <!-- Result Card -->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardFdResult"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="3dp"
-                app:strokeWidth="0dp">
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal"
+                android:weightSum="4">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipFreqQuarterly"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="38dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="2dp"
+                    android:padding="0dp"
+                    android:text="Quarterly"
+                    android:textAllCaps="false"
+                    android:textColor="#1E293B"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    app:strokeColor="#CBD5E1"
+                    app:cornerRadius="12dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipFreqMonthly"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="38dp"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="2dp"
+                    android:padding="0dp"
+                    android:text="Monthly"
+                    android:textAllCaps="false"
+                    android:textColor="#1E293B"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    app:strokeColor="#CBD5E1"
+                    app:cornerRadius="12dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipFreqHalfYearly"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="38dp"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="2dp"
+                    android:padding="0dp"
+                    android:text="Half-Yr"
+                    android:textAllCaps="false"
+                    android:textColor="#1E293B"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    app:strokeColor="#CBD5E1"
+                    app:cornerRadius="12dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipFreqYearly"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="38dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="2dp"
+                    android:padding="0dp"
+                    android:text="Yearly"
+                    android:textAllCaps="false"
+                    android:textColor="#1E293B"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    app:strokeColor="#CBD5E1"
+                    app:cornerRadius="12dp" />
+
+            </LinearLayout>
+
+            <!-- Tenure Section (Custom Reusable View) -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp">
+
+                <TextView
+                    android:id="@+id/txtFdTermLabel"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="20dp"
-                    android:background="@android:color/white">
+                    android:layout_alignParentStart="true"
+                    android:text="FD Tenure (1 Yr - 30 Yrs)"
+                    android:textColor="#0F172A"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Principal Investment"
-                        android:textColor="#757575"
-                        android:textSize="14sp" />
+            <com.example.calculatoremi.views.LoanTenureSelectorView
+                android:id="@+id/tenureSelector"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp" />
 
-                    <TextView
-                        android:id="@+id/txtFdPrincipal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="$0.00"
-                        android:textColor="#191C21"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:layout_marginTop="2dp" />
+            <!-- Tenure Quick Chips -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal"
+                android:weightSum="5">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Interest Earned"
-                        android:textColor="#757575"
-                        android:textSize="14sp"
-                        android:layout_marginTop="12dp" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipFdTerm1Y"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="2dp"
+                    android:padding="0dp"
+                    android:text="1 Yr"
+                    android:textAllCaps="false"
+                    android:textColor="#1E293B"
+                    android:textSize="11sp"
+                    app:strokeColor="#CBD5E1"
+                    app:cornerRadius="18dp" />
 
-                    <TextView
-                        android:id="@+id/txtFdInterest"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="$0.00"
-                        android:textColor="#00875A"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:layout_marginTop="2dp" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipFdTerm2Y"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="2dp"
+                    android:padding="0dp"
+                    android:text="2 Yrs"
+                    android:textAllCaps="false"
+                    android:textColor="#1E293B"
+                    android:textSize="11sp"
+                    app:strokeColor="#CBD5E1"
+                    app:cornerRadius="18dp" />
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#F0F0F0"
-                        android:layout_marginVertical="12dp" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipFdTerm3Y"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="2dp"
+                    android:padding="0dp"
+                    android:text="3 Yrs"
+                    android:textAllCaps="false"
+                    android:textColor="#1E293B"
+                    android:textSize="11sp"
+                    app:strokeColor="#CBD5E1"
+                    app:cornerRadius="18dp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Total Maturity Value"
-                        android:textColor="#757575"
-                        android:textSize="14sp" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipFdTerm5Y"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="2dp"
+                    android:padding="0dp"
+                    android:text="5 Yrs"
+                    android:textAllCaps="false"
+                    android:textColor="#1E293B"
+                    android:textSize="11sp"
+                    app:strokeColor="#CBD5E1"
+                    app:cornerRadius="18dp" />
 
-                    <TextView
-                        android:id="@+id/txtFdMaturity"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="$0.00"
-                        android:textColor="#1A56E4"
-                        android:textSize="24sp"
-                        android:textStyle="bold"
-                        android:layout_marginTop="2dp" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipFdTerm10Y"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="2dp"
+                    android:padding="0dp"
+                    android:text="10 Yrs"
+                    android:textAllCaps="false"
+                    android:textColor="#1E293B"
+                    android:textSize="11sp"
+                    app:strokeColor="#CBD5E1"
+                    app:cornerRadius="18dp" />
 
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <!-- Action Buttons -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCalculate"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:text="Calculate FD Maturity &amp; Payout"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/primary"
+                app:cornerRadius="16dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnReset"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:text="Reset Fields"
+                android:textAllCaps="false"
+                android:textColor="@color/primary"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:cornerRadius="16dp"
+                app:strokeColor="@color/primary" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

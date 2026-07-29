@@ -12,14 +12,13 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.animation.OvershootInterpolator
 import android.widget.EditText
-import android.widget.ImageView
-import android.widget.SeekBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.widget.NestedScrollView
 import com.example.calculatoremi.R
 import com.example.calculatoremi.model.PaymentScheduleItem
+import com.example.calculatoremi.views.LoanTenureSelectorView
 import com.google.android.material.button.MaterialButton
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
@@ -54,15 +53,7 @@ class EducationLoanActivity : BaseInputActivity() {
     private lateinit var btnChoiceSimpleInterest: MaterialButton
     private lateinit var btnChoiceFullEmi: MaterialButton
 
-    private lateinit var seekBarTerm: SeekBar
-    private lateinit var txtTermValueCombined: TextView
-    private lateinit var txtInstallments: TextView
-
-    private lateinit var chipEduTerm5Y: MaterialButton
-    private lateinit var chipEduTerm7Y: MaterialButton
-    private lateinit var chipEduTerm10Y: MaterialButton
-    private lateinit var chipEduTerm12Y: MaterialButton
-    private lateinit var chipEduTerm15Y: MaterialButton
+    private lateinit var loanTenureSelector: LoanTenureSelectorView
 
     private lateinit var txtMoratoriumInterestAccrued: TextView
     private lateinit var txtEffectivePrincipalDisplay: TextView
@@ -73,8 +64,6 @@ class EducationLoanActivity : BaseInputActivity() {
     private lateinit var chipTax30: MaterialButton
     private lateinit var txtTaxSavingsDisplay: TextView
 
-    private lateinit var btnAdd: ImageView
-    private lateinit var btnMinus: ImageView
     private lateinit var btnCalculate: MaterialButton
     private lateinit var btnReset: MaterialButton
     private lateinit var txtSelectedDate: TextView
@@ -130,15 +119,7 @@ class EducationLoanActivity : BaseInputActivity() {
         btnChoiceSimpleInterest = findViewById(R.id.btnChoiceSimpleInterest)
         btnChoiceFullEmi = findViewById(R.id.btnChoiceFullEmi)
 
-        seekBarTerm = findViewById(R.id.loanSeekBar)
-        txtTermValueCombined = findViewById(R.id.txtTermValueCombined)
-        txtInstallments = findViewById(R.id.txtInstallments)
-
-        chipEduTerm5Y = findViewById(R.id.chipEduTerm5Y)
-        chipEduTerm7Y = findViewById(R.id.chipEduTerm7Y)
-        chipEduTerm10Y = findViewById(R.id.chipEduTerm10Y)
-        chipEduTerm12Y = findViewById(R.id.chipEduTerm12Y)
-        chipEduTerm15Y = findViewById(R.id.chipEduTerm15Y)
+        loanTenureSelector = findViewById(R.id.loanTenureSelector)
 
         txtMoratoriumInterestAccrued = findViewById(R.id.txtMoratoriumInterestAccrued)
         txtEffectivePrincipalDisplay = findViewById(R.id.txtEffectivePrincipalDisplay)
@@ -149,8 +130,6 @@ class EducationLoanActivity : BaseInputActivity() {
         chipTax30 = findViewById(R.id.chipTax30)
         txtTaxSavingsDisplay = findViewById(R.id.txtTaxSavingsDisplay)
 
-        btnAdd = findViewById(R.id.btnAdd)
-        btnMinus = findViewById(R.id.btnMinus)
         btnCalculate = findViewById(R.id.btnCalculate)
         btnReset = findViewById(R.id.btnReset)
         txtSelectedDate = findViewById(R.id.txtSelectedDate)
@@ -163,7 +142,6 @@ class EducationLoanActivity : BaseInputActivity() {
             chipCourse1Y, chipCourse2Y, chipCourse3Y, chipCourse4Y,
             chipGrace0, chipGrace6, chipGrace12,
             btnChoiceFullMoratorium, btnChoiceSimpleInterest, btnChoiceFullEmi,
-            chipEduTerm5Y, chipEduTerm7Y, chipEduTerm10Y, chipEduTerm12Y, chipEduTerm15Y,
             chipTax10, chipTax20, chipTax30
         )
         allChips.forEach { setupChipTouchAnimation(it) }
@@ -222,43 +200,9 @@ class EducationLoanActivity : BaseInputActivity() {
             showDatePicker()
         }
 
-        // SeekBar (12 to 180 months / 1 to 15 years for Education Loans)
-        seekBarTerm.max = 180
-        seekBarTerm.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                val actualProgress = if (progress < 12) 12 else progress
-                updateTermDisplay(actualProgress)
-                if (fromUser) clearTermChipSelection()
-                updateMoratoriumAnalysis()
-            }
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
-        })
-
-        btnAdd.setOnClickListener {
-            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-            if (seekBarTerm.progress < seekBarTerm.max) {
-                seekBarTerm.progress += 12
-                clearTermChipSelection()
-            }
+        loanTenureSelector.setOnTenureChangedListener {
+            updateMoratoriumAnalysis()
         }
-        btnMinus.setOnClickListener {
-            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-            if (seekBarTerm.progress > 12) {
-                seekBarTerm.progress -= 12
-                clearTermChipSelection()
-            }
-        }
-
-        // Term Chips
-        chipEduTerm5Y.setOnClickListener { seekBarTerm.progress = 60; highlightTermChip(chipEduTerm5Y) }
-        chipEduTerm7Y.setOnClickListener { seekBarTerm.progress = 84; highlightTermChip(chipEduTerm7Y) }
-        chipEduTerm10Y.setOnClickListener { seekBarTerm.progress = 120; highlightTermChip(chipEduTerm10Y) }
-        chipEduTerm12Y.setOnClickListener { seekBarTerm.progress = 144; highlightTermChip(chipEduTerm12Y) }
-        chipEduTerm15Y.setOnClickListener { seekBarTerm.progress = 180; highlightTermChip(chipEduTerm15Y) }
-
-        setupButtonAnimation(btnCalculate)
-        setupButtonAnimation(btnReset)
 
         btnCalculate.setOnClickListener {
             it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
@@ -273,14 +217,12 @@ class EducationLoanActivity : BaseInputActivity() {
         // Defaults
         etAmount.setText("20,00,000")
         etRate.setText("9.5")
-        seekBarTerm.progress = 84
-        updateTermDisplay(84)
+        loanTenureSelector.tenureMonths = 84
 
         highlightAmountChip(chipAmount20L)
         highlightRateChip(chipRate9_5)
         highlightCourseChip(chipCourse2Y)
         highlightGraceChip(chipGrace6)
-        highlightTermChip(chipEduTerm7Y)
         highlightTaxChip(chipTax20)
         setPaymentChoice(StudyPaymentChoice.FULL_MORATORIUM)
         updateMoratoriumAnalysis()
@@ -355,7 +297,7 @@ class EducationLoanActivity : BaseInputActivity() {
     private fun updateMoratoriumAnalysis() {
         val loanAmount = getRawValue(etAmount)
         val rate = etRate.text.toString().toDoubleOrNull() ?: 0.0
-        val activeMonths = if (seekBarTerm.progress < 12) 12 else seekBarTerm.progress
+        val activeMonths = loanTenureSelector.tenureMonths.coerceAtLeast(12)
 
         if (loanAmount <= 0 || rate <= 0) return
 
@@ -520,36 +462,7 @@ class EducationLoanActivity : BaseInputActivity() {
         }
     }
 
-    private fun highlightTermChip(selectedChip: MaterialButton) {
-        val termChips = listOf(chipEduTerm5Y, chipEduTerm7Y, chipEduTerm10Y, chipEduTerm12Y, chipEduTerm15Y)
-        termChips.forEach { chip ->
-            if (chip == selectedChip) {
-                chip.setBackgroundColor(ContextCompat.getColor(this, R.color.custom_blue))
-                chip.setTextColor(ContextCompat.getColor(this, android.R.color.white))
-                chip.strokeWidth = 0
-            } else {
-                chip.setBackgroundColor(Color.parseColor("#F8FAFC"))
-                chip.setTextColor(Color.parseColor("#1E293B"))
-                chip.strokeColor = ColorStateList.valueOf(Color.parseColor("#CBD5E1"))
-                chip.strokeWidth = (1 * resources.displayMetrics.density).toInt()
-            }
-        }
-    }
 
-    private fun clearTermChipSelection() {
-        val termChips = listOf(chipEduTerm5Y, chipEduTerm7Y, chipEduTerm10Y, chipEduTerm12Y, chipEduTerm15Y)
-        termChips.forEach { chip ->
-            chip.setBackgroundColor(Color.parseColor("#F8FAFC"))
-            chip.setTextColor(Color.parseColor("#1E293B"))
-            chip.strokeColor = ColorStateList.valueOf(Color.parseColor("#CBD5E1"))
-            chip.strokeWidth = (1 * resources.displayMetrics.density).toInt()
-        }
-    }
-
-    private fun updateTermDisplay(totalMonths: Int) {
-        txtTermValueCombined.text = formatTerm(totalMonths)
-        txtInstallments.text = "$totalMonths EMIs"
-    }
 
     private fun setupButtonAnimation(button: View) {
         button.setOnTouchListener { view, event ->
@@ -583,7 +496,7 @@ class EducationLoanActivity : BaseInputActivity() {
     private fun calculateAndNavigate() {
         val amount = getRawValue(etAmount)
         val rate = etRate.text.toString().toDoubleOrNull() ?: 0.0
-        val activeMonths = if (seekBarTerm.progress < 12) 12 else seekBarTerm.progress
+        val activeMonths = loanTenureSelector.tenureMonths.coerceAtLeast(12)
 
         if (amount <= 0) {
             etAmount.error = "Please enter a valid loan amount"
@@ -692,8 +605,7 @@ class EducationLoanActivity : BaseInputActivity() {
     private fun resetFields() {
         etAmount.setText("20,00,000")
         etRate.setText("9.5")
-        seekBarTerm.progress = 84
-        updateTermDisplay(84)
+        loanTenureSelector.tenureMonths = 84
 
         selectedCourseYears = 2
         selectedGraceMonths = 6
@@ -703,7 +615,6 @@ class EducationLoanActivity : BaseInputActivity() {
         highlightRateChip(chipRate9_5)
         highlightCourseChip(chipCourse2Y)
         highlightGraceChip(chipGrace6)
-        highlightTermChip(chipEduTerm7Y)
         highlightTaxChip(chipTax20)
         setPaymentChoice(StudyPaymentChoice.FULL_MORATORIUM)
         updateMoratoriumAnalysis()

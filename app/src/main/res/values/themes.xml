@@ -5,26 +5,30 @@
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:windowLightStatusBar">false</item>
         <item name="android:windowLightNavigationBar">true</item>
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondary">@color/gradient_accent</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
     </style>
 
     <style name="Theme.Calculatoremi" parent="Base.Theme.Calculatoremi" />
 
-    <!-- 20x Enhanced Bottom Navigation Active Indicator Pill -->
+    <!-- Enhanced Bottom Navigation Active Indicator Pill -->
     <style name="CustomActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
-        <item name="android:color">#E8F0FE</item>
+        <item name="android:color">@color/primary_light</item>
     </style>
 
-    <!-- 20x Enhanced Bottom Navigation Text Styles -->
+    <!-- Enhanced Bottom Navigation Text Styles -->
     <style name="BottomNavActiveText">
         <item name="android:textSize">12sp</item>
-        <item name="android:textColor">#1A56E4</item>
+        <item name="android:textColor">@color/primary</item>
         <item name="android:textStyle">bold</item>
         <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 
     <style name="BottomNavInactiveText">
         <item name="android:textSize">11sp</item>
-        <item name="android:textColor">#64748B</item>
+        <item name="android:textColor">@color/text_secondary</item>
         <item name="android:fontFamily">sans-serif</item>
     </style>
 
