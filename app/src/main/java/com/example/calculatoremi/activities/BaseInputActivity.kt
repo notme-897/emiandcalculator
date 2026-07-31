@@ -25,14 +25,16 @@ abstract class BaseInputActivity : AppCompatActivity() {
     }
 
     protected open fun setupToolbar() {
+        androidx.core.view.WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightStatusBars = true
         val headerView = findViewById<View>(R.id.calculatorHeader)
         if (headerView != null) {
             ViewCompat.setOnApplyWindowInsetsListener(headerView) { v, insets ->
                 val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
                 val density = resources.displayMetrics.density
-                val topPadding = systemBars.top + (8 * density).toInt()
-                val bottomPadding = (8 * density).toInt()
-                v.setPadding(systemBars.left, topPadding, systemBars.right, bottomPadding)
+                val sidePadding = (16 * density).toInt()
+                val topPadding = systemBars.top + (10 * density).toInt()
+                val bottomPadding = (10 * density).toInt()
+                v.setPadding(systemBars.left + sidePadding, topPadding, systemBars.right + sidePadding, bottomPadding)
                 insets
             }
         }
@@ -63,6 +65,22 @@ abstract class BaseInputActivity : AppCompatActivity() {
             }
             false
         }
+    }
+
+    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        if (ev?.action == MotionEvent.ACTION_DOWN) {
+            val v = currentFocus
+            if (v is android.widget.EditText) {
+                val outRect = android.graphics.Rect()
+                v.getGlobalVisibleRect(outRect)
+                if (!outRect.contains(ev.rawX.toInt(), ev.rawY.toInt())) {
+                    v.clearFocus()
+                    val imm = getSystemService(INPUT_METHOD_SERVICE) as? android.view.inputmethod.InputMethodManager
+                    imm?.hideSoftInputFromWindow(v.windowToken, 0)
+                }
+            }
+        }
+        return super.dispatchTouchEvent(ev)
     }
 
     override fun finish() {

@@ -50,6 +50,27 @@
         <activity android:name=".activities.RdCalculatorActivity" android:exported="false" />
         <activity android:name=".activities.PpfCalculatorActivity" android:exported="false" />
         <activity android:name=".activities.DiscountCalculatorActivity" android:exported="false" />
+        <activity android:name=".activities.GstCalculatorActivity" android:exported="false" />
+        <activity android:name=".activities.CompoundInterestActivity" android:exported="false" />
+        <activity android:name=".activities.InflationCalculatorActivity" android:exported="false" />
+        <activity android:name=".activities.NpvIrrActivity" android:exported="false" />
+        <activity android:name=".activities.DtiUtilityActivity" android:exported="false" />
+        <activity android:name=".activities.ApyAprCalculatorActivity" android:exported="false" />
+        <activity android:name=".activities.BudgetRebalancingActivity" android:exported="false" />
+        <activity android:name=".activities.IncomeTaxRegimeActivity" android:exported="false" />
+        <activity android:name=".activities.RentVsBuyActivity" android:exported="false" />
+        <activity android:name=".activities.SwpCalculatorActivity" android:exported="false" />
+        <activity android:name=".activities.EpfCalculatorActivity" android:exported="false" />
+        <activity android:name=".activities.GratuityCalculatorActivity" android:exported="false" />
+        <activity android:name=".activities.NoticeBuyoutActivity" android:exported="false" />
+        <activity android:name=".activities.FullAndFinalSettlementActivity" android:exported="false" />
+        <!-- Daily Practical Tools Activities -->
+        <activity android:name=".activities.BillSplitterActivity" android:exported="false" />
+        <activity android:name=".activities.FuelTripCalculatorActivity" android:exported="false" />
+        <activity android:name=".activities.CashDenominationActivity" android:exported="false" />
+        <activity android:name=".activities.PercentageCalculatorActivity" android:exported="false" />
+        <activity android:name=".activities.SavingsGoalActivity" android:exported="false" />
+        <activity android:name=".activities.UnitPriceComparatorActivity" android:exported="false" />
         <!-- Salary Tools Activities -->
         <activity android:name=".activities.CtcToInHandActivity" android:exported="false" />
         <activity android:name=".activities.GrossToNetActivity" android:exported="false" />
@@ -61,6 +82,18 @@
         <activity android:name=".activities.HourlyToAnnualActivity" android:exported="false" />
         <activity android:name=".activities.FreelanceRateEstimatorActivity" android:exported="false" />
         <activity android:name=".activities.ProratedSalaryActivity" android:exported="false" />
+        <!-- Insurance Tools Activities -->
+        <activity android:name=".activities.HlvCalculatorActivity" android:exported="false" />
+        <activity android:name=".activities.TermPremiumEstimatorActivity" android:exported="false" />
+        <activity android:name=".activities.IncomeReplacementActivity" android:exported="false" />
+        <activity android:name=".activities.HealthInsuranceEstimatorActivity" android:exported="false" />
+        <activity android:name=".activities.NcbDeductibleSimulatorActivity" android:exported="false" />
+        <activity android:name=".activities.CriticalIllnessActivity" android:exported="false" />
+        <activity android:name=".activities.BtirVsUlipActivity" android:exported="false" />
+        <activity android:name=".activities.EndowmentIrrActivity" android:exported="false" />
+        <activity android:name=".activities.PensionAnnuityActivity" android:exported="false" />
+        <activity android:name=".activities.VehicleIdvActivity" android:exported="false" />
+        <activity android:name=".activities.HomeReinstatementActivity" android:exported="false" />
     </application>
 
 </manifest>

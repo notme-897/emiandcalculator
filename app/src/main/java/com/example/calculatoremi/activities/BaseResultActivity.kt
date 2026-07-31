@@ -12,7 +12,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.calculatoremi.R
-import java.util.Locale
+import java.text.DecimalFormat
+import kotlin.math.abs
 
 abstract class BaseResultActivity : AppCompatActivity() {
 
@@ -25,14 +26,16 @@ abstract class BaseResultActivity : AppCompatActivity() {
     }
 
     protected open fun setupResultToolbar() {
+        androidx.core.view.WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightStatusBars = true
         val headerView = findViewById<View>(R.id.resultHeader)
         if (headerView != null) {
             ViewCompat.setOnApplyWindowInsetsListener(headerView) { v, insets ->
                 val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
                 val density = resources.displayMetrics.density
-                val topPadding = systemBars.top + (8 * density).toInt()
-                val bottomPadding = (8 * density).toInt()
-                v.setPadding(systemBars.left, topPadding, systemBars.right, bottomPadding)
+                val sidePadding = (16 * density).toInt()
+                val topPadding = systemBars.top + (10 * density).toInt()
+                val bottomPadding = (10 * density).toInt()
+                v.setPadding(systemBars.left + sidePadding, topPadding, systemBars.right + sidePadding, bottomPadding)
                 insets
             }
         }
@@ -90,9 +93,13 @@ abstract class BaseResultActivity : AppCompatActivity() {
     abstract fun getShareText(): String
 
     protected fun formatCurrency(amount: Double): String {
-        val formatter = java.text.DecimalFormat("#,##,###.##")
-        return "₹" + formatter.format(amount)
+        val absAmount = abs(amount)
+        val formatter = if (absAmount % 1.0 < 0.01 || absAmount % 1.0 > 0.99) {
+            DecimalFormat("#,##,##0")
+        } else {
+            DecimalFormat("#,##,##0.00")
+        }
+        val prefix = if (amount < 0) "-₹" else "₹"
+        return prefix + formatter.format(absAmount)
     }
 }
-
-

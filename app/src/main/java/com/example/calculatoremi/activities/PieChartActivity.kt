@@ -13,14 +13,12 @@ import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
-import java.text.DecimalFormat
 import java.util.*
 
 class PieChartActivity : BaseResultActivity() {
 
     private var principalAmount: Double = 0.0
     private var interestAmount: Double = 0.0
-    private val decimalFormat = DecimalFormat("#,##,###.##")
 
     override fun getResultLayoutResId(): Int = R.layout.activity_pie_chart
 
@@ -49,12 +47,13 @@ class PieChartActivity : BaseResultActivity() {
     }
 
     private fun animateNumberCounter(textView: TextView, targetValue: Double) {
-        val animator = ValueAnimator.ofFloat(0f, targetValue.toFloat())
-        animator.duration = 750
+        val animator = ValueAnimator.ofFloat(0f, 1f)
+        animator.duration = 700
         animator.interpolator = DecelerateInterpolator()
         animator.addUpdateListener { animation ->
-            val currentValue = animation.animatedValue as Float
-            textView.text = "₹" + decimalFormat.format(currentValue.toDouble())
+            val fraction = animation.animatedValue as Float
+            val currentValue = targetValue * fraction
+            textView.text = formatCurrency(currentValue)
         }
         animator.start()
     }
@@ -78,11 +77,13 @@ class PieChartActivity : BaseResultActivity() {
         }
     }
 
-
     private fun setupPieChart(pieChart: PieChart, principal: Double, interest: Double) {
+        val safePrincipal = if (principal <= 0) 1.0 else principal
+        val safeInterest = if (interest <= 0) 0.01 else interest
+
         val entries = ArrayList<PieEntry>()
-        entries.add(PieEntry(principal.toFloat(), "Principal"))
-        entries.add(PieEntry(interest.toFloat(), "Interest"))
+        entries.add(PieEntry(safePrincipal.toFloat(), "Principal"))
+        entries.add(PieEntry(safeInterest.toFloat(), "Interest"))
 
         val dataSet = PieDataSet(entries, "")
         val colors = ArrayList<Int>()

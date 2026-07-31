@@ -72,7 +72,11 @@ class SalaryListFragment : Fragment(R.layout.fragment_category_list) {
             LoanItem("Relocation Salary Adjuster", "Calculate required salary hike when moving between city tiers", R.drawable.ic_account_balance, R.color.cat_salary),
             LoanItem("Hourly to Annual Salary", "Convert hourly billing rate to equivalent annual & monthly pay", R.drawable.ic_history, R.color.cat_investment),
             LoanItem("Freelance / Contractor Rate", "Estimate min hourly/day billing rate to match full-time CTC", R.drawable.ic_tools, R.color.cat_tax),
-            LoanItem("Prorated Partial Salary", "Compute partial month payout for mid-month joining/leaving", R.drawable.ic_calendar, R.color.cat_loan)
+            LoanItem("Prorated Partial Salary", "Compute partial month payout for mid-month joining/leaving", R.drawable.ic_calendar, R.color.cat_loan),
+            LoanItem("EPF & VPF Corpus", "Calculate employee/employer PF contributions & 8.25% maturity", R.drawable.ic_account_balance, R.color.cat_salary),
+            LoanItem("Gratuity Payout", "Compute statutory tax-free gratuity payout for 5+ years service", R.drawable.ic_person, R.color.cat_investment),
+            LoanItem("Notice Period Buyout", "Calculate notice period shortfall recovery amount or payout", R.drawable.ic_history, R.color.cat_utility),
+            LoanItem("Full & Final (F&F) Settlement", "Estimate net in-hand settlement including leaves & arrears", R.drawable.ic_business, R.color.cat_property)
         )
 
         recyclerLoans.layoutManager = LinearLayoutManager(requireContext())
@@ -88,6 +92,10 @@ class SalaryListFragment : Fragment(R.layout.fragment_category_list) {
                 "Hourly to Annual Salary" -> Intent(requireContext(), com.example.calculatoremi.activities.HourlyToAnnualActivity::class.java)
                 "Freelance / Contractor Rate" -> Intent(requireContext(), com.example.calculatoremi.activities.FreelanceRateEstimatorActivity::class.java)
                 "Prorated Partial Salary" -> Intent(requireContext(), com.example.calculatoremi.activities.ProratedSalaryActivity::class.java)
+                "EPF & VPF Corpus" -> Intent(requireContext(), com.example.calculatoremi.activities.EpfCalculatorActivity::class.java)
+                "Gratuity Payout" -> Intent(requireContext(), com.example.calculatoremi.activities.GratuityCalculatorActivity::class.java)
+                "Notice Period Buyout" -> Intent(requireContext(), com.example.calculatoremi.activities.NoticeBuyoutActivity::class.java)
+                "Full & Final (F&F) Settlement" -> Intent(requireContext(), com.example.calculatoremi.activities.FullAndFinalSettlementActivity::class.java)
                 else -> null
             }
             intent?.let { startActivity(it) }

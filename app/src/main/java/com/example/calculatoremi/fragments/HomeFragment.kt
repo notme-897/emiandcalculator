@@ -120,6 +120,28 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                         .addToBackStack(null)
                         .commit()
                 }
+                CategoryType.INSURANCE -> {
+                    val fragment = InsuranceListFragment().apply {
+                        arguments = Bundle().apply {
+                            putString("CATEGORY_TITLE", category.title)
+                        }
+                    }
+                    parentFragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainer, fragment)
+                        .addToBackStack(null)
+                        .commit()
+                }
+                CategoryType.UTILITY -> {
+                    val fragment = UtilityListFragment().apply {
+                        arguments = Bundle().apply {
+                            putString("CATEGORY_TITLE", category.title)
+                        }
+                    }
+                    parentFragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainer, fragment)
+                        .addToBackStack(null)
+                        .commit()
+                }
                 else -> {
                     Toast.makeText(requireContext(), "${category.title} coming soon!", Toast.LENGTH_SHORT).show()
                 }

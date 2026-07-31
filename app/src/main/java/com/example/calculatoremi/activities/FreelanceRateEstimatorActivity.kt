@@ -11,6 +11,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.animation.OvershootInterpolator
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.calculatoremi.R
@@ -94,9 +95,7 @@ class FreelanceRateEstimatorActivity : BaseInputActivity() {
                             editText.setSelection(formatted.length)
                         }
                     }
-                } catch (e: Exception) {
-                    // Ignore
-                }
+                } catch (e: Exception) {}
                 isFormatting = false
             }
         })
@@ -122,46 +121,40 @@ class FreelanceRateEstimatorActivity : BaseInputActivity() {
     }
 
     private fun calculateFreelanceRateAndNavigate() {
-        val targetCtcStr = etTargetAnnualCtc.text.toString().replace(",", "")
-        val overheadStr = etAnnualOverhead.text.toString().replace(",", "")
-        val billableHoursWkStr = etBillableHoursPerWeek.text.toString()
-        val vacationWksStr = etUnpaidVacationWeeks.text.toString()
+        val targetCtc = etTargetAnnualCtc.text.toString().replace(",", "").toDoubleOrNull() ?: 0.0
+        val overhead = etAnnualOverhead.text.toString().replace(",", "").toDoubleOrNull() ?: 0.0
+        val hoursPerWeek = etBillableHoursPerWeek.text.toString().toIntOrNull() ?: 0
+        val vacationWeeks = etUnpaidVacationWeeks.text.toString().toIntOrNull() ?: 0
 
-        val targetCtc = targetCtcStr.toDoubleOrNull() ?: 0.0
-        val overhead = overheadStr.toDoubleOrNull() ?: 0.0
-        val billableHoursWk = billableHoursWkStr.toDoubleOrNull() ?: 30.0
-        val vacationWks = vacationWksStr.toDoubleOrNull() ?: 4.0
-
-        if (targetCtc <= 0) {
-            Toast.makeText(this, "Please enter a valid target annual CTC", Toast.LENGTH_SHORT).show()
+        if (targetCtc <= 0 || hoursPerWeek <= 0) {
+            Toast.makeText(this, "Please enter valid income and hours", Toast.LENGTH_SHORT).show()
             return
         }
 
-        val workingWeeksYear = max(1.0, 52.0 - vacationWks)
-        val totalBillableHoursAnnual = workingWeeksYear * billableHoursWk
-        val totalGrossRevenueNeeded = targetCtc + overhead
+        val workingWeeks = max(1, 52 - vacationWeeks)
+        val annualBillableHours = workingWeeks * hoursPerWeek
+        val totalRevenueNeeded = targetCtc + overhead
 
-        val requiredHourlyRate = if (totalBillableHoursAnnual > 0) totalGrossRevenueNeeded / totalBillableHoursAnnual else 0.0
-        val requiredDailyRate = requiredHourlyRate * 8.0
-        val requiredMonthlyBilling = totalGrossRevenueNeeded / 12.0
+        val hourlyRate = totalRevenueNeeded / annualBillableHours
+        val dayRate = hourlyRate * 8.0
+        val monthlyRevenue = totalRevenueNeeded / 12.0
 
         val scheduleList = ArrayList<PaymentScheduleItem>()
-        scheduleList.add(PaymentScheduleItem(1, "Target Personal CTC", targetCtc, targetCtc / 12.0, 0.0, targetCtc))
-        scheduleList.add(PaymentScheduleItem(2, "Business Expenses & Tax", overhead, overhead / 12.0, 0.0, overhead))
-        scheduleList.add(PaymentScheduleItem(3, "Total Required Revenue", totalGrossRevenueNeeded, requiredMonthlyBilling, 0.0, totalGrossRevenueNeeded))
-        scheduleList.add(PaymentScheduleItem(4, "Min Hourly Billing Rate", requiredHourlyRate, requiredDailyRate, 0.0, requiredHourlyRate))
+        scheduleList.add(PaymentScheduleItem(1, "Target Take-Home Income", targetCtc, targetCtc / 12.0, (targetCtc / totalRevenueNeeded) * 100, targetCtc))
+        scheduleList.add(PaymentScheduleItem(2, "Annual Business Overhead", overhead, overhead / 12.0, (overhead / totalRevenueNeeded) * 100, overhead))
+        scheduleList.add(PaymentScheduleItem(3, "Gross Required Revenue", totalRevenueNeeded, monthlyRevenue, 100.0, totalRevenueNeeded))
 
         val intent = Intent(this, PersonalLoanResultActivity::class.java).apply {
             putExtra("TITLE", "Freelance Billing Rate Result")
-            putExtra("LOAN_AMOUNT", requiredHourlyRate) // Main Rate
-            putExtra("INTEREST_RATE", requiredDailyRate.toFloat())
+            putExtra("LOAN_AMOUNT", totalRevenueNeeded)
+            putExtra("INTEREST_RATE", 0.0f)
             putExtra("LOAN_TERM_YEARS", 1)
-            putExtra("LOAN_TERM_MONTHS", 12)
-            putExtra("START_DATE", "Min Daily Rate: ₹" + commaFormat.format(requiredDailyRate) + " / day")
-            putExtra("EMI", requiredHourlyRate)
+            putExtra("LOAN_TERM_MONTHS", 0)
+            putExtra("START_DATE", "Hourly: ₹${commaFormat.format(hourlyRate.toInt())} | Day (8h): ₹${commaFormat.format(dayRate.toInt())}")
+            putExtra("EMI", monthlyRevenue)
             putExtra("TOTAL_INTEREST", overhead)
-            putExtra("TOTAL_COST", totalGrossRevenueNeeded)
-            putExtra("PAYOFF_DATE", "Min Monthly Billing: ₹" + commaFormat.format(requiredMonthlyBilling))
+            putExtra("TOTAL_COST", totalRevenueNeeded)
+            putExtra("PAYOFF_DATE", "Min Hourly Rate: ₹" + commaFormat.format(hourlyRate.toInt()))
             putExtra("SCHEDULE", scheduleList)
         }
         startActivity(intent)
@@ -172,5 +165,6 @@ class FreelanceRateEstimatorActivity : BaseInputActivity() {
         etAnnualOverhead.setText("1,50,000")
         etBillableHoursPerWeek.setText("30")
         etUnpaidVacationWeeks.setText("4")
+        Toast.makeText(this, "Fields reset", Toast.LENGTH_SHORT).show()
     }
 }

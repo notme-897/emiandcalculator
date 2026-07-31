@@ -14,7 +14,6 @@ import com.example.calculatoremi.MainActivity
 import com.example.calculatoremi.model.PaymentScheduleItem
 import com.google.android.material.button.MaterialButton
 import java.io.Serializable
-import java.text.DecimalFormat
 
 class PersonalLoanResultActivity : BaseResultActivity() {
 
@@ -22,12 +21,11 @@ class PersonalLoanResultActivity : BaseResultActivity() {
     private var emi: Double = 0.0
     private var totalInterest: Double = 0.0
     private var totalCost: Double = 0.0
-    private var loanTitle: String = "Personal Loan"
-    private val decimalFormat = DecimalFormat("#,##,###.##")
+    private var loanTitle: String = "Personal Loan Result"
 
     override fun getResultLayoutResId(): Int = R.layout.activity_loan_result
 
-    override fun getResultTitle(): String = intent.getStringExtra("TITLE") ?: "Personal Loan"
+    override fun getResultTitle(): String = intent.getStringExtra("TITLE") ?: "Loan Result Breakdown"
 
     override fun getShareText(): String {
         return """
@@ -53,12 +51,12 @@ class PersonalLoanResultActivity : BaseResultActivity() {
         val interestRate = intent.getFloatExtra("INTEREST_RATE", 0.0f)
         val years = intent.getIntExtra("LOAN_TERM_YEARS", 0)
         val months = intent.getIntExtra("LOAN_TERM_MONTHS", 0)
-        val startDate = intent.getStringExtra("START_DATE") ?: ""
+        val startDate = intent.getStringExtra("START_DATE") ?: "Today"
         
         emi = intent.getDoubleExtra("EMI", 0.0)
         totalInterest = intent.getDoubleExtra("TOTAL_INTEREST", 0.0)
         totalCost = intent.getDoubleExtra("TOTAL_COST", 0.0)
-        val payoffDate = intent.getStringExtra("PAYOFF_DATE") ?: ""
+        val payoffDate = intent.getStringExtra("PAYOFF_DATE") ?: "Not specified"
         
         val schedule = getSerializableExtraCompat<ArrayList<PaymentScheduleItem>>("SCHEDULE")
 
@@ -66,15 +64,15 @@ class PersonalLoanResultActivity : BaseResultActivity() {
         findViewById<TextView>(R.id.resInterestRate).text = "$interestRate %"
         
         val termText = when {
-            years > 0 && months > 0 -> "$years years $months months"
-            years > 0 -> "$years years"
-            else -> "$months months"
+            years > 0 && months > 0 -> "$years Years $months Months"
+            years > 0 -> "$years Years (${years * 12} Months)"
+            else -> "$months Months"
         }
         findViewById<TextView>(R.id.resLoanTerm).text = termText
-        findViewById<TextView>(R.id.resStartDate).text = startDate
-        findViewById<TextView>(R.id.resPayoffDate).text = payoffDate
+        findViewById<TextView>(R.id.resStartDate).text = if (startDate.isBlank()) "Today" else startDate
+        findViewById<TextView>(R.id.resPayoffDate).text = if (payoffDate.isBlank()) "Standard Term" else payoffDate
 
-        // Animate Result Monetary Values (Rolling Counter Animation)
+        // Animate Result Monetary Values (Rolling Counter Animation with 64-bit Precision)
         val txtEmi = findViewById<TextView>(R.id.resEmi)
         val txtLoanAmount = findViewById<TextView>(R.id.resLoanAmount)
         val txtTotalInterest = findViewById<TextView>(R.id.resTotalInterest)
@@ -137,12 +135,13 @@ class PersonalLoanResultActivity : BaseResultActivity() {
     }
 
     private fun animateNumberCounter(textView: TextView, targetValue: Double) {
-        val animator = ValueAnimator.ofFloat(0f, targetValue.toFloat())
-        animator.duration = 750
+        val animator = ValueAnimator.ofFloat(0f, 1f)
+        animator.duration = 700
         animator.interpolator = DecelerateInterpolator()
         animator.addUpdateListener { animation ->
-            val currentValue = animation.animatedValue as Float
-            textView.text = "₹" + decimalFormat.format(currentValue.toDouble())
+            val fraction = animation.animatedValue as Float
+            val currentValue = targetValue * fraction
+            textView.text = formatCurrency(currentValue)
         }
         animator.start()
     }
@@ -167,7 +166,6 @@ class PersonalLoanResultActivity : BaseResultActivity() {
                 .start()
         }
     }
-
 
     private inline fun <reified T : Serializable> getSerializableExtraCompat(key: String): T? {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
