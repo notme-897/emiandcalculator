@@ -94,6 +94,7 @@
         <activity android:name=".activities.PensionAnnuityActivity" android:exported="false" />
         <activity android:name=".activities.VehicleIdvActivity" android:exported="false" />
         <activity android:name=".activities.HomeReinstatementActivity" android:exported="false" />
+        <activity android:name=".activities.HistoryDetailActivity" android:exported="false" />
     </application>
 
 </manifest>

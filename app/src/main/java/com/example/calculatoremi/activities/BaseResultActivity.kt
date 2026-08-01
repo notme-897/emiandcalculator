@@ -19,6 +19,7 @@ abstract class BaseResultActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         enableEdgeToEdge()
         setContentView(getResultLayoutResId())
 

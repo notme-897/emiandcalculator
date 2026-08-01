@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardBackgroundColor="@android:color/white"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
+    app:strokeColor="#E2E8F0"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Top Header: Category Tag & Timestamp -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txtHistoryCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:background="#DBEAFE"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:text="LOANS"
+                android:textColor="#1D4ED8"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtHistoryDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:text="31 Jul 2026, 09:30 PM"
+                android:textColor="#64748B"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <!-- Calculation Title -->
+        <TextView
+            android:id="@+id/txtHistoryTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Home Loan EMI Calculator"
+            android:textColor="#0F172A"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <!-- Primary Result Value Block -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtHistoryPrimaryValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="₹34,999"
+                android:textColor="@color/primary"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="6dp"
+                android:layout_marginBottom="2dp"
+                android:text="/ result"
+                android:textColor="#64748B"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Input Parameters Summary -->
+        <TextView
+            android:id="@+id/txtHistoryDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="Principal: ₹40,00,000 | Rate: 8.5% | Term: 20 Years"
+            android:textColor="#475569"
+            android:textSize="13sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="8dp"
+            android:background="#F1F5F9" />
+
+        <!-- Action Row -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:text="Tap to view full breakdown ➔"
+                android:textColor="#2563EB"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnDeleteHistory"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_alignParentEnd="true"
+                app:cardBackgroundColor="#FEE2E2"
+                app:cardCornerRadius="17dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="center"
+                    android:src="@android:drawable/ic_menu_delete"
+                    app:tint="#DC2626" />
+            </com.google.android.material.card.MaterialCardView>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

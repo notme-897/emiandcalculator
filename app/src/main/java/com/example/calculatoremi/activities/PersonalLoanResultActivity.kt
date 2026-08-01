@@ -83,6 +83,32 @@ class PersonalLoanResultActivity : BaseResultActivity() {
         animateNumberCounter(txtTotalInterest, totalInterest)
         animateNumberCounter(txtTotalCost, totalCost)
 
+        // Save Calculation to History
+        val category = when {
+            loanTitle.contains("Loan", true) || loanTitle.contains("EMI", true) || loanTitle.contains("Mortgage", true) -> "Loans"
+            loanTitle.contains("SIP", true) || loanTitle.contains("FD", true) || loanTitle.contains("RD", true) || loanTitle.contains("PPF", true) || loanTitle.contains("Lump", true) || loanTitle.contains("Annuity", true) || loanTitle.contains("Saving", true) -> "Investments"
+            loanTitle.contains("Salary", true) || loanTitle.contains("Tax", true) || loanTitle.contains("CTC", true) || loanTitle.contains("Gross", true) || loanTitle.contains("Net", true) || loanTitle.contains("Pay", true) || loanTitle.contains("Gratuity", true) || loanTitle.contains("Buyout", true) -> "Salary"
+            else -> "Utilities"
+        }
+        val details = "Principal: ${formatCurrency(loanAmount)} | Rate: $interestRate% | Term: $termText"
+        com.example.calculatoremi.utils.HistoryManager.saveCalculation(
+            context = this,
+            title = loanTitle,
+            category = category,
+            primaryResultLabel = "Calculated Value",
+            primaryResultValue = formatCurrency(emi),
+            detailsSummary = details,
+            loanAmount = loanAmount,
+            interestRate = interestRate,
+            years = years,
+            months = months,
+            startDate = startDate,
+            emi = emi,
+            totalInterest = totalInterest,
+            totalCost = totalCost,
+            payoffDate = payoffDate
+        )
+
         // Action Buttons with Spring Feedback
         val btnBackHome = findViewById<MaterialButton>(R.id.btnBackHome)
         setupTouchScaleAnimation(btnBackHome)

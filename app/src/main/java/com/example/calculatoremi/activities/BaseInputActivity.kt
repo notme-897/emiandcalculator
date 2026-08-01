@@ -18,6 +18,7 @@ abstract class BaseInputActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         enableEdgeToEdge()
         setContentView(getLayoutResId())
 

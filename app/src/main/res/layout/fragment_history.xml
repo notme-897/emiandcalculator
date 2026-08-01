@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F7FB"
+    android:background="#F8FAFC"
     android:orientation="vertical">
 
     <!-- Top Header -->
@@ -33,7 +33,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnClearHistory"
-            style="@style/Widget.Material3.Button.TextButton"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Clear All"
@@ -52,50 +52,155 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Empty State -->
-    <LinearLayout
-        android:id="@+id/layoutEmptyState"
+    <!-- Category Filter Chips -->
+    <HorizontalScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="32dp"
-        android:visibility="gone">
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:scrollbars="none"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="10dp"
+        android:elevation="1dp">
 
-        <ImageView
-            android:id="@+id/imgEmptyHistory"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:alpha="0.6"
-            android:src="@drawable/ic_history"
-            app:tint="#94A3B8" />
-
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="No History Yet"
-            android:textColor="#334155"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/chipFilterAll"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginEnd="6dp"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="0dp"
+                android:text="All"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:backgroundTint="#3B82F6"
+                app:cornerRadius="18dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/chipFilterLoans"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginEnd="6dp"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="0dp"
+                android:text="Loans"
+                android:textAllCaps="false"
+                android:textColor="#475569"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:strokeColor="#CBD5E1"
+                app:cornerRadius="18dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/chipFilterInvestments"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginEnd="6dp"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="0dp"
+                android:text="Investments"
+                android:textAllCaps="false"
+                android:textColor="#475569"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:strokeColor="#CBD5E1"
+                app:cornerRadius="18dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/chipFilterSalary"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginEnd="6dp"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="0dp"
+                android:text="Salary"
+                android:textAllCaps="false"
+                android:textColor="#475569"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:strokeColor="#CBD5E1"
+                app:cornerRadius="18dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/chipFilterUtilities"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="0dp"
+                android:text="Utilities"
+                android:textAllCaps="false"
+                android:textColor="#475569"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:strokeColor="#CBD5E1"
+                app:cornerRadius="18dp" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Empty State -->
+        <LinearLayout
+            android:id="@+id/layoutEmptyState"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:gravity="center"
-            android:text="Your recent loan, EMI, and investment calculations will appear here for quick access."
-            android:textColor="#64748B"
-            android:textSize="14sp" />
+            android:orientation="vertical"
+            android:padding="32dp"
+            android:visibility="gone">
 
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/imgEmptyHistory"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:alpha="0.6"
+                android:src="@drawable/ic_history"
+                app:tint="#94A3B8" />
 
-    <!-- History List -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerHistory"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="false"
-        android:padding="16dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="No Calculations Saved Yet"
+                android:textColor="#334155"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="Calculate any loan, investment, tax, or tool and your results will automatically be saved here."
+                android:textColor="#64748B"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <!-- History List -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerHistory"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="24dp" />
+
+    </FrameLayout>
 
 </LinearLayout>

@@ -101,7 +101,7 @@ class PieChartActivity : BaseResultActivity() {
         pieChart.holeRadius = 45f
         pieChart.setEntryLabelColor(Color.WHITE)
         pieChart.setEntryLabelTextSize(12f)
-        pieChart.animateY(1100, Easing.EaseInOutCubic)
+        pieChart.animateXY(1200, 1200, Easing.EaseOutBack, Easing.EaseOutCubic)
         pieChart.invalidate()
     }
 }

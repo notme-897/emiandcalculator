@@ -55,8 +55,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val dashboardHeader = view.findViewById<View>(R.id.dashboardHeader)
         val imgDecoration = view.findViewById<View>(R.id.imgHeaderDecoration)
 
+        imgDecoration?.let {
+            com.example.calculatoremi.utils.AnimationUtilsHelper.startFloatingAnimation(requireContext(), it)
+        }
+
         nestedScrollView?.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
-            imgDecoration?.translationY = scrollY * 0.35f
             dashboardHeader?.alpha = (1.0f - (scrollY.toFloat() / 380f)).coerceIn(0.3f, 1.0f)
         })
 
