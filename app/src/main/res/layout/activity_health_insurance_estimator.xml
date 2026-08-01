@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8FAFC"
+    android:background="@color/background"
     android:orientation="vertical">
 
     <!-- Fixed Header -->
@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
                 android:text="Coverage Plan Type"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -53,12 +53,12 @@
                     android:singleLine="true"
                     android:text="Individual"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     app:cornerRadius="12dp"
-                    app:strokeColor="#CBD5E1" />
+                    app:strokeColor="@color/border_stroke" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/chipCouple"
@@ -72,12 +72,12 @@
                     android:singleLine="true"
                     android:text="Couple (2A)"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     app:cornerRadius="12dp"
-                    app:strokeColor="#CBD5E1" />
+                    app:strokeColor="@color/border_stroke" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/chipFamily"
@@ -91,12 +91,12 @@
                     android:singleLine="true"
                     android:text="Family Floater"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     app:cornerRadius="12dp"
-                    app:strokeColor="#CBD5E1" />
+                    app:strokeColor="@color/border_stroke" />
 
             </LinearLayout>
 
@@ -118,7 +118,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
                         android:text="Age of Oldest Member"
-                        android:textColor="#0F172A"
+                        android:textColor="@color/text_primary"
                         android:textSize="13sp"
                         android:textStyle="bold" />
 
@@ -131,7 +131,7 @@
                         android:textColorHint="#94A3B8"
                         android:inputType="number"
                         android:paddingHorizontal="14dp"
-                        android:textColor="#0F172A"
+                        android:textColor="@color/text_primary"
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -147,7 +147,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
                         android:text="Pre-existing Conditions"
-                        android:textColor="#0F172A"
+                        android:textColor="@color/text_primary"
                         android:textSize="13sp"
                         android:textStyle="bold" />
 
@@ -161,12 +161,12 @@
                         android:singleLine="true"
                         android:text="No Conditions"
                         android:textAllCaps="false"
-                        android:textColor="#1E293B"
+                        android:textColor="@color/text_primary"
                         android:textSize="12sp"
                         android:insetTop="0dp"
                         android:insetBottom="0dp"
                         app:cornerRadius="12dp"
-                        app:strokeColor="#CBD5E1" />
+                        app:strokeColor="@color/border_stroke" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -177,7 +177,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="6dp"
                 android:text="City Hospital Inflation Tier"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
@@ -200,12 +200,12 @@
                     android:singleLine="true"
                     android:text="Tier 1 Metro (Mumbai/Del/Blr)"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     app:cornerRadius="12dp"
-                    app:strokeColor="#CBD5E1" />
+                    app:strokeColor="@color/border_stroke" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/chipTier2"
@@ -219,12 +219,12 @@
                     android:singleLine="true"
                     android:text="Tier 2 / Tier 3 City"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     app:cornerRadius="12dp"
-                    app:strokeColor="#CBD5E1" />
+                    app:strokeColor="@color/border_stroke" />
 
             </LinearLayout>
 

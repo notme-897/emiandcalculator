@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8FAFC"
+    android:background="@color/background"
     android:orientation="vertical">
 
     <!-- Fixed Header -->
@@ -35,7 +35,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:text="Property Purchase Price (₹)"
-                    android:textColor="#0F172A"
+                    android:textColor="@color/text_primary"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
@@ -59,7 +59,7 @@
                 android:textColorHint="#94A3B8"
                 android:inputType="numberDecimal"
                 android:paddingHorizontal="16dp"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -70,7 +70,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="6dp"
                 android:text="Monthly Rent (₹)"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -83,7 +83,7 @@
                 android:textColorHint="#94A3B8"
                 android:inputType="numberDecimal"
                 android:paddingHorizontal="16dp"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="15sp" />
 
             <!-- Rates: Property Appreciation % vs Equity Investment CAGR % -->
@@ -105,7 +105,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
                         android:text="Property Growth (% p.a.)"
-                        android:textColor="#334155"
+                        android:textColor="@color/text_primary"
                         android:textSize="12sp"
                         android:textStyle="bold" />
 
@@ -133,7 +133,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
                         android:text="Equity Mutual Fund (% p.a.)"
-                        android:textColor="#334155"
+                        android:textColor="@color/text_primary"
                         android:textSize="12sp"
                         android:textStyle="bold" />
 
@@ -156,7 +156,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="24dp"
                 android:text="Compares 20-year net worth when buying a home vs renting &amp; investing down payment in high-growth equity mutual funds."
-                android:textColor="#64748B"
+                android:textColor="@color/text_secondary"
                 android:textSize="12sp" />
 
             <!-- Action Buttons -->

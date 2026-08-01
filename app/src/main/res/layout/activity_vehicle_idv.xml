@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8FAFC"
+    android:background="@color/background"
     android:orientation="vertical">
 
     <!-- Standardized Header -->
@@ -34,7 +34,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:text="Ex-Showroom Price of Vehicle"
-                    android:textColor="#0F172A"
+                    android:textColor="@color/text_primary"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
@@ -58,7 +58,7 @@
                 android:textColorHint="#94A3B8"
                 android:inputType="numberDecimal"
                 android:paddingHorizontal="16dp"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -69,7 +69,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="6dp"
                 android:text="Vehicle Age Slab"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -92,12 +92,12 @@
                     android:singleLine="true"
                     android:text="&lt; 6 Months (5%)"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     app:cornerRadius="12dp"
-                    app:strokeColor="#CBD5E1" />
+                    app:strokeColor="@color/border_stroke" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/chipAge1y"
@@ -111,12 +111,12 @@
                     android:singleLine="true"
                     android:text="6m - 1 Yr (15%)"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     app:cornerRadius="12dp"
-                    app:strokeColor="#CBD5E1" />
+                    app:strokeColor="@color/border_stroke" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/chipAge2y"
@@ -130,12 +130,12 @@
                     android:singleLine="true"
                     android:text="1 - 2 Yrs (20%)"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     app:cornerRadius="12dp"
-                    app:strokeColor="#CBD5E1" />
+                    app:strokeColor="@color/border_stroke" />
 
             </LinearLayout>
 
@@ -158,12 +158,12 @@
                     android:singleLine="true"
                     android:text="2 - 3 Yrs (30%)"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     app:cornerRadius="12dp"
-                    app:strokeColor="#CBD5E1" />
+                    app:strokeColor="@color/border_stroke" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/chipAge4y"
@@ -177,12 +177,12 @@
                     android:singleLine="true"
                     android:text="3 - 4 Yrs (40%)"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     app:cornerRadius="12dp"
-                    app:strokeColor="#CBD5E1" />
+                    app:strokeColor="@color/border_stroke" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/chipAge5y"
@@ -196,12 +196,12 @@
                     android:singleLine="true"
                     android:text="4 - 5 Yrs (50%)"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     app:cornerRadius="12dp"
-                    app:strokeColor="#CBD5E1" />
+                    app:strokeColor="@color/border_stroke" />
 
             </LinearLayout>
 

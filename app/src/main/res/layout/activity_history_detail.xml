@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8FAFC"
+    android:background="@color/background"
     android:orientation="vertical">
 
     <!-- Fixed Header -->
@@ -27,10 +27,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app:cardBackgroundColor="@android:color/white"
+                app:cardBackgroundColor="@color/surface"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="2dp"
-                app:strokeColor="#E2E8F0"
+                app:strokeColor="@color/border_stroke"
                 app:strokeWidth="1dp">
 
                 <LinearLayout
@@ -48,11 +48,11 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentStart="true"
-                            android:background="#DBEAFE"
+                            android:background="@color/primary_light"
                             android:paddingHorizontal="10dp"
                             android:paddingVertical="4dp"
                             android:text="LOAN CALCULATION"
-                            android:textColor="#1D4ED8"
+                            android:textColor="@color/primary"
                             android:textSize="11sp"
                             android:textStyle="bold" />
 
@@ -63,7 +63,7 @@
                             android:layout_alignParentEnd="true"
                             android:layout_centerVertical="true"
                             android:text="31 Jul 2026, 09:30 PM"
-                            android:textColor="#64748B"
+                            android:textColor="@color/text_secondary"
                             android:textSize="12sp" />
                     </RelativeLayout>
 
@@ -73,7 +73,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="Home Loan EMI Calculator"
-                        android:textColor="#0F172A"
+                        android:textColor="@color/text_primary"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
@@ -83,7 +83,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="Principal: ₹40,00,000 | Rate: 8.5% | Term: 20 Years"
-                        android:textColor="#475569"
+                        android:textColor="@color/text_secondary"
                         android:textSize="13sp" />
 
                 </LinearLayout>
@@ -94,16 +94,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app:cardBackgroundColor="@android:color/white"
+                app:cardBackgroundColor="@color/surface"
                 app:cardCornerRadius="18dp"
                 app:cardElevation="3dp"
-                app:strokeColor="#CBD5E1"
+                app:strokeColor="@color/border_stroke"
                 app:strokeWidth="1dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#F0F5FF"
+                    android:background="@color/primary_light"
                     android:orientation="vertical"
                     android:padding="20dp">
 
@@ -113,7 +113,7 @@
                         android:layout_height="wrap_content"
                         android:letterSpacing="0.05"
                         android:text="MONTHLY PAYMENT (EMI)"
-                        android:textColor="#3B82F6"
+                        android:textColor="@color/primary"
                         android:textSize="12sp"
                         android:textStyle="bold" />
 
@@ -131,7 +131,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:layout_marginVertical="14dp"
-                        android:background="#DBEAFE" />
+                        android:background="@color/border_stroke" />
 
                     <!-- Breakdown Rows -->
                     <LinearLayout
@@ -149,7 +149,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Principal Amount"
-                                android:textColor="#64748B"
+                                android:textColor="@color/text_secondary"
                                 android:textSize="12sp" />
 
                             <TextView
@@ -158,7 +158,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
                                 android:text="₹40,00,000"
-                                android:textColor="#0F172A"
+                                android:textColor="@color/text_primary"
                                 android:textSize="15sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -173,7 +173,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Total Interest"
-                                android:textColor="#64748B"
+                                android:textColor="@color/text_secondary"
                                 android:textSize="12sp" />
 
                             <TextView
@@ -182,7 +182,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
                                 android:text="₹43,31,107"
-                                android:textColor="#DC2626"
+                                android:textColor="@color/error"
                                 android:textSize="15sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -205,7 +205,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Total Payable Amount"
-                                android:textColor="#64748B"
+                                android:textColor="@color/text_secondary"
                                 android:textSize="12sp" />
 
                             <TextView
@@ -214,7 +214,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
                                 android:text="₹83,31,107"
-                                android:textColor="#16A34A"
+                                android:textColor="@color/success"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -229,10 +229,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app:cardBackgroundColor="@android:color/white"
+                app:cardBackgroundColor="@color/surface"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="2dp"
-                app:strokeColor="#E2E8F0"
+                app:strokeColor="@color/border_stroke"
                 app:strokeWidth="1dp">
 
                 <LinearLayout
@@ -246,7 +246,7 @@
                         android:layout_height="wrap_content"
                         android:letterSpacing="0.05"
                         android:text="SAVED INPUT PARAMETERS"
-                        android:textColor="#475569"
+                        android:textColor="@color/text_secondary"
                         android:textSize="13sp"
                         android:textStyle="bold" />
 
@@ -254,7 +254,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:layout_marginVertical="10dp"
-                        android:background="#F1F5F9" />
+                        android:background="@color/border_stroke" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -266,7 +266,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Interest / Growth Rate:"
-                            android:textColor="#64748B"
+                            android:textColor="@color/text_secondary"
                             android:textSize="13sp" />
 
                         <TextView
@@ -274,7 +274,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="8.5 %"
-                            android:textColor="#0F172A"
+                            android:textColor="@color/text_primary"
                             android:textSize="14sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -290,7 +290,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Loan / Investment Tenure:"
-                            android:textColor="#64748B"
+                            android:textColor="@color/text_secondary"
                             android:textSize="13sp" />
 
                         <TextView
@@ -298,7 +298,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="20 Years (240 Months)"
-                            android:textColor="#0F172A"
+                            android:textColor="@color/text_primary"
                             android:textSize="14sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -314,7 +314,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Start Date:"
-                            android:textColor="#64748B"
+                            android:textColor="@color/text_secondary"
                             android:textSize="13sp" />
 
                         <TextView
@@ -322,7 +322,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Today"
-                            android:textColor="#0F172A"
+                            android:textColor="@color/text_primary"
                             android:textSize="14sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -338,7 +338,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Payoff / Target Info:"
-                            android:textColor="#64748B"
+                            android:textColor="@color/text_secondary"
                             android:textSize="13sp" />
 
                         <TextView
@@ -346,7 +346,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Jul 2046"
-                            android:textColor="#0F172A"
+                            android:textColor="@color/text_primary"
                             android:textSize="14sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -360,10 +360,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app:cardBackgroundColor="#F8FAFC"
+                app:cardBackgroundColor="@color/surface"
                 app:cardCornerRadius="14dp"
                 app:cardElevation="0dp"
-                app:strokeColor="#CBD5E1"
+                app:strokeColor="@color/border_stroke"
                 app:strokeWidth="1dp">
 
                 <LinearLayout
@@ -376,7 +376,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="SPONSORED ADVERTISEMENT"
-                        android:textColor="#94A3B8"
+                        android:textColor="@color/text_secondary"
                         android:textSize="11sp"
                         android:textStyle="bold"
                         android:letterSpacing="0.08" />
@@ -386,7 +386,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="[ Banner Ad Container - Ready for AdMob / Audience Network ]"
-                        android:textColor="#64748B"
+                        android:textColor="@color/text_secondary"
                         android:textSize="12sp" />
 
                 </LinearLayout>
@@ -398,7 +398,7 @@
                 android:id="@+id/btnShareDetail"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
-                android:text="Share Calculation Result"
+                android:text="@string/btn_share"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
@@ -412,13 +412,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="10dp"
-                android:text="Delete Saved Record"
+                android:text="@string/btn_delete"
                 android:textAllCaps="false"
-                android:textColor="#DC2626"
+                android:textColor="@color/error"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 app:cornerRadius="14dp"
-                app:strokeColor="#FCA5A5" />
+                app:strokeColor="@color/error" />
 
         </LinearLayout>
 

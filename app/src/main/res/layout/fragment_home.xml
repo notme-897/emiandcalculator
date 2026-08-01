@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F7FB"
+    android:background="@color/background"
     android:clipToPadding="false"
     android:paddingBottom="80dp"
     android:fillViewport="true">
@@ -31,10 +31,10 @@
                 android:id="@+id/txtLoanTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Loan Categories"
+                android:text="@string/header_financial_calculators"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:layout_marginBottom="12dp"/>
 
             <androidx.recyclerview.widget.RecyclerView

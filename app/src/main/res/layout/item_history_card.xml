@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="12dp"
-    app:cardBackgroundColor="@android:color/white"
+    app:cardBackgroundColor="@color/surface"
     app:cardCornerRadius="16dp"
     app:cardElevation="2dp"
-    app:strokeColor="#E2E8F0"
+    app:strokeColor="@color/border_stroke"
     app:strokeWidth="1dp">
 
     <LinearLayout
@@ -26,11 +26,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:background="#DBEAFE"
+                android:background="@color/primary_light"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="4dp"
                 android:text="LOANS"
-                android:textColor="#1D4ED8"
+                android:textColor="@color/primary"
                 android:textSize="11sp"
                 android:textStyle="bold" />
 
@@ -41,7 +41,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:text="31 Jul 2026, 09:30 PM"
-                android:textColor="#64748B"
+                android:textColor="@color/text_secondary"
                 android:textSize="12sp" />
         </RelativeLayout>
 
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="Home Loan EMI Calculator"
-            android:textColor="#0F172A"
+            android:textColor="@color/text_primary"
             android:textSize="17sp"
             android:textStyle="bold" />
 
@@ -79,7 +79,7 @@
                 android:layout_marginStart="6dp"
                 android:layout_marginBottom="2dp"
                 android:text="/ result"
-                android:textColor="#64748B"
+                android:textColor="@color/text_secondary"
                 android:textSize="12sp" />
         </LinearLayout>
 
@@ -92,7 +92,7 @@
             android:ellipsize="end"
             android:maxLines="2"
             android:text="Principal: ₹40,00,000 | Rate: 8.5% | Term: 20 Years"
-            android:textColor="#475569"
+            android:textColor="@color/text_secondary"
             android:textSize="13sp" />
 
         <View
@@ -100,7 +100,7 @@
             android:layout_height="1dp"
             android:layout_marginTop="12dp"
             android:layout_marginBottom="8dp"
-            android:background="#F1F5F9" />
+            android:background="@color/border_stroke" />
 
         <!-- Action Row -->
         <RelativeLayout
@@ -113,7 +113,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:text="Tap to view full breakdown ➔"
-                android:textColor="#2563EB"
+                android:textColor="@color/primary"
                 android:textSize="13sp"
                 android:textStyle="bold" />
 
@@ -122,7 +122,7 @@
                 android:layout_width="34dp"
                 android:layout_height="34dp"
                 android:layout_alignParentEnd="true"
-                app:cardBackgroundColor="#FEE2E2"
+                app:cardBackgroundColor="@color/primary_light"
                 app:cardCornerRadius="17dp"
                 app:cardElevation="0dp"
                 app:strokeWidth="0dp">
@@ -132,7 +132,7 @@
                     android:layout_height="18dp"
                     android:layout_gravity="center"
                     android:src="@android:drawable/ic_menu_delete"
-                    app:tint="#DC2626" />
+                    app:tint="@color/error" />
             </com.google.android.material.card.MaterialCardView>
 
         </RelativeLayout>

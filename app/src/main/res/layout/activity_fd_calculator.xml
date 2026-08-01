@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F7FB"
+    android:background="@color/background"
     android:orientation="vertical">
 
     <!-- Fixed Header -->
@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
                 android:text="Total Deposit Amount (₹)"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -45,7 +45,7 @@
                 android:hint="e.g. 2,00,000"
                 android:inputType="numberDecimal"
                 android:paddingHorizontal="16dp"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -68,9 +68,9 @@
                     android:padding="0dp"
                     android:text="₹50k"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="18dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -83,9 +83,9 @@
                     android:padding="0dp"
                     android:text="₹1L"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="18dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -98,9 +98,9 @@
                     android:padding="0dp"
                     android:text="₹2L"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="18dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -113,9 +113,9 @@
                     android:padding="0dp"
                     android:text="₹5L"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="18dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -128,9 +128,9 @@
                     android:padding="0dp"
                     android:text="₹10L"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="18dp" />
 
             </LinearLayout>
@@ -141,7 +141,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
                 android:text="FD Interest Rate (% p.a.)"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -154,7 +154,7 @@
                 android:hint="e.g. 7.0"
                 android:inputType="numberDecimal"
                 android:paddingHorizontal="16dp"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -177,9 +177,9 @@
                     android:padding="0dp"
                     android:text="6.5%"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="18dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -192,9 +192,9 @@
                     android:padding="0dp"
                     android:text="7.0%"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="18dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -207,9 +207,9 @@
                     android:padding="0dp"
                     android:text="7.5%"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="18dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -222,9 +222,9 @@
                     android:padding="0dp"
                     android:text="8.0%"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="18dp" />
 
             </LinearLayout>
@@ -240,10 +240,10 @@
                 android:paddingVertical="6dp"
                 android:text="Senior Citizen (+0.50% Extra Interest Rate)"
                 android:textAllCaps="false"
-                android:textColor="#1E293B"
+                android:textColor="@color/text_primary"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                app:strokeColor="#CBD5E1"
+                app:strokeColor="@color/border_stroke"
                 app:cornerRadius="12dp" />
 
             <!-- Compounding Frequency Selector -->
@@ -252,7 +252,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
                 android:text="Compounding Frequency"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -273,10 +273,10 @@
                     android:padding="0dp"
                     android:text="Quarterly"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
                     android:textStyle="bold"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="12dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -289,10 +289,10 @@
                     android:padding="0dp"
                     android:text="Monthly"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
                     android:textStyle="bold"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="12dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -305,10 +305,10 @@
                     android:padding="0dp"
                     android:text="Half-Yr"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
                     android:textStyle="bold"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="12dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -321,10 +321,10 @@
                     android:padding="0dp"
                     android:text="Yearly"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
                     android:textStyle="bold"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="12dp" />
 
             </LinearLayout>
@@ -341,7 +341,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:text="FD Tenure (1 Yr - 30 Yrs)"
-                    android:textColor="#0F172A"
+                    android:textColor="@color/text_primary"
                     android:textSize="15sp"
                     android:textStyle="bold" />
             </RelativeLayout>
@@ -371,9 +371,9 @@
                     android:padding="0dp"
                     android:text="1 Yr"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="18dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -386,9 +386,9 @@
                     android:padding="0dp"
                     android:text="2 Yrs"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="18dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -401,9 +401,9 @@
                     android:padding="0dp"
                     android:text="3 Yrs"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="18dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -416,9 +416,9 @@
                     android:padding="0dp"
                     android:text="5 Yrs"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="18dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -431,9 +431,9 @@
                     android:padding="0dp"
                     android:text="10 Yrs"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="18dp" />
 
             </LinearLayout>

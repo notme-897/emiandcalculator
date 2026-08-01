@@ -28,6 +28,7 @@ class PieChartActivity : BaseResultActivity() {
         return "Loan Breakdown - Principal: ${formatCurrency(principalAmount)}, Interest: ${formatCurrency(interestAmount)}"
     }
 
+    @Suppress("DEPRECATION")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
@@ -94,10 +95,14 @@ class PieChartActivity : BaseResultActivity() {
         dataSet.valueTextColor = Color.WHITE
         dataSet.valueTextSize = 16f
 
+        val isDark = com.example.calculatoremi.utils.ThemeManager.isDarkMode(this)
+        val holeColor = if (isDark) Color.parseColor("#1E293B") else Color.WHITE
+
         val data = PieData(dataSet)
         pieChart.data = data
         pieChart.description.isEnabled = false
         pieChart.isDrawHoleEnabled = true
+        pieChart.setHoleColor(holeColor)
         pieChart.holeRadius = 45f
         pieChart.setEntryLabelColor(Color.WHITE)
         pieChart.setEntryLabelTextSize(12f)

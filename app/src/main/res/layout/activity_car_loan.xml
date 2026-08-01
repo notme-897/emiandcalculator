@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F7FB"
+    android:background="@color/background"
     android:orientation="vertical">
 
     <!-- Fixed Header -->
@@ -32,10 +32,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app:cardBackgroundColor="#FFFFFF"
+                app:cardBackgroundColor="@color/surface"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="2dp"
-                app:strokeColor="#CBD5E1"
+                app:strokeColor="@color/border_stroke"
                 app:strokeWidth="1dp">
 
                 <LinearLayout
@@ -48,7 +48,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Vehicle Price &amp; Down Payment"
-                        android:textColor="#0F172A"
+                        android:textColor="@color/text_primary"
                         android:textSize="15sp"
                         android:textStyle="bold" />
 
@@ -58,7 +58,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="Vehicle Price (On-Road / Ex-Showroom)"
-                        android:textColor="#475569"
+                        android:textColor="@color/text_secondary"
                         android:textSize="13sp"
                         android:textStyle="bold" />
 
@@ -72,7 +72,7 @@
                         android:hint="e.g. 10,00,000"
                         android:inputType="numberDecimal"
                         android:paddingHorizontal="16dp"
-                        android:textColor="#0F172A"
+                        android:textColor="@color/text_primary"
                         android:textSize="15sp"
                         android:textStyle="bold" />
 
@@ -87,7 +87,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentStart="true"
                             android:text="Down Payment (₹)"
-                            android:textColor="#475569"
+                            android:textColor="@color/text_secondary"
                             android:textSize="13sp"
                             android:textStyle="bold" />
 
@@ -112,7 +112,7 @@
                         android:hint="e.g. 2,00,000"
                         android:inputType="numberDecimal"
                         android:paddingHorizontal="16dp"
-                        android:textColor="#0F172A"
+                        android:textColor="@color/text_primary"
                         android:textSize="15sp"
                         android:textStyle="bold" />
 
@@ -134,9 +134,9 @@
                             android:padding="0dp"
                             android:text="10%"
                             android:textAllCaps="false"
-                            android:textColor="#1E293B"
+                            android:textColor="@color/text_primary"
                             android:textSize="11sp"
-                            app:strokeColor="#CBD5E1"
+                            app:strokeColor="@color/border_stroke"
                             app:cornerRadius="17dp" />
 
                         <com.google.android.material.button.MaterialButton
@@ -149,9 +149,9 @@
                             android:padding="0dp"
                             android:text="15%"
                             android:textAllCaps="false"
-                            android:textColor="#1E293B"
+                            android:textColor="@color/text_primary"
                             android:textSize="11sp"
-                            app:strokeColor="#CBD5E1"
+                            app:strokeColor="@color/border_stroke"
                             app:cornerRadius="17dp" />
 
                         <com.google.android.material.button.MaterialButton
@@ -164,9 +164,9 @@
                             android:padding="0dp"
                             android:text="20%"
                             android:textAllCaps="false"
-                            android:textColor="#1E293B"
+                            android:textColor="@color/text_primary"
                             android:textSize="11sp"
-                            app:strokeColor="#CBD5E1"
+                            app:strokeColor="@color/border_stroke"
                             app:cornerRadius="17dp" />
 
                         <com.google.android.material.button.MaterialButton
@@ -179,9 +179,9 @@
                             android:padding="0dp"
                             android:text="25%"
                             android:textAllCaps="false"
-                            android:textColor="#1E293B"
+                            android:textColor="@color/text_primary"
                             android:textSize="11sp"
-                            app:strokeColor="#CBD5E1"
+                            app:strokeColor="@color/border_stroke"
                             app:cornerRadius="17dp" />
 
                         <com.google.android.material.button.MaterialButton
@@ -194,9 +194,9 @@
                             android:padding="0dp"
                             android:text="30%"
                             android:textAllCaps="false"
-                            android:textColor="#1E293B"
+                            android:textColor="@color/text_primary"
                             android:textSize="11sp"
-                            app:strokeColor="#CBD5E1"
+                            app:strokeColor="@color/border_stroke"
                             app:cornerRadius="17dp" />
 
                     </LinearLayout>
@@ -207,7 +207,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="Old Car Trade-in Value (Optional) (₹)"
-                        android:textColor="#475569"
+                        android:textColor="@color/text_secondary"
                         android:textSize="13sp"
                         android:textStyle="bold" />
 
@@ -221,7 +221,7 @@
                         android:hint="e.g. 1,00,000 (0 if none)"
                         android:inputType="numberDecimal"
                         android:paddingHorizontal="16dp"
-                        android:textColor="#0F172A"
+                        android:textColor="@color/text_primary"
                         android:textSize="15sp"
                         android:textStyle="bold" />
 
@@ -230,7 +230,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:background="#E8F0FE"
+                        android:background="@color/primary_light"
                         android:orientation="vertical"
                         android:padding="12dp">
 
@@ -242,7 +242,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Net Loan Principal:"
-                                android:textColor="#1E293B"
+                                android:textColor="@color/text_primary"
                                 android:textSize="13sp" />
 
                             <TextView
@@ -265,7 +265,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Loan-to-Value (LTV) Ratio:"
-                                android:textColor="#1E293B"
+                                android:textColor="@color/text_primary"
                                 android:textSize="13sp" />
 
                             <TextView
@@ -290,7 +290,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
                 android:text="Interest Rate Calculation Method"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -327,10 +327,10 @@
                     android:padding="0dp"
                     android:text="Flat Rate (Dealer Quote)"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="12sp"
                     android:textStyle="bold"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="12dp" />
 
             </LinearLayout>
@@ -385,7 +385,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:text="Net Loan Principal"
-                    android:textColor="#0F172A"
+                    android:textColor="@color/text_primary"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
@@ -409,7 +409,7 @@
                 android:hint="e.g. 7,00,000"
                 android:inputType="numberDecimal"
                 android:paddingHorizontal="16dp"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -424,7 +424,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:text="Interest Rate"
-                    android:textColor="#0F172A"
+                    android:textColor="@color/text_primary"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
@@ -447,7 +447,7 @@
                 android:hint="e.g. 9.0"
                 android:inputType="numberDecimal"
                 android:paddingHorizontal="16dp"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -470,9 +470,9 @@
                     android:padding="0dp"
                     android:text="7.5%"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="18dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -485,9 +485,9 @@
                     android:padding="0dp"
                     android:text="8.5%"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="18dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -500,9 +500,9 @@
                     android:padding="0dp"
                     android:text="9.5%"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="18dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -515,9 +515,9 @@
                     android:padding="0dp"
                     android:text="10.5%"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="18dp" />
 
             </LinearLayout>
@@ -534,7 +534,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:text="Loan Duration (1 to 7 Yrs)"
-                    android:textColor="#0F172A"
+                    android:textColor="@color/text_primary"
                     android:textSize="15sp"
                     android:textStyle="bold" />
             </RelativeLayout>
@@ -551,7 +551,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
                 android:text="Processing / Documentation Fees (Optional) (₹)"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -565,7 +565,7 @@
                 android:hint="e.g. 5,000"
                 android:inputType="numberDecimal"
                 android:paddingHorizontal="16dp"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -575,7 +575,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
                 android:text="Start Date"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -594,7 +594,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="22 Jul, 2026"
-                    android:textColor="#0F172A"
+                    android:textColor="@color/text_primary"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -619,10 +619,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                app:cardBackgroundColor="#F8FAFC"
+                app:cardBackgroundColor="@color/surface"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="1dp"
-                app:strokeColor="#CBD5E1"
+                app:strokeColor="@color/border_stroke"
                 app:strokeWidth="1dp">
 
                 <LinearLayout
@@ -635,7 +635,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Vehicle Depreciation &amp; Ownership Cost"
-                        android:textColor="#0F172A"
+                        android:textColor="@color/text_primary"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
@@ -648,7 +648,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Total Cost of Ownership:"
-                            android:textColor="#475569"
+                            android:textColor="@color/text_secondary"
                             android:textSize="13sp" />
 
                         <TextView
@@ -657,7 +657,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             android:text="₹11,68,400"
-                            android:textColor="#0F172A"
+                            android:textColor="@color/text_primary"
                             android:textSize="14sp"
                             android:textStyle="bold" />
                     </RelativeLayout>
@@ -671,7 +671,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Est. Car Value (Year 3):"
-                            android:textColor="#475569"
+                            android:textColor="@color/text_secondary"
                             android:textSize="13sp" />
 
                         <TextView
@@ -680,7 +680,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             android:text="₹5,78,000"
-                            android:textColor="#1E293B"
+                            android:textColor="@color/text_primary"
                             android:textSize="14sp"
                             android:textStyle="bold" />
                     </RelativeLayout>

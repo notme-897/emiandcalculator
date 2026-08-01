@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8FAFC"
+    android:background="@color/background"
     android:orientation="vertical">
 
     <!-- Fixed Header -->
@@ -52,7 +52,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
                         android:text="Current Age"
-                        android:textColor="#0F172A"
+                        android:textColor="@color/text_primary"
                         android:textSize="13sp"
                         android:textStyle="bold" />
 
@@ -65,7 +65,7 @@
                         android:textColorHint="#94A3B8"
                         android:inputType="number"
                         android:paddingHorizontal="14dp"
-                        android:textColor="#0F172A"
+                        android:textColor="@color/text_primary"
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -81,7 +81,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
                         android:text="Retirement Age"
-                        android:textColor="#0F172A"
+                        android:textColor="@color/text_primary"
                         android:textSize="13sp"
                         android:textStyle="bold" />
 
@@ -94,7 +94,7 @@
                         android:textColorHint="#94A3B8"
                         android:inputType="number"
                         android:paddingHorizontal="14dp"
-                        android:textColor="#0F172A"
+                        android:textColor="@color/text_primary"
                         android:textSize="14sp" />
                 </LinearLayout>
             </LinearLayout>
@@ -105,7 +105,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
                 android:text="Tobacco / Nicotine Usage"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
@@ -128,12 +128,12 @@
                     android:singleLine="true"
                     android:text="Non-Smoker / No Tobacco"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     app:cornerRadius="12dp"
-                    app:strokeColor="#CBD5E1" />
+                    app:strokeColor="@color/border_stroke" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/chipTobaccoYes"
@@ -147,12 +147,12 @@
                     android:singleLine="true"
                     android:text="Tobacco User / Smoker"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     app:cornerRadius="12dp"
-                    app:strokeColor="#CBD5E1" />
+                    app:strokeColor="@color/border_stroke" />
 
             </LinearLayout>
 
@@ -176,7 +176,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:text="Annual Gross Income"
-                    android:textColor="#0F172A"
+                    android:textColor="@color/text_primary"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
@@ -200,7 +200,7 @@
                 android:textColorHint="#94A3B8"
                 android:inputType="numberDecimal"
                 android:paddingHorizontal="16dp"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -209,7 +209,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
                 android:text="Personal Annual Expenses (Subtracted)"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
@@ -223,7 +223,7 @@
                 android:textColorHint="#94A3B8"
                 android:inputType="numberDecimal"
                 android:paddingHorizontal="16dp"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="15sp" />
 
             <!-- 3. Liabilities & Future Goals -->
@@ -254,7 +254,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
                         android:text="Total Debts (Loans)"
-                        android:textColor="#0F172A"
+                        android:textColor="@color/text_primary"
                         android:textSize="13sp"
                         android:textStyle="bold" />
 
@@ -267,7 +267,7 @@
                         android:textColorHint="#94A3B8"
                         android:inputType="numberDecimal"
                         android:paddingHorizontal="14dp"
-                        android:textColor="#0F172A"
+                        android:textColor="@color/text_primary"
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -283,7 +283,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
                         android:text="Future Goals (Edu/Marriage)"
-                        android:textColor="#0F172A"
+                        android:textColor="@color/text_primary"
                         android:textSize="13sp"
                         android:textStyle="bold" />
 
@@ -296,7 +296,7 @@
                         android:textColorHint="#94A3B8"
                         android:inputType="numberDecimal"
                         android:paddingHorizontal="14dp"
-                        android:textColor="#0F172A"
+                        android:textColor="@color/text_primary"
                         android:textSize="14sp" />
                 </LinearLayout>
             </LinearLayout>
@@ -329,7 +329,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
                         android:text="Existing Insurance Cover"
-                        android:textColor="#0F172A"
+                        android:textColor="@color/text_primary"
                         android:textSize="13sp"
                         android:textStyle="bold" />
 
@@ -342,7 +342,7 @@
                         android:textColorHint="#94A3B8"
                         android:inputType="numberDecimal"
                         android:paddingHorizontal="14dp"
-                        android:textColor="#0F172A"
+                        android:textColor="@color/text_primary"
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -358,7 +358,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
                         android:text="Liquid Savings / Investments"
-                        android:textColor="#0F172A"
+                        android:textColor="@color/text_primary"
                         android:textSize="13sp"
                         android:textStyle="bold" />
 
@@ -371,7 +371,7 @@
                         android:textColorHint="#94A3B8"
                         android:inputType="numberDecimal"
                         android:paddingHorizontal="14dp"
-                        android:textColor="#0F172A"
+                        android:textColor="@color/text_primary"
                         android:textSize="14sp" />
                 </LinearLayout>
             </LinearLayout>

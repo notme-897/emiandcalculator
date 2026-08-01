@@ -3,9 +3,9 @@
 
     <item
         android:state_checked="true"
-        android:color="#1A56E4"/>
+        android:color="@color/nav_selected"/>
 
     <item
-        android:color="#64748B"/>
+        android:color="@color/nav_unselected"/>
 
 </selector>

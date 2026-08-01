@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8FAFC"
+    android:background="@color/background"
     android:orientation="vertical">
 
     <!-- Standardized Header -->
@@ -34,7 +34,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:text="Current Annual CTC"
-                    android:textColor="#0F172A"
+                    android:textColor="@color/text_primary"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
@@ -57,7 +57,7 @@
                 android:hint="e.g. 12,00,000"
                 android:inputType="numberDecimal"
                 android:paddingHorizontal="16dp"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -68,7 +68,7 @@
                 android:layout_marginTop="18dp"
                 android:layout_marginBottom="6dp"
                 android:text="Current City Tier"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -92,12 +92,12 @@
                     android:maxLines="1"
                     android:text="Tier 1 Metro"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     app:cornerRadius="12dp"
-                    app:strokeColor="#CBD5E1" />
+                    app:strokeColor="@color/border_stroke" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/chipFromTier2"
@@ -112,12 +112,12 @@
                     android:maxLines="1"
                     android:text="Tier 2 City"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     app:cornerRadius="12dp"
-                    app:strokeColor="#CBD5E1" />
+                    app:strokeColor="@color/border_stroke" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/chipFromTier3"
@@ -132,12 +132,12 @@
                     android:maxLines="1"
                     android:text="Tier 3 / Remote"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     app:cornerRadius="12dp"
-                    app:strokeColor="#CBD5E1" />
+                    app:strokeColor="@color/border_stroke" />
 
             </LinearLayout>
 
@@ -147,7 +147,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
                 android:text="Target Relocation City Tier"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -171,12 +171,12 @@
                     android:maxLines="1"
                     android:text="Tier 1 Metro"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     app:cornerRadius="12dp"
-                    app:strokeColor="#CBD5E1" />
+                    app:strokeColor="@color/border_stroke" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/chipToTier2"
@@ -191,12 +191,12 @@
                     android:maxLines="1"
                     android:text="Tier 2 City"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     app:cornerRadius="12dp"
-                    app:strokeColor="#CBD5E1" />
+                    app:strokeColor="@color/border_stroke" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/chipToTier3"
@@ -211,12 +211,12 @@
                     android:maxLines="1"
                     android:text="Tier 3 / Remote"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     app:cornerRadius="12dp"
-                    app:strokeColor="#CBD5E1" />
+                    app:strokeColor="@color/border_stroke" />
 
             </LinearLayout>
 

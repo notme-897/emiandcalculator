@@ -1,13 +1,69 @@
 <resources>
-    <string name="app_name">EmiCalculator</string>
-    <string name="emi_mortgage_finance_tools"> EMI •Mortgage •Finance Tools</string>
+    <string name="app_name">EMI Calculator</string>
+    <string name="emi_mortgage_finance_tools">EMI • Mortgage • Finance Tools</string>
     <string name="add">Add</string>
     <string name="percentage_format">%1$d%%</string>
     <string name="currency_underlined"><u>Currency</u></string>
 
+    <!-- Navigation Tabs -->
+    <string name="nav_home">Home</string>
+    <string name="nav_calculators">Calculators</string>
+    <string name="nav_history">History</string>
+    <string name="nav_tools">Tools</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Section Headers -->
+    <string name="header_financial_calculators">Financial Calculators</string>
+    <string name="header_loan_calculator">Loan &amp; EMI Calculator</string>
+    <string name="header_history">Calculation History</string>
+    <string name="header_tools">Financial Tools</string>
+    <string name="header_settings">Settings &amp; Preferences</string>
+    <string name="header_calculation_details">Calculation Details</string>
+
+    <!-- Home Categories -->
+    <string name="cat_loan_title">Loan &amp; EMI Calculators</string>
+    <string name="cat_loan_desc">Home, Car, Bike, Business &amp; Personal Loans</string>
+    <string name="cat_investment_title">Investment Calculators</string>
+    <string name="cat_investment_desc">SIP, FD, RD, PPF &amp; Compound Interest</string>
+    <string name="cat_tax_title">Tax &amp; Salary Calculators</string>
+    <string name="cat_tax_desc">GST, Income Tax &amp; In-Hand Salary</string>
+    <string name="cat_property_title">Property &amp; Real Estate</string>
+    <string name="cat_property_desc">Mortgage, Stamp Duty &amp; Rent vs Buy</string>
+    <string name="cat_insurance_title">Insurance Calculators</string>
+    <string name="cat_insurance_desc">Term Life &amp; Health Insurance</string>
+    <string name="cat_utility_title">Utility Tools</string>
+    <string name="cat_utility_desc">Unit Converter, Cash Counter &amp; Currency</string>
+
+    <!-- Common Actions & Buttons -->
+    <string name="btn_calculate">Calculate Now</string>
+    <string name="btn_reset">Reset</string>
+    <string name="btn_share">Share Breakdown</string>
+    <string name="btn_view_schedule">Amortization Schedule</string>
+    <string name="btn_view_chart">Pie Chart View</string>
+    <string name="btn_clear_all">Clear All</string>
+    <string name="btn_delete">Delete Record</string>
+
+    <!-- History Screen -->
+    <string name="history_saved_subtitle">Your recent financial calculations</string>
+    <string name="history_empty_title">No Calculations Yet</string>
+    <string name="history_empty_desc">Perform any calculation to save and view your results here anytime.</string>
+    <string name="history_saved_on">Saved on %1$s</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_appearance_theme">APPEARANCE &amp; THEME</string>
+    <string name="settings_theme_light">Light ☀️</string>
+    <string name="settings_theme_dark">Dark 🌙</string>
+    <string name="settings_theme_auto">Auto 📱</string>
+    <string name="settings_haptic_title">Haptic Feedback</string>
+    <string name="settings_haptic_desc">Vibrate on button &amp; slider touch</string>
+    <string name="settings_support_about">SUPPORT &amp; ABOUT</string>
+    <string name="settings_share_app">Share EMI Calculator</string>
+    <string name="settings_app_version">App Version</string>
+    <string name="settings_app_version_val">v1.0.0 (Ultimate Edition)</string>
+
+    <!-- Navigation Indicator Style -->
     <style name="NavIndicatorShape">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">24dp</item>
     </style>
-
 </resources>

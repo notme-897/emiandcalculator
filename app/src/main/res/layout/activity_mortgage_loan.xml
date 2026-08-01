@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F7FB"
+    android:background="@color/background"
     android:orientation="vertical">
 
     <!-- Fixed Header -->
@@ -43,10 +43,10 @@
                     android:layout_marginEnd="4dp"
                     android:text="Loan Against Property (LAP)"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="12sp"
                     android:textStyle="bold"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="12dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -58,10 +58,10 @@
                     android:layout_marginStart="4dp"
                     android:text="PITI Mortgage Mode"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="12sp"
                     android:textStyle="bold"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="12dp" />
 
             </LinearLayout>
@@ -72,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
                 android:text="Estimated Property Market Value (₹)"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -85,7 +85,7 @@
                 android:hint="e.g. 1,00,00,000"
                 android:inputType="numberDecimal"
                 android:paddingHorizontal="16dp"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -108,9 +108,9 @@
                     android:padding="0dp"
                     android:text="₹25L"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="18dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -123,9 +123,9 @@
                     android:padding="0dp"
                     android:text="₹50L"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="18dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -138,9 +138,9 @@
                     android:padding="0dp"
                     android:text="₹1Cr"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="18dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -153,9 +153,9 @@
                     android:padding="0dp"
                     android:text="₹2.5Cr"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="18dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -168,9 +168,9 @@
                     android:padding="0dp"
                     android:text="₹5Cr"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="18dp" />
 
             </LinearLayout>
@@ -181,7 +181,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
                 android:text="Desired Mortgage Loan Amount (₹)"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -194,7 +194,7 @@
                 android:hint="e.g. 60,00,000"
                 android:inputType="numberDecimal"
                 android:paddingHorizontal="16dp"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -217,9 +217,9 @@
                     android:padding="0dp"
                     android:text="₹15L"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="18dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -232,9 +232,9 @@
                     android:padding="0dp"
                     android:text="₹30L"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="18dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -247,9 +247,9 @@
                     android:padding="0dp"
                     android:text="₹60L"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="18dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -262,9 +262,9 @@
                     android:padding="0dp"
                     android:text="₹1.5Cr"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="18dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -277,9 +277,9 @@
                     android:padding="0dp"
                     android:text="₹3Cr"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="18dp" />
 
             </LinearLayout>
@@ -289,10 +289,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                app:cardBackgroundColor="#FFFFFF"
+                app:cardBackgroundColor="@color/surface"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="2dp"
-                app:strokeColor="#CBD5E1"
+                app:strokeColor="@color/border_stroke"
                 app:strokeWidth="1dp">
 
                 <LinearLayout
@@ -309,7 +309,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Calculated LTV Ratio:"
-                            android:textColor="#1E293B"
+                            android:textColor="@color/text_primary"
                             android:textSize="14sp"
                             android:textStyle="bold" />
 
@@ -350,7 +350,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="6dp"
                     android:text="Annual Property Tax (₹ / Year)"
-                    android:textColor="#0F172A"
+                    android:textColor="@color/text_primary"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
@@ -364,7 +364,7 @@
                     android:hint="e.g. 24,000"
                     android:inputType="numberDecimal"
                     android:paddingHorizontal="16dp"
-                    android:textColor="#0F172A"
+                    android:textColor="@color/text_primary"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -373,7 +373,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="6dp"
                     android:text="Annual Homeowner Insurance (₹ / Year)"
-                    android:textColor="#0F172A"
+                    android:textColor="@color/text_primary"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
@@ -387,7 +387,7 @@
                     android:hint="e.g. 12,000"
                     android:inputType="numberDecimal"
                     android:paddingHorizontal="16dp"
-                    android:textColor="#0F172A"
+                    android:textColor="@color/text_primary"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -399,7 +399,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
                 android:text="Interest Rate (% per annum)"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -412,7 +412,7 @@
                 android:hint="e.g. 9.5"
                 android:inputType="numberDecimal"
                 android:paddingHorizontal="16dp"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -435,9 +435,9 @@
                     android:padding="0dp"
                     android:text="8.5%"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="18dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -450,9 +450,9 @@
                     android:padding="0dp"
                     android:text="9.5%"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="18dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -465,9 +465,9 @@
                     android:padding="0dp"
                     android:text="10.5%"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="18dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -480,9 +480,9 @@
                     android:padding="0dp"
                     android:text="12.0%"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
-                    app:strokeColor="#CBD5E1"
+                    app:strokeColor="@color/border_stroke"
                     app:cornerRadius="18dp" />
 
             </LinearLayout>
@@ -499,7 +499,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:text="Loan Duration (5 to 30 Yrs)"
-                    android:textColor="#0F172A"
+                    android:textColor="@color/text_primary"
                     android:textSize="15sp"
                     android:textStyle="bold" />
             </RelativeLayout>
@@ -516,7 +516,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
                 android:text="Mortgage Disbursal Date"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -535,7 +535,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="24 Jul, 2026"
-                    android:textColor="#0F172A"
+                    android:textColor="@color/text_primary"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"

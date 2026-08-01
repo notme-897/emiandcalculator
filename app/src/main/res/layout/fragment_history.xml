@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8FAFC"
+    android:background="@color/background"
     android:orientation="vertical">
 
     <!-- Top Header -->
@@ -12,8 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="55dp"
-        android:background="@android:color/white"
-        android:elevation="4dp"
+        android:background="@color/surface"
+        android:elevation="0dp"
         android:paddingStart="16dp"
         android:paddingTop="12dp"
         android:paddingEnd="16dp"
@@ -23,8 +23,8 @@
             android:id="@+id/txtHistoryTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Calculation History"
-            android:textColor="#0F172A"
+            android:text="@string/header_history"
+            android:textColor="@color/text_primary"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -36,19 +36,13 @@
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Clear All"
-            android:textColor="#E53935"
+            android:text="@string/btn_clear_all"
+            android:textColor="@color/error"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#E2E8F0"
-            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -56,11 +50,11 @@
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
+        android:background="@color/surface"
         android:scrollbars="none"
         android:paddingHorizontal="16dp"
         android:paddingVertical="10dp"
-        android:elevation="1dp">
+        android:elevation="0dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -80,7 +74,7 @@
                 android:textColor="#FFFFFF"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                app:backgroundTint="#3B82F6"
+                app:backgroundTint="@color/primary"
                 app:cornerRadius="18dp" />
 
             <com.google.android.material.button.MaterialButton
@@ -93,10 +87,10 @@
                 android:paddingVertical="0dp"
                 android:text="Loans"
                 android:textAllCaps="false"
-                android:textColor="#475569"
+                android:textColor="@color/text_secondary"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                app:strokeColor="#CBD5E1"
+                app:strokeColor="@color/border_stroke"
                 app:cornerRadius="18dp" />
 
             <com.google.android.material.button.MaterialButton
@@ -109,10 +103,10 @@
                 android:paddingVertical="0dp"
                 android:text="Investments"
                 android:textAllCaps="false"
-                android:textColor="#475569"
+                android:textColor="@color/text_secondary"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                app:strokeColor="#CBD5E1"
+                app:strokeColor="@color/border_stroke"
                 app:cornerRadius="18dp" />
 
             <com.google.android.material.button.MaterialButton
@@ -125,10 +119,10 @@
                 android:paddingVertical="0dp"
                 android:text="Salary"
                 android:textAllCaps="false"
-                android:textColor="#475569"
+                android:textColor="@color/text_secondary"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                app:strokeColor="#CBD5E1"
+                app:strokeColor="@color/border_stroke"
                 app:cornerRadius="18dp" />
 
             <com.google.android.material.button.MaterialButton
@@ -140,10 +134,10 @@
                 android:paddingVertical="0dp"
                 android:text="Utilities"
                 android:textAllCaps="false"
-                android:textColor="#475569"
+                android:textColor="@color/text_secondary"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                app:strokeColor="#CBD5E1"
+                app:strokeColor="@color/border_stroke"
                 app:cornerRadius="18dp" />
 
         </LinearLayout>
@@ -169,14 +163,14 @@
                 android:layout_height="100dp"
                 android:alpha="0.6"
                 android:src="@drawable/ic_history"
-                app:tint="#94A3B8" />
+                app:tint="@color/text_secondary" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="No Calculations Saved Yet"
-                android:textColor="#334155"
+                android:text="@string/history_empty_title"
+                android:textColor="@color/text_primary"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -185,8 +179,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:gravity="center"
-                android:text="Calculate any loan, investment, tax, or tool and your results will automatically be saved here."
-                android:textColor="#64748B"
+                android:text="@string/history_empty_desc"
+                android:textColor="@color/text_secondary"
                 android:textSize="14sp" />
 
         </LinearLayout>

@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F7FB"
+    android:background="@color/background"
     tools:context=".MainActivity">
 
     <!-- Main Fragment Container -->
@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="60dp"
-        android:background="#F5F7FB" />
+        android:background="@color/background" />
 
     <!-- Full Screen Edge-to-Edge Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -26,13 +26,13 @@
         android:minHeight="60dp"
         android:layout_gravity="bottom"
         android:background="@drawable/bottom_nav_background"
-        android:elevation="12dp"
+        android:elevation="4dp"
         app:itemActiveIndicatorStyle="@style/CustomActiveIndicator"
         app:itemIconSize="22dp"
         app:itemIconTint="@color/nav_item_color"
         app:itemPaddingBottom="4dp"
         app:itemPaddingTop="6dp"
-        app:itemRippleColor="#151A56E4"
+        app:itemRippleColor="@color/primary_light"
         app:itemTextColor="@color/nav_item_color"
         app:itemTextAppearanceActive="@style/BottomNavActiveText"
         app:itemTextAppearanceInactive="@style/BottomNavInactiveText"

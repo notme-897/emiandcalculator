@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FFFFFFFF</color>
+    <color name="white">#FF1E293B</color>
+
+    <!-- Modern Vibrant Category Colors (Slightly Lighter for Dark Surface Contrast) -->
+    <color name="cat_loan">#6366F1</color>
+    <color name="cat_investment">#34D399</color>
+    <color name="cat_tax">#F87171</color>
+    <color name="cat_salary">#FBBF24</color>
+    <color name="cat_property">#A78BFA</color>
+    <color name="cat_insurance">#22D3EE</color>
+    <color name="cat_utility">#94A3B8</color>
+
+    <!-- Primary Brand Colors -->
+    <color name="primary">#6366F1</color>
+    <color name="primary_light">#312E81</color>
+    <color name="primary_dark">#4338CA</color>
+
+    <!-- Gradient Tokens -->
+    <color name="gradient_start">#4F46E5</color>
+    <color name="gradient_end">#1E1B4B</color>
+    <color name="gradient_accent">#818CF8</color>
+
+    <!-- Background & Surface -->
+    <color name="background">#0F172A</color>
+    <color name="surface">#1E293B</color>
+
+    <!-- Text Tokens -->
+    <color name="text_primary">#F8FAFC</color>
+    <color name="text_secondary">#94A3B8</color>
+    <color name="text_dark">#F8FAFC</color>
+
+    <!-- Status Accents -->
+    <color name="success">#34D399</color>
+    <color name="warning">#FBBF24</color>
+    <color name="error">#F87171</color>
+
+    <!-- Navigation -->
+    <color name="nav_selected">#818CF8</color>
+    <color name="nav_unselected">#64748B</color>
+
+    <!-- Custom Highlights -->
+    <color name="custom_blue">#6366F1</color>
+    <color name="border_stroke">#334155</color>
+
+</resources>

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8FAFC"
+    android:background="@color/background"
     android:orientation="vertical">
 
     <!-- Fixed Header -->
@@ -37,14 +37,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:background="@android:color/white"
+                    android:background="@color/surface"
                     android:padding="16dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Nominal Rate (APR % p.a.)"
-                        android:textColor="#1E293B"
+                        android:textColor="@color/text_primary"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
@@ -57,7 +57,7 @@
                         android:hint="e.g. 12.0"
                         android:inputType="numberDecimal"
                         android:paddingHorizontal="14dp"
-                        android:textColor="#0F172A"
+                        android:textColor="@color/text_primary"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -66,7 +66,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="14dp"
                         android:text="Compounding Frequency"
-                        android:textColor="#1E293B"
+                        android:textColor="@color/text_primary"
                         android:textSize="13sp"
                         android:textStyle="bold" />
 
@@ -89,12 +89,12 @@
                             android:singleLine="true"
                             android:text="Daily"
                             android:textAllCaps="false"
-                            android:textColor="#1E293B"
+                            android:textColor="@color/text_primary"
                             android:textSize="11sp"
                             android:insetTop="0dp"
                             android:insetBottom="0dp"
                             app:cornerRadius="10dp"
-                            app:strokeColor="#CBD5E1" />
+                            app:strokeColor="@color/border_stroke" />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/chipCompMonthly"
@@ -108,12 +108,12 @@
                             android:singleLine="true"
                             android:text="Monthly"
                             android:textAllCaps="false"
-                            android:textColor="#1E293B"
+                            android:textColor="@color/text_primary"
                             android:textSize="11sp"
                             android:insetTop="0dp"
                             android:insetBottom="0dp"
                             app:cornerRadius="10dp"
-                            app:strokeColor="#CBD5E1" />
+                            app:strokeColor="@color/border_stroke" />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/chipCompQuarterly"
@@ -127,12 +127,12 @@
                             android:singleLine="true"
                             android:text="Quarterly"
                             android:textAllCaps="false"
-                            android:textColor="#1E293B"
+                            android:textColor="@color/text_primary"
                             android:textSize="11sp"
                             android:insetTop="0dp"
                             android:insetBottom="0dp"
                             app:cornerRadius="10dp"
-                            app:strokeColor="#CBD5E1" />
+                            app:strokeColor="@color/border_stroke" />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/chipCompContinuous"
@@ -146,12 +146,12 @@
                             android:singleLine="true"
                             android:text="Continuous"
                             android:textAllCaps="false"
-                            android:textColor="#1E293B"
+                            android:textColor="@color/text_primary"
                             android:textSize="10sp"
                             android:insetTop="0dp"
                             android:insetBottom="0dp"
                             app:cornerRadius="10dp"
-                            app:strokeColor="#CBD5E1" />
+                            app:strokeColor="@color/border_stroke" />
 
                     </LinearLayout>
 
@@ -160,7 +160,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="14dp"
                         android:text="Day-Count Basis Convention"
-                        android:textColor="#1E293B"
+                        android:textColor="@color/text_primary"
                         android:textSize="13sp"
                         android:textStyle="bold" />
 
@@ -183,12 +183,12 @@
                             android:singleLine="true"
                             android:text="Actual/365"
                             android:textAllCaps="false"
-                            android:textColor="#1E293B"
+                            android:textColor="@color/text_primary"
                             android:textSize="11sp"
                             android:insetTop="0dp"
                             android:insetBottom="0dp"
                             app:cornerRadius="10dp"
-                            app:strokeColor="#CBD5E1" />
+                            app:strokeColor="@color/border_stroke" />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/chipCountAct360"
@@ -202,12 +202,12 @@
                             android:singleLine="true"
                             android:text="Actual/360"
                             android:textAllCaps="false"
-                            android:textColor="#1E293B"
+                            android:textColor="@color/text_primary"
                             android:textSize="11sp"
                             android:insetTop="0dp"
                             android:insetBottom="0dp"
                             app:cornerRadius="10dp"
-                            app:strokeColor="#CBD5E1" />
+                            app:strokeColor="@color/border_stroke" />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/chipCount30360"
@@ -221,12 +221,12 @@
                             android:singleLine="true"
                             android:text="30/360"
                             android:textAllCaps="false"
-                            android:textColor="#1E293B"
+                            android:textColor="@color/text_primary"
                             android:textSize="11sp"
                             android:insetTop="0dp"
                             android:insetBottom="0dp"
                             app:cornerRadius="10dp"
-                            app:strokeColor="#CBD5E1" />
+                            app:strokeColor="@color/border_stroke" />
 
                     </LinearLayout>
 

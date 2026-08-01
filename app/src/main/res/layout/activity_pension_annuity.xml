@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8FAFC"
+    android:background="@color/background"
     android:orientation="vertical">
 
     <!-- Standardized Header -->
@@ -34,7 +34,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:text="Retirement Purchase Corpus"
-                    android:textColor="#0F172A"
+                    android:textColor="@color/text_primary"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
@@ -58,7 +58,7 @@
                 android:textColorHint="#94A3B8"
                 android:inputType="numberDecimal"
                 android:paddingHorizontal="16dp"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -81,7 +81,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
                         android:text="Annuity Rate (% p.a.)"
-                        android:textColor="#0F172A"
+                        android:textColor="@color/text_primary"
                         android:textSize="13sp"
                         android:textStyle="bold" />
 
@@ -94,7 +94,7 @@
                         android:textColorHint="#94A3B8"
                         android:inputType="numberDecimal"
                         android:paddingHorizontal="14dp"
-                        android:textColor="#0F172A"
+                        android:textColor="@color/text_primary"
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -110,7 +110,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
                         android:text="Pension Frequency"
-                        android:textColor="#0F172A"
+                        android:textColor="@color/text_primary"
                         android:textSize="13sp"
                         android:textStyle="bold" />
 
@@ -124,12 +124,12 @@
                         android:singleLine="true"
                         android:text="Monthly"
                         android:textAllCaps="false"
-                        android:textColor="#1E293B"
+                        android:textColor="@color/text_primary"
                         android:textSize="12sp"
                         android:insetTop="0dp"
                         android:insetBottom="0dp"
                         app:cornerRadius="12dp"
-                        app:strokeColor="#CBD5E1" />
+                        app:strokeColor="@color/border_stroke" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -139,7 +139,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="24dp"
                 android:text="Projects lifetime guaranteed pension payout from transferring retirement corpus to annuity plans."
-                android:textColor="#64748B"
+                android:textColor="@color/text_secondary"
                 android:textSize="12sp" />
 
             <!-- Action Buttons -->

@@ -27,15 +27,19 @@ class OnboardingActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_onboarding)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.viewPager)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-
         viewPager = findViewById(R.id.viewPager)
         btnNext = findViewById(R.id.btnNext)
         tvSkip = findViewById(R.id.tvSkip)
+
+        ViewCompat.setOnApplyWindowInsetsListener(tvSkip) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            val density = resources.displayMetrics.density
+            val topMargin = systemBars.top + (15 * density).toInt()
+            val params = v.layoutParams as? android.view.ViewGroup.MarginLayoutParams
+            params?.topMargin = topMargin
+            v.layoutParams = params
+            insets
+        }
 
         val onboardingItems = listOf(
             OnboardingItem(

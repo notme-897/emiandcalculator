@@ -4,10 +4,10 @@
     android:id="@+id/cardTenureContainer"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardBackgroundColor="@android:color/white"
+    app:cardBackgroundColor="@color/surface"
     app:cardCornerRadius="20dp"
     app:cardElevation="3dp"
-    app:strokeColor="#E2E8F0"
+    app:strokeColor="@color/border_stroke"
     app:strokeWidth="1dp">
 
     <LinearLayout
@@ -29,7 +29,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_toStartOf="@+id/txtInstallmentsCount"
                 android:text="5 Years"
-                android:textColor="#0F172A"
+                android:textColor="@color/text_primary"
                 android:textSize="17sp"
                 android:textStyle="bold" />
 
@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:text="60 Installments"
-                android:textColor="#2563EB"
+                android:textColor="@color/primary"
                 android:textSize="14sp"
                 android:textStyle="bold" />
         </RelativeLayout>
@@ -62,7 +62,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/sliderTenure"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/sliderTenure"
-                app:tint="#1E293B" />
+                app:tint="@color/text_primary" />
 
             <com.google.android.material.slider.Slider
                 android:id="@+id/sliderTenure"
@@ -77,9 +77,9 @@
                 app:layout_constraintEnd_toStartOf="@+id/btnAdd"
                 app:layout_constraintStart_toEndOf="@+id/btnMinus"
                 app:layout_constraintTop_toTopOf="parent"
-                app:thumbColor="#2563EB"
-                app:trackColorActive="#2563EB"
-                app:trackColorInactive="#E2E8F0" />
+                app:thumbColor="@color/primary"
+                app:trackColorActive="@color/primary"
+                app:trackColorInactive="@color/border_stroke" />
 
             <ImageView
                 android:id="@+id/btnAdd"
@@ -94,7 +94,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/sliderTenure"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/sliderTenure"
-                app:tint="#1E293B" />
+                app:tint="@color/text_primary" />
 
             <TextView
                 android:id="@+id/txtMinRange"
@@ -102,7 +102,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="1 Yr"
-                android:textColor="#64748B"
+                android:textColor="@color/text_secondary"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="@+id/sliderTenure"
                 app:layout_constraintTop_toBottomOf="@+id/sliderTenure" />
@@ -113,7 +113,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="30 Yrs"
-                android:textColor="#64748B"
+                android:textColor="@color/text_secondary"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="@+id/sliderTenure"
                 app:layout_constraintTop_toBottomOf="@+id/sliderTenure" />
@@ -143,10 +143,10 @@
                     android:paddingVertical="0dp"
                     android:text="5 Years"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="12sp"
                     app:cornerRadius="18dp"
-                    app:strokeColor="#CBD5E1" />
+                    app:strokeColor="@color/border_stroke" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/chip10Y"
@@ -158,10 +158,10 @@
                     android:paddingVertical="0dp"
                     android:text="10 Years"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="12sp"
                     app:cornerRadius="18dp"
-                    app:strokeColor="#CBD5E1" />
+                    app:strokeColor="@color/border_stroke" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/chip15Y"
@@ -173,10 +173,10 @@
                     android:paddingVertical="0dp"
                     android:text="15 Years"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="12sp"
                     app:cornerRadius="18dp"
-                    app:strokeColor="#CBD5E1" />
+                    app:strokeColor="@color/border_stroke" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/chip20Y"
@@ -188,10 +188,10 @@
                     android:paddingVertical="0dp"
                     android:text="20 Years"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="12sp"
                     app:cornerRadius="18dp"
-                    app:strokeColor="#CBD5E1" />
+                    app:strokeColor="@color/border_stroke" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/chip25Y"
@@ -203,10 +203,10 @@
                     android:paddingVertical="0dp"
                     android:text="25 Years"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="12sp"
                     app:cornerRadius="18dp"
-                    app:strokeColor="#CBD5E1" />
+                    app:strokeColor="@color/border_stroke" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/chip30Y"
@@ -217,10 +217,10 @@
                     android:paddingVertical="0dp"
                     android:text="30 Years"
                     android:textAllCaps="false"
-                    android:textColor="#1E293B"
+                    android:textColor="@color/text_primary"
                     android:textSize="12sp"
                     app:cornerRadius="18dp"
-                    app:strokeColor="#CBD5E1" />
+                    app:strokeColor="@color/border_stroke" />
             </LinearLayout>
         </HorizontalScrollView>
 

@@ -19,6 +19,7 @@ import kotlinx.coroutines.launch
 class LoadingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        com.example.calculatoremi.utils.ThemeManager.initTheme(this)
         enableEdgeToEdge()
         setContentView(R.layout.activity_splash)
 

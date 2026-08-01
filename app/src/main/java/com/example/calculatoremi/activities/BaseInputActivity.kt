@@ -16,6 +16,7 @@ import java.util.Locale
 
 abstract class BaseInputActivity : AppCompatActivity() {
 
+    @Suppress("DEPRECATION")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
@@ -26,7 +27,7 @@ abstract class BaseInputActivity : AppCompatActivity() {
     }
 
     protected open fun setupToolbar() {
-        androidx.core.view.WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightStatusBars = true
+        androidx.core.view.WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightStatusBars = !com.example.calculatoremi.utils.ThemeManager.isDarkMode(this)
         val headerView = findViewById<View>(R.id.calculatorHeader)
         if (headerView != null) {
             ViewCompat.setOnApplyWindowInsetsListener(headerView) { v, insets ->
@@ -84,6 +85,7 @@ abstract class BaseInputActivity : AppCompatActivity() {
         return super.dispatchTouchEvent(ev)
     }
 
+    @Suppress("DEPRECATION")
     override fun finish() {
         super.finish()
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
@@ -93,8 +95,10 @@ abstract class BaseInputActivity : AppCompatActivity() {
     abstract fun getActivityTitle(): String
 
     protected fun formatCurrency(amount: Double): String {
+        if (amount.isNaN() || amount.isInfinite()) return "₹0"
         val formatter = java.text.DecimalFormat("#,##,###.##")
-        return "₹" + formatter.format(amount)
+        val formatted = formatter.format(kotlin.math.abs(amount))
+        return if (amount < 0) "-₹$formatted" else "₹$formatted"
     }
 
     protected fun formatTenureMonths(totalMonths: Int): String {
