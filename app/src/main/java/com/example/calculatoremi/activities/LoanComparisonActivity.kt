@@ -226,11 +226,12 @@ class LoanComparisonActivity : BaseInputActivity() {
         val animator = ValueAnimator.ofFloat(0f, 1f)
         animator.duration = 650
         animator.interpolator = DecelerateInterpolator()
+        val symbol = com.example.calculatoremi.utils.CurrencyManager.getCurrencySymbol(this)
         animator.addUpdateListener { animation ->
             val fraction = animation.animatedValue as Float
             val currentValue = targetValue * fraction
             val formatter = DecimalFormat("#,##,##0")
-            textView.text = "₹" + formatter.format(currentValue)
+            textView.text = "$symbol " + formatter.format(currentValue)
         }
         animator.start()
     }

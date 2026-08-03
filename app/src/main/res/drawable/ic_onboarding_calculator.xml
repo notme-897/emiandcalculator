@@ -1,0 +1,114 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="240dp"
+    android:height="240dp"
+    android:viewportWidth="240"
+    android:viewportHeight="240">
+
+    <!-- Glowing Background Circle -->
+    <path
+        android:fillColor="#1AFFFFFF"
+        android:pathData="M120,20 C175.23,20 220,64.77 220,120 C220,175.23 175.23,220 120,220 C64.77,220 20,175.23 20,120 C20,64.77 64.77,20 120,20 Z" />
+
+    <path
+        android:fillColor="#26FFFFFF"
+        android:pathData="M120,35 C166.94,35 205,73.06 205,120 C205,166.94 166.94,205 120,205 C73.06,205 35,166.94 35,120 C35,73.06 73.06,35 120,35 Z" />
+
+    <!-- Main Calculator Body Card -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M70,45 L170,45 C181.05,45 190,53.95 190,65 L190,175 C190,186.05 181.05,195 170,195 L70,195 C58.95,195 50,186.05 50,175 L50,65 C50,53.95 58.95,45 70,45 Z" />
+
+    <!-- Calculator Top Display Screen -->
+    <path
+        android:fillColor="#0F172A"
+        android:pathData="M65,60 L175,60 C180.52,60 185,64.48 185,70 L185,100 C185,105.52 180.52,110 175,110 L65,110 C59.48,110 55,105.52 55,100 L55,70 C55,64.48 59.48,60 65,60 Z" />
+
+    <!-- Display Screen Content (Digits & Symbol) -->
+    <path
+        android:fillColor="#10B981"
+        android:pathData="M70,72 L85,72 L85,75 L70,75 Z M70,80 L80,80 L80,83 L70,83 Z" />
+
+    <!-- Calculated Value text mockup -->
+    <path
+        android:fillColor="#38BDF8"
+        android:pathData="M130,85 C130,79.48 134.48,75 140,75 C145.52,75 150,79.48 150,85 L165,85 M155,78 L170,78 L170,95 L155,95 Z" />
+    
+    <!-- Display Amount Pill -->
+    <path
+        android:fillColor="#34D399"
+        android:pathData="M125,75 L175,75 C177.76,75 180,77.24 180,80 L180,95 C180,97.76 177.76,100 175,100 L125,100 C122.24,100 120,97.76 120,95 L120,80 C120,77.24 122.24,75 125,75 Z" />
+
+    <!-- Keypad Grid Buttons Row 1 -->
+    <path
+        android:fillColor="#F1F5F9"
+        android:pathData="M65,120 L92,120 C94.76,120 97,122.24 97,125 L97,137 C97,139.76 94.76,142 92,142 L65,142 C62.24,142 60,139.76 60,137 L60,125 C60,122.24 62.24,120 65,120 Z" />
+
+    <path
+        android:fillColor="#F1F5F9"
+        android:pathData="M106,120 L133,120 C135.76,120 138,122.24 138,125 L138,137 C138,139.76 135.76,142 133,142 L106,142 C103.24,142 101,139.76 101,137 L101,125 C101,122.24 103.24,120 106,120 Z" />
+
+    <path
+        android:fillColor="#EEF2FF"
+        android:pathData="M147,120 L174,120 C176.76,120 179,122.24 179,125 L179,137 C179,139.76 176.76,142 174,142 L147,142 C144.24,142 142,139.76 142,137 L142,125 C142,122.24 144.24,120 147,120 Z" />
+
+    <!-- Keypad Grid Buttons Row 2 -->
+    <path
+        android:fillColor="#F1F5F9"
+        android:pathData="M65,147 L92,147 C94.76,147 97,149.24 97,152 L97,164 C97,166.76 94.76,169 92,169 L65,169 C62.24,169 60,166.76 60,164 L60,152 C60,149.24 62.24,147 65,147 Z" />
+
+    <path
+        android:fillColor="#F1F5F9"
+        android:pathData="M106,147 L133,147 C135.76,147 138,149.24 138,152 L138,164 C138,166.76 135.76,169 133,169 L106,169 C103.24,169 101,166.76 101,164 L101,152 C101,149.24 103.24,147 106,147 Z" />
+
+    <path
+        android:fillColor="#EEF2FF"
+        android:pathData="M147,147 L174,147 C176.76,147 179,149.24 179,152 L179,164 C179,166.76 176.76,169 174,169 L147,169 C144.24,169 142,166.76 142,164 L142,152 C142,149.24 144.24,147 147,147 Z" />
+
+    <!-- Keypad Grid Buttons Row 3 -->
+    <path
+        android:fillColor="#F1F5F9"
+        android:pathData="M65,174 L92,174 C94.76,174 97,176.24 97,179 L97,185 C97,187.76 94.76,190 92,190 L65,190 C62.24,190 60,187.76 60,185 L60,179 C60,176.24 62.24,174 65,174 Z" />
+
+    <path
+        android:fillColor="#F1F5F9"
+        android:pathData="M106,174 L133,174 C135.76,174 138,176.24 138,179 L138,185 C138,187.76 135.76,190 133,190 L106,190 C103.24,190 101,187.76 101,185 L101,179 C101,176.24 103.24,174 106,174 Z" />
+
+    <!-- Equals Button (Action Accent) -->
+    <path
+        android:fillColor="#4F46E5"
+        android:pathData="M147,174 L174,174 C176.76,174 179,176.24 179,179 L179,185 C179,187.76 176.76,190 174,190 L147,190 C144.24,190 142,187.76 142,185 L142,179 C142,176.24 144.24,174 147,174 Z" />
+
+    <!-- Equals Symbol on Button -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M156,179 L165,179 M156,184 L165,184"
+        android:strokeWidth="2"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round" />
+
+    <!-- Floating Badge: Percentage % Icon -->
+    <path
+        android:fillColor="#38BDF8"
+        android:pathData="M40,70 C40,58.95 48.95,50 60,50 C71.05,50 80,58.95 80,70 C80,81.05 71.05,90 60,90 C48.95,90 40,81.05 40,70 Z" />
+
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M52,78 L68,62 M54,65 A 2 2 0 1 1 54,64.99 M66,75 A 2 2 0 1 1 66,74.99"
+        android:strokeWidth="2.5"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round" />
+
+    <!-- Floating Badge: Currency/EMI Coin -->
+    <path
+        android:fillColor="#F59E0B"
+        android:pathData="M165,140 C165,126.19 176.19,115 190,115 C203.81,115 215,126.19 215,140 C215,153.81 203.81,165 190,165 C176.19,165 165,153.81 165,140 Z" />
+
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M182,130 L198,130 M182,135 L198,135 M186,130 L186,150 C186,152 190,152 192,150 M194,135 L194,147"
+        android:strokeWidth="2.5"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round" />
+
+</vector>

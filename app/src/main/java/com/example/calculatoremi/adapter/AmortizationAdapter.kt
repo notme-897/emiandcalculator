@@ -29,18 +29,20 @@ class AmortizationAdapter(
 
     override fun onBindViewHolder(holder: ScheduleViewHolder, position: Int) {
         val item = scheduleList[position]
+        val context = holder.itemView.context
         holder.txtEmiNo.text = "Month ${item.emiNo}"
         holder.txtDate.text = item.date
-        holder.txtEmiAmount.text = formatCurrency(item.emi)
-        holder.txtPrincipal.text = formatCurrency(item.principal)
-        holder.txtInterest.text = formatCurrency(item.interest)
-        holder.txtBalance.text = formatCurrency(item.balance)
+        holder.txtEmiAmount.text = formatCurrency(context, item.emi)
+        holder.txtPrincipal.text = formatCurrency(context, item.principal)
+        holder.txtInterest.text = formatCurrency(context, item.interest)
+        holder.txtBalance.text = formatCurrency(context, item.balance)
     }
 
     override fun getItemCount(): Int = scheduleList.size
 
-    private fun formatCurrency(value: Double): String {
+    private fun formatCurrency(context: android.content.Context, value: Double): String {
         val formatter = java.text.DecimalFormat("#,##,###.##")
-        return "₹" + formatter.format(value)
+        val symbol = com.example.calculatoremi.utils.CurrencyManager.getCurrencySymbol(context)
+        return "$symbol " + formatter.format(value)
     }
 }

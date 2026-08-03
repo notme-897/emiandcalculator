@@ -1,0 +1,98 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="240dp"
+    android:height="240dp"
+    android:viewportWidth="240"
+    android:viewportHeight="240">
+
+    <!-- Glowing Background Circle -->
+    <path
+        android:fillColor="#1AFFFFFF"
+        android:pathData="M120,20 C175.23,20 220,64.77 220,120 C220,175.23 175.23,220 120,220 C64.77,220 20,175.23 20,120 C20,64.77 64.77,20 120,20 Z" />
+
+    <path
+        android:fillColor="#26FFFFFF"
+        android:pathData="M120,35 C166.94,35 205,73.06 205,120 C205,166.94 166.94,205 120,205 C73.06,205 35,166.94 35,120 C35,73.06 73.06,35 120,35 Z" />
+
+    <!-- Main Report Card Document -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M55,50 L185,50 C193.28,50 200,56.72 200,65 L200,185 C200,193.28 193.28,200 185,200 L55,200 C46.72,200 40,193.28 40,185 L40,65 C40,56.72 46.72,50 55,50 Z" />
+
+    <!-- Report Header Bar -->
+    <path
+        android:fillColor="#EEF2FF"
+        android:pathData="M40,65 C40,56.72 46.72,50 55,50 L185,50 C193.28,50 200,56.72 200,65 L200,85 L40,85 Z" />
+
+    <!-- Header Text lines mockup -->
+    <path
+        android:fillColor="#4F46E5"
+        android:pathData="M55,62 L105,62 C106.66,62 108,63.34 108,65 L108,69 C108,70.66 106.66,72 105,72 L55,72 C53.34,72 52,70.66 52,69 L52,65 C52,63.34 53.34,62 55,62 Z" />
+
+    <path
+        android:fillColor="#94A3B8"
+        android:pathData="M115,64 L145,64 C146.1,64 147,64.9 147,66 L147,68 C147,69.1 146.1,70 145,70 L115,70 C113.9,70 113,69.1 113,68 L113,66 C113,64.9 113.9,64 115,64 Z" />
+
+    <!-- Pie Chart Visualization Segment 1 (Indigo) -->
+    <path
+        android:fillColor="#4F46E5"
+        android:pathData="M85,130 L85,95 A35,35 0 0,1 120,130 Z" />
+
+    <!-- Pie Chart Visualization Segment 2 (Teal) -->
+    <path
+        android:fillColor="#06B6D4"
+        android:pathData="M85,130 L120,130 A35,35 0 0,1 85,165 Z" />
+
+    <!-- Pie Chart Visualization Segment 3 (Amber/Gold) -->
+    <path
+        android:fillColor="#F59E0B"
+        android:pathData="M85,130 L85,165 A35,35 0 1,1 85,95 Z" />
+
+    <!-- Donut Hole -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M85,115 C93.28,115 100,121.72 100,130 C100,138.28 93.28,145 85,145 C76.72,145 70,138.28 70,130 C70,121.72 76.72,115 85,115 Z" />
+
+    <!-- Bar Graph 1 -->
+    <path
+        android:fillColor="#4F46E5"
+        android:pathData="M135,145 L145,145 C146.1,145 147,145.9 147,147 L147,180 C147,181.1 146.1,182 145,182 L135,182 C133.9,182 133,181.1 133,180 L133,147 C133,145.9 133.9,145 135,145 Z" />
+
+    <!-- Bar Graph 2 -->
+    <path
+        android:fillColor="#10B981"
+        android:pathData="M152,125 L162,125 C163.1,125 164,125.9 164,127 L164,180 C164,181.1 163.1,182 162,182 L152,182 C150.9,182 150,181.1 150,180 L150,127 C150,125.9 150.9,125 152,125 Z" />
+
+    <!-- Bar Graph 3 -->
+    <path
+        android:fillColor="#38BDF8"
+        android:pathData="M169,105 L179,105 C180.1,105 181,105.9 181,107 L181,180 C181,181.1 180.1,182 179,182 L169,182 C167.9,182 167,181.1 167,180 L167,107 C167,105.9 167.9,105 169,105 Z" />
+
+    <!-- Growth Line Graph Overlay -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#10B981"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M55,175 L85,160 L115,140 L140,120 L175,95" />
+
+    <!-- Growth Node Dots -->
+    <path
+        android:fillColor="#10B981"
+        android:pathData="M175,95 C177.76,95 180,97.24 180,100 C180,102.76 177.76,105 175,105 C172.24,105 170,102.76 170,100 C170,97.24 172.24,95 175,95 Z" />
+
+    <!-- Floating Badge: Report / Analytics Symbol -->
+    <path
+        android:fillColor="#10B981"
+        android:pathData="M165,35 C176.05,35 185,43.95 185,55 C185,66.05 176.05,75 165,75 C153.95,75 145,66.05 145,55 C145,43.95 153.95,35 165,35 Z" />
+
+    <!-- Upward Trend Arrow in Badge -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M157,63 L173,47 M163,47 L173,47 L173,57"
+        android:strokeWidth="2.5"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+
+</vector>

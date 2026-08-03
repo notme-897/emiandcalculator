@@ -30,7 +30,7 @@ class HistoryDetailActivity : BaseInputActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+        com.example.calculatoremi.utils.ActivityTransitionUtils.applySlideInTransition(this)
 
         historyItem = getSerializableExtraCompat<CalculationHistoryItem>("EXTRA_HISTORY_ITEM")
 
@@ -154,9 +154,10 @@ class HistoryDetailActivity : BaseInputActivity() {
         val animator = ValueAnimator.ofFloat(0f, targetValue.toFloat())
         animator.duration = 600
         animator.interpolator = DecelerateInterpolator()
+        val symbol = com.example.calculatoremi.utils.CurrencyManager.getCurrencySymbol(this)
         animator.addUpdateListener { anim ->
             val value = (anim.animatedValue as Float).toDouble()
-            textView.text = "₹" + decimalFormat.format(value)
+            textView.text = "$symbol " + decimalFormat.format(value)
         }
         animator.start()
     }
@@ -191,6 +192,6 @@ class HistoryDetailActivity : BaseInputActivity() {
 
     override fun finish() {
         super.finish()
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+        com.example.calculatoremi.utils.ActivityTransitionUtils.applySlideOutTransition(this)
     }
 }

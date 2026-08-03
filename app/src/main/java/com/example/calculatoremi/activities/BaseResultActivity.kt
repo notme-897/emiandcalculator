@@ -17,10 +17,9 @@ import kotlin.math.abs
 
 abstract class BaseResultActivity : AppCompatActivity() {
 
-    @Suppress("DEPRECATION")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+        com.example.calculatoremi.utils.ActivityTransitionUtils.applySlideInTransition(this)
         enableEdgeToEdge()
         setContentView(getResultLayoutResId())
 
@@ -75,10 +74,9 @@ abstract class BaseResultActivity : AppCompatActivity() {
         }
     }
 
-    @Suppress("DEPRECATION")
     override fun finish() {
         super.finish()
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+        com.example.calculatoremi.utils.ActivityTransitionUtils.applySlideOutTransition(this)
     }
 
     abstract fun getResultLayoutResId(): Int
@@ -96,14 +94,6 @@ abstract class BaseResultActivity : AppCompatActivity() {
     abstract fun getShareText(): String
 
     protected fun formatCurrency(amount: Double): String {
-        if (amount.isNaN() || amount.isInfinite()) return "₹0"
-        val absAmount = abs(amount)
-        val formatter = if (absAmount % 1.0 < 0.01 || absAmount % 1.0 > 0.99) {
-            DecimalFormat("#,##,##0")
-        } else {
-            DecimalFormat("#,##,##0.00")
-        }
-        val prefix = if (amount < 0) "-₹" else "₹"
-        return prefix + formatter.format(absAmount)
+        return com.example.calculatoremi.utils.CurrencyManager.formatAmount(this, amount)
     }
 }

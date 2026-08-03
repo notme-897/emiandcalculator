@@ -316,8 +316,8 @@ class EducationLoanActivity : BaseInputActivity() {
             StudyPaymentChoice.IMMEDIATE_FULL_EMI -> loanAmount
         }
 
-        txtMoratoriumInterestAccrued.text = "₹" + commaFormat.format(moratoriumInterestAccrued.toLong())
-        txtEffectivePrincipalDisplay.text = "₹" + commaFormat.format(effectivePrincipal.toLong())
+        txtMoratoriumInterestAccrued.text = com.example.calculatoremi.utils.CurrencyManager.formatAmountLong(this, moratoriumInterestAccrued.toLong())
+        txtEffectivePrincipalDisplay.text = com.example.calculatoremi.utils.CurrencyManager.formatAmountLong(this, effectivePrincipal.toLong())
 
         // Calculate active EMI
         val monthlyRate = rate / (12 * 100)
@@ -333,7 +333,7 @@ class EducationLoanActivity : BaseInputActivity() {
 
         // Section 80E Tax Savings (100% interest deductible)
         val taxSavings = totalInterestPayable * (selectedTaxBracket / 100.0)
-        txtTaxSavingsDisplay.text = "₹" + commaFormat.format(taxSavings.toLong())
+        txtTaxSavingsDisplay.text = com.example.calculatoremi.utils.CurrencyManager.formatAmountLong(this, taxSavings.toLong())
 
         // Capitalization Tip Notice
         if (selectedChoice == StudyPaymentChoice.FULL_MORATORIUM && moratoriumMonths > 0) {

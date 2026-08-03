@@ -24,7 +24,7 @@ class AmortizationScheduleActivity : BaseResultActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+        com.example.calculatoremi.utils.ActivityTransitionUtils.applySlideInTransition(this)
 
         val schedule = getSerializableExtraCompat<ArrayList<PaymentScheduleItem>>("SCHEDULE")
         if (schedule != null) {

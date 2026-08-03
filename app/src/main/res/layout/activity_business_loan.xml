@@ -478,7 +478,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="Monthly Net Operating Income (NOI) (₹)"
+                        android:text="Monthly Net Operating Income (NOI)"
                         android:textColor="@color/text_secondary"
                         android:textSize="13sp"
                         android:textStyle="bold" />
@@ -502,7 +502,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="Existing Monthly Debt Payments (₹)"
+                        android:text="Existing Monthly Debt Payments"
                         android:textColor="@color/text_secondary"
                         android:textSize="13sp"
                         android:textStyle="bold" />

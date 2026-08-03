@@ -16,10 +16,13 @@ import java.util.Locale
 
 abstract class BaseInputActivity : AppCompatActivity() {
 
-    @Suppress("DEPRECATION")
+    override fun attachBaseContext(newBase: android.content.Context) {
+        super.attachBaseContext(com.example.calculatoremi.utils.LanguageManager.wrapContext(newBase))
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+        com.example.calculatoremi.utils.ActivityTransitionUtils.applySlideInTransition(this)
         enableEdgeToEdge()
         setContentView(getLayoutResId())
 
@@ -85,20 +88,16 @@ abstract class BaseInputActivity : AppCompatActivity() {
         return super.dispatchTouchEvent(ev)
     }
 
-    @Suppress("DEPRECATION")
     override fun finish() {
         super.finish()
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+        com.example.calculatoremi.utils.ActivityTransitionUtils.applySlideOutTransition(this)
     }
 
     abstract fun getLayoutResId(): Int
     abstract fun getActivityTitle(): String
 
     protected fun formatCurrency(amount: Double): String {
-        if (amount.isNaN() || amount.isInfinite()) return "₹0"
-        val formatter = java.text.DecimalFormat("#,##,###.##")
-        val formatted = formatter.format(kotlin.math.abs(amount))
-        return if (amount < 0) "-₹$formatted" else "₹$formatted"
+        return com.example.calculatoremi.utils.CurrencyManager.formatAmount(this, amount)
     }
 
     protected fun formatTenureMonths(totalMonths: Int): String {

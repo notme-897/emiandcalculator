@@ -409,7 +409,7 @@ class HomeLoanActivity : BaseInputActivity() {
         }
 
         val netLoan = if (propertyVal > downPayVal) propertyVal - downPayVal else 0.0
-        txtCalculatedNetLoan.text = "₹" + commaFormat.format(netLoan)
+        txtCalculatedNetLoan.text = com.example.calculatoremi.utils.CurrencyManager.formatAmountLong(this, netLoan.toLong())
         if (netLoan > 0) {
             etAmount.setText(commaFormat.format(netLoan))
         }
@@ -468,9 +468,9 @@ class HomeLoanActivity : BaseInputActivity() {
 
         val totalCost = availableEmiForNewLoan * totalMonths
 
-        txtEligMaxLoan.text = "₹" + commaFormat.format(maxPrincipal.toLong())
-        txtEligMaxEmi.text = "₹" + commaFormat.format(availableEmiForNewLoan.toLong()) + " / mo"
-        txtEligTotalCost.text = "₹" + commaFormat.format(totalCost.toLong())
+        txtEligMaxLoan.text = com.example.calculatoremi.utils.CurrencyManager.formatAmountLong(this, maxPrincipal.toLong())
+        txtEligMaxEmi.text = com.example.calculatoremi.utils.CurrencyManager.formatAmountLong(this, availableEmiForNewLoan.toLong()) + " / mo"
+        txtEligTotalCost.text = com.example.calculatoremi.utils.CurrencyManager.formatAmountLong(this, totalCost.toLong())
 
         cardEligibilityResult.visibility = View.VISIBLE
     }
@@ -498,7 +498,7 @@ class HomeLoanActivity : BaseInputActivity() {
         val newPrincipal = outstanding - lumpSum
 
         if (newPrincipal <= 0) {
-            txtPreInterestSaved.text = "₹" + commaFormat.format(originalTotalInterest.toLong())
+            txtPreInterestSaved.text = com.example.calculatoremi.utils.CurrencyManager.formatAmountLong(this, originalTotalInterest.toLong())
             txtPreTenureSaved.text = "$months months (100% Paid Off!)"
             txtPreNewTenure.text = "0 months"
             cardPrepaymentResult.visibility = View.VISIBLE
@@ -513,7 +513,7 @@ class HomeLoanActivity : BaseInputActivity() {
         val interestSaved = originalTotalInterest - newTotalInterest
         val monthsSaved = months - newMonths
 
-        txtPreInterestSaved.text = "₹" + commaFormat.format(if (interestSaved > 0) interestSaved.toLong() else 0)
+        txtPreInterestSaved.text = com.example.calculatoremi.utils.CurrencyManager.formatAmountLong(this, if (interestSaved > 0) interestSaved.toLong() else 0L)
         val yrsSaved = String.format(Locale.US, "%.1f", monthsSaved / 12.0)
         txtPreTenureSaved.text = "$monthsSaved months ($yrsSaved yrs)"
         txtPreNewTenure.text = "$newMonths months"

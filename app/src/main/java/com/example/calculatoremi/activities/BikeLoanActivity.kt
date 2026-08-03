@@ -250,7 +250,7 @@ class BikeLoanActivity : BaseInputActivity() {
             btnPriceExShowroom.strokeColor = strokeColor
             btnPriceExShowroom.strokeWidth = strokeWidth
 
-            txtBikePriceLabel.text = "On-Road Bike Price (₹)"
+            txtBikePriceLabel.text = "On-Road Bike Price (${com.example.calculatoremi.utils.CurrencyManager.getCurrencySymbol(this)})"
         } else {
             btnPriceExShowroom.setBackgroundColor(selectedBlue)
             btnPriceExShowroom.setTextColor(selectedText)
@@ -261,7 +261,7 @@ class BikeLoanActivity : BaseInputActivity() {
             btnPriceOnRoad.strokeColor = strokeColor
             btnPriceOnRoad.strokeWidth = strokeWidth
 
-            txtBikePriceLabel.text = "Ex-Showroom Price (₹)"
+            txtBikePriceLabel.text = "Ex-Showroom Price (${com.example.calculatoremi.utils.CurrencyManager.getCurrencySymbol(this)})"
         }
 
         updateBikeLoanSummary()
@@ -291,7 +291,7 @@ class BikeLoanActivity : BaseInputActivity() {
         val effectiveOnRoadPrice = if (isOnRoadMode) rawPrice else rawPrice * 1.15
         val netLoan = if (effectiveOnRoadPrice > downPayment) effectiveOnRoadPrice - downPayment else 0.0
 
-        txtNetLoanDisplay.text = "₹" + commaFormat.format(netLoan.toLong())
+        txtNetLoanDisplay.text = com.example.calculatoremi.utils.CurrencyManager.formatAmountLong(this, netLoan.toLong())
 
         if (netLoan > 0 && rate > 0 && months > 0) {
             val monthlyRate = rate / (12 * 100)
@@ -300,14 +300,14 @@ class BikeLoanActivity : BaseInputActivity() {
             val totalRepayment = emi * months
             val totalOwnershipCost = downPayment + totalRepayment + processingFee
 
-            txtTotalOwnershipCostDisplay.text = "₹" + commaFormat.format(totalOwnershipCost.toLong())
+            txtTotalOwnershipCostDisplay.text = com.example.calculatoremi.utils.CurrencyManager.formatAmountLong(this, totalOwnershipCost.toLong())
 
-            // EV Fuel Savings Offset Calculation (Average ₹2,200/mo petrol savings)
+            // EV Fuel Savings Offset Calculation (Average 2,200/mo petrol savings)
             val evFuelSavings = 2200.0
             val netEffectiveEmi = if (emi > evFuelSavings) emi - evFuelSavings else 0.0
 
-            txtEvSavingsDisplay.text = "₹" + commaFormat.format(evFuelSavings.toLong()) + " / mo"
-            txtNetEffectiveEmiDisplay.text = "₹" + commaFormat.format(netEffectiveEmi.toLong()) + " / mo"
+            txtEvSavingsDisplay.text = com.example.calculatoremi.utils.CurrencyManager.formatAmountLong(this, evFuelSavings.toLong()) + " / mo"
+            txtNetEffectiveEmiDisplay.text = com.example.calculatoremi.utils.CurrencyManager.formatAmountLong(this, netEffectiveEmi.toLong()) + " / mo"
         }
     }
 

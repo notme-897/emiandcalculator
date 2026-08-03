@@ -13,7 +13,7 @@ abstract class BaseLoanActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+        com.example.calculatoremi.utils.ActivityTransitionUtils.applySlideInTransition(this)
         enableEdgeToEdge()
         androidx.core.view.WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightStatusBars = true
         setContentView(R.layout.fragment_loan_calculator)
@@ -40,7 +40,7 @@ abstract class BaseLoanActivity : AppCompatActivity() {
 
     override fun finish() {
         super.finish()
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+        com.example.calculatoremi.utils.ActivityTransitionUtils.applySlideOutTransition(this)
     }
 
     abstract fun getLoanTitle(): String

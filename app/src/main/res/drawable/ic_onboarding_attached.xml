@@ -1,0 +1,93 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="240dp"
+    android:height="240dp"
+    android:viewportWidth="240"
+    android:viewportHeight="240">
+
+    <!-- Glowing Background Circle -->
+    <path
+        android:fillColor="#1AFFFFFF"
+        android:pathData="M120,20 C175.23,20 220,64.77 220,120 C220,175.23 175.23,220 120,220 C64.77,220 20,175.23 20,120 C20,64.77 64.77,20 120,20 Z" />
+
+    <path
+        android:fillColor="#26FFFFFF"
+        android:pathData="M120,35 C166.94,35 205,73.06 205,120 C205,166.94 166.94,205 120,205 C73.06,205 35,166.94 35,120 C35,73.06 73.06,35 120,35 Z" />
+
+    <!-- Back Secondary Attached Document Folded Behind -->
+    <path
+        android:fillColor="#EEF2FF"
+        android:pathData="M75,45 L175,45 C183.28,45 190,51.72 190,60 L190,170 C190,178.28 183.28,185 175,185 L75,185 C66.72,185 60,178.28 60,170 L60,60 C60,51.72 66.72,45 75,45 Z" />
+
+    <!-- Main Front Attached Document Card -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M55,60 L165,60 C173.28,60 180,66.72 180,75 L180,195 C180,203.28 173.28,210 165,210 L55,210 C46.72,210 40,203.28 40,195 L40,75 C40,66.72 46.72,60 55,60 Z" />
+
+    <!-- Document Header / Title Line -->
+    <path
+        android:fillColor="#4F46E5"
+        android:pathData="M55,75 L125,75 C126.66,75 128,76.34 128,78 L128,84 C128,85.66 126.66,87 125,87 L55,87 C53.34,87 52,85.66 52,84 L52,78 C52,76.34 53.34,75 55,75 Z" />
+
+    <!-- Document Text Lines -->
+    <path
+        android:fillColor="#CBD5E1"
+        android:pathData="M55,98 L160,98 C161.1,98 162,98.9 162,100 L162,103 C162,104.1 161.1,105 160,105 L55,105 C53.9,105 53,104.1 53,103 L53,100 C53,98.9 53.9,98 55,98 Z" />
+
+    <path
+        android:fillColor="#E2E8F0"
+        android:pathData="M55,115 L145,115 C146.1,115 147,115.9 147,117 L147,120 C147,121.1 146.1,122 145,122 L55,122 C53.9,122 53,121.1 53,120 L53,117 C53,115.9 53.9,115 55,115 Z" />
+
+    <path
+        android:fillColor="#E2E8F0"
+        android:pathData="M55,132 L155,132 C156.1,132 157,132.9 157,134 L157,137 C157,138.1 156.1,139 155,139 L55,139 C53.9,139 53,138.1 53,137 L53,134 C53,132.9 53.9,132 55,132 Z" />
+
+    <!-- Attachment Card Pill Inside Document -->
+    <path
+        android:fillColor="#F8FAFC"
+        android:strokeColor="#CBD5E1"
+        android:strokeWidth="1.5"
+        android:pathData="M55,150 L165,150 C168.31,150 171,152.69 171,156 L171,190 C171,193.31 168.31,196 165,196 L55,196 C51.69,196 49,193.31 49,190 L49,156 C49,152.69 51.69,150 55,150 Z" />
+
+    <!-- Attached File Icon inside Pill -->
+    <path
+        android:fillColor="#06B6D4"
+        android:pathData="M60,162 L75,162 C77.76,162 80,164.24 80,167 L80,182 C80,184.76 77.76,187 75,187 L60,187 C57.24,187 55,184.76 55,182 L55,167 C55,164.24 57.24,162 60,162 Z" />
+
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M63,170 L72,170 M63,174 L70,174 M63,178 L68,178"
+        android:strokeWidth="1.5"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round" />
+
+    <path
+        android:fillColor="#475569"
+        android:pathData="M88,166 L140,166 C141.1,166 142,166.9 142,168 L142,171 C142,172.1 141.1,173 140,173 L88,173 C86.9,173 86,172.1 86,171 L86,168 C86,166.9 86.9,166 88,166 Z" />
+
+    <path
+        android:fillColor="#94A3B8"
+        android:pathData="M88,178 L125,178 C125.8,178 126.5,178.7 126.5,179.5 L126.5,181.5 C126.5,182.3 125.8,183 125,183 L88,183 C87.2,183 86.5,182.3 86.5,181.5 L86.5,179.5 C86.5,178.7 87.2,178 88,178 Z" />
+
+    <!-- Prominent Paperclip (Attachment Clip) -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#64748B"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M142,40 L142,82 C142,88.63 136.63,94 130,94 C123.37,94 118,88.63 118,82 L118,48 C118,43.58 121.58,40 126,40 C130.42,40 134,43.58 134,48 L134,78" />
+
+    <!-- Floating Badge: Checkmark Seal / Attached Verified -->
+    <path
+        android:fillColor="#10B981"
+        android:pathData="M175,130 C186.05,130 195,138.95 195,150 C195,161.05 186.05,170 175,170 C163.95,170 155,161.05 155,150 C155,138.95 163.95,130 175,130 Z" />
+
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M165,150 L172,157 L185,143" />
+
+</vector>

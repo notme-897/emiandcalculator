@@ -4,19 +4,31 @@ import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.HapticFeedbackConstants
 import android.view.MotionEvent
 import android.view.View
 import android.view.animation.OvershootInterpolator
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.calculatoremi.R
+import com.example.calculatoremi.adapter.CurrencyAdapter
+import com.example.calculatoremi.model.CurrencyItem
+import com.example.calculatoremi.utils.CurrencyManager
 import com.example.calculatoremi.utils.ThemeManager
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
+import com.google.android.material.chip.ChipGroup
 import com.google.android.material.switchmaterial.SwitchMaterial
 
 class SettingsFragment : Fragment(R.layout.fragment_settings) {
@@ -24,6 +36,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
     private var btnThemeLight: MaterialButton? = null
     private var btnThemeDark: MaterialButton? = null
     private var btnThemeSystem: MaterialButton? = null
+    private var txtSelectedCurrencySummary: TextView? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -43,13 +56,22 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
         val switchHaptics = view.findViewById<SwitchMaterial>(R.id.switchHaptics)
         val rowShareApp = view.findViewById<View>(R.id.rowShareApp)
         val rowAboutApp = view.findViewById<View>(R.id.rowAboutApp)
+        val rowCurrencySelection = view.findViewById<View>(R.id.rowCurrencySelection)
+        txtSelectedCurrencySummary = view.findViewById(R.id.txtSelectedCurrencySummary)
+
+        val rowLanguageSelection = view.findViewById<View>(R.id.rowLanguageSelection)
+        val txtSelectedLanguageSummary = view.findViewById<TextView>(R.id.txtSelectedLanguageSummary)
 
         btnThemeLight = view.findViewById(R.id.btnThemeLight)
         btnThemeDark = view.findViewById(R.id.btnThemeDark)
         btnThemeSystem = view.findViewById(R.id.btnThemeSystem)
 
-        // Highlight saved theme button
+        // Highlight saved theme button & preferences summaries
         updateThemeButtonStates()
+        updateCurrencySummaryText()
+
+        val currentLang = com.example.calculatoremi.utils.LanguageManager.getSelectedLanguage(requireContext())
+        txtSelectedLanguageSummary?.text = "${currentLang.flagEmoji} ${currentLang.nativeName} (${currentLang.englishName})"
 
         setupTouchScaleAnimation(btnThemeLight)
         setupTouchScaleAnimation(btnThemeDark)
@@ -71,6 +93,22 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
             it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
             ThemeManager.applyTheme(requireContext(), ThemeManager.THEME_SYSTEM)
             updateThemeButtonStates()
+        }
+
+        rowCurrencySelection?.let { setupTouchScaleAnimation(it) }
+        rowCurrencySelection?.setOnClickListener {
+            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
+            showCurrencyPickerDialog()
+        }
+
+        rowLanguageSelection?.let { setupTouchScaleAnimation(it) }
+        rowLanguageSelection?.setOnClickListener {
+            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
+            val intent = Intent(requireContext(), com.example.calculatoremi.LanguageSelectionActivity::class.java).apply {
+                putExtra("IS_FROM_SETTINGS", true)
+            }
+            startActivity(intent)
+            com.example.calculatoremi.utils.ActivityTransitionUtils.applySlideInTransition(requireActivity())
         }
 
         // Card Entrance Animations
@@ -110,6 +148,81 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
         rowAboutApp?.setOnClickListener {
             Toast.makeText(requireContext(), "EMI Calculator v1.0.0 (Ultimate Edition)", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun updateCurrencySummaryText() {
+        val context = context ?: return
+        val currentCurrency = CurrencyManager.getSelectedCurrency(context)
+        txtSelectedCurrencySummary?.text = "${currentCurrency.flagEmoji} ${currentCurrency.currencyCode} - ${currentCurrency.currencyName} (${currentCurrency.symbol})"
+    }
+
+    private fun showCurrencyPickerDialog() {
+        val context = context ?: return
+        val dialog = BottomSheetDialog(context)
+        val dialogView = layoutInflater.inflate(R.layout.dialog_currency_picker, null)
+        dialog.setContentView(dialogView)
+
+        val etSearch = dialogView.findViewById<EditText>(R.id.etSearchCurrency)
+        val btnClose = dialogView.findViewById<ImageView>(R.id.btnCloseDialog)
+        val chipGroup = dialogView.findViewById<ChipGroup>(R.id.chipGroupContinents)
+        val rvCurrencies = dialogView.findViewById<RecyclerView>(R.id.rvCurrencies)
+
+        var currentSelectedContinent: String? = null
+        var currentQuery = ""
+
+        fun filterList(): List<CurrencyItem> {
+            return CurrencyManager.ALL_CURRENCIES.filter { item ->
+                val matchesContinent = currentSelectedContinent == null || item.continent.equals(currentSelectedContinent, ignoreCase = true)
+                val matchesQuery = currentQuery.isEmpty() ||
+                        item.countryName.contains(currentQuery, ignoreCase = true) ||
+                        item.currencyName.contains(currentQuery, ignoreCase = true) ||
+                        item.currencyCode.contains(currentQuery, ignoreCase = true) ||
+                        item.symbol.contains(currentQuery, ignoreCase = true)
+                matchesContinent && matchesQuery
+            }
+        }
+
+        val initialSelected = CurrencyManager.getSelectedCurrency(context)
+        val adapter = CurrencyAdapter(filterList(), initialSelected.countryName, initialSelected.currencyCode) { selectedItem ->
+            CurrencyManager.setCurrency(context, selectedItem)
+            updateCurrencySummaryText()
+            Toast.makeText(context, "Currency set to ${selectedItem.countryName} (${selectedItem.symbol})", Toast.LENGTH_SHORT).show()
+            dialog.dismiss()
+        }
+
+        rvCurrencies.layoutManager = LinearLayoutManager(context)
+        rvCurrencies.adapter = adapter
+
+        etSearch.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                currentQuery = s?.toString()?.trim() ?: ""
+                val sel = CurrencyManager.getSelectedCurrency(context)
+                adapter.updateData(filterList(), sel.countryName, sel.currencyCode)
+            }
+            override fun afterTextChanged(s: Editable?) {}
+        })
+
+        chipGroup.setOnCheckedStateChangeListener { _, checkedIds ->
+            val checkedId = checkedIds.firstOrNull() ?: View.NO_ID
+            currentSelectedContinent = when (checkedId) {
+                R.id.chipAsia -> "Asia"
+                R.id.chipEurope -> "Europe"
+                R.id.chipNorthAmerica -> "North America"
+                R.id.chipSouthAmerica -> "South America"
+                R.id.chipAfrica -> "Africa"
+                R.id.chipOceania -> "Oceania"
+                else -> null
+            }
+            val sel = CurrencyManager.getSelectedCurrency(context)
+            adapter.updateData(filterList(), sel.countryName, sel.currencyCode)
+        }
+
+        btnClose.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.show()
     }
 
     private fun updateThemeButtonStates() {

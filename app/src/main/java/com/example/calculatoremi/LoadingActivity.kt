@@ -52,9 +52,15 @@ class LoadingActivity : AppCompatActivity() {
                 progressText.text = getString(R.string.percentage_format, i)
                 delay(22L)
             }
-            val intent = Intent(this@LoadingActivity, OnboardingActivity::class.java)
-            startActivity(intent)
-            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+            val prefs = getSharedPreferences("app_preferences", MODE_PRIVATE)
+            val isCompleted = prefs.getBoolean("has_completed_onboarding", false)
+            val nextIntent = if (isCompleted) {
+                Intent(this@LoadingActivity, MainActivity::class.java)
+            } else {
+                Intent(this@LoadingActivity, OnboardingActivity::class.java)
+            }
+            startActivity(nextIntent)
+            com.example.calculatoremi.utils.ActivityTransitionUtils.applySlideInTransition(this@LoadingActivity)
             finish()
         }
     }

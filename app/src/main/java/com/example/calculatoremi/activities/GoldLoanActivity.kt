@@ -253,9 +253,9 @@ class GoldLoanActivity : BaseInputActivity() {
         val maxLoanCash = totalGoldMarketValue * (selectedLtv / 100.0)
         val loanPerGram = if (weight > 0) maxLoanCash / weight else 0.0
 
-        txtTotalGoldValueDisplay.text = "₹" + commaFormat.format(totalGoldMarketValue.toLong())
-        txtMaxEligibleLoanDisplay.text = "₹" + commaFormat.format(maxLoanCash.toLong())
-        txtLoanPerGramDisplay.text = "₹" + commaFormat.format(loanPerGram.toLong()) + " / gram"
+        txtTotalGoldValueDisplay.text = com.example.calculatoremi.utils.CurrencyManager.formatAmountLong(this, totalGoldMarketValue.toLong())
+        txtMaxEligibleLoanDisplay.text = com.example.calculatoremi.utils.CurrencyManager.formatAmountLong(this, maxLoanCash.toLong())
+        txtLoanPerGramDisplay.text = com.example.calculatoremi.utils.CurrencyManager.formatAmountLong(this, loanPerGram.toLong()) + " / gram"
     }
 
     private fun setRepaymentScheme(scheme: GoldRepaymentScheme) {

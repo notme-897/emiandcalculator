@@ -86,7 +86,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentStart="true"
-                            android:text="Down Payment (₹)"
+                            android:text="Down Payment"
                             android:textColor="@color/text_secondary"
                             android:textSize="13sp"
                             android:textStyle="bold" />
@@ -206,7 +206,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="Old Car Trade-in Value (Optional) (₹)"
+                        android:text="Old Car Trade-in Value (Optional)"
                         android:textColor="@color/text_secondary"
                         android:textSize="13sp"
                         android:textStyle="bold" />
@@ -550,7 +550,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
-                android:text="Processing / Documentation Fees (Optional) (₹)"
+                android:text="Processing / Documentation Fees (Optional)"
                 android:textColor="@color/text_primary"
                 android:textSize="15sp"
                 android:textStyle="bold" />

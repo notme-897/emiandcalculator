@@ -218,7 +218,7 @@
 
             </LinearLayout>
 
-            <!-- Current Live 24K Gold Rate per Gram (₹) -->
+            <!-- Current Live 24K Gold Rate per Gram -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

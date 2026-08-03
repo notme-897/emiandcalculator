@@ -13,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.viewpager2.widget.ViewPager2
 import com.example.calculatoremi.adapter.OnboardingAdapter
 import com.example.calculatoremi.model.OnboardingItem
+import com.example.calculatoremi.utils.ActivityTransitionUtils
 import com.google.android.material.button.MaterialButton
 import kotlin.math.abs
 
@@ -43,19 +44,19 @@ class OnboardingActivity : AppCompatActivity() {
 
         val onboardingItems = listOf(
             OnboardingItem(
-                R.drawable.ic_launcher_foreground,
-                "Welcome to EMI Calculator",
-                "Calculate your monthly EMI, total interest and total repayment instantly."
+                R.drawable.ic_onboarding_calculator,
+                "Smart EMI & Loan Calculator",
+                "Calculate your monthly EMI, total interest and total repayment instantly with high precision."
             ),
             OnboardingItem(
-                R.drawable.ic_launcher_foreground,
-                "Smart Finance Tools",
-                "Compare different loan options and plan your finances like a pro."
+                R.drawable.ic_onboarding_report,
+                "Detailed Financial Reports",
+                "Visualize payment schedules, interest breakdown, and interactive amortization charts."
             ),
             OnboardingItem(
-                R.drawable.ic_launcher_foreground,
-                "Track Your History",
-                "Save your calculations and access them anytime, anywhere."
+                R.drawable.ic_onboarding_attached,
+                "Attach & Track Records",
+                "Save your loan calculations and keep all financial records and attachments organized."
             )
         )
 
@@ -94,12 +95,12 @@ class OnboardingActivity : AppCompatActivity() {
             if (viewPager.currentItem + 1 < onboardingItems.size) {
                 viewPager.currentItem += 1
             } else {
-                navigateToMain()
+                navigateToLanguageSelection()
             }
         }
 
         tvSkip.setOnClickListener {
-            navigateToMain()
+            navigateToLanguageSelection()
         }
 
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
@@ -139,9 +140,9 @@ class OnboardingActivity : AppCompatActivity() {
         dot3?.setBackgroundResource(if (position == 2) R.drawable.dot_selected else R.drawable.dot_unselected)
     }
 
-    private fun navigateToMain() {
-        startActivity(Intent(this, MainActivity::class.java))
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+    private fun navigateToLanguageSelection() {
+        startActivity(Intent(this, LanguageSelectionActivity::class.java))
+        ActivityTransitionUtils.applySlideInTransition(this)
         finish()
     }
-}
+}

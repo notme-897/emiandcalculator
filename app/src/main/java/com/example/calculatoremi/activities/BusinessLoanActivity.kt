@@ -293,7 +293,7 @@ class BusinessLoanActivity : BaseInputActivity() {
         val loanAmount = getRawValue(etAmount)
         val fee = getRawValue(etProcessingFee)
         val netDisbursed = if (loanAmount > fee) loanAmount - fee else 0.0
-        txtNetDisbursedDisplay.text = "₹" + commaFormat.format(netDisbursed.toLong())
+        txtNetDisbursedDisplay.text = com.example.calculatoremi.utils.CurrencyManager.formatAmountLong(this, netDisbursed.toLong())
     }
 
     private fun setQuickAmount(amount: Double) {
@@ -332,8 +332,8 @@ class BusinessLoanActivity : BaseInputActivity() {
         val taxSavings = totalInterest * (taxRate / 100.0)
         val netInterestAfterTax = totalInterest - taxSavings
 
-        txtTaxSavingsDisplay.text = "₹" + commaFormat.format(taxSavings.toLong())
-        txtEffectiveInterestAfterTaxDisplay.text = "₹" + commaFormat.format(netInterestAfterTax.toLong())
+        txtTaxSavingsDisplay.text = com.example.calculatoremi.utils.CurrencyManager.formatAmountLong(this, taxSavings.toLong())
+        txtEffectiveInterestAfterTaxDisplay.text = com.example.calculatoremi.utils.CurrencyManager.formatAmountLong(this, netInterestAfterTax.toLong())
 
         // 2. DSCR Calculation
         val monthlyEquivalentEmi = periodicPayment * (selectedFrequency.periodsPerYear / 12.0)

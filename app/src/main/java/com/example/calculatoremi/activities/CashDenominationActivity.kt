@@ -113,14 +113,15 @@ class CashDenominationActivity : BaseInputActivity() {
         val totalGrand = sum500 + sum200 + sum100 + sum50 + sum20 + sum10
         val totalNotes = n500 + n200 + n100 + n50 + n20 + n10
 
-        txtSubTotal500.text = "= ₹" + commaFormat.format(sum500)
-        txtSubTotal200.text = "= ₹" + commaFormat.format(sum200)
-        txtSubTotal100.text = "= ₹" + commaFormat.format(sum100)
-        txtSubTotal50.text = "= ₹" + commaFormat.format(sum50)
-        txtSubTotal20.text = "= ₹" + commaFormat.format(sum20)
-        txtSubTotal10.text = "= ₹" + commaFormat.format(sum10)
+        val symbol = com.example.calculatoremi.utils.CurrencyManager.getCurrencySymbol(this)
+        txtSubTotal500.text = "= $symbol" + commaFormat.format(sum500)
+        txtSubTotal200.text = "= $symbol" + commaFormat.format(sum200)
+        txtSubTotal100.text = "= $symbol" + commaFormat.format(sum100)
+        txtSubTotal50.text = "= $symbol" + commaFormat.format(sum50)
+        txtSubTotal20.text = "= $symbol" + commaFormat.format(sum20)
+        txtSubTotal10.text = "= $symbol" + commaFormat.format(sum10)
 
-        txtGrandCashTotal.text = "₹" + commaFormat.format(totalGrand)
+        txtGrandCashTotal.text = com.example.calculatoremi.utils.CurrencyManager.formatAmountLong(this, totalGrand)
         txtTotalNotesCount.text = "Total Notes / Coins: $totalNotes"
     }
 

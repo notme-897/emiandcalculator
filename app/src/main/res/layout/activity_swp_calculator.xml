@@ -34,7 +34,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:text="Total Investment Corpus (₹)"
+                    android:text="Total Investment Corpus"
                     android:textColor="@color/text_primary"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -81,7 +81,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
-                        android:text="Monthly Withdrawal (₹)"
+                        android:text="Monthly Withdrawal"
                         android:textColor="@color/text_primary"
                         android:textSize="12sp"
                         android:textStyle="bold" />

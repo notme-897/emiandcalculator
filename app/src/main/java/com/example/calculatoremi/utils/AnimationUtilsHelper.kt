@@ -111,13 +111,14 @@ object AnimationUtilsHelper {
     /**
      * Smoothly interpolates text numeric value counter.
      */
-    fun countNumber(textView: TextView, targetValue: Double, prefix: String = "₹") {
+    fun countNumber(textView: TextView, targetValue: Double, prefix: String? = null) {
+        val symbol = prefix ?: CurrencyManager.getCurrencySymbol(textView.context)
         val animator = ValueAnimator.ofFloat(0f, targetValue.toFloat())
         animator.duration = 550
         animator.interpolator = DecelerateInterpolator()
         animator.addUpdateListener { anim ->
             val value = (anim.animatedValue as Float).toDouble()
-            textView.text = prefix + currencyFormat.format(value)
+            textView.text = symbol + currencyFormat.format(value)
         }
         animator.start()
     }

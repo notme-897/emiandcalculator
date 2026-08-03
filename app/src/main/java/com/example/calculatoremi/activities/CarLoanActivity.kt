@@ -301,7 +301,7 @@ class CarLoanActivity : BaseInputActivity() {
         }
 
         val netLoan = if (vehiclePrice > (downPayment + tradeIn)) vehiclePrice - (downPayment + tradeIn) else 0.0
-        txtCarNetLoanDisplay.text = "₹" + commaFormat.format(netLoan)
+        txtCarNetLoanDisplay.text = com.example.calculatoremi.utils.CurrencyManager.formatAmountLong(this, netLoan.toLong())
         if (netLoan > 0) {
             etAmount.setText(commaFormat.format(netLoan))
         }
@@ -340,11 +340,11 @@ class CarLoanActivity : BaseInputActivity() {
         }
 
         val totalCostOfOwnership = downPayment + tradeIn + (emi * totalMonths) + processingFee
-        txtTotalOwnershipCostDisplay.text = "₹" + commaFormat.format(totalCostOfOwnership.toLong())
+        txtTotalOwnershipCostDisplay.text = com.example.calculatoremi.utils.CurrencyManager.formatAmountLong(this, totalCostOfOwnership.toLong())
 
         // Vehicle Depreciation: ~35% depreciation at Year 3
         val year3CarValue = vehiclePrice * 0.65
-        txtYear3CarValueDisplay.text = "₹" + commaFormat.format(year3CarValue.toLong())
+        txtYear3CarValueDisplay.text = com.example.calculatoremi.utils.CurrencyManager.formatAmountLong(this, year3CarValue.toLong())
 
         // Calculate remaining loan balance at Month 36 (Year 3)
         var balance = netLoan

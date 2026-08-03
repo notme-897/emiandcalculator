@@ -42,7 +42,7 @@ class PersonalLoanResultActivity : BaseResultActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+        com.example.calculatoremi.utils.ActivityTransitionUtils.applySlideInTransition(this)
 
         loanTitle = getResultTitle()
 
@@ -116,7 +116,7 @@ class PersonalLoanResultActivity : BaseResultActivity() {
             val mainIntent = Intent(this, MainActivity::class.java)
             mainIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(mainIntent)
-            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+            com.example.calculatoremi.utils.ActivityTransitionUtils.applySlideOutTransition(this)
         }
 
         // --- PIE CHART CLICK LOGIC ---
@@ -129,7 +129,7 @@ class PersonalLoanResultActivity : BaseResultActivity() {
                 putExtra("TITLE", loanTitle)
             }
             startActivity(chartIntent)
-            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+            com.example.calculatoremi.utils.ActivityTransitionUtils.applySlideInTransition(this)
         }
 
         // --- PAYMENT SCHEDULE CLICK LOGIC ---
@@ -140,7 +140,7 @@ class PersonalLoanResultActivity : BaseResultActivity() {
                 putExtra("SCHEDULE", schedule)
             }
             startActivity(scheduleIntent)
-            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+            com.example.calculatoremi.utils.ActivityTransitionUtils.applySlideInTransition(this)
         }
 
         // --- COMPARE LOAN CLICK LOGIC ---
@@ -153,7 +153,7 @@ class PersonalLoanResultActivity : BaseResultActivity() {
                 putExtra("LOAN_A_MONTHS", years * 12 + months)
             }
             startActivity(compareIntent)
-            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+            com.example.calculatoremi.utils.ActivityTransitionUtils.applySlideInTransition(this)
         }
 
         // Staggered Entrance Animation for Result Cards
