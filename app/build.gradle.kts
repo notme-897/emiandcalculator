@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.google.services)
+    alias(libs.plugins.firebase.crashlytics)
 }
 
 android {
@@ -42,10 +43,11 @@ dependencies {
     implementation(libs.material)
     implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
 
-    // Firebase BoM and Remote Config
+    // Firebase BoM, Remote Config, Analytics, and Crashlytics
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.config)
     implementation(libs.firebase.analytics)
+    implementation(libs.firebase.crashlytics)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
