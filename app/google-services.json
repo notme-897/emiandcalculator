@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1094663065451",
+    "project_id": "emi-calcultor-71657",
+    "storage_bucket": "emi-calcultor-71657.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1094663065451:android:3d2d08d0e5c2342b7c062e",
+        "android_client_info": {
+          "package_name": "com.example.calculatoremi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkAkR7oFTtYajiDHJibMQ6mdqf9DBtx00"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

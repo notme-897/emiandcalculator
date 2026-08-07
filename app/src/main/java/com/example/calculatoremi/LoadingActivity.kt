@@ -20,6 +20,7 @@ class LoadingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         com.example.calculatoremi.utils.ThemeManager.initTheme(this)
+        com.example.calculatoremi.utils.RemoteConfigManager.init()
         androidx.core.view.WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightStatusBars = false
         enableEdgeToEdge()
         setContentView(R.layout.activity_splash)
