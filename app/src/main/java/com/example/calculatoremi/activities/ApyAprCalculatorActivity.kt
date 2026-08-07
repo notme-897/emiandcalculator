@@ -223,6 +223,6 @@ class ApyAprCalculatorActivity : BaseInputActivity() {
         compoundingType = 2
         dayCountBasis = 0
         highlightChips()
-        Toast.makeText(this, "Fields reset", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.msg_fields_reset), Toast.LENGTH_SHORT).show()
     }
 }

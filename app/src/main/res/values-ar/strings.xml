@@ -1,0 +1,141 @@
+<resources>
+    <string name="app_name">حاسبة القروض والشرائح</string>
+    <string name="emi_mortgage_finance_tools">القسط • الرهن • أدوات مالية</string>
+    <string name="add">إضافة</string>
+    <string name="percentage_format">%1$d%%</string>
+    <string name="currency_underlined"><u>العملة</u></string>
+    <string name="continue_text">متابعة</string>
+
+    <!-- Navigation Tabs -->
+    <string name="nav_home">الرئيسية</string>
+    <string name="nav_calculators">الحاسبات</string>
+    <string name="nav_history">السجل</string>
+    <string name="nav_tools">الأدوات</string>
+    <string name="nav_settings">الإعدادات</string>
+
+    <!-- Section Headers -->
+    <string name="header_financial_calculators">حاسبات مالية</string>
+    <string name="header_loan_calculator">حاسبة القروض والأقساط</string>
+    <string name="header_history">سجل الحسابات</string>
+    <string name="header_tools">أدوات مالية</string>
+    <string name="header_settings">الإعدادات والتفضيلات</string>
+    <string name="header_calculation_details">تفاصيل الحساب</string>
+
+    <!-- Onboarding & Selection Headers -->
+    <string name="onboarding_title_1">حاسبة قروض ذكية</string>
+    <string name="onboarding_desc_1">احسب القسط الشهري، إجمالي الفوائد والمبلغ الإجمالي فوراً بدقة عالية.</string>
+    <string name="onboarding_title_2">تقارير مالية مفصلة</string>
+    <string name="onboarding_desc_2">عرض جداول السداد والرسوم البيانية التفاعلية لجدول الإطفاء.</string>
+    <string name="onboarding_title_3">حفظ ومتابعة السجلات</string>
+    <string name="onboarding_desc_3">احفظ حسابات قروضك وتنظيم سجلاتك المالية بسهولة.</string>
+    <string name="select_language_title">اختر لغتك</string>
+    <string name="select_language_subtitle">اختر لغتك المفضلة لتخصيص التطبيق.</string>
+    <string name="select_currency_title">اختر عملتك</string>
+    <string name="select_currency_subtitle">اختر عملتك الأساسية لتنسيق جميع الحسابات والتقارير.</string>
+    <string name="search_currency_hint">ابحث عن الدولة، العملة أو الرمز...</string>
+    <string name="search_language_hint">ابحث عن اللغة...</string>
+
+    <!-- Home Categories -->
+    <string name="cat_loan_title">حاسبات القروض والأقساط</string>
+    <string name="cat_loan_desc">عقاري، سيارات، دراجات، أعمال وقروض شخصية</string>
+    <string name="cat_investment_title">حاسبات الاستثمار</string>
+    <string name="cat_investment_desc">الادخار الدوري، الودائع والفوائد المركبة</string>
+    <string name="cat_tax_title">حاسبات الضرائب والرواتب</string>
+    <string name="cat_tax_desc">ضريبة القيمة المضافة، ضريبة الدخل والراتب الصافي</string>
+    <string name="cat_property_title">العقارات والتمويل</string>
+    <string name="cat_property_desc">الرهن العقاري، رسوم التسجيل والاستئجار أم الشراء</string>
+    <string name="cat_insurance_title">حاسبات التأمين</string>
+    <string name="cat_insurance_desc">التأمين على الحياة والصحي</string>
+    <string name="cat_utility_title">أدوات عملية</string>
+    <string name="cat_utility_desc">مبتكر الوحدات، عداد النقود والعملات</string>
+
+    <!-- Calculator Titles -->
+    <string name="title_personal_loan">حاسبة القرض الشخصي</string>
+    <string name="title_home_loan">حاسبة التمويل العقاري</string>
+    <string name="title_car_loan">حاسبة تمويل السيارات</string>
+    <string name="title_bike_loan">حاسبة تمويل الدراجات</string>
+    <string name="title_business_loan">حاسبة تمويل الأعمال</string>
+    <string name="title_education_loan">حاسبة القرض التعليمي</string>
+    <string name="title_gold_loan">حاسبة القرض بضمان الذهب</string>
+    <string name="title_mortgage_loan">حاسبة الرهن العقاري</string>
+    <string name="title_sip">حاسبة الاستثمار الدوري (SIP)</string>
+    <string name="title_fd">حاسبة الوديعة لأجل (FD)</string>
+    <string name="title_rd">حاسبة الودائع المتكررة (RD)</string>
+    <string name="title_ppf">صندوق التوفير العام (PPF)</string>
+    <string name="title_lumpsum">حاسبة الاستثمار المقطوع</string>
+    <string name="title_swp">خطة السحب المنتظم (SWP)</string>
+    <string name="title_discount">حاسبة الخصومات</string>
+    <string name="title_gst">حاسبة ضريبة القيمة المضافة (GST)</string>
+    <string name="title_compound_interest">حاسبة الفائدة المركبة</string>
+    <string name="title_inflation">حاسبة تأثير التضخم</string>
+    <string name="title_npv_irr">صافي القيمة الحالية (NPV &amp; IRR)</string>
+    <string name="title_dti">نسبة الدين إلى الدخل (DTI)</string>
+    <string name="title_apy_apr">مقارنة الفائدة الفعلية (APY/APR)</string>
+    <string name="title_budget_rebalancing">أداة إعادة إعادة توازن الميزانية</string>
+    <string name="title_income_tax">مقارنة شرائح ضريبة الدخل</string>
+    <string name="title_rent_vs_buy">قرار الإيجار أم شراء المنزل</string>
+    <string name="title_ctc_inhand">حاسبة الراتب الصافي</string>
+    <string name="title_bill_splitter">تقسيم الفاتورة والبقشيش</string>
+    <string name="title_fuel_trip">تكلفة الوقود والرحلة</string>
+    <string name="title_cash_counter">عداد فئات النقود الورقية</string>
+
+    <!-- Common Input Labels & Hints -->
+    <string name="label_loan_amount">مبلغ القرض</string>
+    <string name="label_interest_rate">نسبة الفائدة (% سنوياً)</string>
+    <string name="label_tenure_years">المدة (بالسنوات)</string>
+    <string name="label_tenure_months">المدة (بالأشهر)</string>
+    <string name="label_processing_fee">رسوم المعاملة</string>
+    <string name="hint_enter_amount">أدخل المبلغ</string>
+    <string name="hint_enter_rate">أدخل نسبة الفائدة</string>
+    <string name="hint_enter_tenure">أدخل المدة</string>
+
+    <!-- Calculation Results -->
+    <string name="result_monthly_emi">القسط الشهري</string>
+    <string name="result_total_interest">إجمالي الفوائد المستحقة</string>
+    <string name="result_total_payment">المبلغ الإجمالي (الأصل + الفائدة)</string>
+    <string name="result_principal_amount">أصل القرض</string>
+
+    <!-- Schedule & Amortization -->
+    <string name="schedule_title">جدول إطفاء الدين</string>
+    <string name="schedule_header_no">#</string>
+    <string name="schedule_header_month">الشهر / السنة</string>
+    <string name="schedule_header_principal">الأصل المدفوع</string>
+    <string name="schedule_header_interest">الفائدة المدفوعة</string>
+    <string name="schedule_header_balance">الرصيد المتبقي</string>
+
+    <!-- Common Actions & Buttons -->
+    <string name="btn_calculate">احسب الآن</string>
+    <string name="btn_reset">إعادة ضبط</string>
+    <string name="btn_share">مشاركة التفاصيل</string>
+    <string name="btn_view_schedule">عرض جدول السداد</string>
+    <string name="btn_view_chart">عرض الرسم الدائري</string>
+    <string name="btn_clear_all">مسح الكل</string>
+    <string name="btn_delete">حذف السجل</string>
+    <string name="btn_next">التالي</string>
+    <string name="btn_skip">تخطي</string>
+
+    <!-- History Screen -->
+    <string name="history_saved_subtitle">حساباتك المالية الأخيرة</string>
+    <string name="history_empty_title">لا توجد حسابات بعد</string>
+    <string name="history_empty_desc">قم بإجراء أي حساب لحفظ وعرض نتائجك هنا في أي وقت.</string>
+    <string name="history_saved_on">تم الحفظ في %1$s</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_appearance_theme">المظهر والسمة</string>
+    <string name="settings_theme_light">فاتح ☀️</string>
+    <string name="settings_theme_dark">داكن 🌙</string>
+    <string name="settings_theme_auto">تلقائي 📱</string>
+    <string name="settings_haptic_title">الاهتزاز اللمسي</string>
+    <string name="settings_haptic_desc">اهتزاز عند لمس الأزرار</string>
+    <string name="settings_support_about">الدعم والمعلومات</string>
+    <string name="settings_share_app">مشاركة التطبيق</string>
+    <string name="settings_app_version">إصدار التطبيق</string>
+    <string name="settings_app_version_val">v1.0.0 (الإصدار النهائي)</string>
+    <string name="settings_language">اللغة</string>
+    <string name="settings_currency">العملة</string>
+
+    <!-- Validation & Error Messages -->
+    <string name="error_invalid_amount">يرجى إدخال مبلغ صحيح</string>
+    <string name="error_invalid_rate">يرجى إدخال نسبة فائدة صحيحة</string>
+    <string name="error_invalid_tenure">يرجى إدخال مدة صحيحة</string>
+</resources>

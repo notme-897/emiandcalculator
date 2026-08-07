@@ -157,6 +157,6 @@ class InflationCalculatorActivity : BaseInputActivity() {
         etTodayAmount.setText("1,00,000")
         etInflationRate.setText("6.0")
         etHorizonYears.setText("15")
-        Toast.makeText(this, "Fields reset", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.msg_fields_reset), Toast.LENGTH_SHORT).show()
     }
 }

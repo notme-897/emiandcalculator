@@ -1,0 +1,141 @@
+<resources>
+    <string name="app_name">ईएमआई लोन कैलकुलेटर</string>
+    <string name="emi_mortgage_finance_tools">किश्त • होम लोन • वित्त उपकरण</string>
+    <string name="add">जोड़ें</string>
+    <string name="percentage_format">%1$d%%</string>
+    <string name="currency_underlined"><u>मुद्रा</u></string>
+    <string name="continue_text">आगे बढ़ें</string>
+
+    <!-- Navigation Tabs -->
+    <string name="nav_home">होम</string>
+    <string name="nav_calculators">कैलकुलेटर</string>
+    <string name="nav_history">इतिहास</string>
+    <string name="nav_tools">टूल</string>
+    <string name="nav_settings">सेटिंग्स</string>
+
+    <!-- Section Headers -->
+    <string name="header_financial_calculators">वित्तीय कैलकुलेटर</string>
+    <string name="header_loan_calculator">ऋण एवं किश्त कैलकुलेटर</string>
+    <string name="header_history">गणना इतिहास</string>
+    <string name="header_tools">वित्तीय उपकरण</string>
+    <string name="header_settings">सेटिंग्स और प्राथमिकताएं</string>
+    <string name="header_calculation_details">गणना का विवरण</string>
+
+    <!-- Onboarding & Selection Headers -->
+    <string name="onboarding_title_1">स्मार्ट लोन ईएमआई कैलकुलेटर</string>
+    <string name="onboarding_desc_1">अपनी मासिक किश्त, कुल ब्याज और कुल भुगतान राशि की तुरंत सटीक गणना करें।</string>
+    <string name="onboarding_title_2">विस्तृत वित्तीय रिपोर्ट</string>
+    <string name="onboarding_desc_2">किश्त भुगतान तालिका और इंटरैक्टिव पाई-चार्ट देखें।</string>
+    <string name="onboarding_title_3">रिकॉर्ड सहेजें और ट्रैक करें</string>
+    <string name="onboarding_desc_3">अपनी लोन गणनाओं को सहेजें और अपना वित्तीय रिकॉर्ड व्यवस्थित रखें।</string>
+    <string name="select_language_title">अपनी भाषा चुनें</string>
+    <string name="select_language_subtitle">ऐप के लिए अपनी पसंदीदा भाषा का चयन करें।</string>
+    <string name="select_currency_title">अपनी मुद्रा चुनें</string>
+    <string name="select_currency_subtitle">सभी गणनाओं के लिए अपनी प्राथमिक मुद्रा चुनें।</string>
+    <string name="search_currency_hint">देश, मुद्रा या कोड खोजें...</string>
+    <string name="search_language_hint">भाषा खोजें...</string>
+
+    <!-- Home Categories -->
+    <string name="cat_loan_title">ऋण (लोन) कैलकुलेटर</string>
+    <string name="cat_loan_desc">होम, कार, बाइक, बिजनेस और पर्सनल लोन</string>
+    <string name="cat_investment_title">निवेश कैलकुलेटर</string>
+    <string name="cat_investment_desc">एसआईपी (SIP), एफडी (FD), आरडी (RD) और चक्रवृद्धि ब्याज</string>
+    <string name="cat_tax_title">कर एवं वेतन</string>
+    <string name="cat_tax_desc">जीएसटी (GST), आयकर और इन-हैंड सैलरी</string>
+    <string name="cat_property_title">प्रॉपर्टी एवं मकान</string>
+    <string name="cat_property_desc">बंधक, स्टाम्प ड्यूटी और किराया बनाम खरीद</string>
+    <string name="cat_insurance_title">बीमा कैलकुलेटर</string>
+    <string name="cat_insurance_desc">जीवन बीमा और स्वास्थ्य बीमा</string>
+    <string name="cat_utility_title">उपयोगी उपकरण</string>
+    <string name="cat_utility_desc">इकाई कनवर्टर, कैश काउंटर और मुद्रा</string>
+
+    <!-- Calculator Titles -->
+    <string name="title_personal_loan">पर्सनल लोन कैलकुलेटर</string>
+    <string name="title_home_loan">होम लोन (गृह ऋण) कैलकुलेटर</string>
+    <string name="title_car_loan">कार लोन कैलकुलेटर</string>
+    <string name="title_bike_loan">बाइक लोन कैलकुलेटर</string>
+    <string name="title_business_loan">बिजनेस लोन कैलकुलेटर</string>
+    <string name="title_education_loan">शिक्षा ऋण कैलकुलेटर</string>
+    <string name="title_gold_loan">गोल्ड लोन (स्वर्ण ऋण) कैलकुलेटर</string>
+    <string name="title_mortgage_loan">मॉर्टगेज (बंधक) लोन कैलकुलेटर</string>
+    <string name="title_sip">एसआईपी कैलकुलेटर (SIP)</string>
+    <string name="title_fd">फिक्स्ड डिपॉजिट कैलकुलेटर (FD)</string>
+    <string name="title_rd">रिकरिंग डिपॉजिट कैलकुलेटर (RD)</string>
+    <string name="title_ppf">पीपीएफ कैलकुलेटर (PPF)</string>
+    <string name="title_lumpsum">एकमुश्त निवेश कैलकुलेटर</string>
+    <string name="title_swp">सिस्टमैटिक विड्रॉल प्लान (SWP)</string>
+    <string name="title_discount">डिस्कौंट (छूट) कैलकुलेटर</string>
+    <string name="title_gst">जीएसटी (GST) कैलकुलेटर</string>
+    <string name="title_compound_interest">चक्रवृद्धि ब्याज कैलकुलेटर</string>
+    <string name="title_inflation">मुद्रास्फीति (महंगाई) प्रभाव</string>
+    <string name="title_npv_irr">शुद्ध वर्तमान मूल्य (NPV &amp; IRR)</string>
+    <string name="title_dti">ऋण-से-आय अनुपात (DTI)</string>
+    <string name="title_apy_apr">प्रभावी ब्याज दर तुलना (APY/APR)</string>
+    <string name="title_budget_rebalancing">बजट पुनर्संतुलन टूल</string>
+    <string name="title_income_tax">आयकर तुलना कैलकुलेटर</string>
+    <string name="title_rent_vs_buy">किराया बनाम मकान खरीदें</string>
+    <string name="title_ctc_inhand">इन-हैंड सैलरी (वेतन) कैलकुलेटर</string>
+    <string name="title_bill_splitter">बिल बंटावारा और टिप कैलकुलेटर</string>
+    <string name="title_fuel_trip">ईंधन एवं यात्रा लागत</string>
+    <string name="title_cash_counter">नकद नोट कैलकुलेटर (कैश काउंटर)</string>
+
+    <!-- Common Input Labels & Hints -->
+    <string name="label_loan_amount">ऋण (लोन) राशि</string>
+    <string name="label_interest_rate">ब्याज दर (% वार्षिक)</string>
+    <string name="label_tenure_years">अवधि (वर्ष में)</string>
+    <string name="label_tenure_months">अवधि (महीनों में)</string>
+    <string name="label_processing_fee">प्रोसेसिंग फीस (शुल्क)</string>
+    <string name="hint_enter_amount">राशि दर्ज करें</string>
+    <string name="hint_enter_rate">ब्याज दर दर्ज करें</string>
+    <string name="hint_enter_tenure">अवधि दर्ज करें</string>
+
+    <!-- Calculation Results -->
+    <string name="result_monthly_emi">मासिक किश्त (EMI)</string>
+    <string name="result_total_interest">कुल देय ब्याज</string>
+    <string name="result_total_payment">कुल भुगतान (मूलधन + ब्याज)</string>
+    <string name="result_principal_amount">मूलधन राशि</string>
+
+    <!-- Schedule & Amortization -->
+    <string name="schedule_title">किश्त रीपेमेंट तालिका</string>
+    <string name="schedule_header_no">#</string>
+    <string name="schedule_header_month">माह / वर्ष</string>
+    <string name="schedule_header_principal">मूलधन भुगतान</string>
+    <string name="schedule_header_interest">ब्याज भुगतान</string>
+    <string name="schedule_header_balance">शेष ऋण राशि</string>
+
+    <!-- Common Actions & Buttons -->
+    <string name="btn_calculate">अभी गणना करें</string>
+    <string name="btn_reset">रीसेट करें</string>
+    <string name="btn_share">विवरण साझा करें</string>
+    <string name="btn_view_schedule">भुगतान तालिका देखें</string>
+    <string name="btn_view_chart">पाई चार्ट देखें</string>
+    <string name="btn_clear_all">सभी हटाएं</string>
+    <string name="btn_delete">रिकॉर्ड हटाएं</string>
+    <string name="btn_next">आगे</string>
+    <string name="btn_skip">छोड़ें</string>
+
+    <!-- History Screen -->
+    <string name="history_saved_subtitle">आपकी हाल की गणनाएं</string>
+    <string name="history_empty_title">कोई गणना उपलब्ध नहीं है</string>
+    <string name="history_empty_desc">परिणाम सहेजने के लिए कोई गणना करें।</string>
+    <string name="history_saved_on">सहेजा गया %1$s</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_appearance_theme">दिखावट और थीम</string>
+    <string name="settings_theme_light">लाइट ☀️</string>
+    <string name="settings_theme_dark">डार्क 🌙</string>
+    <string name="settings_theme_auto">ऑटो 📱</string>
+    <string name="settings_haptic_title">वाइब्रेशन फीडबैक</string>
+    <string name="settings_haptic_desc">बटन दबाने पर वाइब्रेट करें</string>
+    <string name="settings_support_about">सहायता और ऐप के बारे में</string>
+    <string name="settings_share_app">ऐप साझा करें</string>
+    <string name="settings_app_version">ऐप संस्करण</string>
+    <string name="settings_app_version_val">v1.0.0 (अंतिम संस्करण)</string>
+    <string name="settings_language">भाषा</string>
+    <string name="settings_currency">मुद्रा</string>
+
+    <!-- Validation & Error Messages -->
+    <string name="error_invalid_amount">कृपया एक मान्य राशि दर्ज करें</string>
+    <string name="error_invalid_rate">कृपया एक मान्य ब्याज दर दर्ज करें</string>
+    <string name="error_invalid_tenure">कृपया एक मान्य अवधि दर्ज करें</string>
+</resources>

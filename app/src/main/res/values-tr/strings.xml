@@ -1,0 +1,141 @@
+<resources>
+    <string name="app_name">Kredi Hesaplayıcı</string>
+    <string name="emi_mortgage_finance_tools">Taksit • Konut Kredisi • Finans Araçları</string>
+    <string name="add">Ekle</string>
+    <string name="percentage_format">%1$d%%</string>
+    <string name="currency_underlined"><u>Para Birimi</u></string>
+    <string name="continue_text">Devam Et</string>
+
+    <!-- Navigation Tabs -->
+    <string name="nav_home">Ana Sayfa</string>
+    <string name="nav_calculators">Hesaplayıcılar</string>
+    <string name="nav_history">Geçmiş</string>
+    <string name="nav_tools">Araçlar</string>
+    <string name="nav_settings">Ayarlar</string>
+
+    <!-- Section Headers -->
+    <string name="header_financial_calculators">Finansal Hesaplayıcılar</string>
+    <string name="header_loan_calculator">Kredi &amp; Taksit Hesaplayıcı</string>
+    <string name="header_history">Hesaplama Geçmişi</string>
+    <string name="header_tools">Finans Araçları</string>
+    <string name="header_settings">Ayarlar &amp; Tercihler</string>
+    <string name="header_calculation_details">Hesaplama Detayları</string>
+
+    <!-- Onboarding & Selection Headers -->
+    <string name="onboarding_title_1">Akıllı Kredi Hesaplayıcı</string>
+    <string name="onboarding_desc_1">Aylık taksitlerinizi, toplam faizi ve toplam geri ödemeyi anında hesaplayın.</string>
+    <string name="onboarding_title_2">Detaylı Finansal Raporlar</string>
+    <string name="onboarding_desc_2">Ödeme planlarını ve etkileşimli amortisman grafiklerini görüntüleyin.</string>
+    <string name="onboarding_title_3">Kayıtları Saklayın ve Takip Edin</string>
+    <string name="onboarding_desc_3">Kredi hesaplamalarınızı kaydedin ve finansal verilerinizi düzenli tutun.</string>
+    <string name="select_language_title">Dilinizi Seçin</string>
+    <string name="select_language_subtitle">Uygulama için tercih ettiğiniz dili seçin.</string>
+    <string name="select_currency_title">Para Biriminizi Seçin</string>
+    <string name="select_currency_subtitle">Tüm hesaplamalar için temel para biriminizi seçin.</string>
+    <string name="search_currency_hint">Ülke, para birimi veya kod ara...</string>
+    <string name="search_language_hint">Dil ara...</string>
+
+    <!-- Home Categories -->
+    <string name="cat_loan_title">Kredi Hesaplayıcılar</string>
+    <string name="cat_loan_desc">Konut, Taşıt, Motosiklet, Ticari ve İhtiyaç Kredisi</string>
+    <string name="cat_investment_title">Yatırım Hesaplayıcılar</string>
+    <string name="cat_investment_desc">Düzenli Birikim, Vadeli Mevduat ve Bileşik Faiz</string>
+    <string name="cat_tax_title">Vergi ve Maaş</string>
+    <string name="cat_tax_desc">KDV, Gelir Vergisi ve Net Maaş</string>
+    <string name="cat_property_title">Gayrimenkul ve Emlak</string>
+    <string name="cat_property_desc">Mortgage, Tapu Harcı ve Kirala vs Satın Al</string>
+    <string name="cat_insurance_title">Sigorta Hesaplayıcılar</string>
+    <string name="cat_insurance_desc">Hayat Sigortası ve Sağlık Sigortası</string>
+    <string name="cat_utility_title">Pratik Araçlar</string>
+    <string name="cat_utility_desc">Birim Dönüştürücü, Para Sayma ve Döviz</string>
+
+    <!-- Calculator Titles -->
+    <string name="title_personal_loan">İhtiyaç Kredisi</string>
+    <string name="title_home_loan">Konut Kredisi</string>
+    <string name="title_car_loan">Taşıt Kredisi</string>
+    <string name="title_bike_loan">Motosiklet Kredisi</string>
+    <string name="title_business_loan">Ticari Kredi</string>
+    <string name="title_education_loan">Eğitim Kredisi</string>
+    <string name="title_gold_loan">Altın/Rehin Kredisi</string>
+    <string name="title_mortgage_loan">Mortgage Kredisi</string>
+    <string name="title_sip">Düzenli Yatırım Planı (SIP)</string>
+    <string name="title_fd">Vadeli Mevduat (FD)</string>
+    <string name="title_rd">Birikimli Mevduat (RD)</string>
+    <string name="title_ppf">Bireysel Emeklilik Fonu</string>
+    <string name="title_lumpsum">Tek Seferlik Yatırım</string>
+    <string name="title_swp">Düzenli Para Çekme Planı (SWP)</string>
+    <string name="title_discount">İndirim Hesaplayıcı</string>
+    <string name="title_gst">KDV Vergisi Hesaplayıcı (GST)</string>
+    <string name="title_compound_interest">Bileşik Faiz Hesaplayıcı</string>
+    <string name="title_inflation">Enflasyon Etkisi Hesaplayıcı</string>
+    <string name="title_npv_irr">Net Bugünkü Değer (NPV &amp; IRR)</string>
+    <string name="title_dti">Borç Gelir Oranı (DTI)</string>
+    <string name="title_apy_apr">Bileşik Yıllık Faiz Karşılaştırması</string>
+    <string name="title_budget_rebalancing">Bütçe Dengeleme Aracı</string>
+    <string name="title_income_tax">Gelir Vergisi Karşılaştırması</string>
+    <string name="title_rent_vs_buy">Kirala mı Satın Al mı</string>
+    <string name="title_ctc_inhand">Brüt - Net Maaş Hesaplama</string>
+    <string name="title_bill_splitter">Hesap Bölüşme ve Bahşiş</string>
+    <string name="title_fuel_trip">Yakıt ve Yolculuk Maliyeti</string>
+    <string name="title_cash_counter">Nakit Para Sayma Aracı</string>
+
+    <!-- Common Input Labels & Hints -->
+    <string name="label_loan_amount">Kredi Tutarı</string>
+    <string name="label_interest_rate">Faiz Oranı (% yıllık)</string>
+    <string name="label_tenure_years">Vade (Yıl)</string>
+    <string name="label_tenure_months">Vade (Ay)</string>
+    <string name="label_processing_fee">Tahsis Ücreti</string>
+    <string name="hint_enter_amount">Tutarı girin</string>
+    <string name="hint_enter_rate">Faiz oranını girin</string>
+    <string name="hint_enter_tenure">Vadeyi girin</string>
+
+    <!-- Calculation Results -->
+    <string name="result_monthly_emi">Aylık Taksit Tutarı</string>
+    <string name="result_total_interest">Toplam Faiz Ödemesi</string>
+    <string name="result_total_payment">Toplam Geri Ödeme (Ana Para + Faiz)</string>
+    <string name="result_principal_amount">Kredi Ana Parası</string>
+
+    <!-- Schedule & Amortization -->
+    <string name="schedule_title">Amortisman Ödeme Planı</string>
+    <string name="schedule_header_no">#</string>
+    <string name="schedule_header_month">Ay / Yıl</string>
+    <string name="schedule_header_principal">Ödenen Ana Para</string>
+    <string name="schedule_header_interest">Ödenen Faiz</string>
+    <string name="schedule_header_balance">Kalan Borç</string>
+
+    <!-- Common Actions & Buttons -->
+    <string name="btn_calculate">Hemen Hesapla</string>
+    <string name="btn_reset">Sıfırla</string>
+    <string name="btn_share">Detayları Paylaş</string>
+    <string name="btn_view_schedule">Ödeme Planını Gör</string>
+    <string name="btn_view_chart">Pasta Grafiği Gör</string>
+    <string name="btn_clear_all">Tümünü Temizle</string>
+    <string name="btn_delete">Kaydı Sil</string>
+    <string name="btn_next">İleri</string>
+    <string name="btn_skip">Atla</string>
+
+    <!-- History Screen -->
+    <string name="history_saved_subtitle">Son finansal hesaplamalarınız</string>
+    <string name="history_empty_title">Henüz Hesaplama Yok</string>
+    <string name="history_empty_desc">Sonuçları buraya kaydetmek için bir hesaplama yapın.</string>
+    <string name="history_saved_on">Kaydedildi: %1$s</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_appearance_theme">GÖRÜNÜM VE TEMA</string>
+    <string name="settings_theme_light">Açık ☀️</string>
+    <string name="settings_theme_dark">Koyu 🌙</string>
+    <string name="settings_theme_auto">Otomatik 📱</string>
+    <string name="settings_haptic_title">Titreşimle Geri Bildirim</string>
+    <string name="settings_haptic_desc">Dokunmada titreşim sağla</string>
+    <string name="settings_support_about">DESTEK VE HAKKINDA</string>
+    <string name="settings_share_app">Uygulamayı Paylaş</string>
+    <string name="settings_app_version">Uygulama Sürümü</string>
+    <string name="settings_app_version_val">v1.0.0 (Son Sürüm)</string>
+    <string name="settings_language">Dil</string>
+    <string name="settings_currency">Para Birimi</string>
+
+    <!-- Validation & Error Messages -->
+    <string name="error_invalid_amount">Lütfen geçerli bir tutar girin</string>
+    <string name="error_invalid_rate">Lütfen geçerli bir faiz oranı girin</string>
+    <string name="error_invalid_tenure">Lütfen geçerli bir vade girin</string>
+</resources>

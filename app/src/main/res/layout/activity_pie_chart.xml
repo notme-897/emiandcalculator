@@ -44,7 +44,7 @@
             android:id="@+id/txtResultTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Loan Breakdown"
+            android:text="@string/title_loan_breakdown"
             android:textColor="@color/text_primary"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -113,7 +113,7 @@
                         android:gravity="center"
                         android:orientation="vertical">
                         <View android:layout_width="@dimen/screen_padding" android:layout_height="@dimen/screen_padding" android:background="#1565C0" />
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Principal" android:textColor="@color/text_secondary" android:textSize="14sp" android:layout_marginTop="@dimen/margin_tiny" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/label_principal" android:textColor="@color/text_secondary" android:textSize="14sp" android:layout_marginTop="@dimen/margin_tiny" />
                         <TextView android:id="@+id/txtPrincipalValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textStyle="bold" android:textColor="@color/text_primary" />
                     </LinearLayout>
 
@@ -124,7 +124,7 @@
                         android:gravity="center"
                         android:orientation="vertical">
                         <View android:layout_width="@dimen/screen_padding" android:layout_height="@dimen/screen_padding" android:background="#E53935" />
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Interest" android:textColor="@color/text_secondary" android:textSize="14sp" android:layout_marginTop="@dimen/margin_tiny" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/label_interest" android:textColor="@color/text_secondary" android:textSize="14sp" android:layout_marginTop="@dimen/margin_tiny" />
                         <TextView android:id="@+id/txtInterestValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textStyle="bold" android:textColor="@color/text_primary" />
                     </LinearLayout>
 

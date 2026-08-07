@@ -42,7 +42,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Total Bill Amount"
+                        android:text="@string/label_total_bill_amount"
                         android:textColor="@color/text_primary"
                         android:textSize="14sp"
                         android:textStyle="bold" />
@@ -64,7 +64,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Tip Percentage (%)"
+                        android:text="@string/label_tip_percentage"
                         android:textColor="@color/text_primary"
                         android:textSize="14sp"
                         android:textStyle="bold"
@@ -142,7 +142,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Split Among (Number of People)"
+                        android:text="@string/label_split_among"
                         android:textColor="@color/text_primary"
                         android:textSize="14sp"
                         android:textStyle="bold"
@@ -216,7 +216,7 @@
                 android:id="@+id/btnCalculate"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
-                android:text="Calculate Split Breakdown"
+                android:text="@string/btn_calculate_split"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
@@ -232,7 +232,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="10dp"
-                android:text="Reset Fields"
+                android:text="@string/btn_reset"
                 android:textAllCaps="false"
                 android:textSize="15sp"
                 android:textStyle="bold"

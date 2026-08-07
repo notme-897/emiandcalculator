@@ -18,6 +18,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.calculatoremi.MainActivity
 import com.example.calculatoremi.R
 import com.example.calculatoremi.activities.PersonalLoanResultActivity
 import com.example.calculatoremi.adapter.HistoryAdapter
@@ -88,6 +89,7 @@ class HistoryFragment : Fragment(R.layout.fragment_history) {
 
     override fun onResume() {
         super.onResume()
+        (requireActivity() as? MainActivity)?.setBlackStatusBarIconsInLightMode()
         loadHistoryData()
     }
 

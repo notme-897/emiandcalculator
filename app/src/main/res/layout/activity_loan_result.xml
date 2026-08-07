@@ -45,7 +45,7 @@
             android:id="@+id/txtResultTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Loan Breakdown Result"
+            android:text="@string/header_calculation_details"
             android:textColor="@color/text_primary"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -85,7 +85,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Input Parameters"
+                android:text="@string/header_input_parameters"
                 android:textColor="@color/text_secondary"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -119,7 +119,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Loan Amount / Base"
+                            android:text="@string/label_loan_amount"
                             android:textColor="@color/text_secondary"
                             android:textSize="14sp" />
 
@@ -145,7 +145,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Interest Rate (% p.a.)"
+                            android:text="@string/label_interest_rate"
                             android:textColor="@color/text_secondary"
                             android:textSize="14sp" />
 
@@ -171,7 +171,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Tenure"
+                            android:text="@string/label_tenure"
                             android:textColor="@color/text_secondary"
                             android:textSize="14sp" />
 
@@ -196,7 +196,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Start Date / Status"
+                            android:text="@string/label_start_date"
                             android:textColor="@color/text_secondary"
                             android:textSize="14sp" />
 
@@ -217,7 +217,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Calculation Summary"
+                android:text="@string/header_calculation_summary"
                 android:textColor="@color/text_secondary"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -251,7 +251,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="MONTHLY EMI / PAYOUT"
+                            android:text="@string/result_monthly_emi"
                             android:textColor="#3B82F6"
                             android:textSize="12sp"
                             android:textStyle="bold"
@@ -284,7 +284,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Total Interest Payable"
+                            android:text="@string/result_total_interest"
                             android:textColor="@color/text_primary"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -311,7 +311,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Total Payment (Principal + Interest)"
+                            android:text="@string/result_total_payment"
                             android:textColor="@color/text_primary"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -390,7 +390,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Pie Chart"
+                                android:text="@string/btn_view_chart"
                                 android:textColor="@color/primary"
                                 android:textSize="13sp"
                                 android:textStyle="bold"
@@ -419,7 +419,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Schedule"
+                                android:text="@string/btn_view_schedule"
                                 android:textColor="@color/primary"
                                 android:textSize="13sp"
                                 android:textStyle="bold"

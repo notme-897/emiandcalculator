@@ -25,6 +25,7 @@ class LoanListFragment : Fragment(R.layout.fragment_category_list) {
         // Hide main header and bottom navigation for full-screen category view
         (requireActivity() as? MainActivity)?.hideHeader()
         (requireActivity() as? MainActivity)?.hideBottomNav()
+        (requireActivity() as? MainActivity)?.setBlackStatusBarIconsInLightMode()
 
         // Apply status bar top padding to category header dynamically with proper top/bottom clearance
         val categoryHeader = view.findViewById<View>(R.id.categoryHeader)

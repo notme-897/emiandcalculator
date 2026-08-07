@@ -100,6 +100,6 @@ class UnitPriceComparatorActivity : BaseInputActivity() {
         etQtyA.setText("500")
         etPriceB.setText("320")
         etQtyB.setText("1000")
-        Toast.makeText(this, "Fields reset", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.msg_fields_reset), Toast.LENGTH_SHORT).show()
     }
 }

@@ -1,0 +1,141 @@
+<resources>
+    <string name="app_name">Kalkulator Pinjaman</string>
+    <string name="emi_mortgage_finance_tools">Angsuran • KPR • Alat Keuangan</string>
+    <string name="add">Tambah</string>
+    <string name="percentage_format">%1$d%%</string>
+    <string name="currency_underlined"><u>Mata Uang</u></string>
+    <string name="continue_text">Lanjutkan</string>
+
+    <!-- Navigation Tabs -->
+    <string name="nav_home">Beranda</string>
+    <string name="nav_calculators">Kalkulator</string>
+    <string name="nav_history">Riwayat</string>
+    <string name="nav_tools">Alat</string>
+    <string name="nav_settings">Pengaturan</string>
+
+    <!-- Section Headers -->
+    <string name="header_financial_calculators">Kalkulator Keuangan</string>
+    <string name="header_loan_calculator">Kalkulator Pinjaman &amp; Angsuran</string>
+    <string name="header_history">Riwayat Perhitungan</string>
+    <string name="header_tools">Alat Keuangan</string>
+    <string name="header_settings">Pengaturan &amp; Preferensi</string>
+    <string name="header_calculation_details">Rincian Perhitungan</string>
+
+    <!-- Onboarding & Selection Headers -->
+    <string name="onboarding_title_1">Kalkulator Pinjaman Pintar</string>
+    <string name="onboarding_desc_1">Hitung angsuran bulanan, total bunga, dan total pembayaran seketika.</string>
+    <string name="onboarding_title_2">Laporan Keuangan Detail</string>
+    <string name="onboarding_desc_2">Visualisasikan jadwal pelunasan dan grafik amortisasi interaktif.</string>
+    <string name="onboarding_title_3">Simpan &amp; Pantau Catatan</string>
+    <string name="onboarding_desc_3">Simpan kalkulasi pinjaman Anda dan kelola catatan keuangan dengan rapi.</string>
+    <string name="select_language_title">Pilih Bahasa Anda</string>
+    <string name="select_language_subtitle">Pilih bahasa preferensi Anda untuk aplikasi.</string>
+    <string name="select_currency_title">Pilih Mata Uang Anda</string>
+    <string name="select_currency_subtitle">Pilih mata uang utama Anda untuk semua kalkulasi.</string>
+    <string name="search_currency_hint">Cari negara, mata uang, atau kode...</string>
+    <string name="search_language_hint">Cari bahasa...</string>
+
+    <!-- Home Categories -->
+    <string name="cat_loan_title">Kalkulator Pinjaman</string>
+    <string name="cat_loan_desc">KPR, Mobil, Motor, Usaha &amp; Pinjaman Pribadi</string>
+    <string name="cat_investment_title">Kalkulator Investasi</string>
+    <string name="cat_investment_desc">Tabungan Berjangka, Deposito &amp; Bunga Majemuk</string>
+    <string name="cat_tax_title">Pajak &amp; Gaji</string>
+    <string name="cat_tax_desc">PPN, PPh &amp; Gaji Bersih (Take Home Pay)</string>
+    <string name="cat_property_title">Properti &amp; Rumah</string>
+    <string name="cat_property_desc">KPR, BPHTB &amp; Sewa vs Beli Rumah</string>
+    <string name="cat_insurance_title">Kalkulator Asuransi</string>
+    <string name="cat_insurance_desc">Asuransi Jiwa &amp; Kesehatan</string>
+    <string name="cat_utility_title">Alat Praktis</string>
+    <string name="cat_utility_desc">Konverter Satuan, Penghitung Uang &amp; Valuta</string>
+
+    <!-- Calculator Titles -->
+    <string name="title_personal_loan">Kalkulator Pinjaman Pribadi</string>
+    <string name="title_home_loan">Kalkulator KPR (Rumah)</string>
+    <string name="title_car_loan">Kalkulator Kredit Mobil</string>
+    <string name="title_bike_loan">Kalkulator Kredit Motor</string>
+    <string name="title_business_loan">Kalkulator Pinjaman Usaha</string>
+    <string name="title_education_loan">Kalkulator Pinjaman Pendidikan</string>
+    <string name="title_gold_loan">Kalkulator Gadai Emas</string>
+    <string name="title_mortgage_loan">Kalkulator Hipotek Properti</string>
+    <string name="title_sip">Investasi Berkala (SIP)</string>
+    <string name="title_fd">Deposito Berjangka (FD)</string>
+    <string name="title_rd">Tabungan Berencana (RD)</string>
+    <string name="title_ppf">Dana Pensiun / Tabungan</string>
+    <string name="title_lumpsum">Investasi Sekaligus (Lumpsum)</string>
+    <string name="title_swp">Penarikan Berkala (SWP)</string>
+    <string name="title_discount">Kalkulator Diskon</string>
+    <string name="title_gst">Kalkulator Pajak (PPN/GST)</string>
+    <string name="title_compound_interest">Bunga Majemuk</string>
+    <string name="title_inflation">Dampak Inflasi</string>
+    <string name="title_npv_irr">Nilai Sekarang Bersih (NPV &amp; IRR)</string>
+    <string name="title_dti">Rasio Utang terhadap Pendapatan (DTI)</string>
+    <string name="title_apy_apr">Perbandingan Suku Bunga Efektif</string>
+    <string name="title_budget_rebalancing">Penyeimbangan Anggaran</string>
+    <string name="title_income_tax">Perbandingan Pajak Penghasilan</string>
+    <string name="title_rent_vs_buy">Sewa vs Beli Rumah</string>
+    <string name="title_ctc_inhand">Gaji Kotor ke Gaji Bersih</string>
+    <string name="title_bill_splitter">Bagi Tagihan &amp; Tip</string>
+    <string name="title_fuel_trip">Bensin &amp; Biaya Perjalanan</string>
+    <string name="title_cash_counter">Penghitung Uang Tunai</string>
+
+    <!-- Common Input Labels & Hints -->
+    <string name="label_loan_amount">Jumlah Pinjaman</string>
+    <string name="label_interest_rate">Suku Bunga (% per tahun)</string>
+    <string name="label_tenure_years">Jangka Waktu (Tahun)</string>
+    <string name="label_tenure_months">Jangka Waktu (Bulan)</string>
+    <string name="label_processing_fee">Biaya Administrasi</string>
+    <string name="hint_enter_amount">Masukkan jumlah</string>
+    <string name="hint_enter_rate">Masukkan suku bunga</string>
+    <string name="hint_enter_tenure">Masukkan jangka waktu</string>
+
+    <!-- Calculation Results -->
+    <string name="result_monthly_emi">Angsuran Per Bulan</string>
+    <string name="result_total_interest">Total Bunga</string>
+    <string name="result_total_payment">Total Pembayaran (Pokok + Bunga)</string>
+    <string name="result_principal_amount">Pokok Pinjaman</string>
+
+    <!-- Schedule & Amortization -->
+    <string name="schedule_title">Jadwal Amortisasi Pelunasan</string>
+    <string name="schedule_header_no">#</string>
+    <string name="schedule_header_month">Bulan / Tahun</string>
+    <string name="schedule_header_principal">Pokok Dibayar</string>
+    <string name="schedule_header_interest">Bunga Dibayar</string>
+    <string name="schedule_header_balance">Sisa Pinjaman</string>
+
+    <!-- Common Actions & Buttons -->
+    <string name="btn_calculate">Hitung Sekarang</string>
+    <string name="btn_reset">Reset</string>
+    <string name="btn_share">Bagikan Rincian</string>
+    <string name="btn_view_schedule">Lihat Jadwal Pelunasan</string>
+    <string name="btn_view_chart">Tampilkan Diagram Lingkaran</string>
+    <string name="btn_clear_all">Hapus Semua</string>
+    <string name="btn_delete">Hapus Catatan</string>
+    <string name="btn_next">Lanjut</string>
+    <string name="btn_skip">Lewati</string>
+
+    <!-- History Screen -->
+    <string name="history_saved_subtitle">Kalkulasi keuangan terbaru Anda</string>
+    <string name="history_empty_title">Belum Ada Kalkulasi</string>
+    <string name="history_empty_desc">Lakukan kalkulasi untuk menyimpan dan melihat hasilnya di sini.</string>
+    <string name="history_saved_on">Disimpan pada %1$s</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_appearance_theme">TAMPILAN &amp; TEMA</string>
+    <string name="settings_theme_light">Terang ☀️</string>
+    <string name="settings_theme_dark">Gelap 🌙</string>
+    <string name="settings_theme_auto">Otomatis 📱</string>
+    <string name="settings_haptic_title">Umpan Balik Getaran</string>
+    <string name="settings_haptic_desc">Getar saat menekan tombol</string>
+    <string name="settings_support_about">BANTUAN &amp; TENTANG</string>
+    <string name="settings_share_app">Bagikan Aplikasi</string>
+    <string name="settings_app_version">Versi Aplikasi</string>
+    <string name="settings_app_version_val">v1.0.0 (Edisi Lengkap)</string>
+    <string name="settings_language">Bahasa</string>
+    <string name="settings_currency">Mata Uang</string>
+
+    <!-- Validation & Error Messages -->
+    <string name="error_invalid_amount">Masukkan jumlah yang valid</string>
+    <string name="error_invalid_rate">Masukkan suku bunga yang valid</string>
+    <string name="error_invalid_tenure">Masukkan jangka waktu yang valid</string>
+</resources>

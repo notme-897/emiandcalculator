@@ -95,6 +95,6 @@ class SavingsGoalActivity : BaseInputActivity() {
         etTargetGoal.setText("50,000")
         etCurrentSaved.setText("10,000")
         etDailySavings.setText("200")
-        Toast.makeText(this, "Fields reset", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.msg_fields_reset), Toast.LENGTH_SHORT).show()
     }
 }

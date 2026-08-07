@@ -20,6 +20,10 @@ class InsuranceListFragment : Fragment(R.layout.fragment_category_list) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        (requireActivity() as? MainActivity)?.hideHeader()
+        (requireActivity() as? MainActivity)?.hideBottomNav()
+        (requireActivity() as? MainActivity)?.setBlackStatusBarIconsInLightMode()
+
         val categoryTitle = arguments?.getString("CATEGORY_TITLE") ?: "Insurance Tools"
         val txtCategoryTitle = view.findViewById<TextView>(R.id.txtCategoryTitle)
         txtCategoryTitle?.text = categoryTitle
@@ -76,7 +80,6 @@ class InsuranceListFragment : Fragment(R.layout.fragment_category_list) {
 
     override fun onResume() {
         super.onResume()
-        (requireActivity() as? MainActivity)?.showHeader()
-        (requireActivity() as? MainActivity)?.showBottomNav()
+        (requireActivity() as? MainActivity)?.setBlackStatusBarIconsInLightMode()
     }
 }

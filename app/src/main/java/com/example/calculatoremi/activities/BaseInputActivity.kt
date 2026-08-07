@@ -107,21 +107,21 @@ abstract class BaseInputActivity : AppCompatActivity() {
 
         val yearPart = when (years) {
             0 -> ""
-            1 -> "1 Year"
-            else -> "$years Years"
+            1 -> "1 ${getString(R.string.unit_year)}"
+            else -> "$years ${getString(R.string.unit_years)}"
         }
 
         val monthPart = when (months) {
             0 -> ""
-            1 -> "1 Month"
-            else -> "$months Months"
+            1 -> "1 ${getString(R.string.unit_month)}"
+            else -> "$months ${getString(R.string.unit_months)}"
         }
 
         return when {
             yearPart.isNotEmpty() && monthPart.isNotEmpty() -> "$yearPart $monthPart"
             yearPart.isNotEmpty() -> yearPart
             monthPart.isNotEmpty() -> monthPart
-            else -> "1 Month"
+            else -> "1 ${getString(R.string.unit_month)}"
         }
     }
 

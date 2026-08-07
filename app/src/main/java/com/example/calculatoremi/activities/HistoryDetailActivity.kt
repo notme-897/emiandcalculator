@@ -142,7 +142,7 @@ class HistoryDetailActivity : BaseInputActivity() {
             .setMessage("Are you sure you want to delete '${item.title}' from calculation history?")
             .setPositiveButton("Delete") { dialog, _ ->
                 HistoryManager.deleteHistoryItem(this, item.id)
-                Toast.makeText(this, "Record deleted", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.msg_record_deleted), Toast.LENGTH_SHORT).show()
                 dialog.dismiss()
                 finish()
             }

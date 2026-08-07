@@ -1,0 +1,141 @@
+<resources>
+    <string name="app_name">రుణ వాయిదాల లెక్కింపు</string>
+    <string name="emi_mortgage_finance_tools">వాయిదా • తాకట్టు • ఆర్థిక పరికరాలు</string>
+    <string name="add">జతచేయి</string>
+    <string name="percentage_format">%1$d%%</string>
+    <string name="currency_underlined"><u>కరెన్సీ</u></string>
+    <string name="continue_text">కొనసాగించు</string>
+
+    <!-- Navigation Tabs -->
+    <string name="nav_home">హోమ్</string>
+    <string name="nav_calculators">క్యాలిక్యులేటర్లు</string>
+    <string name="nav_history">చరిత్ర</string>
+    <string name="nav_tools">పరికరాలు</string>
+    <string name="nav_settings">సెట్టింగ్లు</string>
+
+    <!-- Section Headers -->
+    <string name="header_financial_calculators">ఆర్థిక క్యాలిక్యులేటర్లు</string>
+    <string name="header_loan_calculator">రుణం &amp; వాయిదాల క్యాలిక్యులేటర్</string>
+    <string name="header_history">లెక్కింపు చరిత్ర</string>
+    <string name="header_tools">ఆర్థిక పరికరాలు</string>
+    <string name="header_settings">సెట్టింగ్లు &amp; ప్రాధాన్యతలు</string>
+    <string name="header_calculation_details">లెక్కింపు వివరాలు</string>
+
+    <!-- Onboarding & Selection Headers -->
+    <string name="onboarding_title_1">స్మార్ట్ లోన్ ఈఎమ్‌ఐ క్యాలిక్యులేటర్</string>
+    <string name="onboarding_desc_1">మీ నెలవారీ వాయిదా, మొత్తం వడ్డీ మరియు మొత్తం చెల్లింపును తక్షణమే లెక్కించండి.</string>
+    <string name="onboarding_title_2">వివరణాత్మక ఆర్థిక నివేదికలు</string>
+    <string name="onboarding_desc_2">వాయిదాల చెల్లింపు పట్టికలు మరియు చార్టులను చూడండి.</string>
+    <string name="onboarding_title_3">సేవ్ చేసి ట్రాక్ చేయండి</string>
+    <string name="onboarding_desc_3">మీ రుణ లెక్కలను సేవ్ చేయండి మరియు ఆర్థిక రికార్డులను నిర్వహించండి.</string>
+    <string name="select_language_title">మీ భాషను ఎంచుకోండి</string>
+    <string name="select_language_subtitle">యాప్ కోసం మీ ప్రాధాన్య భాషను ఎంచుకోండి.</string>
+    <string name="select_currency_title">మీ కరెన్సీని ఎంచుకోండి</string>
+    <string name="select_currency_subtitle">అన్ని లెక్కల కోసం మీ ప్రాథమిక కరెన్సీని ఎంచుకోండి.</string>
+    <string name="search_currency_hint">దేశం, కరెన్సీ లేదా కోడ్‌ను శోధించండి...</string>
+    <string name="search_language_hint">భాషను శోధించండి...</string>
+
+    <!-- Home Categories -->
+    <string name="cat_loan_title">రుణ క్యాలిక్యులేటర్లు</string>
+    <string name="cat_loan_desc">ఇంటి రుణం, కార్, బైక్, వ్యాపారం &amp; వ్యక్తిగత రుణాలు</string>
+    <string name="cat_investment_title">పెట్టుబడి క్యాలిక్యులేటర్లు</string>
+    <string name="cat_investment_desc">ఎస్‌ఐపీ (SIP), ఫిక్స్‌డ్ డిపాజిట్ (FD), చక్రవడ్డీ</string>
+    <string name="cat_tax_title">పన్ను &amp; జీతం</string>
+    <string name="cat_tax_desc">జీఎస్‌టీ (GST), ఆదాయపు పన్ను &amp; చేతికి వచ్చే జీతం</string>
+    <string name="cat_property_title">ఆస్తి &amp; ఇల్లు</string>
+    <string name="cat_property_desc">తాకట్టు, స్టాంప్ డ్యూటీ &amp; అద్దె vs ఇల్లు కొనుగోలు</string>
+    <string name="cat_insurance_title">భీమా క్యాలిక్యులేటర్లు</string>
+    <string name="cat_insurance_desc">జీవిత భీమా &amp; ఆరోగ్య భీమా</string>
+    <string name="cat_utility_title">ఉపయోగకరమైన పరికరాలు</string>
+    <string name="cat_utility_desc">యూనిట్ కన్వర్టర్, నోట్ల కౌంటర్ &amp; కరెన్సీ</string>
+
+    <!-- Calculator Titles -->
+    <string name="title_personal_loan">వ్యక్తిగత రుణ క్యాలిక్యులేటర్</string>
+    <string name="title_home_loan">ఇంటి రుణ (హోమ్ లోన్) క్యాలిక్యులేటర్</string>
+    <string name="title_car_loan">కార్ లోన్ క్యాలిక్యులేటర్</string>
+    <string name="title_bike_loan">బైక్ లోన్ క్యాలిక్యులేటర్</string>
+    <string name="title_business_loan">వ్యాపార రుణ క్యాలిక్యులేటర్</string>
+    <string name="title_education_loan">విద్యా రుణ క్యాలిక్యులేటర్</string>
+    <string name="title_gold_loan">బంగారు తాకట్టు రుణ క్యాలిక్యులేటర్</string>
+    <string name="title_mortgage_loan">ఆస్తి తాకట్టు రుణ క్యాలిక్యులేటర్</string>
+    <string name="title_sip">ఎస్‌ఐపీ క్యాలిక్యులేటర్ (SIP)</string>
+    <string name="title_fd">ఫిక్స్‌డ్ డిపాజిట్ (FD)</string>
+    <string name="title_rd">రికరింగ్ డిపాజిట్ (RD)</string>
+    <string name="title_ppf">పబ్లిక్ ప్రావిడెంట్ ఫండ్ (PPF)</string>
+    <string name="title_lumpsum">ఒకేసారి పెట్టుబడి క్యాలిక్యులేటర్</string>
+    <string name="title_swp">క్రమబద్ధమైన ఉపసంహరణ ప్రణాళిక (SWP)</string>
+    <string name="title_discount">డిస్కౌంట్ క్యాలిక్యులేటర్</string>
+    <string name="title_gst">జీఎస్‌టీ పన్ను క్యాలిక్యులేటర్ (GST)</string>
+    <string name="title_compound_interest">చక్రవడ్డీ క్యాలిక్యులేటర్</string>
+    <string name="title_inflation">ద్రవ్యోల్బణ ప్రభావం</string>
+    <string name="title_npv_irr">నికర ప్రస్తుత విలువ (NPV &amp; IRR)</string>
+    <string name="title_dti">రుణ-ఆదాయ నిష్పత్తి (DTI)</string>
+    <string name="title_apy_apr">సమర్థవంతమైన వడ్డీ రేటు పోలిక</string>
+    <string name="title_budget_rebalancing">బడ్జెట్ రీబ్యాలెన్సింగ్ టూల్</string>
+    <string name="title_income_tax">ఆదాయపు పన్ను పోలిక</string>
+    <string name="title_rent_vs_buy">అద్దె vs ఇల్లు కొనుగోలు</string>
+    <string name="title_ctc_inhand">చేతికి వచ్చే నికర జీతం లెక్కించండి</string>
+    <string name="title_bill_splitter">బిల్లు పంపకం &amp; టిప్ క్యాలిక్యులేటర్</string>
+    <string name="title_fuel_trip">ఇంధనం &amp; ప్రయాణ ఖర్చు</string>
+    <string name="title_cash_counter">కరెన్సీ నోట్ల లెక్కించే పరికరం</string>
+
+    <!-- Common Input Labels & Hints -->
+    <string name="label_loan_amount">రుణ మొత్తం</string>
+    <string name="label_interest_rate">వడ్డీ రేటు (% వార్షికం)</string>
+    <string name="label_tenure_years">కాలవ్యవధి (సంవత్సరాలు)</string>
+    <string name="label_tenure_months">కాలవ్యవధి (నెలలు)</string>
+    <string name="label_processing_fee">ప్రాసెసింగ్ రుసుము</string>
+    <string name="hint_enter_amount">మొత్తాన్ని నమోదు చేయండి</string>
+    <string name="hint_enter_rate">వడ్డీ రేటును నమోదు చేయండి</string>
+    <string name="hint_enter_tenure">కాలవ్యవధిని నమోదు చేయండి</string>
+
+    <!-- Calculation Results -->
+    <string name="result_monthly_emi">నెలవారీ వాయిదా (EMI)</string>
+    <string name="result_total_interest">మొత్తం చెల్లించాల్సిన వడ్డీ</string>
+    <string name="result_total_payment">మొత్తం చెల్లింపు (అసలు + వడ్డీ)</string>
+    <string name="result_principal_amount">అసలు రుణం</string>
+
+    <!-- Schedule & Amortization -->
+    <string name="schedule_title">వాయిదాల చెల్లింపు పట్టిక</string>
+    <string name="schedule_header_no">#</string>
+    <string name="schedule_header_month">నెల / సంవత్సరం</string>
+    <string name="schedule_header_principal">చెల్లించిన అసలు</string>
+    <string name="schedule_header_interest">చెల్లించిన వడ్డీ</string>
+    <string name="schedule_header_balance">మిగిలిన అప్పు</string>
+
+    <!-- Common Actions & Buttons -->
+    <string name="btn_calculate">ఇప్పుడే లెక్కించండి</string>
+    <string name="btn_reset">రీసెట్ చేయండి</string>
+    <string name="btn_share">వివరాలను పంచుకోండి</string>
+    <string name="btn_view_schedule">చెల్లింపు పట్టిక చూడండి</string>
+    <string name="btn_view_chart">పై చార్ట్ చూడండి</string>
+    <string name="btn_clear_all">అన్నీ తొలగించండి</string>
+    <string name="btn_delete">రికార్డును తొలగించు</string>
+    <string name="btn_next">తరువాత</string>
+    <string name="btn_skip">దాటవేయి</string>
+
+    <!-- History Screen -->
+    <string name="history_saved_subtitle">మీ ఇటీవలి లెక్కలు</string>
+    <string name="history_empty_title">లెక్కలేవీ అందుబాటులో లేవు</string>
+    <string name="history_empty_desc">ఫలితాలను ఇక్కడ సేవ్ చేయడానికి లెక్కించండి.</string>
+    <string name="history_saved_on">సేవ్ చేసిన తేదీ %1$s</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_appearance_theme">రూపము మరియు థీమ్</string>
+    <string name="settings_theme_light">లైట్ ☀️</string>
+    <string name="settings_theme_dark">డార్క్ 🌙</string>
+    <string name="settings_theme_auto">ఆటో 📱</string>
+    <string name="settings_haptic_title">వైబ్రేషన్ ఫీడ్‌బ్యాక్</string>
+    <string name="settings_haptic_desc">బటన్‌పై నొక్కినప్పుడు వైబ్రేట్ అవ్వాలి</string>
+    <string name="settings_support_about">సహాయం మరియు యాప్ గురించి</string>
+    <string name="settings_share_app">యాప్‌ను షేర్ చేయండి</string>
+    <string name="settings_app_version">యాప్ వెర్షన్</string>
+    <string name="settings_app_version_val">v1.0.0 (అంతిమ వర్షన్)</string>
+    <string name="settings_language">భాష</string>
+    <string name="settings_currency">కరెన్సీ</string>
+
+    <!-- Validation & Error Messages -->
+    <string name="error_invalid_amount">దయచేసి చెల్లుబాటు అయ్యే మొత్తాన్ని నమోదు చేయండి</string>
+    <string name="error_invalid_rate">దయచేసి చెల్లుబాటు అయ్యే వడ్డీ రేటును నమోదు చేయండి</string>
+    <string name="error_invalid_tenure">దయచేసి చెల్లుబాటు అయ్యే కాలవ్యవధిని నమోదు చేయండి</string>
+</resources>

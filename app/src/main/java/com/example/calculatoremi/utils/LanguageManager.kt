@@ -33,7 +33,7 @@ object LanguageManager {
         LanguageItem("da", "Danish", "Dansk", "🇩🇰"),
         LanguageItem("fi", "Finnish", "Suomi", "🇫🇮"),
         LanguageItem("tr", "Turkish", "Türkçe", "🇹🇷"),
-        LanguageItem("id", "Indonesian", "Bahasa Indonesia", "🇮🇩"),
+        LanguageItem("in", "Indonesian", "Bahasa Indonesia", "🇮🇩"),
         LanguageItem("ms", "Malay", "Bahasa Melayu", "🇲🇾"),
         LanguageItem("fil", "Filipino", "Tagalog / Filipino", "🇵🇭"),
         LanguageItem("vi", "Vietnamese", "Tiếng Việt", "🇻🇳"),
@@ -51,7 +51,8 @@ object LanguageManager {
     fun getSelectedLanguage(context: Context): LanguageItem {
         val prefs = getPrefs(context)
         val code = prefs.getString(KEY_LANGUAGE_CODE, DEFAULT_LANGUAGE.languageCode) ?: DEFAULT_LANGUAGE.languageCode
-        return ALL_LANGUAGES.find { it.languageCode.equals(code, ignoreCase = true) } ?: DEFAULT_LANGUAGE
+        val targetCode = if (code.equals("id", ignoreCase = true)) "in" else code
+        return ALL_LANGUAGES.find { it.languageCode.equals(targetCode, ignoreCase = true) } ?: DEFAULT_LANGUAGE
     }
 
     fun setLanguage(context: Context, language: LanguageItem) {

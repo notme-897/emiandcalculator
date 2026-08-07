@@ -1,0 +1,141 @@
+<resources>
+    <string name="app_name">कर्ज हप्ता कॅल्क्युलेटर</string>
+    <string name="emi_mortgage_finance_tools">हप्ता • गहाण • आर्थिक साधने</string>
+    <string name="add">जॉडा</string>
+    <string name="percentage_format">%1$d%%</string>
+    <string name="currency_underlined"><u>चलण</u></string>
+    <string name="continue_text">पुढे जा</string>
+
+    <!-- Navigation Tabs -->
+    <string name="nav_home">होम</string>
+    <string name="nav_calculators">कॅल्क्युलेटर</string>
+    <string name="nav_history">इतिहास</string>
+    <string name="nav_tools">साधने</string>
+    <string name="nav_settings">सेटिंग्ज</string>
+
+    <!-- Section Headers -->
+    <string name="header_financial_calculators">आर्थिक कॅल्क्युलेटर</string>
+    <string name="header_loan_calculator">कर्ज आणि हप्ता कॅल्क्युलेटर</string>
+    <string name="header_history">गणना इतिहास</string>
+    <string name="header_tools">आर्थिक साधने</string>
+    <string name="header_settings">सेटिंग्ज आणि प्राधान्ये</string>
+    <string name="header_calculation_details">गणनेचा तपशील</string>
+
+    <!-- Onboarding & Selection Headers -->
+    <string name="onboarding_title_1">स्मार्ट कर्ज हप्ता कॅल्क्युलेटर</string>
+    <string name="onboarding_desc_1">तुमचा मासिक हप्ता, एकूण व्याज आणि एकूण परतफेडीची त्वरित अचूक गणना करा.</string>
+    <string name="onboarding_title_2">सविस्तर आर्थिक अहवाल</string>
+    <string name="onboarding_desc_2">हप्ता परतफेड तक्ता आणि संवादात्मक आलेख पहा.</string>
+    <string name="onboarding_title_3">नोंदी जतन आणि ट्रॅक करा</string>
+    <string name="onboarding_desc_3">तुमच्या कर्जाच्या गणना जतन करा आणि आर्थिक नोंदी व्यवस्थित ठेवा.</string>
+    <string name="select_language_title">तुमची भाषा निवडा</string>
+    <string name="select_language_subtitle">अ‍ॅपसाठी तुमची आवडती भाषा निवडा.</string>
+    <string name="select_currency_title">तुमचे चलण निवडा</string>
+    <string name="select_currency_subtitle">सर्व गणनांसाठी तुमचे प्राथमिक चलण निवडा.</string>
+    <string name="search_currency_hint">देश, चलण किंवा कोड शोधा...</string>
+    <string name="search_language_hint">भाषा शोधा...</string>
+
+    <!-- Home Categories -->
+    <string name="cat_loan_title">कर्ज कॅल्क्युलेटर</string>
+    <string name="cat_loan_desc">गृहकर्ज, कार, बाईक, व्यवसाय आणि वैयक्तिक कर्ज</string>
+    <string name="cat_investment_title">गुंतवणूक कॅल्क्युलेटर</string>
+    <string name="cat_investment_desc">एसआयपी (SIP), मुदत ठेव (FD), चक्रवाढ व्याज</string>
+    <string name="cat_tax_title">कर आणि वेतन</string>
+    <string name="cat_tax_desc">जीएसटी (GST), उत्पन्न कर आणि इन-हँड पगार</string>
+    <string name="cat_property_title">मालमत्ता आणि घर</string>
+    <string name="cat_property_desc">गहाण, मुद्रांक शुल्क आणि भाडे vs घर खरेदी</string>
+    <string name="cat_insurance_title">विमा कॅल्क्युलेटर</string>
+    <string name="cat_insurance_desc">जीवन विमा आणि आरोग्य विमा</string>
+    <string name="cat_utility_title">उपयुक्त साधने</string>
+    <string name="cat_utility_desc">युनिट कन्व्हर्टर, कॅश काउंटर आणि चलण</string>
+
+    <!-- Calculator Titles -->
+    <string name="title_personal_loan">वैयक्तिक कर्ज कॅल्क्युलेटर</string>
+    <string name="title_home_loan">गृहकर्ज कॅल्क्युलेटर</string>
+    <string name="title_car_loan">कार कर्ज कॅल्क्युलेटर</string>
+    <string name="title_bike_loan">बाईक कर्ज कॅल्क्युलेटर</string>
+    <string name="title_business_loan">व्यवसाय कर्ज कॅल्क्युलेटर</string>
+    <string name="title_education_loan">शिक्षण कर्ज कॅल्क्युलेटर</string>
+    <string name="title_gold_loan">गोल्ड (सुवर्ण) कर्ज कॅल्क्युलेटर</string>
+    <string name="title_mortgage_loan">मालमत्ता गहाण कर्ज कॅल्क्युलेटर</string>
+    <string name="title_sip">एसआयपी कॅल्क्युलेटर (SIP)</string>
+    <string name="title_fd">मुदत ठेव (FD)</string>
+    <string name="title_rd">आवर्ती ठेव (RD)</string>
+    <string name="title_ppf">सार्वजनिक भविष्य निर्वाह निधी (PPF)</string>
+    <string name="title_lumpsum">एकरकमी गुंतवणूक कॅल्क्युलेटर</string>
+    <string name="title_swp">सिस्टमॅटिक विड्रॉअल प्लॅन (SWP)</string>
+    <string name="title_discount">सवलत (डिस्काउंट) कॅल्क्युलेटर</string>
+    <string name="title_gst">जीएसटी (GST) कर कॅल्क्युलेटर</string>
+    <string name="title_compound_interest">चक्रवाढ व्याज कॅल्क्युलेटर</string>
+    <string name="title_inflation">महागाईचा प्रभाव</string>
+    <string name="title_npv_irr">निव्वळ वर्तमान मूल्य (NPV &amp; IRR)</string>
+    <string name="title_dti">कर्ज-उत्पन्न गुणोत्तर (DTI)</string>
+    <string name="title_apy_apr">प्रभावी व्याजदर तुलना</string>
+    <string name="title_budget_rebalancing">बजेट पुनर्संतुलन टूल</string>
+    <string name="title_income_tax">उत्पन्न कर तुलना कॅल्क्युलेटर</string>
+    <string name="title_rent_vs_buy">भाडे vs घर खरेदी</string>
+    <string name="title_ctc_inhand">हातात येणारा पगार (In-hand Salary)</string>
+    <string name="title_bill_splitter">बिल वाटप आणि टीप कॅल्क्युलेटर</string>
+    <string name="title_fuel_trip">इंधन आणि प्रवास खर्च</string>
+    <string name="title_cash_counter">नोटा मोजण्याचे साधन (कैश काउंटर)</string>
+
+    <!-- Common Input Labels & Hints -->
+    <string name="label_loan_amount">कर्ज रक्कम</string>
+    <string name="label_interest_rate">व्याजदर (% वार्षिक)</string>
+    <string name="label_tenure_years">कालावधी (वर्षे)</string>
+    <string name="label_tenure_months">कालावधी (महिने)</string>
+    <string name="label_processing_fee">प्रक्रिया शुल्क</string>
+    <string name="hint_enter_amount">रक्कम टाका</string>
+    <string name="hint_enter_rate">व्याजदर टाका</string>
+    <string name="hint_enter_tenure">कालावधी टाका</string>
+
+    <!-- Calculation Results -->
+    <string name="result_monthly_emi">मासिक हप्ता (EMI)</string>
+    <string name="result_total_interest">एकूण देय व्याज</string>
+    <string name="result_total_payment">एकूण देय रक्कम (मुद्दल + व्याज)</string>
+    <string name="result_principal_amount">मुद्दल रक्कम</string>
+
+    <!-- Schedule & Amortization -->
+    <string name="schedule_title">हप्ता परतफेड तक्ता</string>
+    <string name="schedule_header_no">#</string>
+    <string name="schedule_header_month">महिना / वर्ष</string>
+    <string name="schedule_header_principal">भरलेली मुद्दल</string>
+    <string name="schedule_header_interest">भरलेले व्याज</string>
+    <string name="schedule_header_balance">उरलेले कर्ज</string>
+
+    <!-- Common Actions & Buttons -->
+    <string name="btn_calculate">आत्ताच गणना करा</string>
+    <string name="btn_reset">रीसेट करा</string>
+    <string name="btn_share">तपशील शेअर करा</string>
+    <string name="btn_view_schedule">परतफेड तक्ता पहा</string>
+    <string name="btn_view_chart">पाय चार्ट पहा</string>
+    <string name="btn_clear_all">सर्व हटवा</string>
+    <string name="btn_delete">नोंद हटवा</string>
+    <string name="btn_next">पुढे</string>
+    <string name="btn_skip">सोडून द्या</string>
+
+    <!-- History Screen -->
+    <string name="history_saved_subtitle">तुमच्या अलीकडील गणना</string>
+    <string name="history_empty_title">कोणतीही गणना उपलब्ध नाही</string>
+    <string name="history_empty_desc">निकाल जतन करण्यासाठी गणना करा.</string>
+    <string name="history_saved_on">जतन केले %1$s</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_appearance_theme">दिसणे आणि थीम</string>
+    <string name="settings_theme_light">लाइट ☀️</string>
+    <string name="settings_theme_dark">डार्क 🌙</string>
+    <string name="settings_theme_auto">ऑटो 📱</string>
+    <string name="settings_haptic_title">कंपन अभिप्राय (Haptic)</string>
+    <string name="settings_haptic_desc">बटण दाबल्यावर व्हायब्रेट करा</string>
+    <string name="settings_support_about">मदत आणि अ‍ॅपबद्दल</string>
+    <string name="settings_share_app">अ‍ॅप शेअर करा</string>
+    <string name="settings_app_version">अ‍ॅप आवृत्ती</string>
+    <string name="settings_app_version_val">v1.0.0 (अंतिम आवृत्ती)</string>
+    <string name="settings_language">भाषा</string>
+    <string name="settings_currency">चलण</string>
+
+    <!-- Validation & Error Messages -->
+    <string name="error_invalid_amount">कृपया वैध रक्कम टाका</string>
+    <string name="error_invalid_rate">कृपया वैध व्याजदर टाका</string>
+    <string name="error_invalid_tenure">कृपया वैध कालावधी टाका</string>
+</resources>

@@ -27,6 +27,7 @@ class SalaryListFragment : Fragment(R.layout.fragment_category_list) {
         // Hide main header and bottom navigation for full-screen category view
         (requireActivity() as? MainActivity)?.hideHeader()
         (requireActivity() as? MainActivity)?.hideBottomNav()
+        (requireActivity() as? MainActivity)?.setBlackStatusBarIconsInLightMode()
 
         // Apply status bar top padding
         val categoryHeader = view.findViewById<View>(R.id.categoryHeader)

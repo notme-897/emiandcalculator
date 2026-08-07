@@ -43,7 +43,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Annual Investment Budget"
+                        android:text="@string/label_annual_investment_budget"
                         android:textColor="@color/text_primary"
                         android:textSize="14sp"
                         android:textStyle="bold" />
@@ -77,7 +77,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Duration (Years)"
+                                android:text="@string/label_tenure_years"
                                 android:textColor="@color/text_primary"
                                 android:textSize="13sp"
                                 android:textStyle="bold" />
@@ -106,7 +106,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="MF Equity Return (% p.a.)"
+                                android:text="@string/label_mf_equity_return"
                                 android:textColor="@color/text_primary"
                                 android:textSize="13sp"
                                 android:textStyle="bold" />
@@ -136,7 +136,7 @@
                 android:id="@+id/btnCalculate"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
-                android:text="Compare BTIR vs ULIP Wealth"
+                android:text="@string/btn_compare_btir_ulip"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
@@ -152,7 +152,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="10dp"
-                android:text="Reset Fields"
+                android:text="@string/btn_reset"
                 android:textAllCaps="false"
                 android:textColor="@color/primary"
                 android:textSize="15sp"

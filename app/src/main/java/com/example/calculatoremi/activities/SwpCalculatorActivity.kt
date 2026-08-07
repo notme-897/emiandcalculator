@@ -134,7 +134,7 @@ class SwpCalculatorActivity : BaseInputActivity() {
         val years = yearsStr.toIntOrNull() ?: 15
 
         if (initialCorpus <= 0 || monthlyWithdrawal <= 0 || years <= 0) {
-            Toast.makeText(this, "Please enter valid corpus, withdrawal and tenure", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.msg_fields_required), Toast.LENGTH_SHORT).show()
             return
         }
 

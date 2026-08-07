@@ -192,6 +192,6 @@ class EndowmentIrrActivity : BaseInputActivity() {
         etPayYears.setText("15")
         etPolicyYears.setText("20")
         etMaturityPayout.setText("15,00,000")
-        Toast.makeText(this, "Fields reset", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.msg_fields_reset), Toast.LENGTH_SHORT).show()
     }
 }

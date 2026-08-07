@@ -34,6 +34,7 @@ class CurrencySelectionActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        androidx.core.view.WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightStatusBars = !com.example.calculatoremi.utils.ThemeManager.isDarkMode(this)
         enableEdgeToEdge()
         setContentView(R.layout.activity_currency_selection)
 
@@ -101,7 +102,7 @@ class CurrencySelectionActivity : AppCompatActivity() {
 
     private fun confirmCurrencyAndProceed() {
         CurrencyManager.setCurrency(this, selectedCurrency)
-        Toast.makeText(this, "Default Currency set to ${selectedCurrency.countryName} (${selectedCurrency.symbol})", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.msg_currency_set), Toast.LENGTH_SHORT).show()
 
         getSharedPreferences("app_preferences", MODE_PRIVATE)
             .edit()

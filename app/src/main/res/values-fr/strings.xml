@@ -1,0 +1,143 @@
+<resources>
+    <string name="app_name">Calculatrice EMI</string>
+    <string name="emi_mortgage_finance_tools">Mensualité • Prêt • Outils Financiers</string>
+    <string name="add">Ajouter</string>
+    <string name="percentage_format">%1$d%%</string>
+    <string name="currency_underlined"><u>Devise</u></string>
+    <string name="continue_text">Continuer</string>
+
+    <!-- Navigation Tabs -->
+    <string name="nav_home">Accueil</string>
+    <string name="nav_calculators">Calculateurs</string>
+    <string name="nav_history">Historique</string>
+    <string name="nav_tools">Outils</string>
+    <string name="nav_settings">Paramètres</string>
+
+    <!-- Section Headers -->
+    <string name="header_financial_calculators">Calculateurs Financiers</string>
+    <string name="header_loan_calculator">Calculateur de Prêt &amp; Mensualité</string>
+    <string name="header_history">Historique des Calculs</string>
+    <string name="header_tools">Outils Financiers</string>
+    <string name="header_settings">Paramètres &amp; Préférences</string>
+    <string name="header_calculation_details">Détails du Calcul</string>
+
+    <!-- Onboarding & Selection Headers -->
+    <string name="onboarding_title_1">Calculateur de Prêt Intelligent</string>
+    <string name="onboarding_desc_1">Calculez immédiatement votre mensualité, le total des intérêts et le remboursement.</string>
+    <string name="onboarding_title_2">Rapports Financiers Détaillés</string>
+    <string name="onboarding_desc_2">Visualisez l\'échéancier et les graphiques d\'amortissement interactifs.</string>
+    <string name="onboarding_title_3">Enregistrer &amp; Suivre vos Dossiers</string>
+    <string name="onboarding_desc_3">Sauvegardez vos calculs et organisez l\'ensemble de vos dossiers financiers.</string>
+    <string name="select_language_title">Sélectionnez votre langue</string>
+    <string name="select_language_subtitle">Choisissez votre langue préférée pour l\'application.</string>
+    <string name="select_currency_title">Sélectionnez votre devise</string>
+    <string name="select_currency_subtitle">Choisissez votre devise principale pour vos calculs.</string>
+    <string name="search_currency_hint">Rechercher un pays, une devise ou un code...</string>
+    <string name="search_language_hint">Rechercher une langue...</string>
+
+    <!-- Home Categories -->
+    <string name="cat_loan_title">Calculateurs de Prêt</string>
+    <string name="cat_loan_desc">Prêt Immobilier, Auto, Moto, Pro &amp; Personnel</string>
+    <string name="cat_investment_title">Calculateurs d\'Investissement</string>
+    <string name="cat_investment_desc">Epargne, Dépôt à Terme &amp; Intérêts Composés</string>
+    <string name="cat_tax_title">Fiscalité &amp; Salaire</string>
+    <string name="cat_tax_desc">TVA, Impôt sur le Revenu &amp; Salaire Net</string>
+    <string name="cat_property_title">Immobilier &amp; Biens</string>
+    <string name="cat_property_desc">Hypothèque, Frais de Notaire &amp; Louer vs Acheter</string>
+    <string name="cat_insurance_title">Calculateurs d\'Assurance</string>
+    <string name="cat_insurance_desc">Assurance Vie &amp; Santé</string>
+    <string name="cat_utility_title">Outils Pratiques</string>
+    <string name="cat_utility_desc">Convertisseur, Compteur de Billets &amp; Devises</string>
+
+    <!-- Calculator Titles -->
+    <string name="title_personal_loan">Prêt Personnel</string>
+    <string name="title_home_loan">Prêt Immobilier</string>
+    <string name="title_car_loan">Prêt Automobile</string>
+    <string name="title_bike_loan">Prêt Moto</string>
+    <string name="title_business_loan">Prêt Professionnel</string>
+    <string name="title_education_loan">Prêt Étudiant</string>
+    <string name="title_gold_loan">Prêt sur Gages</string>
+    <string name="title_mortgage_loan">Prêt Hypothécaire</string>
+    <string name="title_sip">Plan d\'Épargne Récurrent (SIP)</string>
+    <string name="title_fd">Dépôt à Terme (FD)</string>
+    <string name="title_rd">Compte d\'Épargne Logement</string>
+    <string name="title_ppf">Fonds de Prévoyance</string>
+    <string name="title_lumpsum">Investissement Forfaitaire</string>
+    <string name="title_swp">Plan de Retrait Programmé (SWP)</string>
+    <string name="title_discount">Calculateur de Remise</string>
+    <string name="title_gst">Calculateur de Taxe (TVA/GST)</string>
+    <string name="title_compound_interest">Intérêts Composés</string>
+    <string name="title_inflation">Impact de l\'Inflation</string>
+    <string name="title_npv_irr">Valeur Actuelle Nette (VAN &amp; TRI)</string>
+    <string name="title_dti">Taux d\'Endettement (DTI)</string>
+    <string name="title_apy_apr">Comparateur Taux Effectif (TAEG)</string>
+    <string name="title_budget_rebalancing">Rééquilibrage de Budget</string>
+    <string name="title_income_tax">Comparateur Impôt sur Revenu</string>
+    <string name="title_rent_vs_buy">Louer ou Acheter</string>
+    <string name="title_ctc_inhand">Salaire Brut en Net</string>
+    <string name="title_bill_splitter">Partage d\'Addition &amp; Pourboire</string>
+    <string name="title_fuel_trip">Coût de Carburant &amp; Trajet</string>
+    <string name="title_cash_counter">Compteur de Billets</string>
+
+    <!-- Common Input Labels & Hints -->
+    <string name="label_loan_amount">Montant du prêt</string>
+    <string name="label_interest_rate">Taux d\'intérêt (% an)</string>
+    <string name="label_tenure_years">Durée (Années)</string>
+    <string name="label_tenure_months">Durée (Mois)</string>
+    <string name="label_processing_fee">Frais de dossier</string>
+    <string name="label_start_date">Date de début</string>
+    <string name="label_loan_tenure">Durée du prêt</string>
+    <string name="hint_enter_amount">Saisir le montant</string>
+    <string name="hint_enter_rate">Saisir le taux d\'intérêt</string>
+    <string name="hint_enter_tenure">Saisir la durée</string>
+
+    <!-- Calculation Results -->
+    <string name="result_monthly_emi">Mensualité</string>
+    <string name="result_total_interest">Total des Intérêts</string>
+    <string name="result_total_payment">Remboursement Total (Capital + Intérêts)</string>
+    <string name="result_principal_amount">Capital Emprunté</string>
+
+    <!-- Schedule & Amortization -->
+    <string name="schedule_title">Tableau d\'Amortissement</string>
+    <string name="schedule_header_no">#</string>
+    <string name="schedule_header_month">Mois / Année</string>
+    <string name="schedule_header_principal">Capital Remboursé</string>
+    <string name="schedule_header_interest">Intérêts Payés</string>
+    <string name="schedule_header_balance">Capital Restant Dû</string>
+
+    <!-- Common Actions & Buttons -->
+    <string name="btn_calculate">Calculer</string>
+    <string name="btn_reset">Réinitialiser</string>
+    <string name="btn_share">Partager les Détails</string>
+    <string name="btn_view_schedule">Échéancier Détaillé</string>
+    <string name="btn_view_chart">Graphique Circulaire</string>
+    <string name="btn_clear_all">Tout Effacer</string>
+    <string name="btn_delete">Supprimer l\'Enregistrement</string>
+    <string name="btn_next">Suivant</string>
+    <string name="btn_skip">Passer</string>
+
+    <!-- History Screen -->
+    <string name="history_saved_subtitle">Vos récents calculs financiers</string>
+    <string name="history_empty_title">Aucun Calcul Pour le Moment</string>
+    <string name="history_empty_desc">Effectuez un calcul pour consulter vos résultats ici à tout moment.</string>
+    <string name="history_saved_on">Enregistré le %1$s</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_appearance_theme">APPARENCE &amp; THÈME</string>
+    <string name="settings_theme_light">Clair ☀️</string>
+    <string name="settings_theme_dark">Sombre 🌙</string>
+    <string name="settings_theme_auto">Auto 📱</string>
+    <string name="settings_haptic_title">Retour Haptique</string>
+    <string name="settings_haptic_desc">Vibration lors du toucher</string>
+    <string name="settings_support_about">ASSISTANCE &amp; À PROPOS</string>
+    <string name="settings_share_app">Partager l\'application</string>
+    <string name="settings_app_version">Version de l\'application</string>
+    <string name="settings_app_version_val">v1.0.0 (Édition Ultime)</string>
+    <string name="settings_language">Langue</string>
+    <string name="settings_currency">Devise</string>
+
+    <!-- Validation & Error Messages -->
+    <string name="error_invalid_amount">Veuillez saisir un montant valide</string>
+    <string name="error_invalid_rate">Veuillez saisir un taux valide</string>
+    <string name="error_invalid_tenure">Veuillez saisir une durée valide</string>
+</resources>

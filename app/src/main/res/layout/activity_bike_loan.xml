@@ -41,7 +41,7 @@
                     android:layout_height="44dp"
                     android:layout_weight="1"
                     android:layout_marginEnd="4dp"
-                    android:text="On-Road Price"
+                    android:text="@string/label_on_road_price"
                     android:textAllCaps="false"
                     android:textColor="@color/text_primary"
                     android:textSize="13sp"
@@ -56,7 +56,7 @@
                     android:layout_height="44dp"
                     android:layout_weight="1"
                     android:layout_marginStart="4dp"
-                    android:text="Ex-Showroom Price"
+                    android:text="@string/label_ex_showroom_price"
                     android:textAllCaps="false"
                     android:textColor="@color/text_primary"
                     android:textSize="13sp"
@@ -72,7 +72,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
-                android:text="On-Road Bike Price"
+                android:text="@string/label_on_road_bike_price"
                 android:textColor="@color/text_primary"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -181,7 +181,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
-                android:text="Down Payment"
+                android:text="@string/label_down_payment"
                 android:textColor="@color/text_primary"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -275,7 +275,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
-                android:text="Processing &amp; Hypothecation Charges"
+                android:text="@string/label_processing_hypothecation"
                 android:textColor="@color/text_primary"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -318,7 +318,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Net Loan Principal Financed:"
+                            android:text="@string/label_net_principal_financed"
                             android:textColor="@color/text_primary"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -342,7 +342,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Total Out-of-Pocket Ownership Cost:"
+                            android:text="@string/label_total_ownership_cost"
                             android:textColor="@color/text_secondary"
                             android:textSize="13sp" />
 
@@ -497,7 +497,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="EV Scooter / Bike Fuel Savings vs EMI Offset"
+                        android:text="@string/label_ev_fuel_savings"
                         android:textColor="#065F46"
                         android:textSize="14sp"
                         android:textStyle="bold" />
@@ -510,7 +510,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Est. Monthly Petrol Cost Saved:"
+                            android:text="@string/label_petrol_cost_saved"
                             android:textColor="#047857"
                             android:textSize="13sp" />
 
@@ -533,7 +533,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Net Effective Monthly Bike EMI:"
+                            android:text="@string/label_net_effective_emi"
                             android:textColor="#047857"
                             android:textSize="13sp" />
 
@@ -556,7 +556,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
-                android:text="Purchase Date"
+                android:text="@string/label_start_date"
                 android:textColor="@color/text_primary"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -600,7 +600,7 @@
                 android:id="@+id/btnCalculate"
                 android:layout_width="match_parent"
                 android:layout_height="54dp"
-                android:text="Calculate Bike Loan EMI"
+                android:text="@string/btn_calculate_bike_loan"
                 android:textAllCaps="false"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -613,7 +613,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
-                android:text="Reset Fields"
+                android:text="@string/btn_reset"
                 android:textAllCaps="false"
                 android:textColor="#1A56E4"
                 android:textSize="15sp"

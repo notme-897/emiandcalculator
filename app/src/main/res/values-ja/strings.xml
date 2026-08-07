@@ -1,0 +1,141 @@
+<resources>
+    <string name="app_name">ローン計算機</string>
+    <string name="emi_mortgage_finance_tools">返済額 • 住宅ローン • 金融ツール</string>
+    <string name="add">追加</string>
+    <string name="percentage_format">%1$d%%</string>
+    <string name="currency_underlined"><u>通貨</u></string>
+    <string name="continue_text">次へ進む</string>
+
+    <!-- Navigation Tabs -->
+    <string name="nav_home">ホーム</string>
+    <string name="nav_calculators">計算機</string>
+    <string name="nav_history">履歴</string>
+    <string name="nav_tools">ツール</string>
+    <string name="nav_settings">設定</string>
+
+    <!-- Section Headers -->
+    <string name="header_financial_calculators">金融計算機</string>
+    <string name="header_loan_calculator">ローン＆返済額計算機</string>
+    <string name="header_history">計算履歴</string>
+    <string name="header_tools">金融ツール</string>
+    <string name="header_settings">設定・環境設定</string>
+    <string name="header_calculation_details">計算詳細</string>
+
+    <!-- Onboarding & Selection Headers -->
+    <string name="onboarding_title_1">スマートローン計算機</string>
+    <string name="onboarding_desc_1">毎月の返済額、総利息、返済総額を正確に瞬時に計算します。</string>
+    <string name="onboarding_title_2">詳細な財務レポート</string>
+    <string name="onboarding_desc_2">返済スケジュールと償還グラフを視覚化します。</string>
+    <string name="onboarding_title_3">記録の保存と追跡</string>
+    <string name="onboarding_desc_3">ローン計算を保存し、財務記録を整理して管理します。</string>
+    <string name="select_language_title">言語を選択</string>
+    <string name="select_language_subtitle">使用する言語を選択してください。</string>
+    <string name="select_currency_title">通貨を選択</string>
+    <string name="select_currency_subtitle">計算で使用する基準通貨を選択してください。</string>
+    <string name="search_currency_hint">国名、通貨、コードを検索...</string>
+    <string name="search_language_hint">言語を検索...</string>
+
+    <!-- Home Categories -->
+    <string name="cat_loan_title">ローン・返済額計算機</string>
+    <string name="cat_loan_desc">住宅、自動車、バイク、事業、個人ローン</string>
+    <string name="cat_investment_title">投資計算機</string>
+    <string name="cat_investment_desc">積立投資、定期預金、複利計算</string>
+    <string name="cat_tax_title">税金・給与計算機</string>
+    <string name="cat_tax_desc">消費税、所得税、手取り給与</string>
+    <string name="cat_property_title">不動産・住宅</string>
+    <string name="cat_property_desc">住宅ローン、登記費用、賃貸 vs 購入</string>
+    <string name="cat_insurance_title">保険計算機</string>
+    <string name="cat_insurance_desc">生命保険・医療保険</string>
+    <string name="cat_utility_title">便利ツール</string>
+    <string name="cat_utility_desc">単位換算、現金カウンター、通貨</string>
+
+    <!-- Calculator Titles -->
+    <string name="title_personal_loan">個人ローン計算機</string>
+    <string name="title_home_loan">住宅ローン計算機</string>
+    <string name="title_car_loan">マイカーローン計算機</string>
+    <string name="title_bike_loan">バイクローン計算機</string>
+    <string name="title_business_loan">事業ローン計算機</string>
+    <string name="title_education_loan">教育ローン計算機</string>
+    <string name="title_gold_loan">担保ローン計算機</string>
+    <string name="title_mortgage_loan">不動産担保ローン計算機</string>
+    <string name="title_sip">積立投資計算機 (SIP)</string>
+    <string name="title_fd">定期預金計算機 (FD)</string>
+    <string name="title_rd">積立預金計算機 (RD)</string>
+    <string name="title_ppf">公的積立基金 (PPF)</string>
+    <string name="title_lumpsum">一括投資計算機</string>
+    <string name="title_swp">定額引き出し計画 (SWP)</string>
+    <string name="title_discount">割引計算機</string>
+    <string name="title_gst">消費税計算機 (GST)</string>
+    <string name="title_compound_interest">複利計算機</string>
+    <string name="title_inflation">インフレ影響計算機</string>
+    <string name="title_npv_irr">正味現在価値 (NPV &amp; IRR)</string>
+    <string name="title_dti">返済負担率 (DTI)</string>
+    <string name="title_apy_apr">実質年率比較 (APY/APR)</string>
+    <string name="title_budget_rebalancing">予算バランス調整ツール</string>
+    <string name="title_income_tax">所得税シミュレーター</string>
+    <string name="title_rent_vs_buy">賃貸 vs 持ち家比較</string>
+    <string name="title_ctc_inhand">額面・手取り給与計算</string>
+    <string name="title_bill_splitter">割り勘・チップ計算機</string>
+    <string name="title_fuel_trip">ガソリン代・旅費計算</string>
+    <string name="title_cash_counter">現金枚数カウンター</string>
+
+    <!-- Common Input Labels & Hints -->
+    <string name="label_loan_amount">借入金額</string>
+    <string name="label_interest_rate">金利 (% 年率)</string>
+    <string name="label_tenure_years">返済期間 (年)</string>
+    <string name="label_tenure_months">返済期間 (月)</string>
+    <string name="label_processing_fee">事務手数料</string>
+    <string name="hint_enter_amount">金額を入力</string>
+    <string name="hint_enter_rate">金利を入力</string>
+    <string name="hint_enter_tenure">期間を入力</string>
+
+    <!-- Calculation Results -->
+    <string name="result_monthly_emi">毎月の返済額</string>
+    <string name="result_total_interest">総利息額</string>
+    <string name="result_total_payment">返済総額 (元金 + 利息)</string>
+    <string name="result_principal_amount">元金</string>
+
+    <!-- Schedule & Amortization -->
+    <string name="schedule_title">返済スケジュール表</string>
+    <string name="schedule_header_no">#</string>
+    <string name="schedule_header_month">年月</string>
+    <string name="schedule_header_principal">元金返済額</string>
+    <string name="schedule_header_interest">利息支払額</string>
+    <string name="schedule_header_balance">返済残高</string>
+
+    <!-- Common Actions & Buttons -->
+    <string name="btn_calculate">今すぐ計算</string>
+    <string name="btn_reset">リセット</string>
+    <string name="btn_share">結果を共有</string>
+    <string name="btn_view_schedule">返済表を表示</string>
+    <string name="btn_view_chart">円グラフ表示</string>
+    <string name="btn_clear_all">すべて消去</string>
+    <string name="btn_delete">記録を削除</string>
+    <string name="btn_next">次へ</string>
+    <string name="btn_skip">スキップ</string>
+
+    <!-- History Screen -->
+    <string name="history_saved_subtitle">最近の計算履歴</string>
+    <string name="history_empty_title">計算履歴がありません</string>
+    <string name="history_empty_desc">計算を実行すると、ここに結果が保存されます。</string>
+    <string name="history_saved_on">保存日時: %1$s</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_appearance_theme">外観とテーマ</string>
+    <string name="settings_theme_light">ライト ☀️</string>
+    <string name="settings_theme_dark">ダーク 🌙</string>
+    <string name="settings_theme_auto">自動 📱</string>
+    <string name="settings_haptic_title">振動フィードバック</string>
+    <string name="settings_haptic_desc">ボタンタッチ時に振動</string>
+    <string name="settings_support_about">サポート・アプリ情報</string>
+    <string name="settings_share_app">アプリを共有</string>
+    <string name="settings_app_version">アプリバージョン</string>
+    <string name="settings_app_version_val">v1.0.0 (決定版)</string>
+    <string name="settings_language">言語</string>
+    <string name="settings_currency">通貨</string>
+
+    <!-- Validation & Error Messages -->
+    <string name="error_invalid_amount">有効な金額を入力してください</string>
+    <string name="error_invalid_rate">有効な金利を入力してください</string>
+    <string name="error_invalid_tenure">有効な期間を入力してください</string>
+</resources>

@@ -1,0 +1,141 @@
+<resources>
+    <string name="app_name">Låneräknare</string>
+    <string name="emi_mortgage_finance_tools">Månadsbelopp • Bolån • Finansverktyg</string>
+    <string name="add">Lägg till</string>
+    <string name="percentage_format">%1$d%%</string>
+    <string name="currency_underlined"><u>Valuta</u></string>
+    <string name="continue_text">Fortsätt</string>
+
+    <!-- Navigation Tabs -->
+    <string name="nav_home">Hem</string>
+    <string name="nav_calculators">Räknare</string>
+    <string name="nav_history">Historik</string>
+    <string name="nav_tools">Verktyg</string>
+    <string name="nav_settings">Inställningar</string>
+
+    <!-- Section Headers -->
+    <string name="header_financial_calculators">Finansiella Räknare</string>
+    <string name="header_loan_calculator">Låne- &amp; Månadsbeloppsräknare</string>
+    <string name="header_history">Beräkningshistorik</string>
+    <string name="header_tools">Finansverktyg</string>
+    <string name="header_settings">Inställningar &amp; Preferenser</string>
+    <string name="header_calculation_details">Beräkningsdetaljer</string>
+
+    <!-- Onboarding & Selection Headers -->
+    <string name="onboarding_title_1">Smart Låneräknare</string>
+    <string name="onboarding_desc_1">Beräkna din månadskostnad, total ränta och total återbetalning direkt.</string>
+    <string name="onboarding_title_2">Detaljerade Finansiella Rapporter</string>
+    <string name="onboarding_desc_2">Visualisera amorteringsplaner och interaktiva diagram.</string>
+    <string name="onboarding_title_3">Spara &amp; Följ dina Beräkningar</string>
+    <string name="onboarding_desc_3">Spara dina låneberäkningar och håll ordning på dina uppgifter.</string>
+    <string name="select_language_title">Välj Språk</string>
+    <string name="select_language_subtitle">Välj ditt föredragna språk för appen.</string>
+    <string name="select_currency_title">Välj Valuta</string>
+    <string name="select_currency_subtitle">Välj din primära valuta för alla beräkningar.</string>
+    <string name="search_currency_hint">Sök land, valuta eller kod...</string>
+    <string name="search_language_hint">Sök språk...</string>
+
+    <!-- Home Categories -->
+    <string name="cat_loan_title">Låneräknare</string>
+    <string name="cat_loan_desc">Bostad, Bil, MC, Företag &amp; Privatlån</string>
+    <string name="cat_investment_title">Investeringsräknare</string>
+    <string name="cat_investment_desc">Månadssparande, Fasträntekonto &amp; Ränta på ränta</string>
+    <string name="cat_tax_title">Skatt &amp; Lön</string>
+    <string name="cat_tax_desc">Moms, Inkomstskatt &amp; Nettolön</string>
+    <string name="cat_property_title">Bostad &amp; Fastighet</string>
+    <string name="cat_property_desc">Bolån, Lagfart &amp; Hyra vs Köpa</string>
+    <string name="cat_insurance_title">Försäkringsräknare</string>
+    <string name="cat_insurance_desc">Livförsäkring &amp; Sjukförsäkring</string>
+    <string name="cat_utility_title">Praktiska Verktyg</string>
+    <string name="cat_utility_desc">Enhetsomvandlare, Sedelräknare &amp; Valuta</string>
+
+    <!-- Calculator Titles -->
+    <string name="title_personal_loan">Privatlån</string>
+    <string name="title_home_loan">Bolån</string>
+    <string name="title_car_loan">Billån</string>
+    <string name="title_bike_loan">MC-lån</string>
+    <string name="title_business_loan">Företagslån</string>
+    <string name="title_education_loan">Studentlån</string>
+    <string name="title_gold_loan">Pantlån</string>
+    <string name="title_mortgage_loan">Inteckningslån</string>
+    <string name="title_sip">Månadssparande (SIP)</string>
+    <string name="title_fd">Fasträntekonto (FD)</string>
+    <string name="title_rd">Sparkonto (RD)</string>
+    <string name="title_ppf">Pensionsfond</string>
+    <string name="title_lumpsum">Engångsinvestering</string>
+    <string name="title_swp">Uttagsplan (SWP)</string>
+    <string name="title_discount">Rabatträknare</string>
+    <string name="title_gst">Momsräknare (GST/VAT)</string>
+    <string name="title_compound_interest">Ränta på Ränta</string>
+    <string name="title_inflation">Inflationspåverkan</string>
+    <string name="title_npv_irr">Nuvärde (NPV &amp; IRR)</string>
+    <string name="title_dti">Skuldkvot (DTI)</string>
+    <string name="title_apy_apr">Jämför Effektiv Ränta (APY/APR)</string>
+    <string name="title_budget_rebalancing">Budgetbalansering</string>
+    <string name="title_income_tax">Inkomstskattejämförelse</string>
+    <string name="title_rent_vs_buy">Hyra eller Köpa Bostad</string>
+    <string name="title_ctc_inhand">Brutto till Nettolön</string>
+    <string name="title_bill_splitter">Dela Nota &amp; Dricks</string>
+    <string name="title_fuel_trip">Drivmedel &amp; Resekostnad</string>
+    <string name="title_cash_counter">Sedel- &amp; Mynträknare</string>
+
+    <!-- Common Input Labels & Hints -->
+    <string name="label_loan_amount">Lånebelopp</string>
+    <string name="label_interest_rate">Räntesats (% per år)</string>
+    <string name="label_tenure_years">Lånetid (År)</string>
+    <string name="label_tenure_months">Lånetid (Månader)</string>
+    <string name="label_processing_fee">Uppläggningsavgift</string>
+    <string name="hint_enter_amount">Ange belopp</string>
+    <string name="hint_enter_rate">Ange räntesats</string>
+    <string name="hint_enter_tenure">Ange lånetid</string>
+
+    <!-- Calculation Results -->
+    <string name="result_monthly_emi">Månadskostnad</string>
+    <string name="result_total_interest">Total Ränta</string>
+    <string name="result_total_payment">Total Återbetalning (Lån + Ränta)</string>
+    <string name="result_principal_amount">Lånat Belopp</string>
+
+    <!-- Schedule & Amortization -->
+    <string name="schedule_title">Amorteringsplan</string>
+    <string name="schedule_header_no">#</string>
+    <string name="schedule_header_month">Månad / År</string>
+    <string name="schedule_header_principal">Amortering</string>
+    <string name="schedule_header_interest">Räntebetalning</string>
+    <string name="schedule_header_balance">Kvarvarande Skuld</string>
+
+    <!-- Common Actions & Buttons -->
+    <string name="btn_calculate">Beräkna Nu</string>
+    <string name="btn_reset">Återställ</string>
+    <string name="btn_share">Dela Beräkning</string>
+    <string name="btn_view_schedule">Visa Amorteringsplan</string>
+    <string name="btn_view_chart">Visa Cirkeldiagram</string>
+    <string name="btn_clear_all">Rensa Allt</string>
+    <string name="btn_delete">Ta Bort Post</string>
+    <string name="btn_next">Nästa</string>
+    <string name="btn_skip">Hoppa over</string>
+
+    <!-- History Screen -->
+    <string name="history_saved_subtitle">Dina senaste beräkningar</string>
+    <string name="history_empty_title">Inga Beräkningar Ännu</string>
+    <string name="history_empty_desc">Gör en beräkning för att spara dina resultat här.</string>
+    <string name="history_saved_on">Sparad %1$s</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_appearance_theme">UTSEENDE &amp; TEMA</string>
+    <string name="settings_theme_light">Ljust ☀️</string>
+    <string name="settings_theme_dark">Mörkt 🌙</string>
+    <string name="settings_theme_auto">Auto 📱</string>
+    <string name="settings_haptic_title">Vibrationsfeedback</string>
+    <string name="settings_haptic_desc">Vibrera vid knapptryck</string>
+    <string name="settings_support_about">SUPPORT &amp; OM</string>
+    <string name="settings_share_app">Dela Appen</string>
+    <string name="settings_app_version">Appversion</string>
+    <string name="settings_app_version_val">v1.0.0 (Slutgiltig Utgåva)</string>
+    <string name="settings_language">Språk</string>
+    <string name="settings_currency">Valuta</string>
+
+    <!-- Validation & Error Messages -->
+    <string name="error_invalid_amount">Ange ett giltigt belopp</string>
+    <string name="error_invalid_rate">Ange en giltig räntesats</string>
+    <string name="error_invalid_tenure">Ange en giltig lånetid</string>
+</resources>

@@ -1,0 +1,141 @@
+<resources>
+    <string name="app_name">대출 계산기</string>
+    <string name="emi_mortgage_finance_tools">월상환금 • 모기지 • 금융 도구</string>
+    <string name="add">추가</string>
+    <string name="percentage_format">%1$d%%</string>
+    <string name="currency_underlined"><u>통화</u></string>
+    <string name="continue_text">계속하기</string>
+
+    <!-- Navigation Tabs -->
+    <string name="nav_home">홈</string>
+    <string name="nav_calculators">계산기</string>
+    <string name="nav_history">기록</string>
+    <string name="nav_tools">도구</string>
+    <string name="nav_settings">설정</string>
+
+    <!-- Section Headers -->
+    <string name="header_financial_calculators">금융 계산기</string>
+    <string name="header_loan_calculator">대출 및 월상환금 계산기</string>
+    <string name="header_history">계산 기록</string>
+    <string name="header_tools">금융 도구</string>
+    <string name="header_settings">설정 및 환경설정</string>
+    <string name="header_calculation_details">계산 상세내역</string>
+
+    <!-- Onboarding & Selection Headers -->
+    <string name="onboarding_title_1">스마트 대출 계산기</string>
+    <string name="onboarding_desc_1">월 상환금, 총 이자, 총 상환 금액을 즉시 정확하게 계산합니다.</string>
+    <string name="onboarding_title_2">상세 금융 리포트</string>
+    <string name="onboarding_desc_2">상환 일정과 상환 차트를 시각적으로 확인하세요.</string>
+    <string name="onboarding_title_3">기록 저장 및 관리</string>
+    <string name="onboarding_desc_3">대출 계산 내역을 저장하고 안전하게 관리하세요.</string>
+    <string name="select_language_title">언어 선택</string>
+    <string name="select_language_subtitle">사용할 언어를 선택하세요.</string>
+    <string name="select_currency_title">통화 선택</string>
+    <string name="select_currency_subtitle">계산에 사용할 기준 통화를 선택하세요.</string>
+    <string name="search_currency_hint">국가, 통화 또는 코드 검색...</string>
+    <string name="search_language_hint">언어 검색...</string>
+
+    <!-- Home Categories -->
+    <string name="cat_loan_title">대출 계산기</string>
+    <string name="cat_loan_desc">주택, 자동차, 오토바이, 사업 및 신용 대출</string>
+    <string name="cat_investment_title">투자 계산기</string>
+    <string name="cat_investment_desc">적금, 예금 및 복리 이자 계산</string>
+    <string name="cat_tax_title">세금 및 급여 계산기</string>
+    <string name="cat_tax_desc">부가세, 소득세 및 실수령액</string>
+    <string name="cat_property_title">부동산 및 주택</string>
+    <string name="cat_property_desc">모기지, 취득세 및 전월세 vs 매매</string>
+    <string name="cat_insurance_title">보험 계산기</string>
+    <string name="cat_insurance_desc">종신보험 및 건강보험</string>
+    <string name="cat_utility_title">유용한 도구</string>
+    <string name="cat_utility_desc">단위 변환, 지폐 계산기 및 통화</string>
+
+    <!-- Calculator Titles -->
+    <string name="title_personal_loan">신용대출 계산기</string>
+    <string name="title_home_loan">주택담보대출 계산기</string>
+    <string name="title_car_loan">자동차대출 계산기</string>
+    <string name="title_bike_loan">오토바이대출 계산기</string>
+    <string name="title_business_loan">사업자대출 계산기</string>
+    <string name="title_education_loan">학자금대출 계산기</string>
+    <string name="title_gold_loan">담보대출 계산기</string>
+    <string name="title_mortgage_loan">모기지 대출 계산기</string>
+    <string name="title_sip">적립식 투자 계산기 (SIP)</string>
+    <string name="title_fd">정기예금 계산기 (FD)</string>
+    <string name="title_rd">정기적금 계산기 (RD)</string>
+    <string name="title_ppf">연금저축 계산기</string>
+    <string name="title_lumpsum">거치식 거액투자 계산기</string>
+    <string name="title_swp">정액 인출 플랜 (SWP)</string>
+    <string name="title_discount">할인율 계산기</string>
+    <string name="title_gst">부가가치세 계산기 (GST)</string>
+    <string name="title_compound_interest">복리 계산기</string>
+    <string name="title_inflation">인플레이션 영향 계산기</string>
+    <string name="title_npv_irr">순현재가치 (NPV &amp; IRR)</string>
+    <string name="title_dti">총부채상환비율 (DTI)</string>
+    <string name="title_apy_apr">실질금리 비교 (APY/APR)</string>
+    <string name="title_budget_rebalancing">예산 재조정 도구</string>
+    <string name="title_income_tax">소득세 비교 계산기</string>
+    <string name="title_rent_vs_buy">전월세 vs 매매 비교</string>
+    <string name="title_ctc_inhand">연봉 및 실수령액 계산기</string>
+    <string name="title_bill_splitter">더치페이 및 팁 계산기</string>
+    <string name="title_fuel_trip">주유비 및 여행 비용 계산기</string>
+    <string name="title_cash_counter">지폐 수량 계산기</string>
+
+    <!-- Common Input Labels & Hints -->
+    <string name="label_loan_amount">대출 금액</string>
+    <string name="label_interest_rate">금리 (% 연율)</string>
+    <string name="label_tenure_years">기간 (년)</string>
+    <string name="label_tenure_months">기간 (개월)</string>
+    <string name="label_processing_fee">취급 수수료</string>
+    <string name="hint_enter_amount">금액 입력</string>
+    <string name="hint_enter_rate">금리 입력</string>
+    <string name="hint_enter_tenure">기간 입력</string>
+
+    <!-- Calculation Results -->
+    <string name="result_monthly_emi">월 상환금</string>
+    <string name="result_total_interest">총 이자액</string>
+    <string name="result_total_payment">총 상환 금액 (원금 + 이자)</string>
+    <string name="result_principal_amount">원금</string>
+
+    <!-- Schedule & Amortization -->
+    <string name="schedule_title">상환 계획표</string>
+    <string name="schedule_header_no">#</string>
+    <string name="schedule_header_month">년월</string>
+    <string name="schedule_header_principal">원금 상환액</string>
+    <string name="schedule_header_interest">이자 납부액</string>
+    <string name="schedule_header_balance">대출 잔액</string>
+
+    <!-- Common Actions & Buttons -->
+    <string name="btn_calculate">지금 계산하기</string>
+    <string name="btn_reset">초기화</string>
+    <string name="btn_share">결과 공유</string>
+    <string name="btn_view_schedule">상환 계획표 보기</string>
+    <string name="btn_view_chart">원그래프 보기</string>
+    <string name="btn_clear_all">전체 삭제</string>
+    <string name="btn_delete">기록 삭제</string>
+    <string name="btn_next">다음</string>
+    <string name="btn_skip">건너뛰기</string>
+
+    <!-- History Screen -->
+    <string name="history_saved_subtitle">최근 금융 계산 내역</string>
+    <string name="history_empty_title">저장된 계산 내역이 없습니다</string>
+    <string name="history_empty_desc">계산을 실행하면 결과가 여기에 저장됩니다.</string>
+    <string name="history_saved_on">저장일: %1$s</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_appearance_theme">화면 및 테마</string>
+    <string name="settings_theme_light">라이트 ☀️</string>
+    <string name="settings_theme_dark">다크 🌙</string>
+    <string name="settings_theme_auto">자동 📱</string>
+    <string name="settings_haptic_title">진동 피드백</string>
+    <string name="settings_haptic_desc">터치 시 진동 반응</string>
+    <string name="settings_support_about">지원 및 앱 정보</string>
+    <string name="settings_share_app">앱 공유하기</string>
+    <string name="settings_app_version">앱 버전</string>
+    <string name="settings_app_version_val">v1.0.0 (최종판)</string>
+    <string name="settings_language">언어</string>
+    <string name="settings_currency">통화</string>
+
+    <!-- Validation & Error Messages -->
+    <string name="error_invalid_amount">올바른 금액을 입력하세요</string>
+    <string name="error_invalid_rate">올바른 금리를 입력하세요</string>
+    <string name="error_invalid_tenure">올바른 기간을 입력하세요</string>
+</resources>

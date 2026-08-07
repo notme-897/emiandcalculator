@@ -1,0 +1,141 @@
+<resources>
+    <string name="app_name">คำนวณเงินกู้</string>
+    <string name="emi_mortgage_finance_tools">ค่างวด • จำนอง • เครื่องมือการเงิน</string>
+    <string name="add">เพิ่ม</string>
+    <string name="percentage_format">%1$d%%</string>
+    <string name="currency_underlined"><u>สกุลเงิน</u></string>
+    <string name="continue_text">ดำเนินการต่อ</string>
+
+    <!-- Navigation Tabs -->
+    <string name="nav_home">หน้าแรก</string>
+    <string name="nav_calculators">เครื่องคำนวณ</string>
+    <string name="nav_history">ประวัติ</string>
+    <string name="nav_tools">เครื่องมือ</string>
+    <string name="nav_settings">ตั้งค่า</string>
+
+    <!-- Section Headers -->
+    <string name="header_financial_calculators">เครื่องคำนวณการเงิน</string>
+    <string name="header_loan_calculator">คำนวณสินเชื่อและค่างวด</string>
+    <string name="header_history">ประวัติการคำนวณ</string>
+    <string name="header_tools">เครื่องมือทางการเงิน</string>
+    <string name="header_settings">ตั้งค่าและการตั้งค่าทั่วไป</string>
+    <string name="header_calculation_details">รายละเอียดการคำนวณ</string>
+
+    <!-- Onboarding & Selection Headers -->
+    <string name="onboarding_title_1">เครื่องคำนวณสินเชื่อชาญฉลาด</string>
+    <string name="onboarding_desc_1">คำนวณค่างวดรายเดือน ดอกเบี้ยรวม และยอดชำระทั้งหมดได้ทันที</string>
+    <string name="onboarding_title_2">รายงานทางการเงินแบบละเอียด</string>
+    <string name="onboarding_desc_2">แสดงตารางการผ่อนชำระและแผนภูมิวงกลมแบบโต้ตอบ</string>
+    <string name="onboarding_title_3">บันทึกและติดตามข้อมูล</string>
+    <string name="onboarding_desc_3">บันทึกการคำนวณสินเชื่อและจัดการประวัติการเงินอย่างเป็นระเบียบ</string>
+    <string name="select_language_title">เลือกภาษาของคุณ</string>
+    <string name="select_language_subtitle">เลือกภาษาที่คุณต้องการใช้งานในแอป</string>
+    <string name="select_currency_title">เลือกสกุลเงินของคุณ</string>
+    <string name="select_currency_subtitle">เลือกสกุลเงินหลักสำหรับคำนวณยอดยอดทั้งหมด</string>
+    <string name="search_currency_hint">ค้นหาประเทศ สกุลเงิน หรือรหัส...</string>
+    <string name="search_language_hint">ค้นหาภาษา...</string>
+
+    <!-- Home Categories -->
+    <string name="cat_loan_title">เครื่องคำนวณสินเชื่อ</string>
+    <string name="cat_loan_desc">บ้าน รถยนต์ รถจักรยานยนต์ ธุรกิจ และส่วนบุคคล</string>
+    <string name="cat_investment_title">เครื่องคำนวณการลงทุน</string>
+    <string name="cat_investment_desc">ออมหุ้น ออมทรัพย์ ฝากประจำ และดอกเบี้ยทบต้น</string>
+    <string name="cat_tax_title">ภาษีและเงินเดือน</string>
+    <string name="cat_tax_desc">ภาษีมูลค่าเพิ่ม ภาษีเงินได้ และเงินเดือนสุทธิ</string>
+    <string name="cat_property_title">อสังหาริมทรัพย์และบ้าน</string>
+    <string name="cat_property_desc">จำนอง ค่าธรรมเนียม และเช่า vs ซื้อบ้าน</string>
+    <string name="cat_insurance_title">เครื่องคำนวณประกันภัย</string>
+    <string name="cat_insurance_desc">ประกันชีวิตและประกันสุขภาพ</string>
+    <string name="cat_utility_title">เครื่องมืออเนกประสงค์</string>
+    <string name="cat_utility_desc">แปลงหน่วย เครื่องนับธนบัตร และอัตราแลกเปลี่ยน</string>
+
+    <!-- Calculator Titles -->
+    <string name="title_personal_loan">คำนวณสินเชื่อส่วนบุคคล</string>
+    <string name="title_home_loan">คำนวณสินเชื่อบ้าน</string>
+    <string name="title_car_loan">คำนวณสินเชื่อรถยนต์</string>
+    <string name="title_bike_loan">คำนวณสินเชื่อรถจักรยานยนต์</string>
+    <string name="title_business_loan">คำนวณสินเชื่อธุรกิจ</string>
+    <string name="title_education_loan">คำนวณสินเชื่อการศึกษา</string>
+    <string name="title_gold_loan">คำนวณสินเชื่อขายฝากทอง</string>
+    <string name="title_mortgage_loan">คำนวณสินเชื่อจำนองอสังหาริมทรัพย์</string>
+    <string name="title_sip">คำนวณการออมหุ้นแบบสม่ำเสมอ (SIP)</string>
+    <string name="title_fd">คำนวณเงินฝากประจำ (FD)</string>
+    <string name="title_rd">คำนวณเงินฝากประจำรายเดือน (RD)</string>
+    <string name="title_ppf">กองทุนสำรองเลี้ยงชีพ</string>
+    <string name="title_lumpsum">คำนวณการลงทุนเงินก้อน</string>
+    <string name="title_swp">แผนการถอนเงินรายเดือน (SWP)</string>
+    <string name="title_discount">คำนวณส่วนลด</string>
+    <string name="title_gst">คำนวณภาษีมูลค่าเพิ่ม (VAT/GST)</string>
+    <string name="title_compound_interest">คำนวณดอกเบี้ยทบต้น</string>
+    <string name="title_inflation">คำนวณผลกระทบของเงินเฟ้อ</string>
+    <string name="title_npv_irr">มูลค่าปัจจุบันสุทธิ (NPV &amp; IRR)</string>
+    <string name="title_dti">อัตราส่วนภาระหนี้ต่อรายได้ (DTI)</string>
+    <string name="title_apy_apr">เปรียบเทียบอัตราดอกเบี้ยแท้จริง</string>
+    <string name="title_budget_rebalancing">เครื่องมือปรับสมดุลงบประมาณ</string>
+    <string name="title_income_tax">เปรียบเทียบภาษีเงินได้บุคคลธรรมดา</string>
+    <string name="title_rent_vs_buy">เช่าหรือซื้อบ้าน</string>
+    <string name="title_ctc_inhand">คำนวณเงินเดือนสุทธิ</string>
+    <string name="title_bill_splitter">หารค่าอาหารและทิป</string>
+    <string name="title_fuel_trip">คำนวณค่าน้ำมันและการเดินทาง</string>
+    <string name="title_cash_counter">เครื่องนับจำนวนธนบัตร</string>
+
+    <!-- Common Input Labels & Hints -->
+    <string name="label_loan_amount">จำนวนเงินกู้</string>
+    <string name="label_interest_rate">อัตราดอกเบี้ย (% ต่อปี)</string>
+    <string name="label_tenure_years">ระยะเวลา (ปี)</string>
+    <string name="label_tenure_months">ระยะเวลา (เดือน)</string>
+    <string name="label_processing_fee">ค่าธรรมเนียมดำเนินการ</string>
+    <string name="hint_enter_amount">กรอกจำนวนเงิน</string>
+    <string name="hint_enter_rate">กรอกอัตราดอกเบี้ย</string>
+    <string name="hint_enter_tenure">กรอกระยะเวลา</string>
+
+    <!-- Calculation Results -->
+    <string name="result_monthly_emi">ค่างวดต่อเดือน</string>
+    <string name="result_total_interest">ดอกเบี้ยรวมทั้งหมด</string>
+    <string name="result_total_payment">ยอดชำระรวม (เงินต้น + ดอกเบี้ย)</string>
+    <string name="result_principal_amount">เงินต้น</string>
+
+    <!-- Schedule & Amortization -->
+    <string name="schedule_title">ตารางการผ่อนชำระค่างวด</string>
+    <string name="schedule_header_no">#</string>
+    <string name="schedule_header_month">เดือน / ปี</string>
+    <string name="schedule_header_principal">เงินต้นที่ชำระ</string>
+    <string name="schedule_header_interest">ดอกเบี้ยที่ชำระ</string>
+    <string name="schedule_header_balance">เงินต้นคงเหลือ</string>
+
+    <!-- Common Actions & Buttons -->
+    <string name="btn_calculate">คำนวณทันที</string>
+    <string name="btn_reset">รีเซ็ต</string>
+    <string name="btn_share">แชร์รายละเอียด</string>
+    <string name="btn_view_schedule">ดูตารางผ่อนชำระ</string>
+    <string name="btn_view_chart">ดูแผนภูมิวงกลม</string>
+    <string name="btn_clear_all">ล้างทั้งหมด</string>
+    <string name="btn_delete">ลบรายการ</string>
+    <string name="btn_next">ถัดไป</string>
+    <string name="btn_skip">ข้าม</string>
+
+    <!-- History Screen -->
+    <string name="history_saved_subtitle">ประวัติการคำนวณล่าสุดของคุณ</string>
+    <string name="history_empty_title">ยังไม่มีประวัติการคำนวณ</string>
+    <string name="history_empty_desc">ทำการคำนวณเพื่อบันทึกผลลัพธ์ไว้ที่นี่</string>
+    <string name="history_saved_on">บันทึกเมื่อ %1$s</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_appearance_theme">รูปลักษณ์และธีม</string>
+    <string name="settings_theme_light">สว่าง ☀️</string>
+    <string name="settings_theme_dark">มืด 🌙</string>
+    <string name="settings_theme_auto">อัตโนมัติ 📱</string>
+    <string name="settings_haptic_title">การสั่นตอบสนอง</string>
+    <string name="settings_haptic_desc">สั่นเมื่อสัมผัสปุ่ม</string>
+    <string name="settings_support_about">ช่วยเหลือและเกี่ยวกับ</string>
+    <string name="settings_share_app">แชร์แอปพลิเคชัน</string>
+    <string name="settings_app_version">เวอร์ชันของแอป</string>
+    <string name="settings_app_version_val">v1.0.0 (เวอร์ชันสมบูรณ์)</string>
+    <string name="settings_language">ภาษา</string>
+    <string name="settings_currency">สกุลเงิน</string>
+
+    <!-- Validation & Error Messages -->
+    <string name="error_invalid_amount">กรุณากรอกจำนวนเงินที่ถูกต้อง</string>
+    <string name="error_invalid_rate">กรุณากรอกอัตราดอกเบี้ยที่ถูกต้อง</string>
+    <string name="error_invalid_tenure">กรุณากรอกระยะเวลาที่ถูกต้อง</string>
+</resources>

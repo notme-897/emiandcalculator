@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        androidx.core.view.WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightStatusBars = !com.example.calculatoremi.utils.ThemeManager.isDarkMode(this)
+        setWhiteStatusBarIcons()
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
@@ -56,10 +56,26 @@ class MainActivity : AppCompatActivity() {
                 ?.start()
 
             when (item.itemId) {
-                R.id.nav_home -> { replaceFragment(HomeFragment()); true }
-                R.id.nav_history -> { replaceFragment(HistoryFragment()); true }
-                R.id.nav_tools -> { replaceFragment(ToolsFragment()); true }
-                R.id.nav_settings -> { replaceFragment(SettingsFragment()); true }
+                R.id.nav_home -> { 
+                    replaceFragment(HomeFragment())
+                    setWhiteStatusBarIcons()
+                    true 
+                }
+                R.id.nav_history -> { 
+                    replaceFragment(HistoryFragment())
+                    setBlackStatusBarIconsInLightMode()
+                    true 
+                }
+                R.id.nav_tools -> { 
+                    replaceFragment(ToolsFragment())
+                    setBlackStatusBarIconsInLightMode()
+                    true 
+                }
+                R.id.nav_settings -> { 
+                    replaceFragment(SettingsFragment())
+                    setBlackStatusBarIconsInLightMode()
+                    true 
+                }
                 else -> false
             }
         }
@@ -67,6 +83,15 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             bottomNavigation.selectedItemId = R.id.nav_home
         }
+    }
+
+    fun setWhiteStatusBarIcons() {
+        androidx.core.view.WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightStatusBars = false
+    }
+
+    fun setBlackStatusBarIconsInLightMode() {
+        val isDark = com.example.calculatoremi.utils.ThemeManager.isDarkMode(this)
+        androidx.core.view.WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightStatusBars = !isDark
     }
 
     private fun replaceFragment(fragment: Fragment) {

@@ -15,7 +15,7 @@ abstract class BaseLoanActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         com.example.calculatoremi.utils.ActivityTransitionUtils.applySlideInTransition(this)
         enableEdgeToEdge()
-        androidx.core.view.WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightStatusBars = true
+        androidx.core.view.WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightStatusBars = !com.example.calculatoremi.utils.ThemeManager.isDarkMode(this)
         setContentView(R.layout.fragment_loan_calculator)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.calculatorHeader)) { v, insets ->

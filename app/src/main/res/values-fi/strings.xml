@@ -1,0 +1,141 @@
+<resources>
+    <string name="app_name">Lainalaskuri</string>
+    <string name="emi_mortgage_finance_tools">Kuukausierä • Asuntolaina • Taloustyökalut</string>
+    <string name="add">Lisää</string>
+    <string name="percentage_format">%1$d%%</string>
+    <string name="currency_underlined"><u>Valuutta</u></string>
+    <string name="continue_text">Jatka</string>
+
+    <!-- Navigation Tabs -->
+    <string name="nav_home">Koti</string>
+    <string name="nav_calculators">Laskurit</string>
+    <string name="nav_history">Historia</string>
+    <string name="nav_tools">Työkalut</string>
+    <string name="nav_settings">Asetukset</string>
+
+    <!-- Section Headers -->
+    <string name="header_financial_calculators">Rahoituslaskurit</string>
+    <string name="header_loan_calculator">Laina- &amp; Kuukausierälaskuri</string>
+    <string name="header_history">Laskentahistoria</string>
+    <string name="header_tools">Rahoitustyökalut</string>
+    <string name="header_settings">Asetukset &amp; Preferenssit</string>
+    <string name="header_calculation_details">Laskelman Tiedot</string>
+
+    <!-- Onboarding & Selection Headers -->
+    <string name="onboarding_title_1">Älykäs Lainalaskuri</string>
+    <string name="onboarding_desc_1">Laske kuukausierä, kokonaiskorko ja takaisinmaksettava summa välittömästi.</string>
+    <string name="onboarding_title_2">Yksityiskohtaiset Raportit</string>
+    <string name="onboarding_desc_2">Tarkastele takaisinmaksutaulukoita ja vuorovaikutteisia kaavioita.</string>
+    <string name="onboarding_title_3">Tallenna &amp; Seuraa Tietoja</string>
+    <string name="onboarding_desc_3">Tallenna laskelmat ja pidä taloustietosi järjestyksessä.</string>
+    <string name="select_language_title">Valitse Kieli</string>
+    <string name="select_language_subtitle">Valitse sovelluksen kieli.</string>
+    <string name="select_currency_title">Valitse Valuutta</string>
+    <string name="select_currency_subtitle">Valitse päävaluutta kaikkia laskelmia varten.</string>
+    <string name="search_currency_hint">Etsi maata, valuuttaa tai koodia...</string>
+    <string name="search_language_hint">Etsi kieltä...</string>
+
+    <!-- Home Categories -->
+    <string name="cat_loan_title">Lainalaskurit</string>
+    <string name="cat_loan_desc">Asunto, Auto, Moottoripyörä, Yritys &amp; Kulutusluotto</string>
+    <string name="cat_investment_title">Sijoituslaskurit</string>
+    <string name="cat_investment_desc">Säästäminen, Määräaikaistili &amp; Korkoa Korolle</string>
+    <string name="cat_tax_title">Vero &amp; Palkka</string>
+    <string name="cat_tax_desc">ALV, Tulovero &amp; Nettopalkka</string>
+    <string name="cat_property_title">Kiinteistöt &amp; Asuminen</string>
+    <string name="cat_property_desc">Asuntolaina, Varainsiirtovero &amp; Vuokraus vs Ostaminen</string>
+    <string name="cat_insurance_title">Vakuutuslaskurit</string>
+    <string name="cat_insurance_desc">Henkivakuutus &amp; Terveysvakuutus</string>
+    <string name="cat_utility_title">Hyödylliset Työkalut</string>
+    <string name="cat_utility_desc">Yksikkömuunnin, Setelilaskuri &amp; Valuutta</string>
+
+    <!-- Calculator Titles -->
+    <string name="title_personal_loan">Kulutusluottolaskuri</string>
+    <string name="title_home_loan">Asuntolainalaskuri</string>
+    <string name="title_car_loan">Autolainalaskuri</string>
+    <string name="title_bike_loan">Moottoripyörälainalaskuri</string>
+    <string name="title_business_loan">Yrityslainalaskuri</string>
+    <string name="title_education_loan">Opintolainalaskuri</string>
+    <string name="title_gold_loan">Panttilainalaskuri</string>
+    <string name="title_mortgage_loan">Kiinteistölainalaskuri</string>
+    <string name="title_sip">Kuukausisäästölaskuri (SIP)</string>
+    <string name="title_fd">Määräaikaistililaskuri (FD)</string>
+    <string name="title_rd">Säästötililaskuri (RD)</string>
+    <string name="title_ppf">Eläkerahastolaskuri</string>
+    <string name="title_lumpsum">Kertasijoituslaskuri</string>
+    <string name="title_swp">Säännöllisen Neston Laskuri (SWP)</string>
+    <string name="title_discount">Aennuslaskuri</string>
+    <string name="title_gst">Arvonlisäverolaskuri (ALV/GST)</string>
+    <string name="title_compound_interest">Korkoa Korolle Laskuri</string>
+    <string name="title_inflation">Inflaatiolaskuri</string>
+    <string name="title_npv_irr">Nykyarvolaskuri (NPV &amp; IRR)</string>
+    <string name="title_dti">Velkaantumisaste (DTI)</string>
+    <string name="title_apy_apr">Todellisen Vuosikoron Vertailu</string>
+    <string name="title_budget_rebalancing">Budjetin Tasapainotus</string>
+    <string name="title_income_tax">Tuloverovertailu</string>
+    <string name="title_rent_vs_buy">Vuokraa vai Osta Asunto</string>
+    <string name="title_ctc_inhand">Brutto-Nettopalkkalaskuri</string>
+    <string name="title_bill_splitter">Laskun &amp; Tipin Jako</string>
+    <string name="title_fuel_trip">Polttoaine- &amp; Matkakulut</string>
+    <string name="title_cash_counter">Seteli- &amp; Kolikkolaskuri</string>
+
+    <!-- Common Input Labels & Hints -->
+    <string name="label_loan_amount">Lainamäärä</string>
+    <string name="label_interest_rate">Korkoprosentti (% / vsk)</string>
+    <string name="label_tenure_years">Laina-aika (Vuotta)</string>
+    <string name="label_tenure_months">Laina-aika (Kuukautta)</string>
+    <string name="label_processing_fee">Järjestelypalkkio</string>
+    <string name="hint_enter_amount">Syötä määrä</string>
+    <string name="hint_enter_rate">Syötä korko</string>
+    <string name="hint_enter_tenure">Syötä laina-aika</string>
+
+    <!-- Calculation Results -->
+    <string name="result_monthly_emi">Kuukausierä</string>
+    <string name="result_total_interest">Korkokulut Yhteensä</string>
+    <string name="result_total_payment">Kokonaissovitut Maksut (Pääoma + Korko)</string>
+    <string name="result_principal_amount">Lainan Pääoma</string>
+
+    <!-- Schedule & Amortization -->
+    <string name="schedule_title">Lyhennystaulukko</string>
+    <string name="schedule_header_no">#</string>
+    <string name="schedule_header_month">Kuu / Vuosi</string>
+    <string name="schedule_header_principal">Maksettu Pääoma</string>
+    <string name="schedule_header_interest">Maksettu Korko</string>
+    <string name="schedule_header_balance">Jäljellä Oleva Laina</string>
+
+    <!-- Common Actions & Buttons -->
+    <string name="btn_calculate">Laske Nyt</string>
+    <string name="btn_reset">Tyhjennä</string>
+    <string name="btn_share">Jaa Laskelma</string>
+    <string name="btn_view_schedule">Näytä Lyhennystaulukko</string>
+    <string name="btn_view_chart">Näytä Piirakka-kaavio</string>
+    <string name="btn_clear_all">Poista Kaikki</string>
+    <string name="btn_delete">Poista Merkintä</string>
+    <string name="btn_next">Seuraava</string>
+    <string name="btn_skip">Ohita</string>
+
+    <!-- History Screen -->
+    <string name="history_saved_subtitle">Viimeisimmät laskelmasi</string>
+    <string name="history_empty_title">Ei Tallennettuja Laskelmia</string>
+    <string name="history_empty_desc">Tee laskelma tallentaaksesi tulokset tähän.</string>
+    <string name="history_saved_on">Tallennettu %1$s</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_appearance_theme">ULKOASU &amp; TEEMA</string>
+    <string name="settings_theme_light">Vaalea ☀️</string>
+    <string name="settings_theme_dark">Tumma 🌙</string>
+    <string name="settings_theme_auto">Automaattinen 📱</string>
+    <string name="settings_haptic_title">Värinäpalautteet</string>
+    <string name="settings_haptic_desc">Värinä painikkeita painettaessa</string>
+    <string name="settings_support_about">TUKI &amp; TIETOJA</string>
+    <string name="settings_share_app">Jaa Sovellus</string>
+    <string name="settings_app_version">Sovelluksen Versio</string>
+    <string name="settings_app_version_val">v1.0.0 (Lopullinen Versio)</string>
+    <string name="settings_language">Kieli</string>
+    <string name="settings_currency">Valuutta</string>
+
+    <!-- Validation & Error Messages -->
+    <string name="error_invalid_amount">Syötä kelvollinen määrä</string>
+    <string name="error_invalid_rate">Syötä kelvollinen korko</string>
+    <string name="error_invalid_tenure">Syötä kelvollinen aika</string>
+</resources>

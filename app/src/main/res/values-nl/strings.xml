@@ -1,0 +1,141 @@
+<resources>
+    <string name="app_name">Lening Rekenmachine</string>
+    <string name="emi_mortgage_finance_tools">Termijn • Hypotheek • Financiën</string>
+    <string name="add">Toevoegen</string>
+    <string name="percentage_format">%1$d%%</string>
+    <string name="currency_underlined"><u>Valuta</u></string>
+    <string name="continue_text">Doorgaan</string>
+
+    <!-- Navigation Tabs -->
+    <string name="nav_home">Home</string>
+    <string name="nav_calculators">Rekenmachines</string>
+    <string name="nav_history">Geschiedenis</string>
+    <string name="nav_tools">Tools</string>
+    <string name="nav_settings">Instellingen</string>
+
+    <!-- Section Headers -->
+    <string name="header_financial_calculators">Financiële Rekenmachines</string>
+    <string name="header_loan_calculator">Lening &amp; Termijn Rekenmachine</string>
+    <string name="header_history">Berekeningsgeschiedenis</string>
+    <string name="header_tools">Financiële Tools</string>
+    <string name="header_settings">Instellingen &amp; Voorkeuren</string>
+    <string name="header_calculation_details">Berekeningsdetails</string>
+
+    <!-- Onboarding & Selection Headers -->
+    <string name="onboarding_title_1">Slimme Lening Rekenmachine</string>
+    <string name="onboarding_desc_1">Bereken direct uw maandlasten, totale rente en totale aflossing.</string>
+    <string name="onboarding_title_2">Gedetailleerde Financiële Rapporten</string>
+    <string name="onboarding_desc_2">Bekijk aflossingsschema\'s en interactieve grafieken.</string>
+    <string name="onboarding_title_3">Opslaan &amp; Gegevens Bijhouden</string>
+    <string name="onboarding_desc_3">Bewaar berekeningen en houd uw overzicht georganiseerd.</string>
+    <string name="select_language_title">Kies uw taal</string>
+    <string name="select_language_subtitle">Selecteer uw voorkeurstaal voor de applicatie.</string>
+    <string name="select_currency_title">Kies uw valuta</string>
+    <string name="select_currency_subtitle">Selecteer uw hoofdvaluta voor alle berekeningen.</string>
+    <string name="search_currency_hint">Zoek land, valuta of code...</string>
+    <string name="search_language_hint">Zoek taal...</string>
+
+    <!-- Home Categories -->
+    <string name="cat_loan_title">Lening Rekenmachines</string>
+    <string name="cat_loan_desc">Hypotheek, Auto, Motor, Zakelijk &amp; Persoonlijk</string>
+    <string name="cat_investment_title">Investeringsrekenmachines</string>
+    <string name="cat_investment_desc">Sparen, Deposito &amp; Samengestelde Rente</string>
+    <string name="cat_tax_title">Belasting &amp; Salaris</string>
+    <string name="cat_tax_desc">Btw, Inkomstenbelasting &amp; Nettosalaris</string>
+    <string name="cat_property_title">Vastgoed &amp; Wonen</string>
+    <string name="cat_property_desc">Hypotheek, Overdrachtsbelasting &amp; Huren vs Kopen</string>
+    <string name="cat_insurance_title">Verzekeringsrekenmachines</string>
+    <string name="cat_insurance_desc">Overlijdensrisico- &amp; Zorgverzekering</string>
+    <string name="cat_utility_title">Handige Tools</string>
+    <string name="cat_utility_desc">Omrekenmachine, Geldteller &amp; Valuta</string>
+
+    <!-- Calculator Titles -->
+    <string name="title_personal_loan">Persoonlijke Lening</string>
+    <string name="title_home_loan">Hypotheek Berekening</string>
+    <string name="title_car_loan">Autolening Berekening</string>
+    <string name="title_bike_loan">Motorlening Berekening</string>
+    <string name="title_business_loan">Zakelijke Lening</string>
+    <string name="title_education_loan">Studielening Berekening</string>
+    <string name="title_gold_loan">Goudlening Berekening</string>
+    <string name="title_mortgage_loan">Hypotheekrekenmachine</string>
+    <string name="title_sip">Periodiek Sparen (SIP)</string>
+    <string name="title_fd">Termijndeposito (FD)</string>
+    <string name="title_rd">Spaarrekening (RD)</string>
+    <string name="title_ppf">Pensioenfonds (PPF)</string>
+    <string name="title_lumpsum">Eenmalige Investering</string>
+    <string name="title_swp">Periodieke Opname (SWP)</string>
+    <string name="title_discount">Korting Rekenmachine</string>
+    <string name="title_gst">Btw Rekenmachine</string>
+    <string name="title_compound_interest">Samengestelde Rente</string>
+    <string name="title_inflation">Inflatie Impact</string>
+    <string name="title_npv_irr">Netto Contante Waarde (NCW &amp; IRR)</string>
+    <string name="title_dti">Schuld-Inkomensratio (DTI)</string>
+    <string name="title_apy_apr">Effectieve Rente Vergelijking</string>
+    <string name="title_budget_rebalancing">Budget Aanpassingstool</string>
+    <string name="title_income_tax">Inkomstenbelasting Vergelijker</string>
+    <string name="title_rent_vs_buy">Huren of Kopen</string>
+    <string name="title_ctc_inhand">Bruto naar Netto Salaris</string>
+    <string name="title_bill_splitter">Rekening Delen &amp; Fooi</string>
+    <string name="title_fuel_trip">Brandstof- &amp; Reiskosten</string>
+    <string name="title_cash_counter">Contant Geldteller</string>
+
+    <!-- Common Input Labels & Hints -->
+    <string name="label_loan_amount">Leningbedrag</string>
+    <string name="label_interest_rate">Rente % per jaar</string>
+    <string name="label_tenure_years">Looptijd (Jaren)</string>
+    <string name="label_tenure_months">Looptijd (Maanden)</string>
+    <string name="label_processing_fee">Afhandelingskosten</string>
+    <string name="hint_enter_amount">Voer bedrag in</string>
+    <string name="hint_enter_rate">Voer rente in</string>
+    <string name="hint_enter_tenure">Voer looptijd in</string>
+
+    <!-- Calculation Results -->
+    <string name="result_monthly_emi">Maandbedrag</string>
+    <string name="result_total_interest">Totale Rente</string>
+    <string name="result_total_payment">Totale Betaling (Aflossing + Rente)</string>
+    <string name="result_principal_amount">Oorspronkelijke Lening</string>
+
+    <!-- Schedule & Amortization -->
+    <string name="schedule_title">Aflossingsschema</string>
+    <string name="schedule_header_no">#</string>
+    <string name="schedule_header_month">Maand / Jaar</string>
+    <string name="schedule_header_principal">Aafgelost</string>
+    <string name="schedule_header_interest">Rente Betaald</string>
+    <string name="schedule_header_balance">Resterende Schuld</string>
+
+    <!-- Common Actions & Buttons -->
+    <string name="btn_calculate">Nu Berekenen</string>
+    <string name="btn_reset">Resetten</string>
+    <string name="btn_share">Details Delen</string>
+    <string name="btn_view_schedule">Aflossingsschema Bekijken</string>
+    <string name="btn_view_chart">Cirkelgrafiek</string>
+    <string name="btn_clear_all">Alles Wisssen</string>
+    <string name="btn_delete">Wis Record</string>
+    <string name="btn_next">Volgende</string>
+    <string name="btn_skip">Overslaan</string>
+
+    <!-- History Screen -->
+    <string name="history_saved_subtitle">Uw recente berekeningen</string>
+    <string name="history_empty_title">Nog Geen Berekeningen</string>
+    <string name="history_empty_desc">Voer een berekening uit om resultaten hier op te slaan.</string>
+    <string name="history_saved_on">Opgeslagen op %1$s</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_appearance_theme">WEERGAVE &amp; THEMA</string>
+    <string name="settings_theme_light">Licht ☀️</string>
+    <string name="settings_theme_dark">Donker 🌙</string>
+    <string name="settings_theme_auto">Auto 📱</string>
+    <string name="settings_haptic_title">Haptische Feedback</string>
+    <string name="settings_haptic_desc">Trillen bij aanraken</string>
+    <string name="settings_support_about">ONDERSTEUNING &amp; INFO</string>
+    <string name="settings_share_app">App Delen</string>
+    <string name="settings_app_version">App Versie</string>
+    <string name="settings_app_version_val">v1.0.0 (Ultieme Editie)</string>
+    <string name="settings_language">Taal</string>
+    <string name="settings_currency">Valuta</string>
+
+    <!-- Validation & Error Messages -->
+    <string name="error_invalid_amount">Voer een geldig bedrag in</string>
+    <string name="error_invalid_rate">Voer een geldige rente in</string>
+    <string name="error_invalid_tenure">Voer een geldige looptijd in</string>
+</resources>

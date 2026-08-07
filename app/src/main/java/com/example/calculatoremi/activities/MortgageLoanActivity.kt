@@ -508,6 +508,6 @@ class MortgageLoanActivity : BaseInputActivity() {
         txtSelectedDate.text = dateFormatter.format(calendar.time)
         findViewById<NestedScrollView>(R.id.scrollViewMortgageLoan).smoothScrollTo(0, 0)
 
-        Toast.makeText(this, "Fields reset successfully", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.msg_fields_reset), Toast.LENGTH_SHORT).show()
     }
 }

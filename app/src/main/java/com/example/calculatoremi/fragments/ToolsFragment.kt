@@ -9,6 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.calculatoremi.MainActivity
 import com.example.calculatoremi.R
 import com.example.calculatoremi.activities.*
 import com.example.calculatoremi.adapter.LoanAdapter
@@ -71,5 +72,10 @@ class ToolsFragment : Fragment(R.layout.fragment_tools) {
         val animation = AnimationUtils.loadLayoutAnimation(requireContext(), resId)
         recyclerTools.layoutAnimation = animation
         recyclerTools.scheduleLayoutAnimation()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (requireActivity() as? MainActivity)?.setBlackStatusBarIconsInLightMode()
     }
 }

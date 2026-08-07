@@ -43,7 +43,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Net Monthly Take-Home Income"
+                        android:text="@string/label_net_monthly_income"
                         android:textColor="@color/text_primary"
                         android:textSize="14sp"
                         android:textStyle="bold" />
@@ -65,7 +65,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="14dp"
-                        android:text="Actual Essential Needs Expenses"
+                        android:text="@string/label_essential_needs"
                         android:textColor="@color/text_primary"
                         android:textSize="13sp"
                         android:textStyle="bold" />
@@ -93,7 +93,7 @@
                 android:id="@+id/btnCalculate"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
-                android:text="Run Auto-Rebalancing Engine"
+                android:text="@string/btn_run_rebalancing"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
@@ -109,7 +109,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="10dp"
-                android:text="Reset Fields"
+                android:text="@string/btn_reset"
                 android:textAllCaps="false"
                 android:textColor="@color/primary"
                 android:textSize="15sp"

@@ -1,0 +1,141 @@
+<resources>
+    <string name="app_name">Kalkulator ng Pautang</string>
+    <string name="emi_mortgage_finance_tools">Hulog • Sanla • Mga Kagamitang Pinansyal</string>
+    <string name="add">Magdagdag</string>
+    <string name="percentage_format">%1$d%%</string>
+    <string name="currency_underlined"><u>Pera</u></string>
+    <string name="continue_text">Magpatuloy</string>
+
+    <!-- Navigation Tabs -->
+    <string name="nav_home">Tahanan</string>
+    <string name="nav_calculators">Kalkulator</string>
+    <string name="nav_history">Kasaysayan</string>
+    <string name="nav_tools">Kagamitan</string>
+    <string name="nav_settings">I-set up</string>
+
+    <!-- Section Headers -->
+    <string name="header_financial_calculators">Kalkulator ng Pananalapi</string>
+    <string name="header_loan_calculator">Kalkulator ng Pautang at Hulog</string>
+    <string name="header_history">Kasaysayan ng Pagkalkula</string>
+    <string name="header_tools">Mga Kagamitang Pinansyal</string>
+    <string name="header_settings">Mga Setting at Kagustuhan</string>
+    <string name="header_calculation_details">Mga Detalye ng Pagkalkula</string>
+
+    <!-- Onboarding & Selection Headers -->
+    <string name="onboarding_title_1">Matalinong Kalkulator ng Pautang</string>
+    <string name="onboarding_desc_1">Kalkulahin ang buwanang hulog, kabuuang interes, at kabuuang bayad kaagad.</string>
+    <string name="onboarding_title_2">Detalyadong Ulat sa Pananalapi</string>
+    <string name="onboarding_desc_2">Tingnan ang iskedyul ng pagbabayad at mga interactive na tsart.</string>
+    <string name="onboarding_title_3">I-save at Subaybayan ang mga Tala</string>
+    <string name="onboarding_desc_3">I-save ang iyong mga kalkulasyon at panatilihing maayos ang iyong mga tala.</string>
+    <string name="select_language_title">Pumili ng Wika</string>
+    <string name="select_language_subtitle">Pumili ng gusto mong wika para sa app.</string>
+    <string name="select_currency_title">Pumili ng Pera</string>
+    <string name="select_currency_subtitle">Pumili ng pangunahing pera para sa lahat ng kalkulasyon.</string>
+    <string name="search_currency_hint">Maghanap ng bansa, pera, o code...</string>
+    <string name="search_language_hint">Maghanap ng wika...</string>
+
+    <!-- Home Categories -->
+    <string name="cat_loan_title">Mga Kalkulator ng Pautang</string>
+    <string name="cat_loan_desc">Bahay, Kotse, Motorsiklo, Negosyo at Personal</string>
+    <string name="cat_investment_title">Mga Kalkulator ng Pamumuhunan</string>
+    <string name="cat_investment_desc">Pag-iimpok, Deposito at Compound Interest</string>
+    <string name="cat_tax_title">Buwis at Sweldo</string>
+    <string name="cat_tax_desc">VAT, Buwis sa Kita at Malinis na Sweldo</string>
+    <string name="cat_property_title">Ari-arian at Bahay</string>
+    <string name="cat_property_desc">Sanla, Buwis sa Lupa at Umaparta vs Bumili</string>
+    <string name="cat_insurance_title">Mga Kalkulator ng Seguro</string>
+    <string name="cat_insurance_desc">Seguro sa Buhay at Kalusugan</string>
+    <string name="cat_utility_title">Mga Praktikal na Kagamitan</string>
+    <string name="cat_utility_desc">Converter ng Yunit, Bilang ng Pera at Valuta</string>
+
+    <!-- Calculator Titles -->
+    <string name="title_personal_loan">Personal na Pautang</string>
+    <string name="title_home_loan">Pautang sa Bahay</string>
+    <string name="title_car_loan">Pautang sa Kotse</string>
+    <string name="title_bike_loan">Pautang sa Motorsiklo</string>
+    <string name="title_business_loan">Pautang sa Negosyo</string>
+    <string name="title_education_loan">Pautang sa Pag-aaral</string>
+    <string name="title_gold_loan">Pautang sa Ginto / Sangla</string>
+    <string name="title_mortgage_loan">Kalkulator ng Sanla sa Ari-arian</string>
+    <string name="title_sip">Regular na Pamumuhunan (SIP)</string>
+    <string name="title_fd">Fixed Deposit (FD)</string>
+    <string name="title_rd">Paulit-ulit na Deposito (RD)</string>
+    <string name="title_ppf">Pondo para sa Pagreretiro</string>
+    <string name="title_lumpsum">Isang Bagsak na Pamumuhunan</string>
+    <string name="title_swp">Plano sa Regular na Pagkuha (SWP)</string>
+    <string name="title_discount">Kalkulator ng Diskwento</string>
+    <string name="title_gst">Kalkulator ng Buwis (VAT/GST)</string>
+    <string name="title_compound_interest">Compound Interest</string>
+    <string name="title_inflation">Epekto ng Implasyon</string>
+    <string name="title_npv_irr">Net Present Value (NPV &amp; IRR)</string>
+    <string name="title_dti">Rasyo ng Utang sa Kita (DTI)</string>
+    <string name="title_apy_apr">Paghahambing ng Epektibong Interes</string>
+    <string name="title_budget_rebalancing">Pagbalanse ng Badyet</string>
+    <string name="title_income_tax">Paghahambing ng Buwis sa Kita</string>
+    <string name="title_rent_vs_buy">Urenta o Bumili ng Bahay</string>
+    <string name="title_ctc_inhand">Sweldo Bruto hanggang Net</string>
+    <string name="title_bill_splitter">Hatiin ang Bayarin at Tip</string>
+    <string name="title_fuel_trip">Gasto sa Biyahe at Gasolina</string>
+    <string name="title_cash_counter">Tagabilang ng Papel na Pera</string>
+
+    <!-- Common Input Labels & Hints -->
+    <string name="label_loan_amount">Halaga ng Utang</string>
+    <string name="label_interest_rate">Interes (% kada taon)</string>
+    <string name="label_tenure_years">Tagal (Taon)</string>
+    <string name="label_tenure_months">Tagal (Buwan)</string>
+    <string name="label_processing_fee">Bayad sa Pagproseso</string>
+    <string name="hint_enter_amount">Ipasok ang halaga</string>
+    <string name="hint_enter_rate">Ipasok ang interes</string>
+    <string name="hint_enter_tenure">Ipasok ang tagal</string>
+
+    <!-- Calculation Results -->
+    <string name="result_monthly_emi">Buwanang Hulog</string>
+    <string name="result_total_interest">Kabuuang Interes</string>
+    <string name="result_total_payment">Kabuuang Bayad (Puhunan + Interes)</string>
+    <string name="result_principal_amount">Puhunan ng Utang</string>
+
+    <!-- Schedule & Amortization -->
+    <string name="schedule_title">Iskedyul ng Pagbabayad</string>
+    <string name="schedule_header_no">#</string>
+    <string name="schedule_header_month">Buwan / Taon</string>
+    <string name="schedule_header_principal">Nabayarang Puhunan</string>
+    <string name="schedule_header_interest">Nabayarang Interes</string>
+    <string name="schedule_header_balance">Natitirang Utang</string>
+
+    <!-- Common Actions & Buttons -->
+    <string name="btn_calculate">Kalkulahin Ngayon</string>
+    <string name="btn_reset">I-reset</string>
+    <string name="btn_share">Ibahagi ang Detalye</string>
+    <string name="btn_view_schedule">Tingnan ang Iskedyul</string>
+    <string name="btn_view_chart">Tingnan ang Pie Chart</string>
+    <string name="btn_clear_all">I-clear Lahat</string>
+    <string name="btn_delete">Burahin ang Tala</string>
+    <string name="btn_next">Sunod</string>
+    <string name="btn_skip">Laktawan</string>
+
+    <!-- History Screen -->
+    <string name="history_saved_subtitle">Iyong mga kamakailang kalkulasyon</string>
+    <string name="history_empty_title">Wala Pang Kalkulasyon</string>
+    <string name="history_empty_desc">Gumawa ng kalkulasyon upang i-save ang mga resulta rito.</string>
+    <string name="history_saved_on">Naka-save noong %1$s</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_appearance_theme">ITURA AT TEMA</string>
+    <string name="settings_theme_light">Maliwanag ☀️</string>
+    <string name="settings_theme_dark">Madilim 🌙</string>
+    <string name="settings_theme_auto">Awtomatiko 📱</string>
+    <string name="settings_haptic_title">Vibration Feedback</string>
+    <string name="settings_haptic_desc">Manginig kapag pinindot ang pindutan</string>
+    <string name="settings_support_about">TULONG AT TUNGKOL</string>
+    <string name="settings_share_app">Ibahagi ang App</string>
+    <string name="settings_app_version">Bersyon ng App</string>
+    <string name="settings_app_version_val">v1.0.0 (Kumpletong Edisyon)</string>
+    <string name="settings_language">Wika</string>
+    <string name="settings_currency">Pera</string>
+
+    <!-- Validation & Error Messages -->
+    <string name="error_invalid_amount">Mangyaring ipasok ang tamang halaga</string>
+    <string name="error_invalid_rate">Mangyaring ipasok ang tamang interes</string>
+    <string name="error_invalid_tenure">Mangyaring ipasok ang tamang tagal</string>
+</resources>

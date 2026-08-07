@@ -37,7 +37,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:text="Requested Loan Capital"
+                    android:text="@string/label_requested_loan_capital"
                     android:textColor="@color/text_primary"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -176,7 +176,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentStart="true"
-                            android:text="Upfront Processing Fee (% or ₹)"
+                            android:text="@string/label_upfront_processing_fee"
                             android:textColor="@color/text_primary"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -216,7 +216,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Net Cash Disbursed to Bank Account: "
+                            android:text="@string/label_net_cash_disbursed"
                             android:textColor="@color/text_primary"
                             android:textSize="13sp" />
 
@@ -238,7 +238,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
-                android:text="Repayment Frequency"
+                android:text="@string/label_repayment_frequency"
                 android:textColor="@color/text_primary"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -258,7 +258,7 @@
                     android:layout_weight="1"
                     android:layout_marginEnd="2dp"
                     android:padding="0dp"
-                    android:text="Monthly"
+                    android:text="@string/compounding_monthly"
                     android:textAllCaps="false"
                     android:textColor="#FFFFFF"
                     android:textSize="11sp"
@@ -306,7 +306,7 @@
                     android:layout_weight="1"
                     android:layout_marginStart="2dp"
                     android:padding="0dp"
-                    android:text="Daily"
+                    android:text="@string/compounding_daily"
                     android:textAllCaps="false"
                     android:textColor="@color/text_primary"
                     android:textSize="11sp"
@@ -468,7 +468,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Debt Service Coverage Ratio (DSCR)"
+                        android:text="@string/label_dscr_header"
                         android:textColor="@color/text_primary"
                         android:textSize="14sp"
                         android:textStyle="bold" />
@@ -478,7 +478,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="Monthly Net Operating Income (NOI)"
+                        android:text="@string/label_monthly_noi"
                         android:textColor="@color/text_secondary"
                         android:textSize="13sp"
                         android:textStyle="bold" />
@@ -502,7 +502,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="Existing Monthly Debt Payments"
+                        android:text="@string/label_existing_debt_payments"
                         android:textColor="@color/text_secondary"
                         android:textSize="13sp"
                         android:textStyle="bold" />
@@ -537,7 +537,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="DSCR Ratio:"
+                                android:text="@string/label_dscr_ratio"
                                 android:textColor="@color/text_primary"
                                 android:textSize="13sp" />
 
@@ -586,7 +586,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Tax Shield / Tax Savings"
+                        android:text="@string/label_tax_shield"
                         android:textColor="@color/text_primary"
                         android:textSize="14sp"
                         android:textStyle="bold" />
@@ -595,7 +595,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="Corporate / Business Tax Bracket (%)"
+                        android:text="@string/label_tax_bracket"
                         android:textColor="@color/text_secondary"
                         android:textSize="13sp"
                         android:textStyle="bold" />
@@ -700,7 +700,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Est. Tax Deduction Savings:"
+                                android:text="@string/label_tax_deduction_savings"
                                 android:textColor="@color/text_primary"
                                 android:textSize="13sp" />
 
@@ -723,7 +723,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Effective Interest After Tax:"
+                                android:text="@string/label_effective_interest_after_tax"
                                 android:textColor="@color/text_primary"
                                 android:textSize="13sp" />
 
@@ -748,7 +748,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
-                android:text="Start Date"
+                android:text="@string/label_start_date"
                 android:textColor="@color/text_primary"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -792,7 +792,7 @@
                 android:id="@+id/btnCalculate"
                 android:layout_width="match_parent"
                 android:layout_height="54dp"
-                android:text="Calculate Business Loan"
+                android:text="@string/btn_calculate_business_loan"
                 android:textAllCaps="false"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -805,7 +805,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
-                android:text="Reset Fields"
+                android:text="@string/btn_reset"
                 android:textAllCaps="false"
                 android:textColor="#1A56E4"
                 android:textSize="15sp"

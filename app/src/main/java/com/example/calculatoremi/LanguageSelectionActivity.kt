@@ -32,6 +32,7 @@ class LanguageSelectionActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        androidx.core.view.WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightStatusBars = !com.example.calculatoremi.utils.ThemeManager.isDarkMode(this)
         enableEdgeToEdge()
         setContentView(R.layout.activity_language_selection)
 
@@ -83,7 +84,7 @@ class LanguageSelectionActivity : AppCompatActivity() {
 
     private fun confirmLanguageAndProceed() {
         LanguageManager.setLanguage(this, selectedLanguage)
-        Toast.makeText(this, "Language: ${selectedLanguage.englishName}", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.msg_language_set), Toast.LENGTH_SHORT).show()
 
         if (isFromSettings) {
             val intent = Intent(this, MainActivity::class.java).apply {

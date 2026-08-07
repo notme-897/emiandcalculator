@@ -34,11 +34,10 @@
 
         <ImageView
             android:id="@+id/logo_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
             android:contentDescription="@string/app_name"
-            android:src="@mipmap/ic_launcher"
-            app:srcCompat="@drawable/ic_launcher_foreground" />
+            android:src="@drawable/app_logo" />
 
         <TextView
             android:id="@+id/app_title"

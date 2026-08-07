@@ -44,7 +44,7 @@
             android:id="@+id/txtResultTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Payment Schedule"
+            android:text="@string/schedule_title"
             android:textColor="@color/text_primary"
             android:textSize="18sp"
             android:textStyle="bold"

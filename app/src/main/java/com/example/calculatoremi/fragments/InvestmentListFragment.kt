@@ -23,6 +23,7 @@ class InvestmentListFragment : Fragment(R.layout.fragment_category_list) {
 
         (requireActivity() as? MainActivity)?.hideHeader()
         (requireActivity() as? MainActivity)?.hideBottomNav()
+        (requireActivity() as? MainActivity)?.setBlackStatusBarIconsInLightMode()
 
         val categoryHeader = view.findViewById<View>(R.id.categoryHeader)
         categoryHeader?.let { v ->

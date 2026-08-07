@@ -1,0 +1,141 @@
+<resources>
+    <string name="app_name">Lånekalkulator</string>
+    <string name="emi_mortgage_finance_tools">Terminbeløp • Boliglån • Finansverktøy</string>
+    <string name="add">Legg til</string>
+    <string name="percentage_format">%1$d%%</string>
+    <string name="currency_underlined"><u>Valuta</u></string>
+    <string name="continue_text">Fortsett</string>
+
+    <!-- Navigation Tabs -->
+    <string name="nav_home">Hjem</string>
+    <string name="nav_calculators">Kalkulatorer</string>
+    <string name="nav_history">Historikk</string>
+    <string name="nav_tools">Verktøy</string>
+    <string name="nav_settings">Innstillinger</string>
+
+    <!-- Section Headers -->
+    <string name="header_financial_calculators">Finansielle Kalkulatorer</string>
+    <string name="header_loan_calculator">Låne- &amp; Terminbeløpkalkulator</string>
+    <string name="header_history">Beregningshistorikk</string>
+    <string name="header_tools">Finansverktøy</string>
+    <string name="header_settings">Innstillinger &amp; Preferanser</string>
+    <string name="header_calculation_details">Beregningsdetaljer</string>
+
+    <!-- Onboarding & Selection Headers -->
+    <string name="onboarding_title_1">Smart Lånekalkulator</string>
+    <string name="onboarding_desc_1">Beregn månedlig terminbeløp, totale renter og totalt avdrag umiddelbart.</string>
+    <string name="onboarding_title_2">Detaljerte Finansrapporter</string>
+    <string name="onboarding_desc_2">Visualiser nedbetalingsplaner og interaktive diagrammer.</string>
+    <string name="onboarding_title_3">Lagre &amp; Følg Registre</string>
+    <string name="onboarding_desc_3">Lagre lånestatistikk og hold de finansielle opplysningene organiserte.</string>
+    <string name="select_language_title">Velg Språk</string>
+    <string name="select_language_subtitle">Velg ditt foretrukne språk for appen.</string>
+    <string name="select_currency_title">Velg Valuta</string>
+    <string name="select_currency_subtitle">Velg din primære valuta for alle beregninger.</string>
+    <string name="search_currency_hint">Søk land, valuta eller kode...</string>
+    <string name="search_language_hint">Søk språk...</string>
+
+    <!-- Home Categories -->
+    <string name="cat_loan_title">Lånekalkulatorer</string>
+    <string name="cat_loan_desc">Bolig, Bil, MC, Næring &amp; Forbrukslån</string>
+    <string name="cat_investment_title">Investeringskalkulatorer</string>
+    <string name="cat_investment_desc">Månedlig Sparing, Fastrente &amp; Rentes rente</string>
+    <string name="cat_tax_title">Skatt &amp; Lønn</string>
+    <string name="cat_tax_desc">Mva, Inntektsskatt &amp; Nettolønn</string>
+    <string name="cat_property_title">Eiendom &amp; Bolig</string>
+    <string name="cat_property_desc">Boliglån, Dokumentavgift &amp; Leie vs Kjøpe</string>
+    <string name="cat_insurance_title">Forsikringskalkulatorer</string>
+    <string name="cat_insurance_desc">Livsforsikring &amp; Helseforsikring</string>
+    <string name="cat_utility_title">Nyttige Verktøy</string>
+    <string name="cat_utility_desc">Enhetsomformer, Seddelteller &amp; Valuta</string>
+
+    <!-- Calculator Titles -->
+    <string name="title_personal_loan">Forbrukslån</string>
+    <string name="title_home_loan">Boliglån</string>
+    <string name="title_car_loan">Billån</string>
+    <string name="title_bike_loan">MC-lån</string>
+    <string name="title_business_loan">Næringslån</string>
+    <string name="title_education_loan">Studielån</string>
+    <string name="title_gold_loan">Pantelån</string>
+    <string name="title_mortgage_loan">Hypoteklån</string>
+    <string name="title_sip">Månedlig Sparing (SIP)</string>
+    <string name="title_fd">Fastrenteinnskudd (FD)</string>
+    <string name="title_rd">Sparekonto (RD)</string>
+    <string name="title_ppf">Pensjonsfond</string>
+    <string name="title_lumpsum">Engangsinvestering</string>
+    <string name="title_swp">Uttaksplan (SWP)</string>
+    <string name="title_discount">Rabattkalkulator</string>
+    <string name="title_gst">Mva-kalkulator (GST/VAT)</string>
+    <string name="title_compound_interest">Rentes Rente</string>
+    <string name="title_inflation">Inflasjonspåvirkning</string>
+    <string name="title_npv_irr">Nåverdi (NPV &amp; IRR)</string>
+    <string name="title_dti">Gjeldsgrad (DTI)</string>
+    <string name="title_apy_apr">Sammenlign Effektiv Rente</string>
+    <string name="title_budget_rebalancing">Budsjettbalansering</string>
+    <string name="title_income_tax">Inntektsskatt Sammenligning</string>
+    <string name="title_rent_vs_buy">Leie eller Kjøpe Bolig</string>
+    <string name="title_ctc_inhand">Brutto til Nettolønn</string>
+    <string name="title_bill_splitter">Dele Regning &amp; Tips</string>
+    <string name="title_fuel_trip">Drivstoff &amp; Reisekostnad</string>
+    <string name="title_cash_counter">Seddelteller</string>
+
+    <!-- Common Input Labels & Hints -->
+    <string name="label_loan_amount">Lånebeløp</string>
+    <string name="label_interest_rate">Rentesats (% pr. år)</string>
+    <string name="label_tenure_years">Løpetid (År)</string>
+    <string name="label_tenure_months">Løpetid (Måneder)</string>
+    <string name="label_processing_fee">Etableringsgebyr</string>
+    <string name="hint_enter_amount">Skriv inn beløp</string>
+    <string name="hint_enter_rate">Skriv inn rentesats</string>
+    <string name="hint_enter_tenure">Skriv inn løpetid</string>
+
+    <!-- Calculation Results -->
+    <string name="result_monthly_emi">Månedlig Terminbeløp</string>
+    <string name="result_total_interest">Totale Renter</string>
+    <string name="result_total_payment">Total Tilbakebetaling (Lån + Renter)</string>
+    <string name="result_principal_amount">Lånt Beløp</string>
+
+    <!-- Schedule & Amortization -->
+    <string name="schedule_title">Nedbetalingsplan</string>
+    <string name="schedule_header_no">#</string>
+    <string name="schedule_header_month">Måned / År</string>
+    <string name="schedule_header_principal">Avdrag Betalt</string>
+    <string name="schedule_header_interest">Renter Betalt</string>
+    <string name="schedule_header_balance">Gjenstående Gjeld</string>
+
+    <!-- Common Actions & Buttons -->
+    <string name="btn_calculate">Beregn Nå</string>
+    <string name="btn_reset">Nullstill</string>
+    <string name="btn_share">Del Beregning</string>
+    <string name="btn_view_schedule">Vis Nedbetalingsplan</string>
+    <string name="btn_view_chart">Vis Kakediagram</string>
+    <string name="btn_clear_all">Slett Alt</string>
+    <string name="btn_delete">Slett Oppføring</string>
+    <string name="btn_next">Neste</string>
+    <string name="btn_skip">Hopp over</string>
+
+    <!-- History Screen -->
+    <string name="history_saved_subtitle">Dine siste beregninger</string>
+    <string name="history_empty_title">Ingen Beregninger Ennå</string>
+    <string name="history_empty_desc">Utfør en beregning for å lagre resultatene dine her.</string>
+    <string name="history_saved_on">Lagret %1$s</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_appearance_theme">UTSEENDE &amp; TEMA</string>
+    <string name="settings_theme_light">Lyst ☀️</string>
+    <string name="settings_theme_dark">Mørkt 🌙</string>
+    <string name="settings_theme_auto">Auto 📱</string>
+    <string name="settings_haptic_title">Vibrasjonsrespons</string>
+    <string name="settings_haptic_desc">Vibrer ved knappetrykk</string>
+    <string name="settings_support_about">BRUKERSTØTTE &amp; OM</string>
+    <string name="settings_share_app">Del Appen</string>
+    <string name="settings_app_version">Appversjon</string>
+    <string name="settings_app_version_val">v1.0.0 (Endelig Utgave)</string>
+    <string name="settings_language">Språk</string>
+    <string name="settings_currency">Valuta</string>
+
+    <!-- Validation & Error Messages -->
+    <string name="error_invalid_amount">Skriv inn et gyldig beløp</string>
+    <string name="error_invalid_rate">Skriv inn en gyldig rentesats</string>
+    <string name="error_invalid_tenure">Skriv inn en gyldig løpetid</string>
+</resources>

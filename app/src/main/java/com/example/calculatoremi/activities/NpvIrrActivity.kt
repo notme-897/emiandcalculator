@@ -216,6 +216,6 @@ class NpvIrrActivity : BaseInputActivity() {
         etCashFlow3.setText("1,80,000")
         etCashFlow4.setText("2,00,000")
         etCashFlow5.setText("2,20,000")
-        Toast.makeText(this, "Fields reset", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.msg_fields_reset), Toast.LENGTH_SHORT).show()
     }
 }

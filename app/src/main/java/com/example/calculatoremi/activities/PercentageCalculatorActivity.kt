@@ -95,6 +95,6 @@ class PercentageCalculatorActivity : BaseInputActivity() {
         etBaseValue.setText("15,000")
         etFromValue.setText("500")
         etToValue.setText("650")
-        Toast.makeText(this, "Fields reset", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.msg_fields_reset), Toast.LENGTH_SHORT).show()
     }
 }

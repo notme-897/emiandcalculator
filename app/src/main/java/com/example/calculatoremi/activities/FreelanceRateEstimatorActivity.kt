@@ -165,6 +165,6 @@ class FreelanceRateEstimatorActivity : BaseInputActivity() {
         etAnnualOverhead.setText("1,50,000")
         etBillableHoursPerWeek.setText("30")
         etUnpaidVacationWeeks.setText("4")
-        Toast.makeText(this, "Fields reset", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.msg_fields_reset), Toast.LENGTH_SHORT).show()
     }
 }

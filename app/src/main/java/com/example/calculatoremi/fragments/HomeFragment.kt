@@ -162,5 +162,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         super.onResume()
         (requireActivity() as? MainActivity)?.showHeader()
         (requireActivity() as? MainActivity)?.showBottomNav()
+        (requireActivity() as? MainActivity)?.setWhiteStatusBarIcons()
     }
 }

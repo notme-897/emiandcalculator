@@ -159,6 +159,6 @@ class CashDenominationActivity : BaseInputActivity() {
     private fun resetFields() {
         listOf(etCount500, etCount200, etCount100, etCount50, etCount20, etCount10).forEach { it.setText("") }
         updateLiveSummary()
-        Toast.makeText(this, "Counts cleared", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.msg_fields_reset), Toast.LENGTH_SHORT).show()
     }
 }

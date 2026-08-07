@@ -306,7 +306,7 @@ open class PersonalLoanActivity : BaseInputActivity() {
         val scrollView = findViewById<View>(R.id.centerBodyLayout).parent as? NestedScrollView
         scrollView?.smoothScrollTo(0, 0)
         
-        Toast.makeText(this, "Fields reset successfully", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.msg_fields_reset), Toast.LENGTH_SHORT).show()
     }
 
     private fun showDatePicker() {

@@ -1,0 +1,141 @@
+<resources>
+    <string name="app_name">Máy Tính Khoản Vay</string>
+    <string name="emi_mortgage_finance_tools">Trả Góp • Thế Chấp • Công Cụ Tài Chính</string>
+    <string name="add">Thêm</string>
+    <string name="percentage_format">%1$d%%</string>
+    <string name="currency_underlined"><u>Tiền Tệ</u></string>
+    <string name="continue_text">Tiếp tục</string>
+
+    <!-- Navigation Tabs -->
+    <string name="nav_home">Trang Chủ</string>
+    <string name="nav_calculators">Máy Tính</string>
+    <string name="nav_history">Lịch Sử</string>
+    <string name="nav_tools">Công Cụ</string>
+    <string name="nav_settings">Cài Đặt</string>
+
+    <!-- Section Headers -->
+    <string name="header_financial_calculators">Máy Tính Tài Chính</string>
+    <string name="header_loan_calculator">Máy Tính Khoản Vay &amp; Trả Góp</string>
+    <string name="header_history">Lịch Sử Tính Toán</string>
+    <string name="header_tools">Công Cụ Tài Chính</string>
+    <string name="header_settings">Cài Đặt &amp; Tùy Chọn</string>
+    <string name="header_calculation_details">Chi Tiết Tính Toán</string>
+
+    <!-- Onboarding & Selection Headers -->
+    <string name="onboarding_title_1">Máy Tính Khoản Vay Thông Minh</string>
+    <string name="onboarding_desc_1">Tính số tiền trả hàng tháng, tổng lãi và tổng số tiền thanh toán ngay lập tức.</string>
+    <string name="onboarding_title_2">Báo Cáo Tài Chính Chi Tiết</string>
+    <string name="onboarding_desc_2">Trực quan hóa lịch trả nợ và biểu đồ phân bổ trả góp.</string>
+    <string name="onboarding_title_3">Lưu &amp; Theo Dõi Hồ Sơ</string>
+    <string name="onboarding_desc_3">Lưu lại các tính toán và quản lý hồ sơ tài chính gọn gàng.</string>
+    <string name="select_language_title">Chọn Ngôn Ngữ</string>
+    <string name="select_language_subtitle">Chọn ngôn ngữ bạn ưu tiên cho ứng dụng.</string>
+    <string name="select_currency_title">Chọn Tiền Tệ</string>
+    <string name="select_currency_subtitle">Chọn loại tiền tệ chính cho tất cả các tính toán.</string>
+    <string name="search_currency_hint">Tìm quốc gia, tiền tệ hoặc mã...</string>
+    <string name="search_language_hint">Tìm ngôn ngữ...</string>
+
+    <!-- Home Categories -->
+    <string name="cat_loan_title">Máy Tính Khoản Vay</string>
+    <string name="cat_loan_desc">Mua Nhà, Ô Tô, Xe Máy, Kinh Doanh &amp; Cá Nhân</string>
+    <string name="cat_investment_title">Máy Tính Đầu Tư</string>
+    <string name="cat_investment_desc">Tích Lũy, Tiết Kiệm Định Kỳ &amp; Lãi Kép</string>
+    <string name="cat_tax_title">Thuế &amp; Lương</string>
+    <string name="cat_tax_desc">VAT/GST, Thuế Thu Nhập &amp; Lương Thực Lĩnh</string>
+    <string name="cat_property_title">Bất Động Sản &amp; Nhà Ở</string>
+    <string name="cat_property_desc">Thế Chấp, Thuế Trước Bạ &amp; Thuê vs Mua Nhà</string>
+    <string name="cat_insurance_title">Máy Tính Bảo Hiểm</string>
+    <string name="cat_insurance_desc">Bảo Hiểm Nhân Thọ &amp; Sức Khỏe</string>
+    <string name="cat_utility_title">Công Cụ Tiện Ích</string>
+    <string name="cat_utility_desc">Đổi Đơn Vị, Đếm Tiền Mặt &amp; Tiền Tệ</string>
+
+    <!-- Calculator Titles -->
+    <string name="title_personal_loan">Vay Tín Dụng Cá Nhân</string>
+    <string name="title_home_loan">Vay Mua Nhà</string>
+    <string name="title_car_loan">Vay Mua Ô Tô</string>
+    <string name="title_bike_loan">Vay Mua Xe Máy</string>
+    <string name="title_business_loan">Vay Kinh Doanh</string>
+    <string name="title_education_loan">Vay Du Học / Học Phí</string>
+    <string name="title_gold_loan">Vay Cầm Cố Vàng</string>
+    <string name="title_mortgage_loan">Vay Thế Chấp Bất Động Sản</string>
+    <string name="title_sip">Đầu Tư Định Kỳ (SIP)</string>
+    <string name="title_fd">Tiền Gửi Định Kỳ (FD)</string>
+    <string name="title_rd">Tiết Kiệm Tích Lũy (RD)</string>
+    <string name="title_ppf">Quỹ Hưu Trí</string>
+    <string name="title_lumpsum">Đầu Tư Một Lần</string>
+    <string name="title_swp">Rút Tiền Định Kỳ (SWP)</string>
+    <string name="title_discount">Tính Chiết Khấu / Giảm Giá</string>
+    <string name="title_gst">Tính Thuế (VAT/GST)</string>
+    <string name="title_compound_interest">Tính Lãi Kép</string>
+    <string name="title_inflation">Ảnh Hưởng Của Lạm Phát</string>
+    <string name="title_npv_irr">Giá Trị Hiện Tại Ròng (NPV &amp; IRR)</string>
+    <string name="title_dti">Tỷ Lệ Nợ Trên Thu Nhập (DTI)</string>
+    <string name="title_apy_apr">So Sánh Lãi Suất Thực Thực Tế</string>
+    <string name="title_budget_rebalancing">Cân Bằng Ngân Sách</string>
+    <string name="title_income_tax">So Sánh Thuế Thu Nhập</string>
+    <string name="title_rent_vs_buy">Thuê vs Mua Nhà</string>
+    <string name="title_ctc_inhand">Lương Gross Sang Lương Net</string>
+    <string name="title_bill_splitter">Chia Hóa Đơn &amp; Tiền Tip</string>
+    <string name="title_fuel_trip">Chi Phí Xăng Dầu &amp; Chuyến Đi</string>
+    <string name="title_cash_counter">Máy Đếm Tiền Mặt</string>
+
+    <!-- Common Input Labels & Hints -->
+    <string name="label_loan_amount">Số Tiền Vay</string>
+    <string name="label_interest_rate">Lãi Suất (%/năm)</string>
+    <string name="label_tenure_years">Thời Hạn (Năm)</string>
+    <string name="label_tenure_months">Thời Hạn (Tháng)</string>
+    <string name="label_processing_fee">Phí Xử Lý Hồ Sơ</string>
+    <string name="hint_enter_amount">Nhập số tiền</string>
+    <string name="hint_enter_rate">Nhập lãi suất</string>
+    <string name="hint_enter_tenure">Nhập thời hạn</string>
+
+    <!-- Calculation Results -->
+    <string name="result_monthly_emi">Số Tiền Trả Hàng Tháng</string>
+    <string name="result_total_interest">Tổng Tiền Lãi</string>
+    <string name="result_total_payment">Tổng Thanh Toán (Gốc + Lãi)</string>
+    <string name="result_principal_amount">Tiền Gốc Vay</string>
+
+    <!-- Schedule & Amortization -->
+    <string name="schedule_title">Lịch Trả Nợ Chi Tiết</string>
+    <string name="schedule_header_no">#</string>
+    <string name="schedule_header_month">Tháng / Năm</string>
+    <string name="schedule_header_principal">Tiền Gốc Đã Trả</string>
+    <string name="schedule_header_interest">Tiền Lãi Đã Trả</string>
+    <string name="schedule_header_balance">Dư Nợ Còn Lại</string>
+
+    <!-- Common Actions & Buttons -->
+    <string name="btn_calculate">Tính Ngay</string>
+    <string name="btn_reset">Đặt Lại</string>
+    <string name="btn_share">Chia Sẻ Chi Tiết</string>
+    <string name="btn_view_schedule">Xem Lịch Trả Nợ</string>
+    <string name="btn_view_chart">Xem Biểu Đồ Tròn</string>
+    <string name="btn_clear_all">Xóa Tất Cả</string>
+    <string name="btn_delete">Xóa Bản Ghi</string>
+    <string name="btn_next">Tiếp Theo</string>
+    <string name="btn_skip">Bỏ Qua</string>
+
+    <!-- History Screen -->
+    <string name="history_saved_subtitle">Các tính toán gần đây của bạn</string>
+    <string name="history_empty_title">Chưa Có Tính Toán Nào</string>
+    <string name="history_empty_desc">Thực hiện tính toán để lưu kết quả tại đây.</string>
+    <string name="history_saved_on">Đã lưu vào %1$s</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_appearance_theme">GIAO DIỆN &amp; CHỦ ĐỀ</string>
+    <string name="settings_theme_light">Sáng ☀️</string>
+    <string name="settings_theme_dark">Tối 🌙</string>
+    <string name="settings_theme_auto">Tự Động 📱</string>
+    <string name="settings_haptic_title">Phản Hồi Rung</string>
+    <string name="settings_haptic_desc">Rung khi nhấn nút</string>
+    <string name="settings_support_about">HỖ TRỢ &amp; GIỚI THIỆU</string>
+    <string name="settings_share_app">Chia Sẻ Ứng Dụng</string>
+    <string name="settings_app_version">Phiên Bản Ứng Dụng</string>
+    <string name="settings_app_version_val">v1.0.0 (Phiên Bản Hoàn Hảo)</string>
+    <string name="settings_language">Ngôn Ngữ</string>
+    <string name="settings_currency">Tiền Tệ</string>
+
+    <!-- Validation & Error Messages -->
+    <string name="error_invalid_amount">Vui lòng nhập số tiền hợp lệ</string>
+    <string name="error_invalid_rate">Vui lòng nhập lãi suất hợp lệ</string>
+    <string name="error_invalid_tenure">Vui lòng nhập thời hạn hợp lệ</string>
+</resources>

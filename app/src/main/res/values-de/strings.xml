@@ -1,0 +1,143 @@
+<resources>
+    <string name="app_name">Tilgungsrechner</string>
+    <string name="emi_mortgage_finance_tools">Rate • Hypothek • Finanztools</string>
+    <string name="add">Hinzufügen</string>
+    <string name="percentage_format">%1$d%%</string>
+    <string name="currency_underlined"><u>Währung</u></string>
+    <string name="continue_text">Weiter</string>
+
+    <!-- Navigation Tabs -->
+    <string name="nav_home">Start</string>
+    <string name="nav_calculators">Rechner</string>
+    <string name="nav_history">Verlauf</string>
+    <string name="nav_tools">Tools</string>
+    <string name="nav_settings">Einstellungen</string>
+
+    <!-- Section Headers -->
+    <string name="header_financial_calculators">Finanzrechner</string>
+    <string name="header_loan_calculator">Kredit- &amp; Ratenrechner</string>
+    <string name="header_history">Berechungsverlauf</string>
+    <string name="header_tools">Finanz-Tools</string>
+    <string name="header_settings">Einstellungen &amp; Präferenzen</string>
+    <string name="header_calculation_details">Berechnungsdetails</string>
+
+    <!-- Onboarding & Selection Headers -->
+    <string name="onboarding_title_1">Intelligenter Kreditrechner</string>
+    <string name="onboarding_desc_1">Berechnen Sie Monatssatz, Gesamtzinsen und Gesamtbetrag präzise.</string>
+    <string name="onboarding_title_2">Detaillierte Finanzberichte</string>
+    <string name="onboarding_desc_2">Visualisieren Sie Zahlungspläne und Tilgungsdiagramme.</string>
+    <string name="onboarding_title_3">Einträge Speichern &amp; Verfolgen</string>
+    <string name="onboarding_desc_3">Speichern Sie Berechnungen und organisieren Sie Ihre Finanzdaten.</string>
+    <string name="select_language_title">Sprache Auswählen</string>
+    <string name="select_language_subtitle">Wählen Sie Ihre bevorzugte Sprache für die App.</string>
+    <string name="select_currency_title">Währung Auswählen</string>
+    <string name="select_currency_subtitle">Wählen Sie Ihre Hauptwährung für Berechnungen.</string>
+    <string name="search_currency_hint">Land, Währung oder Code suchen...</string>
+    <string name="search_language_hint">Sprache suchen...</string>
+
+    <!-- Home Categories -->
+    <string name="cat_loan_title">Kredit- &amp; Ratenrechner</string>
+    <string name="cat_loan_desc">Immobilien-, Auto-, Motorrad- &amp; Privatkredit</string>
+    <string name="cat_investment_title">Anlagerechner</string>
+    <string name="cat_investment_desc">Sparplan, Festgeld &amp; Zinseszins</string>
+    <string name="cat_tax_title">Steuer- &amp; Gehaltsrechner</string>
+    <string name="cat_tax_desc">MwSt, Einkommensteuer &amp; Nettogehalt</string>
+    <string name="cat_property_title">Immobilien &amp; Rechner</string>
+    <string name="cat_property_desc">Hypothek, Grunderwerbsteuer &amp; Miete vs Kauf</string>
+    <string name="cat_insurance_title">Versicherungsrechner</string>
+    <string name="cat_insurance_desc">Risikoleben- &amp; Krankenversicherung</string>
+    <string name="cat_utility_title">Nützliche Tools</string>
+    <string name="cat_utility_desc">Einheitenrechner, Bargeldzähler &amp; Währung</string>
+
+    <!-- Calculator Titles -->
+    <string name="title_personal_loan">Ratenkredit-Rechner</string>
+    <string name="title_home_loan">Baukredit-Rechner</string>
+    <string name="title_car_loan">Autokredit-Rechner</string>
+    <string name="title_bike_loan">Motorradkredit-Rechner</string>
+    <string name="title_business_loan">Geschäftskredit-Rechner</string>
+    <string name="title_education_loan">Studienkredit-Rechner</string>
+    <string name="title_gold_loan">Goldkredit-Rechner</string>
+    <string name="title_mortgage_loan">Hypothekenrechner</string>
+    <string name="title_sip">Sparplan-Rechner (SIP)</string>
+    <string name="title_fd">Festgeld-Rechner</string>
+    <string name="title_rd">Sparbuch-Rechner</string>
+    <string name="title_ppf">Vorsorgefonds-Rechner</string>
+    <string name="title_lumpsum">Einmalanlage-Rechner</string>
+    <string name="title_swp">Entnahmeplan-Rechner (SWP)</string>
+    <string name="title_discount">Rabattrechner</string>
+    <string name="title_gst">Mehrwertsteuer-Rechner</string>
+    <string name="title_compound_interest">Zinseszinsrechner</string>
+    <string name="title_inflation">Inflationsrechner</string>
+    <string name="title_npv_irr">Kapitalwert (NPV &amp; IRR)</string>
+    <string name="title_dti">Schulden-Einkommens-Quote (DTI)</string>
+    <string name="title_apy_apr">Effektivzins-Vergleich (APY/APR)</string>
+    <string name="title_budget_rebalancing">Budget-Anpassungstool</string>
+    <string name="title_income_tax">Einkommensteuer-Vergleich</string>
+    <string name="title_rent_vs_buy">Mieten oder Kaufen</string>
+    <string name="title_ctc_inhand">Brutto-Zu-Netto-Gehalt</string>
+    <string name="title_bill_splitter">Rechnungs- &amp; Trinkgeldrechner</string>
+    <string name="title_fuel_trip">Spritkosten-Rechner</string>
+    <string name="title_cash_counter">Bargeldzähler</string>
+
+    <!-- Common Input Labels & Hints -->
+    <string name="label_loan_amount">Kreditbetrag</string>
+    <string name="label_interest_rate">Zinssatz (% p.a.)</string>
+    <string name="label_tenure_years">Laufzeit (Jahre)</string>
+    <string name="label_tenure_months">Laufzeit (Monate)</string>
+    <string name="label_processing_fee">Bearbeitungsgebühr</string>
+    <string name="label_start_date">Startdatum</string>
+    <string name="label_loan_tenure">Laufzeit</string>
+    <string name="hint_enter_amount">Betrag eingeben</string>
+    <string name="hint_enter_rate">Zinssatz eingeben</string>
+    <string name="hint_enter_tenure">Laufzeit eingeben</string>
+
+    <!-- Calculation Results -->
+    <string name="result_monthly_emi">Monatliche Rate</string>
+    <string name="result_total_interest">Gesamtzinsen</string>
+    <string name="result_total_payment">Gesamtzahlung (Tilgung + Zinsen)</string>
+    <string name="result_principal_amount">Kreditkapital</string>
+
+    <!-- Schedule & Amortization -->
+    <string name="schedule_title">Tilgungsplan</string>
+    <string name="schedule_header_no">#</string>
+    <string name="schedule_header_month">Monat / Jahr</string>
+    <string name="schedule_header_principal">Getilgt</string>
+    <string name="schedule_header_interest">Zinsen</string>
+    <string name="schedule_header_balance">Restschuld</string>
+
+    <!-- Common Actions & Buttons -->
+    <string name="btn_calculate">Jetzt Berechnen</string>
+    <string name="btn_reset">Zurücksetzen</string>
+    <string name="btn_share">Aufteilung Teilen</string>
+    <string name="btn_view_schedule">Tilgungsplan Anzeigen</string>
+    <string name="btn_view_chart">Tortendiagramm</string>
+    <string name="btn_clear_all">Alles Löschen</string>
+    <string name="btn_delete">Eintrag Löschen</string>
+    <string name="btn_next">Weiter</string>
+    <string name="btn_skip">Überspringen</string>
+
+    <!-- History Screen -->
+    <string name="history_saved_subtitle">Ihre letzten Finanzberechnungen</string>
+    <string name="history_empty_title">Noch Keine Berechnungen</string>
+    <string name="history_empty_desc">Führen Sie eine Berechnung aus, um Ergebnisse hier zu speichern.</string>
+    <string name="history_saved_on">Gespeichert am %1$s</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_appearance_theme">ERSCHEINUNGSBILD &amp; THEMA</string>
+    <string name="settings_theme_light">Hell ☀️</string>
+    <string name="settings_theme_dark">Dunkel 🌙</string>
+    <string name="settings_theme_auto">Auto 📱</string>
+    <string name="settings_haptic_title">Haptisches Feedback</string>
+    <string name="settings_haptic_desc">Vibration bei Tasten- &amp; Reglerdruck</string>
+    <string name="settings_support_about">HILFE &amp; INFO</string>
+    <string name="settings_share_app">App Teilen</string>
+    <string name="settings_app_version">App-Version</string>
+    <string name="settings_app_version_val">v1.0.0 (Ultimate Edition)</string>
+    <string name="settings_language">Sprache</string>
+    <string name="settings_currency">Währung</string>
+
+    <!-- Validation & Error Messages -->
+    <string name="error_invalid_amount">Bitte gültigen Betrag eingeben</string>
+    <string name="error_invalid_rate">Bitte gültigen Zinssatz eingeben</string>
+    <string name="error_invalid_tenure">Bitte gültige Laufzeit eingeben</string>
+</resources>

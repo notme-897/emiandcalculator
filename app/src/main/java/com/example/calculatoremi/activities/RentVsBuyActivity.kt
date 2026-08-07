@@ -134,7 +134,7 @@ class RentVsBuyActivity : BaseInputActivity() {
         val equityGrowthRate = (equityGrowthStr.toDoubleOrNull() ?: 12.0) / 100.0
 
         if (propertyPrice <= 0 || monthlyRent <= 0) {
-            Toast.makeText(this, "Please enter valid property price and rent", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.msg_fields_required), Toast.LENGTH_SHORT).show()
             return
         }
 

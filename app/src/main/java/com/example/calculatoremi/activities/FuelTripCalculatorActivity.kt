@@ -99,6 +99,6 @@ class FuelTripCalculatorActivity : BaseInputActivity() {
         etMileage.setText("16.5")
         etFuelPrice.setText("96.72")
         etTravelers.setText("4")
-        Toast.makeText(this, "Fields reset", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.msg_fields_reset), Toast.LENGTH_SHORT).show()
     }
 }

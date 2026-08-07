@@ -20,6 +20,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.calculatoremi.MainActivity
 import com.example.calculatoremi.R
 import com.example.calculatoremi.adapter.CurrencyAdapter
 import com.example.calculatoremi.model.CurrencyItem
@@ -250,6 +251,11 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
         styleButton(btnThemeLight, currentMode == ThemeManager.THEME_LIGHT)
         styleButton(btnThemeDark, currentMode == ThemeManager.THEME_DARK)
         styleButton(btnThemeSystem, currentMode == ThemeManager.THEME_SYSTEM)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (requireActivity() as? MainActivity)?.setBlackStatusBarIconsInLightMode()
     }
 
     private fun setupTouchScaleAnimation(view: View?) {

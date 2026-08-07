@@ -4,6 +4,7 @@
     <string name="add">Add</string>
     <string name="percentage_format">%1$d%%</string>
     <string name="currency_underlined"><u>Currency</u></string>
+    <string name="continue_text">Continue</string>
 
     <!-- Navigation Tabs -->
     <string name="nav_home">Home</string>
@@ -19,6 +20,23 @@
     <string name="header_tools">Financial Tools</string>
     <string name="header_settings">Settings &amp; Preferences</string>
     <string name="header_calculation_details">Calculation Details</string>
+    <string name="header_input_parameters">Input Parameters</string>
+    <string name="header_calculation_summary">Calculation Summary</string>
+    <string name="label_tenure">Tenure</string>
+
+    <!-- Onboarding & Selection Headers -->
+    <string name="onboarding_title_1">Smart EMI &amp; Loan Calculator</string>
+    <string name="onboarding_desc_1">Calculate your monthly EMI, total interest and total repayment instantly with high precision.</string>
+    <string name="onboarding_title_2">Detailed Financial Reports</string>
+    <string name="onboarding_desc_2">Visualize payment schedules, interest breakdown, and interactive amortization charts.</string>
+    <string name="onboarding_title_3">Attach &amp; Track Records</string>
+    <string name="onboarding_desc_3">Save your loan calculations and keep all financial records and attachments organized.</string>
+    <string name="select_language_title">Select Your Language</string>
+    <string name="select_language_subtitle">Choose your preferred language to customize calculation records across the app.</string>
+    <string name="select_currency_title">Select Your Currency</string>
+    <string name="select_currency_subtitle">Choose your primary currency to format calculations and reports all over the app.</string>
+    <string name="search_currency_hint">Search country, currency or code...</string>
+    <string name="search_language_hint">Search language...</string>
 
     <!-- Home Categories -->
     <string name="cat_loan_title">Loan &amp; EMI Calculators</string>
@@ -34,6 +52,111 @@
     <string name="cat_utility_title">Utility Tools</string>
     <string name="cat_utility_desc">Unit Converter, Cash Counter &amp; Currency</string>
 
+    <!-- Calculator Titles -->
+    <string name="title_personal_loan">Personal Loan EMI Calculator</string>
+    <string name="title_home_loan">Home Loan EMI Calculator</string>
+    <string name="title_car_loan">Car Loan EMI Calculator</string>
+    <string name="title_bike_loan">Bike Loan EMI Calculator</string>
+    <string name="title_business_loan">Business Loan EMI Calculator</string>
+    <string name="title_education_loan">Education Loan EMI Calculator</string>
+    <string name="title_gold_loan">Gold Loan EMI Calculator</string>
+    <string name="title_mortgage_loan">Mortgage Loan Calculator</string>
+    <string name="title_sip">SIP Investment Calculator</string>
+    <string name="title_fd">Fixed Deposit (FD) Calculator</string>
+    <string name="title_rd">Recurring Deposit (RD) Calculator</string>
+    <string name="title_ppf">Public Provident Fund (PPF)</string>
+    <string name="title_lumpsum">Lumpsum Investment Calculator</string>
+    <string name="title_swp">Systematic Withdrawal (SWP)</string>
+    <string name="title_discount">Discount Calculator</string>
+    <string name="title_gst">GST Tax Calculator</string>
+    <string name="title_compound_interest">Compound Interest Calculator</string>
+    <string name="title_inflation">Inflation Impact Calculator</string>
+    <string name="title_npv_irr">NPV &amp; IRR Calculator</string>
+    <string name="title_dti">Debt-to-Income (DTI) Utility</string>
+    <string name="title_apy_apr">APY vs APR Comparator</string>
+    <string name="title_budget_rebalancing">Budget Rebalancing Tool</string>
+    <string name="title_income_tax">Income Tax Regime Comparer</string>
+    <string name="title_rent_vs_buy">Rent vs Buy Home Decision</string>
+    <string name="title_ctc_inhand">CTC to In-Hand Salary</string>
+    <string name="title_bill_splitter">Bill Splitter &amp; Tip Counter</string>
+    <string name="title_fuel_trip">Fuel &amp; Trip Cost Estimator</string>
+    <string name="title_cash_counter">Cash Denomination Counter</string>
+
+    <!-- Common Input Labels & Hints -->
+    <string name="label_loan_amount">Loan Amount</string>
+    <string name="label_interest_rate">Interest Rate (% p.a.)</string>
+    <string name="label_tenure_years">Tenure (Years)</string>
+    <string name="label_tenure_months">Tenure (Months)</string>
+    <string name="label_processing_fee">Processing Fee</string>
+    <string name="label_start_date">Start Date</string>
+    <string name="label_loan_tenure">Loan Tenure</string>
+    <string name="label_nominal_rate">Nominal Rate (APR % p.a.)</string>
+    <string name="label_compounding_frequency">Compounding Frequency</string>
+    <string name="compounding_daily">Daily</string>
+    <string name="compounding_monthly">Monthly</string>
+    <string name="compounding_quarterly">Quarterly</string>
+    <string name="compounding_continuous">Continuous</string>
+    <string name="label_day_count_convention">Day-Count Basis Convention</string>
+    <string name="label_on_road_price">On-Road Price</string>
+    <string name="label_ex_showroom_price">Ex-Showroom Price</string>
+    <string name="label_on_road_bike_price">On-Road Bike Price</string>
+    <string name="label_down_payment">Down Payment</string>
+    <string name="label_processing_hypothecation">Processing &amp; Hypothecation Charges</string>
+    <string name="label_net_principal_financed">Net Loan Principal Financed:</string>
+    <string name="label_total_ownership_cost">Total Out-of-Pocket Ownership Cost:</string>
+    <string name="label_loan_duration">Loan Duration</string>
+    <string name="label_ev_fuel_savings">EV Scooter / Bike Fuel Savings vs EMI Offset</string>
+    <string name="label_petrol_cost_saved">Est. Monthly Petrol Cost Saved:</string>
+    <string name="label_net_effective_emi">Net Effective Monthly Bike EMI:</string>
+    <string name="btn_calculate_bike_loan">Calculate Bike Loan EMI</string>
+    <string name="label_total_bill_amount">Total Bill Amount</string>
+    <string name="label_tip_percentage">Tip Percentage (%)</string>
+    <string name="label_split_among">Split Among (Number of People)</string>
+    <string name="btn_calculate_split">Calculate Split Breakdown</string>
+    <string name="label_annual_investment_budget">Annual Investment Budget</string>
+    <string name="label_mf_equity_return">MF Equity Return (% p.a.)</string>
+    <string name="btn_compare_btir_ulip">Compare BTIR vs ULIP Wealth</string>
+    <string name="label_net_monthly_income">Net Monthly Take-Home Income</string>
+    <string name="label_essential_needs">Actual Essential Needs Expenses</string>
+    <string name="btn_run_rebalancing">Run Auto-Rebalancing Engine</string>
+    <string name="label_requested_loan_capital">Requested Loan Capital</string>
+    <string name="label_upfront_processing_fee">Upfront Processing Fee (% or ₹)</string>
+    <string name="label_net_cash_disbursed">Net Cash Disbursed to Bank Account: </string>
+    <string name="label_repayment_frequency">Repayment Frequency</string>
+    <string name="label_dscr_header">Debt Service Coverage Ratio (DSCR)</string>
+    <string name="label_monthly_noi">Monthly Net Operating Income (NOI)</string>
+    <string name="label_existing_debt_payments">Existing Monthly Debt Payments</string>
+    <string name="label_dscr_ratio">DSCR Ratio:</string>
+    <string name="label_tax_shield">Tax Shield / Tax Savings</string>
+    <string name="label_tax_bracket">Corporate / Business Tax Bracket (%)</string>
+    <string name="label_tax_deduction_savings">Est. Tax Deduction Savings:</string>
+    <string name="label_effective_interest_after_tax">Effective Interest After Tax:</string>
+    <string name="btn_calculate_business_loan">Calculate Business Loan EMI</string>
+    <string name="unit_year">Year</string>
+    <string name="unit_years">Years</string>
+    <string name="unit_month">Month</string>
+    <string name="unit_months">Months</string>
+    <string name="hint_enter_amount">Enter amount</string>
+    <string name="hint_enter_rate">Enter interest rate</string>
+    <string name="hint_enter_tenure">Enter tenure</string>
+
+    <!-- Calculation Results -->
+    <string name="result_monthly_emi">Monthly EMI</string>
+    <string name="result_total_interest">Total Interest Payable</string>
+    <string name="result_total_payment">Total Payment (Principal + Interest)</string>
+    <string name="result_principal_amount">Principal Loan Amount</string>
+    <string name="title_loan_breakdown">Loan Breakdown</string>
+    <string name="label_principal">Principal</string>
+    <string name="label_interest">Interest</string>
+
+    <!-- Schedule & Amortization -->
+    <string name="schedule_title">Amortization Payment Schedule</string>
+    <string name="schedule_header_no">#</string>
+    <string name="schedule_header_month">Month / Year</string>
+    <string name="schedule_header_principal">Principal Paid</string>
+    <string name="schedule_header_interest">Interest Paid</string>
+    <string name="schedule_header_balance">Balance Remaining</string>
+
     <!-- Common Actions & Buttons -->
     <string name="btn_calculate">Calculate Now</string>
     <string name="btn_reset">Reset</string>
@@ -42,6 +165,8 @@
     <string name="btn_view_chart">Pie Chart View</string>
     <string name="btn_clear_all">Clear All</string>
     <string name="btn_delete">Delete Record</string>
+    <string name="btn_next">Next</string>
+    <string name="btn_skip">Skip</string>
 
     <!-- History Screen -->
     <string name="history_saved_subtitle">Your recent financial calculations</string>
@@ -60,6 +185,19 @@
     <string name="settings_share_app">Share EMI Calculator</string>
     <string name="settings_app_version">App Version</string>
     <string name="settings_app_version_val">v1.0.0 (Ultimate Edition)</string>
+    <string name="settings_language">Language</string>
+    <string name="settings_currency">Currency</string>
+
+    <!-- Validation & Error Messages -->
+    <string name="error_invalid_amount">Please enter a valid amount</string>
+    <string name="error_invalid_rate">Please enter a valid interest rate</string>
+    <string name="error_invalid_tenure">Please enter a valid tenure</string>
+    <string name="msg_fields_reset">Fields reset successfully</string>
+    <string name="msg_fields_required">Please fill in all required fields</string>
+    <string name="msg_record_deleted">Record deleted successfully</string>
+    <string name="msg_all_records_cleared">All records cleared</string>
+    <string name="msg_currency_set">Default currency set successfully</string>
+    <string name="msg_language_set">Language set successfully</string>
 
     <!-- Navigation Indicator Style -->
     <style name="NavIndicatorShape">
